@@ -49,7 +49,7 @@ linkcolor=blue
 
 \title{Forcing with Language Fragments, Extending Namba Forcing, and Models of Theories with Constraints in Interpretation}
 \author{Lau Chee Loong Desmond}
-\date{27 December 2023}
+\date{18 January 2024}
 
 \renewcommand*\contentsname{Table of Contents}
 
@@ -58,7 +58,7 @@ linkcolor=blue
 \maketitle
 
 \begin{abstract}
-    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical Henkin model. We then demonstrate the usefulness of this framework by applying it to both the extended Namba problem and the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The groundwork for a theory of TCIs and their models is laid in parallel to the development of our framework, and is of independent interest.
+    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical Henkin model. We then demonstrate the usefulness of this framework by applying it to both the extended Namba problem and the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and is of independent interest.
 \end{abstract}
 
 \newtheorem{thm}{Theorem}[section]
@@ -1350,7 +1350,7 @@ In Definition \ref{defc}, we give a list of constraints on the $\dot{F}_i$'s and
 \begin{itemize}
     \item $F_i := F_i(\Sigma)$, and
     \item $X_{\delta, \lambda'} := X_{\delta, \lambda'}(\Sigma)$,
-\end{itemize}}
+\end{itemize}
 as $i$, $\delta$ and $\lambda'$ range over their appropriate domains. Then
 \begin{itemize}
     \item \ref{c1} and \ref{c3} mean to say that the $F_i$'s and the set $$\{(\delta, \lambda') : X_{\delta, \lambda'} \neq \emptyset\}$$ are functions,
@@ -2377,14 +2377,17 @@ By Theorem \ref{genericmodels} and \ref{5282} of Observation \ref{smallvgen}, we
     & \{V[\mathcal{M}] : \mathcal{M} \models^* \mathfrak{T} \text{ in an outer model of } V\} \\
     & \supset \{V[g] : g \text{ is } \mathbb{P}(\mathfrak{T}) \text{-generic over } V\} \text{.}
 \end{align*}
+In other words, forcing allows one to construct abundant models of every $\Pi_2$ TCI. This suggests that $\Pi_2$ is a natural lower bound to the complexity of objects accessible by the technique of forcing.
 \end{rem}
 
-From the perspective of forcing extensions, Theorems \ref{genericmodels} and \ref{revgenmodels} tell us that 
-\begin{enumerate}
-    \item every consistent $\Pi_2$ TCI has a model that ``generates'' a forcing extension, and
-    \item every forcing extension is ``generated'' by a model of a consistent $\Pi_2$ TCI.
-\end{enumerate}
-This lends credence and weight to the informal thesis (a slogan, rather), $$\text{``Forcing is exactly } \Pi_2 \text{.''}$$ Further, it suggests one way to use a complexity class defined on TCIs as a measure of --- or a proxy for --- accessibility within the context of the set-theoretic multiverse. 
+Remarks \ref{ramble1} and \ref{ramble2} give two different ways of lensing forcing through the study of TCIs and their models. If we measure the power of forcing by the complexity of objects it has access to, then the two perspectives in question posit that $\Pi_2$ is a good classification of said power.  
+
+This lends credence and weight to the informal thesis (a slogan, rather), 
+\begin{quote}
+    \centering
+    ``Forcing is $\Pi_2$.''
+\end{quote}
+Further, it pitches the tantalising prospect of using a complexity class defined on TCIs as a measure of --- or a proxy for --- accessibility within the context of the set-theoretic multiverse. 
 
 \subsection{More Generic Models of $\Pi_2$ TCIs}
 
