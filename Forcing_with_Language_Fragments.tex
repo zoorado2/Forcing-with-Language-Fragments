@@ -353,10 +353,6 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}
 Let $\mathbb{P}$ and $\mathbb{Q}$ be preorders. Then every dense embedding from $\mathbb{P}$ into $\mathbb{Q}$ is a complete embedding from $\mathbb{P}$ into $\mathbb{Q}$.
 \end{fact}
 
-\begin{fact}\label{bcompletion}
-If $\mathbb{P}$ is a forcing notion, then there is a unique (up to isomorphism) complete boolean algebra $B(\mathbb{P})$ such that a dense embedding exists from $\mathbb{P}$ into $B(\mathbb{P})$.
-\end{fact}
-
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a preorder. Define \begin{align*}
     w(\leq_{\mathbb{P}}) := \ & \{(p, q) \in P \times P : \{q' : q' \leq_{\mathbb{P}} q\} \text{ is dense below } p\} \text{, and} \\
@@ -376,6 +372,10 @@ If $\mathbb{P} = (P, \leq_{\mathbb{P}})$ is a preorder, then $w(\mathbb{P})$ is 
 A preorder $\mathbb{P}$ is \emph{separative} iff $w(\mathbb{P}) = \mathbb{P}$.
 \end{defi}
 
+\begin{fact}\label{bcompletion}
+If $\mathbb{P}$ is a separative forcing notion, then there is a unique (up to isomorphism) complete boolean algebra $B(\mathbb{P})$ such that a dense embedding exists from $\mathbb{P}$ into $B(\mathbb{P})$.
+\end{fact}
+
 Fix a preorder $\mathbb{P} = (P, \leq_{\mathbb{P}})$. Note that by Fact \ref{seppre}, $w(\leq_{\mathbb{P}})$ induces an equivalence relation on $P$. To wit, for any $p, q \in P$, let $$p \sim_{\mathbb{P}} q \text{ iff } (p, q) \in w(\leq_{\mathbb{P}}) \text{ and } (q, p) \in w(\leq_{\mathbb{P}}) \text{.}$$ Then $\sim_{\mathbb{P}}$ is an equivalence relation on $P$. 
 
 \begin{defi}
@@ -387,23 +387,23 @@ By Fact \ref{wfixedp}, $s(\mathbb{P})$ is a separative forcing notion given any 
 \end{rem}
 
 \begin{defi}
-Given forcing notions $\mathbb{P}$ and $\mathbb{Q}$, we say $\mathbb{P} \lessdot \mathbb{Q}$ iff there is a complete embedding from $s(\mathbb{P})$ into $B(s(\mathbb{Q}))$.
+Given preorders $\mathbb{P}$ and $\mathbb{Q}$, we say $\mathbb{P} \lessdot \mathbb{Q}$ iff there is a complete embedding from $s(\mathbb{P})$ into $B(s(\mathbb{Q}))$.
 \end{defi}
 
 \begin{fact}\label{forpre}
-The relation $\lessdot$ is a preordering of the class of all forcing notions.
+The relation $\lessdot$ is a preordering of the class of all preorders. Hence it also pre-orders the class of all forcing notions.
 \end{fact}
 
 \begin{defi}\label{comdef}
-Forcing notions $\mathbb{P}$ and $\mathbb{Q}$ are \emph{forcing equivalent} iff $\mathbb{P} \lessdot \mathbb{Q}$ and $\mathbb{Q} \lessdot \mathbb{P}$.
+Preorders $\mathbb{P}$ and $\mathbb{Q}$ are \emph{forcing equivalent} iff $\mathbb{P} \lessdot \mathbb{Q}$ and $\mathbb{Q} \lessdot \mathbb{P}$.
 \end{defi}
 
 \begin{rem}\label{sepeq}
-By Facts \ref{dic}, \ref{bcompletion}, \ref{wfixedp} and Definition \ref{comdef}, for any forcing notion $\mathbb{P}$, $\mathbb{P}$ and $w(\mathbb{P})$ are forcing equivalent.
+By Facts \ref{dic}, \ref{wfixedp}, \ref{bcompletion} and Definition \ref{comdef}, for any preorder $\mathbb{P}$, $\mathbb{P}$ and $w(\mathbb{P})$ are forcing equivalent.
 \end{rem}
 
 \begin{fact}\label{defor}
-Let $\mathbb{P}$ and $\mathbb{Q}$ be forcing notions. If there is a dense embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
+Let $\mathbb{P}$ and $\mathbb{Q}$ be preorders. If there is a dense embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
 \end{fact}
 
 \begin{defi}
@@ -415,7 +415,7 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}
 \end{defi}
 
 \begin{rem}\label{dwefor}
-Let $\mathbb{P}$ and $\mathbb{Q}$ be forcing notions. By Remark \ref{sepeq} and Fact \ref{defor}, if there is a dense weak embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
+Let $\mathbb{P}$ and $\mathbb{Q}$ be preorders. By Remark \ref{sepeq} and Fact \ref{defor}, if there is a dense weak embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
 \end{rem}
 
 \begin{defi}
