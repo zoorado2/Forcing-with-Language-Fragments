@@ -334,7 +334,7 @@ There are looser definitions of a generic filter or a generic object in the lite
 Section \ref{sect1} hinted at a key difference between forcing theory and the study of partial orders in order theory, and that is the nature of the properties studied apropos of their common subjects. In order theory, only first-order properties of partial orders are considered, whereas forcing theory concerns itself with their higher-order properties. Now, another such differentiating factor is the overwhelming focus on generic objects in forcing theory. In fact, so much attention is paid to generic objects in forcing theory that one might as well call it \emph{genericity theory}.
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be two preorders. We say $\pi$ is an \emph{embedding from} $\mathbb{P}$ \emph{into} $\mathbb{Q}$ iff $\pi$ is an injective function from $P$ into $Q$ satisfying
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be preorders. We say $\pi$ is an \emph{embedding from} $\mathbb{P}$ \emph{into} $\mathbb{Q}$ iff $\pi$ is an injective function from $P$ into $Q$ satisfying
 \begin{itemize}
     \item $p_1 \leq_{\mathbb{P}} p_2 \iff \pi(p_1) \leq_{\mathbb{Q}} \pi(p_2)$, and
     \item $p_1 \ \bot_{\mathbb{P}} \ p_2 \implies \pi(p_1) \ \bot_{\mathbb{Q}} \ \pi(p_2)$.
@@ -342,12 +342,20 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be two preorders. An embedding $\pi$ from $\mathbb{P}$ into $\mathbb{Q}$ is \emph{complete} iff for every maximal antichain $A$ of $\mathbb{P}$, $$\{\pi(p) : p \in A\}$$ is a maximal antichain of $\mathbb{Q}$.
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be preorders. An embedding $\pi$ from $\mathbb{P}$ into $\mathbb{Q}$ is \emph{complete} iff for every maximal antichain $A$ of $\mathbb{P}$, $$\{\pi(p) : p \in A\}$$ is a maximal antichain of $\mathbb{Q}$.
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be two preorders. An embedding $\pi$ from $\mathbb{P}$ into $\mathbb{Q}$ is \emph{dense} iff $ran(\pi)$ is dense in $\mathbb{Q}$.
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be preorders. An embedding $\pi$ from $\mathbb{P}$ into $\mathbb{Q}$ is \emph{dense} iff $ran(\pi)$ is dense in $\mathbb{Q}$.
 \end{defi}
+
+\begin{fact}\label{dic}
+Let $\mathbb{P}$ and $\mathbb{Q}$ be preorders. Then every dense embedding from $\mathbb{P}$ into $\mathbb{Q}$ is a complete embedding from $\mathbb{P}$ into $\mathbb{Q}$.
+\end{fact}
+
+\begin{fact}\label{bcompletion}
+If $\mathbb{P}$ is a forcing notion, then there is a unique (up to isomorphism) complete boolean algebra $B(\mathbb{P})$ such that a dense embedding exists from $\mathbb{P}$ into $B(\mathbb{P})$.
+\end{fact}
 
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a preorder. Define \begin{align*}
@@ -379,7 +387,7 @@ By Fact \ref{wfixedp}, $s(\mathbb{P})$ is a separative forcing notion given any 
 \end{rem}
 
 \begin{defi}
-Given two forcing notions $\mathbb{P}$ and $\mathbb{Q}$, we say $\mathbb{P} \lessdot \mathbb{Q}$ iff there is a complete embedding from $s(\mathbb{P})$ into $s(\mathbb{Q})$.
+Given forcing notions $\mathbb{P}$ and $\mathbb{Q}$, we say $\mathbb{P} \lessdot \mathbb{Q}$ iff there is a complete embedding from $s(\mathbb{P})$ into $B(s(\mathbb{Q}))$.
 \end{defi}
 
 \begin{fact}\label{forpre}
@@ -391,23 +399,23 @@ Forcing notions $\mathbb{P}$ and $\mathbb{Q}$ are \emph{forcing equivalent} iff 
 \end{defi}
 
 \begin{rem}\label{sepeq}
-By Fact \ref{wfixedp} and Definition \ref{comdef}, for any forcing notion $\mathbb{P}$, $\mathbb{P}$ and $w(\mathbb{P})$ are forcing equivalent.
+By Facts \ref{dic}, \ref{bcompletion}, \ref{wfixedp} and Definition \ref{comdef}, for any forcing notion $\mathbb{P}$, $\mathbb{P}$ and $w(\mathbb{P})$ are forcing equivalent.
 \end{rem}
 
 \begin{fact}\label{defor}
-Let $\mathbb{P}$ and $\mathbb{Q}$ be two forcing notions. If there is a dense embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
+Let $\mathbb{P}$ and $\mathbb{Q}$ be forcing notions. If there is a dense embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
 \end{fact}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be two preorders. We say $\pi$ is a \emph{weak embedding from} $\mathbb{P}$ \emph{into} $\mathbb{Q}$ iff $\pi$ is an embedding from $w(\mathbb{P})$ into $w(\mathbb{Q})$.
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be preorders. We say $\pi$ is a \emph{weak embedding from} $\mathbb{P}$ \emph{into} $\mathbb{Q}$ iff $\pi$ is an embedding from $w(\mathbb{P})$ into $w(\mathbb{Q})$.
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be two preorders. A weak embedding $\pi$ from $\mathbb{P}$ into $\mathbb{Q}$ is \emph{dense} iff $\pi$ is dense as an embedding from $w(\mathbb{P})$ into $w(\mathbb{Q})$.
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be preorders. A weak embedding $\pi$ from $\mathbb{P}$ into $\mathbb{Q}$ is \emph{dense} iff $\pi$ is dense as an embedding from $w(\mathbb{P})$ into $w(\mathbb{Q})$.
 \end{defi}
 
 \begin{rem}\label{dwefor}
-Let $\mathbb{P}$ and $\mathbb{Q}$ be two forcing notions. By Remark \ref{sepeq} and Fact \ref{defor}, if there is a dense weak embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
+Let $\mathbb{P}$ and $\mathbb{Q}$ be forcing notions. By Remark \ref{sepeq} and Fact \ref{defor}, if there is a dense weak embedding from $\mathbb{P}$ into $\mathbb{Q}$, then $\mathbb{P}$ and $\mathbb{Q}$ are forcing equivalent.
 \end{rem}
 
 \begin{defi}
@@ -2297,7 +2305,7 @@ First, we link the concept of TCIs and their models back to forcing notions and 
 \begin{equation}\label{pmap}
     \hat{\mathbb{P}} : \mathfrak{T} \mapsto \mathbb{P}(\mathfrak{T}) \text{.}
 \end{equation}
-Given two TCIs $\mathfrak{T}_1$ and $\mathfrak{T}_2$, let $\mathfrak{T}_1 \trianglelefteq \mathfrak{T}_2$ whenever $\mathbb{P}(\mathfrak{T}_1) \lessdot \mathbb{P}(\mathfrak{T}_2)$. The relation $\trianglelefteq$ is a preorder on TCIs because of Fact \ref{forpre}. Have $\mathfrak{T}_1 \sim_T \mathfrak{T}_2$ iff $\mathfrak{T}_1 \trianglelefteq \mathfrak{T}_2$ and $\mathfrak{T}_2 \trianglelefteq \mathfrak{T}_1$. Then $\sim_T$ is an equivalence relation on TCIs. Denoting $\sim_P$ to be the forcing equivalence relation on forcing notions, we can easily verify that $\trianglelefteq / \sim_T$ is a partial order isomorphic to a suborder of $\lessdot / \sim_P$, as witnessed by the map 
+Given two TCIs $\mathfrak{T}_1$ and $\mathfrak{T}_2$, let $\mathfrak{T}_1 \trianglelefteq \mathfrak{T}_2$ whenever $\mathbb{P}(\mathfrak{T}_1) \lessdot \mathbb{P}(\mathfrak{T}_2)$. The relation $\trianglelefteq$ is a preordering of TCIs because of Fact \ref{forpre}. Have $\mathfrak{T}_1 \sim_T \mathfrak{T}_2$ iff $\mathfrak{T}_1 \trianglelefteq \mathfrak{T}_2$ and $\mathfrak{T}_2 \trianglelefteq \mathfrak{T}_1$. Then $\sim_T$ is an equivalence relation on TCIs. Denoting $\sim_P$ to be the forcing equivalence relation on forcing notions, we can easily verify that $\trianglelefteq / \sim_T$ is a partial order isomorphic to a suborder of $\lessdot / \sim_P$, as witnessed by the map 
 \begin{equation}\label{peqmap}
     \Tilde{\mathbb{P}}: [\mathfrak{T}] \mapsto [\mathbb{P}(\mathfrak{T})] \text{.}
 \end{equation}
