@@ -11,7 +11,6 @@
 \setlist[itemize,1]{itemsep=0pt, parsep=5pt, listparindent=\parindent}
 \setlist[itemize,2]{itemsep=0pt, parsep=5pt, listparindent=\parindent}
 \usepackage{titling}
-\usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage[backend=biber,
 style=numeric,
@@ -27,14 +26,14 @@ sorting=ynt
 \usepackage[bottom]{footmisc} %to place footnote at bottom of the page 
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage[protrusion=true,expansion=true]{microtype}
+%\usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{blindtext}
 \usepackage{etoolbox}
 \usepackage{graphicx}              % to include figures
 \usepackage{amsmath}               % great math stuff
 \usepackage{amsfonts}              % for blackboard bold, etc
 \usepackage{amsthm}                % better theorem environments
-\usepackage{hyperref}% http://ctan.org/pkg/hyperref
+\usepackage[pdfencoding=auto, psdextra]{hyperref}
 \hypersetup{citecolor=red}
 \usepackage{cleveref}
 \numberwithin{equation}{section}
@@ -272,17 +271,17 @@ If $\mathbb{P}$ is a forcing notion in $V$, $p \in \mathbb{P}$, $\phi$ is a form
 \begin{itemize}
     \item 
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
     & p \Vdash_{\mathbb{P}} \phi(\dot{x}_1, \dots, \dot{x}_n) \iff \\
     & \forall g \ ((g \text{ is } \mathbb{P} \text{-generic over } V \text{ and } p \in g) \\
     & \implies V[g] \models \phi(\dot{x}_1[g], \dots, \dot{x}_n[g])), \text{ and}
-    \end{aligned}
+    \end{aligned}$
     \item 
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
     \forall g \ ( & (g \text{ is } \mathbb{P} \text{-generic over } V \text{ and } V[g] \models \phi(\dot{x}_1[g], \dots, \dot{x}_n[g])) \\
     & \implies \exists q \ (q \Vdash_{\mathbb{P}} \phi(\dot{x}_1, \dots, \dot{x}_n) \text{ and } q \in g)) \text{.}
-    \end{aligned}
+    \end{aligned}$
 \end{itemize}
 \end{quote}
 This theorem, colloquially known as the \emph{forcing theorem}, enables us to reason about truth in generic extensions from within the ground model, and often reduces the argument from one about semantic entailment to one pertaining to combinatorial properties of partial orders. For a technical lowdown of forcing terminology and the proof of the forcing theorem, the reader is encouraged to read Chapter IV of \cite{kunen}. 
@@ -1323,26 +1322,26 @@ Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sent
     
     \item\label{c2}
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
         \ulcorner & \forall i \ \forall \alpha \ \forall m \ \forall \gamma \ \exists n \ \exists \beta \\
         & ((E(\ulcorner \dot{F}_i (m) = \gamma \urcorner) \vee E(\ulcorner \neg \dot{F}_i (m) = \gamma \urcorner)) \wedge \alpha \in i \\
         & \implies (\alpha \in \beta \wedge E(\ulcorner \dot{F}_i (n) = \beta \urcorner))) \urcorner, 
-    \end{aligned}
+    \end{aligned}$
 
     \item\label{c3} 
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
         \ulcorner & \forall \delta \ \forall \lambda_0 \ \forall \lambda_1 \ \forall x \ \forall y \\
         & ((E(\ulcorner x \in \dot{X}_{\delta, \lambda_0} \urcorner) \wedge E(\ulcorner y \in \dot{X}_{\delta, \lambda_1} \urcorner)) \implies \lambda_0 = \lambda_1) \urcorner,
-    \end{aligned}
+    \end{aligned}$
 
     \item\label{c4}
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
         \ulcorner & \forall \delta_0 \ \forall \delta_1 \ \forall \lambda_0 \ \forall \lambda_1 \ \forall x \ \forall y \\
         & ((E(\ulcorner x \in \dot{X}_{\delta_0, \lambda_0} \urcorner) \wedge E(\ulcorner y \in \dot{X}_{\delta_1, \lambda_1} \urcorner) \wedge \delta_0 \in \delta_1) \\
         & \implies \lambda_0 \in \lambda_1) \urcorner
-    \end{aligned}
+    \end{aligned}$
 
     \item\label{c5} $\ulcorner \forall \delta \ \forall \lambda' \ \forall \delta' \in \delta \ \forall x \ (E(\ulcorner x \in \dot{X}_{\delta, \lambda'} \urcorner) \implies E(\ulcorner \delta' \in \dot{X}_{\delta, \lambda'} \urcorner)) \urcorner$, 
     
@@ -1350,17 +1349,17 @@ Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sent
     
     \item\label{c7} 
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
         \ulcorner & \forall \delta \ \forall \lambda' \ \forall \phi \ \forall \bar{s} \ \forall x \ \exists r \\
         & ((E(\ulcorner x \in \dot{X}_{\delta, \lambda'} \urcorner) \ \wedge \ \\
         & (\phi, \bar{s}) \in Ef_1^{\lambda}(\lambda') \ \wedge \\
         & \forall n \in dom(\bar{s}) \ (E(\ulcorner \bar{s}(n) \in \dot{X}_{\delta, \lambda'} \urcorner))) \\
         & \implies (E(\ulcorner r \in \dot{X}_{\delta, \lambda'} \urcorner) \wedge (\phi, \bar{s}, r) \in Ef_0^{\lambda}(\lambda'))) \urcorner,
-    \end{aligned}
+    \end{aligned}$
     
     \item\label{c8}
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
         \ulcorner & \forall \delta \ \forall \lambda' \ \forall \phi \ \forall \bar{s} \ \forall x \ \exists p \in \mathbb{P}_{\lambda'} \\
         & ((E(\ulcorner x \in \dot{X}_{\delta, \lambda'} \urcorner) \ \wedge \\
         & (\phi, \bar{s}) \in Df^{\lambda}(\lambda') \ \wedge \\
@@ -1368,7 +1367,7 @@ Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sent
         & \implies ((\phi, \bar{s}, p) \in Ef_0^{\lambda}(\lambda') \ \wedge \\
         & E(\ulcorner p \in \dot{X}_{\delta, \lambda'} \urcorner) \ \wedge \\
         & \forall e \in p \ (E(e)))) \urcorner.
-    \end{aligned}
+    \end{aligned}$
 \end{enumerate}
 \end{defi}
 
@@ -2415,7 +2414,7 @@ This interpretation lends credence and weight to the informal thesis (a slogan, 
 \end{quote}
 More importantly, it pitches tantalising prospects for using a complexity class defined on TCIs as a measure of --- or a proxy for --- accessibility within the context of the set-theoretic multiverse. 
 
-\subsection{More Generic Models of $\Pi_2$ TCIs}
+\subsection{More Generic Models of \texorpdfstring{$\Pi_2$}{\Pi-2} TCIs}
 
 The remainder of this section concerns itself with finer details regarding the existence of generic models of $\Pi_2$ TCIs. First up is a generic version of Lemma \ref{GLS}.
 
@@ -2621,9 +2620,9 @@ For any countable set $X$, we say $(r, f)$ \emph{witnesses} $(X; \in)$ \emph{is 
     \item $f$ is a bijection from $X$ into $\{n < \omega : n \text{ is even}\}$,
     \item
     \!
-    \begin{aligned}[t]
+    $\begin{aligned}[t]
         r = \{\langle (f \cup f^{\dagger})^*(\varphi) \rangle : \varphi \text{ is a member of the } \Delta_0 \text{-elementary diagram of } (X; \in)\}, 
-    \end{aligned}
+    \end{aligned}$
     \medskip
     \\
     where 
