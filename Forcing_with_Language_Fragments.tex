@@ -2981,29 +2981,41 @@ Consider any consistent first-order $\Pi_2$ theory $T$ with only finite models (
 
 Even if we require $\mathfrak{T}$ to have an infinite model in each of these questions, the same answers apply when we choose $\mathfrak{T}$ to be a $\Pi_2$ TCI such that all models of $\mathfrak{T}$ are isomorphic to the unique (up to isomorphism) $\aleph_0$-sized model of a $\aleph_0$-categorical first-order $\Pi_2$ theory $T$ (say, the theory of dense linear orders without endpoints). As the $\aleph_0$-categoricity of a theory is absolute for transitive models of $\mathsf{ZFC}$ with the same ordinals, said relation between $T$ and $\mathfrak{T}$ is preserved across outer models of $V$.
 
-However, the question dual to \ref{54qn2} appears much more difficult.
+However, the question dual to \ref{54qn2} appears more difficult.
 
-\begin{ques}\label{q548}
-Is there a $\Pi_2$ TCI $\mathfrak{T}$ with a model $\mathcal{M}$ in some outer model of $V$ such that $\mathcal{M}$ is not isomorphic to any $V$-generic model of $\mathfrak{T}$?
-\end{ques}
+\begin{enumerate}[label=(Q\arabic*)]
+    \setcounter{enumi}{2}
+    \item\label{54qn3} Is there a $\Pi_2$ TCI $\mathfrak{T}$ with a model $\mathcal{M}$ in some outer model of $V$ such that $\mathcal{M}$ is not isomorphic to any $V$-generic model of $\mathfrak{T}$?
+\end{enumerate}
 
 Since our impetus for studying TCIs stems from our interest in uncovering links between forcing/genericity and the semantics of first-order logic, it is perhaps fitting that we ask for a similar example of a first-order theory. 
 
-\begin{ques}\label{q552}
-Is there a first-order $\Pi_2$ theory $T$ with a model $M$ in some outer model of $V$ such that for no $\Pi_2$ TCI $\mathfrak{T}$ is $M$ isomorphic to a $V$-generic model of $\mathfrak{T}$?
-\end{ques}
-
-The technique of forcing is apparently indispensable in any known way of extending an arbitrary model of set theory. By Lemma \ref{gmodelsinfe}, Questions \ref{q548} and \ref{q552} would be intractable using current technology if they were to be answered in the affirmative. We can modify them into possibly easier questions by only asking for consistency --- instead of outright existence --- over the base set theory.
-
-\begin{ques}
-\leavevmode
-\begin{enumerate}[label=(\arabic*)]
-    \item Is it consistent that there exists a $\Pi_2$ TCI $\mathfrak{T}$ with a model $\mathcal{M}$ in some outer model of $V$ such that $\mathcal{M}$ is not isomorphic to any $V$-generic model of $\mathfrak{T}$?
-    \item Is it consistent that there exists a first-order $\Pi_2$ theory $T$ with a model $M$ in some outer model of $V$ such that for no $\Pi_2$ TCI $\mathfrak{T}$ is $M$ isomorphic to a $V$-generic model of $\mathfrak{T}$?
+\begin{enumerate}[label=(Q\arabic*)]
+    \setcounter{enumi}{3}
+    \item\label{54qn4} Is there a first-order $\Pi_2$ theory $T$ with a model $M$ in some outer model of $V$ such that for no $\Pi_2$ TCI $\mathfrak{T}$ is $M$ isomorphic to a $V$-generic model of $\mathfrak{T}$?
 \end{enumerate}
+
+By Lemma \ref{gmodelsinfe}, it seems that \ref{54qn3} and \ref{54qn4} cannot be solved using set forcing alone. Thankfully, class forcing has been developed sufficiently to answer them. Essentially, we ``cheat'' by choosing a close-to-trivial TCI, only possible models of which are of the form $(\omega; \in, A)$, where $A$ can be any real. By way of Jensen's coding-the-universe forcing, we can get to an outer model of $V$ with a new non-generic real $r$. Now the model of our TCI with $r$ as the predicate cannot be isomorphic to \emph{any} member of \emph{any} forcing extension of $V$. 
+
+So, for TCIs with very simple theories, we can construct a non-generic model. We cannot do the same for all $\Pi_2$ TCIs because of Lemma \ref{revgenmodels}. Together, they make us wonder if a clear line can be drawn in $V$. Let 
+\begin{align*}
+    \mathrm{NG}_1 := \{\mathfrak{T} \in V : \ & \mathfrak{T} \text{ is a } \Pi_2 \text{ TCI and } \exists W \ \exists \mathcal{M} \! \in \! W \ \forall x \! \in \! W \ (W \text{ is an outer model of } V \\
+    & \text{and } \mathcal{M} \models^* \mathfrak{T} \text{ and } x \not\cong \mathcal{M} \text{ whenever } x \text{ is a } V \text{-generic model of } \mathfrak{T})\} \\
+    \mathrm{NG}_2 := \{T \in V : \ & T \text{ is a } \Pi_2 \text{ theory and } \\
+    & \exists W \ \exists \mathcal{M} \! \in \! W \ \forall \mathfrak{T} \! \in \! V \ \forall x \! \in \! W \\
+    & (W \text{ is an outer model of } V \text{ and } \mathcal{M} \models T \text{ and } \\
+    & x \not\cong \mathcal{M} \text{ whenever } \mathfrak{T} \text{ is a TCI and } x \text{ is a } V \text{-generic model of } \mathfrak{T})\} \text{.}
+\end{align*}
+
+\begin{ques}\label{q548}
+Is $\mathrm{NG}_1$ definable in $V$?
 \end{ques}
 
-Our line of questioning can be extended to the paradigm of relative effectiveness.
+\begin{ques}\label{q552}
+Is $\mathrm{NG}_2$ definable in $V$?
+\end{ques}
+
+Our current line of questioning can be extended to the paradigm of relative effectiveness.
 
 Fix $\psi_{gmc}$ to be as in Theorem \ref{lastthm}. Let $r$ be a nicely computable code of $H(\omega)$. Define
 \begin{align*}
@@ -3011,52 +3023,40 @@ Fix $\psi_{gmc}$ to be as in Theorem \ref{lastthm}. Let $r$ be a nicely computab
     \Psi_r := \ & \text{the unique } \Psi \text{ for which there are } f \text{ and } \bar{\Psi} \text{ satisfying } \psi_{gmc}(r, (f, \Psi, \bar{\Psi})) \text{, and} \\
     \bar{\Psi}_r := \ & \text{the unique } \bar{\Psi} \text{ for which there are } f \text{ and } \Psi \text{ satisfying } \psi_{gmc}(r, (f, \Psi, \bar{\Psi})) \text{.}
 \end{align*}
-Analogous to Question \ref{q548}, we want to know if there is a code-friendly TCI $\mathfrak{T}$ with a model $M$ that neither almost finitely determined nor isomorphic to any $\mathcal{M}_t$ born from a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$ \`{a} la Theorem \ref{lastthm}. As turns out, because $f_r \circ f_s^{-1}$ is computable for any other nicely computable code $s$ of $H(\omega)$, the answer to this question is independent of
+Analogous to Question \ref{q548}, we want to pick out every code-friendly TCI $\mathfrak{T}$ with a model $M$ that neither almost finitely determined nor isomorphic to any $\mathcal{M}_t$ born from a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$ \`{a} la Theorem \ref{lastthm}. As turns out, because $f_r \circ f_s^{-1}$ is computable for any other nicely computable code $s$ of $H(\omega)$, the answer to this question is independent of
 the choice of $r$.
 
-\begin{ques}\label{q553}
-Is there a code-friendly $\Pi_2$ TCI $\mathfrak{T}$ with a model $\mathcal{M}$ such that
+Let $\mathrm{NGE}_1$ be the set containing exactly all the code-friendly $\Pi_2$ TCIs $\mathfrak{T}$ with a model $\mathcal{M}$ such that
 \begin{enumerate}[label=(\alph*)]
     \item $\mathcal{M}$ is not almost finitely determined, and
     \item for every nicely computable code $r$ of $H(\omega)$ and every $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, if $\mathcal{M}'$ is a model of $\mathfrak{T}$ satisfying 
     \begin{equation*}
         \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathcal{M}')) \text{,}
     \end{equation*}
-    then $\mathcal{M} \not \cong \mathcal{M}'$?
+    then $\mathcal{M} \not \cong \mathcal{M}'$.
 \end{enumerate}
+
+\begin{ques}\label{q553}
+Is $\mathrm{NGE}_1$ a $\mathbf{\Delta^1_0}$ set of reals?
 \end{ques}
 
-We can modify Question \ref{q553} to get an analogue of Question \ref{q552} in the same spirit of relative effectiveness.
+We can replace $\mathrm{NGE}_1$ Question \ref{q553} with another set to get an analogue of Question \ref{q552} in the same spirit of relative effectiveness. 
 
-\begin{ques}
-Is there a first-order $\Pi_2$ theory $T$ with a model $M$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI and $\mathcal{M} \models^* \mathfrak{T}$,
+Let $\mathrm{NGE}_2$ be the set containing exactly all the first-order $\Pi_2$ theories $T$ with a model $M$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI and $\mathcal{M} \models^* \mathfrak{T}$,
 \begin{enumerate}[label=(\alph*)]
     \item if $\mathcal{M}$ is almost finitely determined then $M \not \cong \mathcal{M}$, and
     \item if $r$ is a nicely computable code of $H(\omega)$ and $t$ is a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real for which
     \begin{equation*}
         \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathcal{M})) \text{,}
     \end{equation*}
-    then $M \not \cong \mathcal{M}$?
+    then $M \not \cong \mathcal{M}$
 \end{enumerate}
+
+\begin{ques}
+Is $\mathrm{NGE}_2$ a $\mathbf{\Delta^1_0}$ set of reals?
 \end{ques}
 
 In search of further evidence that $\hat{\mathbb{P}}$ is a useful lens through which one can classify the reach of forcing as a technique, we ask the next few questions following the directions of Remarks \ref{ramble1} and \ref{ramble2}.
-
-\begin{ques}
-Let $\mathfrak{T}$ be a $\Pi_2$ TCI. 
-\begin{enumerate}[label=(\arabic*)]
-    \item Is it always true that
-    \begin{align*}
-        & \{V[\mathcal{M}] : \mathcal{M} \models^* \mathfrak{T} \text{ in an outer model of } V\} \\
-        & = \{V[g] : g \text{ is } \mathbb{P}(\mathfrak{T}) \text{-generic over } V\} \text{?}
-    \end{align*}
-    \item Is it always true that
-    \begin{align*}
-        & \bigcup \{V[\mathcal{M}] : \mathcal{M} \models^* \mathfrak{T} \text{ in an outer model of } V\} \\
-        & =  \bigcup \{V[g] : g \text{ is } \mathbb{P}(\mathfrak{T}) \text{-generic over } V\} \text{?}
-    \end{align*}
-\end{enumerate}
-\end{ques}
 
 \begin{ques}
 Let $\mathfrak{T}_1$ and $\mathfrak{T}_2$ be $\Pi_2$ TCIs such that $\mathfrak{T}_1 \trianglelefteq \mathfrak{T}_2$.
@@ -3069,7 +3069,7 @@ Let $\mathfrak{T}_1$ and $\mathfrak{T}_2$ be $\Pi_2$ TCIs such that $\mathfrak{T
 \begin{ques}
 Is there a ``naturally definable'' class $\mathcal{C}$ such that 
 \begin{enumerate}[label=(\alph*)]
-    \item $\mathcal{C} \subsetneq \{\mathfrak{T} : \mathfrak{T} i\text{ is a } \Pi_2 \text{ TCI}\}$, and
+    \item $\mathcal{C} \subsetneq \{\mathfrak{T} : \mathfrak{T} \text{ is a } \Pi_2 \text{ TCI}\}$, and
     \item every member of $\trianglelefteq / \sim_T$ contains a member $\mathfrak{T}$ of $\mathcal{C}$ for which
     \begin{align*}
         & \{V[\mathcal{M}] : \mathcal{M} \models^* \mathfrak{T} \text{ in an outer model of } V\} \\
@@ -3081,7 +3081,7 @@ Is there a ``naturally definable'' class $\mathcal{C}$ such that
 \begin{ques}
 Is there a ``naturally definable'' class $\mathcal{C}$ such that 
 \begin{enumerate}[label=(\alph*)]
-    \item $\mathcal{C} \supsetneq \{\mathfrak{T} : \mathfrak{T} i\text{ is a } \Pi_2 \text{ TCI}\}$, and
+    \item $\mathcal{C} \supsetneq \{\mathfrak{T} : \mathfrak{T} \text{ is a } \Pi_2 \text{ TCI}\}$, and
     \item for every $\mathfrak{T} \in \mathcal{C}$,
     \begin{align*}
         & \{V[\mathcal{M}] : \mathcal{M} \models^* \mathfrak{T} \text{ in an outer model of } V\} \\
