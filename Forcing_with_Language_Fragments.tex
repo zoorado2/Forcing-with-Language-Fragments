@@ -48,7 +48,7 @@ linkcolor=blue
 
 \title{Forcing with Language Fragments, Extending Namba Forcing, and Models of Theories with Constraints in Interpretation}
 \author{Lau Chee Loong Desmond}
-\date{23 February 2024}
+\date{24 February 2024}
 
 \renewcommand*\contentsname{Table of Contents}
 
@@ -985,7 +985,7 @@ Let $g$ be $Col(\omega, \lambda)$-generic over $W$ with $q \in g$, so that $g$ i
     \item $p \subset \Sigma$, and
     \item $``\Sigma \text{ is } \mathcal{L}\text{-nice}"$, 
 \end{itemize}
-then $\varphi$ is a $\Sigma_1$ formula in the language of set theory, with parameters among $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$. This is because $\varphi$ is equivalent to the statement of there being a function $f$ with domain $\mathcal{L}^*_{\mathfrak{A}}$ --- a $\Delta_0$-definable subset of $A$ --- and codomain $\{0, 1\}$, such that 
+then $\varphi$ is a $\Sigma_1$ (in fact, $\Delta_1$, although that delineation is unnecessary here) formula in the language of set theory, with parameters among $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$. This is because $\varphi$ is equivalent to the statement of there being a function $f$ with domain $\mathcal{L}^*_{\mathfrak{A}}$ --- a $\Delta_0$-definable subset of $A$ --- and codomain $\{0, 1\}$, such that 
 \begin{itemize}
     \item $f$ fulfils the inductive properties of Tarski's definition of the satisfaction relation, applied to the structure $(A; \in, \Vec{R}, \Sigma)$,
     \item $y = \{\phi \in \mathcal{L}^*_{\mathfrak{A}} : f(\phi) = 1\}$, 
@@ -2170,11 +2170,11 @@ Next, modify \ref{c1} to \ref{c8} such that each subformula of the form $\ulcorn
 We see in Remark \ref{rem520} that our procedure of associating a partial order with each TCI can be used to generate forcing notions as complex as the ones constructed to solve a difficult problem in set theory. More formal declarations of the power of this procedure will appear --- and be proven --- in the later parts of this section. But before that, let us return to the setting of the ground.
 
 \begin{lem}\label{mcequiv2}
-There is a formula $\psi_{trans}$ in two free variables, absolute for transitive models of $\mathsf{ZFC - Powerset}$, such that $\psi_{trans}(\mathcal{M}, \Sigma)$ defines a bijection from $$\{\mathcal{M} : \mathcal{M} \models^* \mathfrak{T}\}$$ into $$\{\Sigma : \Sigma \ \Gamma_{\mathfrak{T}} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})\text{-certifies } \emptyset\}$$ for every TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$.
+There is a formula $\psi_{trans}$ in three free variables, absolute for transitive models of $\mathsf{ZFC - Powerset}$, such that $\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma)$ defines a bijection from $$\{\mathcal{M} : \mathcal{M} \models^* \mathfrak{T}\}$$ into $$\{\Sigma : \Sigma \ \Gamma_{\mathfrak{T}} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})\text{-certifies } \emptyset\}$$ for every fixed TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$.
 \end{lem}
 
 \begin{proof}
-Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathcal{M}, \Sigma) \iff \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}},$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_0$ formula with parameters $\mathfrak{T}$ and $\mathcal{L}_{\mathfrak{T}}$, while $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$-definable with parameter $\mathfrak{T}$. As such, $\psi_{trans}$ is absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
+Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula, because the binary relation $\models^*$ is $\Delta_1$ definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$ definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
 \end{proof}
 
 \begin{rem}\label{swapA}
@@ -2185,7 +2185,7 @@ Fix $\psi_{trans}$ to be as in Lemma \ref{mcequiv2} for the next definition.
 
 \begin{defi}
 Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI in $V$ and $\mathcal{M}$ be a model of $\mathfrak{T}$ in some outer model of $V$. Define \begin{align*}
-    \Sigma(\mathcal{M}) := \text{the unique } \Sigma \text{ for which } \psi_{trans}(\mathcal{M}, \Sigma).
+    \Sigma(\mathfrak{T}, \mathcal{M}) := \text{the unique } \Sigma \text{ for which } \psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma).
 \end{align*}
 \end{defi}
 
@@ -2234,7 +2234,7 @@ We now define a class of generic objects that manifest as models of TCIs.
 \begin{defi}
 Let $\mathfrak{T}$ be a consistent $\Pi_2$ TCI. 
 
-If $\mathfrak{A}$ and $\mathbb{P}$ are such that $\mathbb{P}$ is definable in the language associated with $\mathfrak{A}$ and $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}_{\mathfrak{T}}$, then a $(\mathbb{P}, \mathfrak{A})$\emph{-generic model} of $\mathfrak{T}$ is a model $\mathcal{M}$ of $\mathfrak{T}$ satisfying $$\Sigma(\mathcal{M}) = (\bigcup g) \cap \mathcal{L}_{\mathfrak{T}}$$ for some $\mathbb{P}$-generic filter $g$ over $\mathfrak{A}$. In this case, we say $g$ \emph{witnesses} $\mathcal{M}$ \emph{is a} $(\mathbb{P}, \mathfrak{A})$-\emph{generic model of} $\mathfrak{T}$. We say $g$ \emph{witnesses} \emph{a} $(\mathbb{P}, \mathfrak{A})$-\emph{generic model of} $\mathfrak{T}$ iff for some $\mathcal{M}$, $g$ witnesses $\mathcal{M}$ is a $(\mathbb{P}, \mathfrak{A})$-generic model of $\mathfrak{T}$.
+If $\mathfrak{A}$ and $\mathbb{P}$ are such that $\mathbb{P}$ is definable in the language associated with $\mathfrak{A}$ and $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}_{\mathfrak{T}}$, then a $(\mathbb{P}, \mathfrak{A})$\emph{-generic model} of $\mathfrak{T}$ is a model $\mathcal{M}$ of $\mathfrak{T}$ satisfying $$\Sigma(\mathfrak{T}, \mathcal{M}) = (\bigcup g) \cap \mathcal{L}_{\mathfrak{T}}$$ for some $\mathbb{P}$-generic filter $g$ over $\mathfrak{A}$. In this case, we say $g$ \emph{witnesses} $\mathcal{M}$ \emph{is a} $(\mathbb{P}, \mathfrak{A})$-\emph{generic model of} $\mathfrak{T}$. We say $g$ \emph{witnesses} \emph{a} $(\mathbb{P}, \mathfrak{A})$-\emph{generic model of} $\mathfrak{T}$ iff for some $\mathcal{M}$, $g$ witnesses $\mathcal{M}$ is a $(\mathbb{P}, \mathfrak{A})$-generic model of $\mathfrak{T}$.
 
 We call $\mathcal{M}$ a $\mathfrak{A}$\emph{-generic model} of $\mathfrak{T}$ iff for some $\mathbb{P}$ definable in the language associated with $\mathfrak{A}$ such that $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}_{\mathfrak{T}}$, $\mathcal{M}$ is a $(\mathbb{P}, \mathfrak{A})$-generic model of $\mathfrak{T}$.
 
@@ -2267,8 +2267,8 @@ Let $\mathcal{M}$ be a model of $\mathfrak{T}$ in a forcing extension $W$ of $V$
     \item $\mathbb{P}$ is a forcing notion,
     \item $P \cap \mathcal{L}_{\mathfrak{T}} = \emptyset$,
     \item $\dot{\Sigma}$ is a $\mathbb{P}$-name, 
-    \item $\Vdash_{\mathbb{P}} ``\exists \mathcal{M}' \ (\mathcal{M}' \models^* \mathfrak{T} \text{ and } \Sigma(\mathcal{M}') = \dot{\Sigma})"$, and
-    \item for some $\mathbb{P}$-generic filter $g_0$ over $V$, $\Sigma(\mathcal{M}) = \dot{\Sigma}[g_0]$.
+    \item $\Vdash_{\mathbb{P}} ``\exists \mathcal{M}' \ (\mathcal{M}' \models^* \mathfrak{T} \text{ and } \Sigma(\mathfrak{T}, \mathcal{M}') = \dot{\Sigma})"$, and
+    \item for some $\mathbb{P}$-generic filter $g_0$ over $V$, $\Sigma(\mathfrak{T}, \mathcal{M}) = \dot{\Sigma}[g_0]$.
 \end{itemize}
 Define
 \begin{align*}
@@ -2299,7 +2299,7 @@ Let $g$ be a $\mathbb{P}$-generic filter over $V$. Then $$(\bigcup \sigma(g)) \c
 Denote $(\bigcup \sigma(g)) \cap \mathcal{L}_{\mathfrak{T}}$ as $\Sigma$ and $$\{y \in \mathcal{L}_{\mathfrak{T}} : \exists p \ (p \in (\bigcup \sigma(g)) \cap P \text{ and } p \Vdash_{\mathbb{P}}^V y \in \dot{\Sigma})\}$$ as $\Sigma'$. By the definition of $P^*$ and the fact that $\sigma(g) \subset P^*$, $\Sigma \subset \Sigma'$. Choose $y \in \Sigma'$, so that there is $p \in (\bigcup \sigma(g)) \cap P$ with $p \Vdash_{\mathbb{P}}^V y \in \dot{\Sigma}$. But that entails the density of $$D_p := \{x \in P^* : y \in x\}$$ below $\{p\}$ in $\mathbb{P}^*$. Since $\{p\} \in \sigma(g)$ by Fact \ref{cufs}, $D_p \cap \sigma(g) \neq \emptyset$, whence $y \in \Sigma$.
 \end{proof}
 
-Combining Propositions \ref{p524} and \ref{p525}, we know that whenever $g$ is a $\mathbb{P}$-generic filter over $V$, $(\bigcup \sigma(g)) \cap \mathcal{L}_{\mathfrak{T}} = \dot{\Sigma}[g]$. In particular, $(\bigcup \sigma(g_0)) \cap \mathcal{L}_{\mathfrak{T}} = \Sigma(\mathcal{M})$. As $\sigma(g_0)$ is a $\mathbb{P}^*$-generic filter over $V$, $\mathcal{M}$ is a $(\mathbb{P}^*, V)$-generic model of $\mathfrak{T}$.
+Combining Propositions \ref{p524} and \ref{p525}, we know that whenever $g$ is a $\mathbb{P}$-generic filter over $V$, $(\bigcup \sigma(g)) \cap \mathcal{L}_{\mathfrak{T}} = \dot{\Sigma}[g]$. In particular, $(\bigcup \sigma(g_0)) \cap \mathcal{L}_{\mathfrak{T}} = \Sigma(\mathfrak{T}, \mathcal{M})$. As $\sigma(g_0)$ is a $\mathbb{P}^*$-generic filter over $V$, $\mathcal{M}$ is a $(\mathbb{P}^*, V)$-generic model of $\mathfrak{T}$.
 \end{proof}
 
 Henceforth, we will look more closely examine the relationship between genericity and TCIs, while looking into the extent to which generic models of $\Pi_2$ TCIs are abundant. 
@@ -2349,7 +2349,7 @@ Define $\pi : P \longrightarrow P(\mathfrak{T})$ to be $$p \mapsto \{\ulcorner \
 
 Denote $w(\leq_{\mathbb{P}})$ as $\leq^{\dagger}$, $w(\mathbb{P})$ as $\mathbb{P}^{\dagger}$, $w(\leq_{\mathbb{P}(\mathfrak{T})})$ as $\leq^*$, and $w(\mathbb{P}(\mathfrak{T}))$ as $\mathbb{P}^*$. 
 
-We first show that $\pi$ is a weak embedding. Assume $p \leq^{\dagger} q$ and let $x \leq_{\mathbb{P}(\mathfrak{T})} \pi(p)$. Choose any model $\mathcal{M}$ of $\mathfrak{T}$ in some outer model of $V$ such that $x \subset \Sigma(\mathcal{M})$. Then $G(\mathcal{M})$ is a $\mathbb{P}$-generic filter over $V$ containing $p$, implying $q \in G(\mathcal{M})$. $\mathcal{M}$ thus witnesses $x \cup \pi(q) \in P(\mathfrak{T})$, so $x \not \! \! \bot_{\mathbb{P}(\mathfrak{T})} \ \pi(q)$. We thus have $\pi(p) \leq^* \pi(q)$. Next, assume $p \not \leq^{\dagger} q$. Then there is $r \leq_{\mathbb{P}} p$ such that $r \ \bot_{\mathbb{P}} \ q$. This means $(\pi(p) \cup \pi(r)) \ \bot_{\mathbb{P}(\mathfrak{T})} \ \pi(q)$, and $\pi(p) \not \leq^* \pi(q)$. Lastly, the observation that
+We first show that $\pi$ is a weak embedding. Assume $p \leq^{\dagger} q$ and let $x \leq_{\mathbb{P}(\mathfrak{T})} \pi(p)$. Choose any model $\mathcal{M}$ of $\mathfrak{T}$ in some outer model of $V$ such that $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Then $G(\mathcal{M})$ is a $\mathbb{P}$-generic filter over $V$ containing $p$, implying $q \in G(\mathcal{M})$. $\mathcal{M}$ thus witnesses $x \cup \pi(q) \in P(\mathfrak{T})$, so $x \not \! \! \bot_{\mathbb{P}(\mathfrak{T})} \ \pi(q)$. We thus have $\pi(p) \leq^* \pi(q)$. Next, assume $p \not \leq^{\dagger} q$. Then there is $r \leq_{\mathbb{P}} p$ such that $r \ \bot_{\mathbb{P}} \ q$. This means $(\pi(p) \cup \pi(r)) \ \bot_{\mathbb{P}(\mathfrak{T})} \ \pi(q)$, and $\pi(p) \not \leq^* \pi(q)$. Lastly, the observation that
 \begin{gather*}
     \pi(p) \ \bot_{\mathbb{P}^*} \ \pi(q) \iff \pi(p) \ \bot_{\mathbb{P}(\mathfrak{T})} \ \pi(q) \text{ and} \\
     p \ \bot_{\mathbb{P}^{\dagger}} \ q \iff p \ \bot_{\mathbb{P}} \ q
@@ -2361,7 +2361,7 @@ To see that $ran(\pi)$ is dense in $\mathbb{P}^*$, fix any $x \in P(\mathfrak{T}
     \item $x \cup \{\ulcorner \dot{G}(p) \urcorner\} \in P(\mathfrak{T})$, and
     \item $\forall q \ (\ulcorner \dot{G}(q) \urcorner \in x \implies p \leq_{\mathbb{P}} q)$.
 \end{itemize}
-What this entails by our definition of $\mathfrak{T}$ is, whenever $\mathcal{M} \models^* \mathfrak{T}$ and $\pi(p) \subset \Sigma(\mathcal{M})$, we must have $x \subset \Sigma(\mathcal{M})$. Let $y \leq_{\mathbb{P}(\mathfrak{T})} \pi(p)$. Choose a model $\mathcal{M}$ of $\mathfrak{T}$ in some outer model of $V$ such that $y \subset \Sigma(\mathcal{M})$. Then $\pi(p) \subset \Sigma(\mathcal{M})$, so also $x \subset \Sigma(\mathcal{M})$. As a result, $y \not \! \! \bot_{\mathbb{P}(\mathfrak{T})} \ x$, and we can conclude $\pi(p) \leq^* x$.
+What this entails by our definition of $\mathfrak{T}$ is, whenever $\mathcal{M} \models^* \mathfrak{T}$ and $\pi(p) \subset \Sigma(\mathfrak{T}, \mathcal{M})$, we must have $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Let $y \leq_{\mathbb{P}(\mathfrak{T})} \pi(p)$. Choose a model $\mathcal{M}$ of $\mathfrak{T}$ in some outer model of $V$ such that $y \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Then $\pi(p) \subset \Sigma(\mathfrak{T}, \mathcal{M})$, so also $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. As a result, $y \not \! \! \bot_{\mathbb{P}(\mathfrak{T})} \ x$, and we can conclude $\pi(p) \leq^* x$.
 \end{proof}
 
 \begin{rem}\label{ramble1}
@@ -2431,7 +2431,7 @@ Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a $\Pi_2$ TCI 
 Fix an infinite ordinal $\beta$. We want to modify $\mathfrak{T}$ to get another consistent $\Pi_2$ TCI $\mathfrak{T}^*$ such that from every model $\mathcal{M}^*$ of $\mathfrak{T}^*$ we can read off a structure $\mathcal{M} = (U; \mathcal{I})$ and a function $f$ satisfying both
 \begin{enumerate}[label=(\alph*)']
     \setcounter{enumi}{1}
-    \item\label{gglsb'} $\mathcal{M} \models^* \mathfrak{T}$ and $\Sigma(\mathcal{M}^*) \cap \mathcal{L}_{\mathfrak{T}} = \Sigma(\mathcal{M})$
+    \item\label{gglsb'} $\mathcal{M} \models^* \mathfrak{T}$ and $\Sigma(\mathfrak{T}^*, \mathcal{M}^*) \cap \mathcal{L}_{\mathfrak{T}} = \Sigma(\mathfrak{T}, \mathcal{M})$
 \end{enumerate}
 as well as \ref{gglsb} of the lemma. 
 
@@ -2467,7 +2467,7 @@ Call the result of said modification $T'$. Whenever $\dot{X} \in \sigma$ is an $
 \end{align*}
 Clearly $T^*$ is a set of $\Pi_2$ sentences over the vocabulary $\sigma^*$.
 
-A routine verification should enable the reader to see that $$T^*_1 := T' \cup (\bigcup \{T(\dot{X}) : \dot{X} \in \sigma \text{ and } \exists y' \ (\vartheta(\dot{X}) = (y', 1))\})$$ is basically a translation of $\Gamma_{\mathfrak{T}}$ in our expanded vocabulary $\sigma^*$, with the set of constants $\{\dot{c} : c \in y\}$ fulfilling a role similar to that of the parameter $\mathcal{L}_{\mathfrak{T}}$ (say, in the context of \ref{gammaform4} in the proof of Lemma \ref{mcequiv}). On the other hand, $T^*_0$ expresses precisely the requirement that a bijection from $b$ (and thus from $\beta$, in any outer model of $V$) into $\mathcal{I}(\dot{\mathcal{U}})$ exists for every $\mathcal{I}$ satisfying $(y \cup b; \mathcal{I}) \models^* (T^*_0, \sigma^*,  \dot{\mathcal{U}}^*, \vartheta^*)$ --- said bijection is just $\mathcal{I}(\dot{F})$. In fact, it does so in a manner independent of truths over the vocabulary $\sigma'$, so that whenever $\mathcal{M}^*$ is a model of $$\mathfrak{T}^* := (T^*, \sigma^*, \dot{\mathcal{U}}^*, \vartheta^*) = (T^*_0 \cup T^*_1, \sigma^*,  \dot{\mathcal{U}}^*, \vartheta^*),$$ we have $$\Sigma(\mathcal{M}^*) \cap \mathcal{L}_{\mathfrak{T}} = \Sigma(\mathcal{M})$$ for some model $\mathcal{M}$ of $\mathfrak{T}$. By Lemma \ref{GLS} and our assumptions on $\mathfrak{T}$, $\mathfrak{T}^*$ is consistent. 
+A routine verification should enable the reader to see that $$T^*_1 := T' \cup (\bigcup \{T(\dot{X}) : \dot{X} \in \sigma \text{ and } \exists y' \ (\vartheta(\dot{X}) = (y', 1))\})$$ is basically a translation of $\Gamma_{\mathfrak{T}}$ in our expanded vocabulary $\sigma^*$, with the set of constants $\{\dot{c} : c \in y\}$ fulfilling a role similar to that of the parameter $\mathcal{L}_{\mathfrak{T}}$ (say, in the context of \ref{gammaform4} in the proof of Lemma \ref{mcequiv}). On the other hand, $T^*_0$ expresses precisely the requirement that a bijection from $b$ (and thus from $\beta$, in any outer model of $V$) into $\mathcal{I}(\dot{\mathcal{U}})$ exists for every $\mathcal{I}$ satisfying $(y \cup b; \mathcal{I}) \models^* (T^*_0, \sigma^*,  \dot{\mathcal{U}}^*, \vartheta^*)$ --- said bijection is just $\mathcal{I}(\dot{F})$. In fact, it does so in a manner independent of truths over the vocabulary $\sigma'$, so that whenever $\mathcal{M}^*$ is a model of $$\mathfrak{T}^* := (T^*, \sigma^*, \dot{\mathcal{U}}^*, \vartheta^*) = (T^*_0 \cup T^*_1, \sigma^*,  \dot{\mathcal{U}}^*, \vartheta^*),$$ we have $$\Sigma(\mathfrak{T}^*, \mathcal{M}^*) \cap \mathcal{L}_{\mathfrak{T}} = \Sigma(\mathfrak{T}, \mathcal{M})$$ for some model $\mathcal{M}$ of $\mathfrak{T}$. By Lemma \ref{GLS} and our assumptions on $\mathfrak{T}$, $\mathfrak{T}^*$ is consistent. 
 
 We have thus checked that $\mathfrak{T}^*$ possesses the properties we want: it is a consistent $\Pi_2$ TCI, and from every model $\mathcal{M}^*$ of $\mathfrak{T}^*$ we can read off a structure $\mathcal{M} = (U; \mathcal{I})$ and a function $f$ satisfying both \ref{gglsb'} defined at the beginning of the proof as well as \ref{gglsb} of the lemma. An invocation of Theorem \ref{genericmodels} with $\mathfrak{T^*}$ in place of $\mathfrak{T}$ then completes the proof.
 \end{proof}
@@ -2505,11 +2505,11 @@ which holds for every $\mathbb{P}(\mathfrak{T}^*)$-generic filter $g$ over $V$, 
 Models of a TCI $\mathfrak{T}$ across all outer models of $V$ can be very complicated. However, when a model of $\mathfrak{T}$ is finitely determined, its atomic diagram can be easily read off $\mathbb{P}(\mathfrak{T})$.
 
 \begin{lem}\label{findetinV}
-Let $\mathfrak{T}$ be a TCI and $\mathcal{M}$ be a finitely determined model of $\mathfrak{T}$ in some outer model of $V$. Then for some atom $p$ of $\mathbb{P}(\mathfrak{T})$, $\Sigma(\mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T}))$. In particular, $\mathcal{M} \in V$.
+Let $\mathfrak{T}$ be a TCI and $\mathcal{M}$ be a finitely determined model of $\mathfrak{T}$ in some outer model of $V$. Then for some atom $p$ of $\mathbb{P}(\mathfrak{T})$, $\Sigma(\mathfrak{T}, \mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T}))$. In particular, $\mathcal{M} \in V$.
 \end{lem}
 
 \begin{proof}
-Let $\mathcal{M}$ be finitely determined by $\varphi$. Without loss of generality, we can assume $\varphi$ is the conjunction of a set of literals $\{l_i : i < n\}$ for some $n < \omega$. This means $$p := \{\ulcorner E(l_i) \urcorner : i < n\}$$ is an atom of $\mathbb{P}(\mathfrak{T})$. Lemma \ref{gpgeneric} tells us that $g_p (\mathbb{P}(\mathfrak{T}))$ is $\mathbb{P}(\mathfrak{T})$-generic over $V$, so necessarily $\Sigma(\mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T}))$ by Theorem \ref{genericmodels}. Then according to Lemma \ref{mcequiv2}, $\mathcal{M} \in V$ because $g_p (\mathbb{P}(\mathfrak{T})) \in V$.
+Let $\mathcal{M}$ be finitely determined by $\varphi$. Without loss of generality, we can assume $\varphi$ is the conjunction of a set of literals $\{l_i : i < n\}$ for some $n < \omega$. This means $$p := \{\ulcorner E(l_i) \urcorner : i < n\}$$ is an atom of $\mathbb{P}(\mathfrak{T})$. Lemma \ref{gpgeneric} tells us that $g_p (\mathbb{P}(\mathfrak{T}))$ is $\mathbb{P}(\mathfrak{T})$-generic over $V$, so necessarily $\Sigma(\mathfrak{T}, \mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T}))$ by Theorem \ref{genericmodels}. Then according to Lemma \ref{mcequiv2}, $\mathcal{M} \in V$ because $g_p (\mathbb{P}(\mathfrak{T})) \in V$.
 \end{proof}
 
 It is possible to have an analogue of Lemma \ref{findetinV} for models that are ``close to being finitely determined''.
@@ -2541,22 +2541,22 @@ In constructing the $\mathbb{P}(\mathfrak{T})^{(\alpha)}$'s, we are inductively 
 \end{rem}
 
 \begin{defi}
-Given a TCI $\mathfrak{T}$ and any $\mathcal{M}$, we say $\mathcal{M}$ is an \emph{almost finitely determined model of} $\mathfrak{T}$ iff $\mathcal{M} \models^* \mathfrak{T}$ and for some $\alpha < |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$ and an atom $p$ of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$, $$p \subset \Sigma(\mathcal{M}).$$
+Given a TCI $\mathfrak{T}$ and any $\mathcal{M}$, we say $\mathcal{M}$ is an \emph{almost finitely determined model of} $\mathfrak{T}$ iff $\mathcal{M} \models^* \mathfrak{T}$ and for some $\alpha < |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$ and an atom $p$ of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$, $$p \subset \Sigma(\mathfrak{T}, \mathcal{M}).$$
 \end{defi}
 
 We have as our next lemma, the promised analogue of Lemma \ref{findetinV}.
 
 \begin{lem}\label{afdinV}
-Let $\mathfrak{T}$ be a TCI and $\mathcal{M}$ be an almost finitely determined model of $\mathfrak{T}$ in some outer model of $V$. Then for some $\alpha < |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$ and some atom $p$ of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$, $\Sigma(\mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T})^{(\alpha)})$. In particular, $\mathcal{M} \in V$.
+Let $\mathfrak{T}$ be a TCI and $\mathcal{M}$ be an almost finitely determined model of $\mathfrak{T}$ in some outer model of $V$. Then for some $\alpha < |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$ and some atom $p$ of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$, $\Sigma(\mathfrak{T}, \mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T})^{(\alpha)})$. In particular, $\mathcal{M} \in V$.
 \end{lem}
 
 \begin{proof}
 Choose any model $\mathcal{M}$ of $\mathfrak{T}$ in an outer model of $V$. It suffices to prove by induction on $\alpha \leq |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$ that
 \begin{align*}
-    \forall q \ \exists \beta \leq \alpha \ \exists p \ ( & (q \text{ is an atom of } \mathbb{P}(\mathfrak{T})^{(\alpha)} \text{ and } q \subset \Sigma(\mathcal{M})) \\
-    & \implies (p \text{ is an atom of } \mathbb{P}(\mathfrak{T})^{(\beta)} \text{ and } \Sigma(\mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T})^{(\beta)}))) \text{.}
+    \forall q \ \exists \beta \leq \alpha \ \exists p \ ( & (q \text{ is an atom of } \mathbb{P}(\mathfrak{T})^{(\alpha)} \text{ and } q \subset \Sigma(\mathfrak{T}, \mathcal{M})) \\
+    & \implies (p \text{ is an atom of } \mathbb{P}(\mathfrak{T})^{(\beta)} \text{ and } \Sigma(\mathfrak{T}, \mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T})^{(\beta)}))) \text{.}
 \end{align*}
-The base case where $\alpha = 0$ is just Lemma \ref{findetinV}. For the inductive case, assume $0 < \alpha \leq |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$. and let $q$ be an atom of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$ with $q \subset \Sigma(\mathcal{M})$. Then by Lemma \ref{gpgeneric} and the definition of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$, either $\Sigma(\mathcal{M}) = g_q (\mathbb{P}(\mathfrak{T})^{(\alpha)})$ or there is $\beta' < \alpha$ and an atom $q'$ of $\mathbb{P}(\mathfrak{T})^{(\beta')}$ such that $q' \subset \Sigma(\mathcal{M})$. In the latter case, the inductive hypothesis gives us $\beta \leq \beta'$ and an atom $p$ of $\mathbb{P}(\mathfrak{T})^{(\beta)}$ for which $\Sigma(\mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T})^{(\beta)})$. Either way we are done.
+The base case where $\alpha = 0$ is just Lemma \ref{findetinV}. For the inductive case, assume $0 < \alpha \leq |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+$. and let $q$ be an atom of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$ with $q \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Then by Lemma \ref{gpgeneric} and the definition of $\mathbb{P}(\mathfrak{T})^{(\alpha)}$, either $\Sigma(\mathfrak{T}, \mathcal{M}) = g_q (\mathbb{P}(\mathfrak{T})^{(\alpha)})$ or there is $\beta' < \alpha$ and an atom $q'$ of $\mathbb{P}(\mathfrak{T})^{(\beta')}$ such that $q' \subset \Sigma(\mathfrak{T}, \mathcal{M})$. In the latter case, the inductive hypothesis gives us $\beta \leq \beta'$ and an atom $p$ of $\mathbb{P}(\mathfrak{T})^{(\beta)}$ for which $\Sigma(\mathfrak{T}, \mathcal{M}) = g_p (\mathbb{P}(\mathfrak{T})^{(\beta)})$. Either way we are done.
 \end{proof}
 
 The way $\mathbb{P}(\mathfrak{T})$ and $\mathbb{P}(\mathfrak{T})^{\top}$ are defined from a TCI $\mathfrak{T}$ allows us to establish a nice dichotomy on the $(\mathbb{P}(\mathfrak{T}), V)$-generic models of $\mathfrak{T}$ when $\mathfrak{T}$ is $\Pi_2$.
@@ -2570,7 +2570,7 @@ Let $\mathfrak{T}$ be a $\Pi_2$ TCI and $\mathcal{M}$ be a $(\mathbb{P}(\mathfra
 \end{lem}
 
 \begin{proof}
-Let $g$ be a $\mathbb{P}(\mathfrak{T})$-generic filter over $V$ and assume $\mathcal{A} \cap g = \emptyset$, where $$\mathcal{A} := \{p : \exists \alpha \ (\alpha < |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+ \text{ and } p \text{ is an atom of } \mathbb{P}(\mathfrak{T})^{(\alpha)})\}.$$ This latter assumption is equivalent to saying that the unique model $\mathcal{M}$ of $\mathfrak{T}$ for which $\bigcup g = \Sigma(\mathcal{M})$ is not almost finitely determined. By Theorem \ref{genericmodels}, it suffices to show that $g$ is a $\mathbb{P}(\mathfrak{T})^{\top}$-generic filter over $V$. Clearly, $\bigcup g$ $\Gamma_{\mathfrak{T}}^{\top} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})$-certifies $p$, so $g \subset \mathbb{P}(\mathfrak{T})^{\top}$. That $\mathbb{P}(\mathfrak{T})^{\top}$ is a suborder of $\mathbb{P}(\mathfrak{T})$ means $g$ is a filter on $\mathbb{P}(\mathfrak{T})^{\top}$.
+Let $g$ be a $\mathbb{P}(\mathfrak{T})$-generic filter over $V$ and assume $\mathcal{A} \cap g = \emptyset$, where $$\mathcal{A} := \{p : \exists \alpha \ (\alpha < |[\mathcal{L}_{\mathfrak{T}}]^{< \omega}|^+ \text{ and } p \text{ is an atom of } \mathbb{P}(\mathfrak{T})^{(\alpha)})\}.$$ This latter assumption is equivalent to saying that the unique model $\mathcal{M}$ of $\mathfrak{T}$ for which $\bigcup g = \Sigma(\mathfrak{T}, \mathcal{M})$ is not almost finitely determined. By Theorem \ref{genericmodels}, it suffices to show that $g$ is a $\mathbb{P}(\mathfrak{T})^{\top}$-generic filter over $V$. Clearly, $\bigcup g$ $\Gamma_{\mathfrak{T}}^{\top} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})$-certifies $p$, so $g \subset \mathbb{P}(\mathfrak{T})^{\top}$. That $\mathbb{P}(\mathfrak{T})^{\top}$ is a suborder of $\mathbb{P}(\mathfrak{T})$ means $g$ is a filter on $\mathbb{P}(\mathfrak{T})^{\top}$.
 
 To see $g$ is $\mathbb{P}(\mathfrak{T})^{\top}$-generic over $V$, let $E$ be predense in $\mathbb{P}(\mathfrak{T})^{\top}$. Note that if $p \in \mathbb{P}(\mathfrak{T})$ is incompatible in $\mathbb{P}(\mathfrak{T})$ with every member of $\mathcal{A}$, then $p \in \mathbb{P}(\mathfrak{T})^{\top}$. As such, $E \cup \mathcal{A}$ must be predense in $\mathbb{P}(\mathfrak{T})$. But this implies $E \cap g \neq \emptyset$ because $g$ is $\mathbb{P}(\mathfrak{T})$-generic and $\mathcal{A} \cap g = \emptyset$.
 \end{proof}
@@ -2582,7 +2582,7 @@ Let $\mathfrak{T}$ be a $\Pi_2$ TCI. If not all models of $\mathfrak{T}$ are alm
 \end{thm}
 
 \begin{proof}
-Assume not all models of $\mathfrak{T}$ are almost finitely determined, and let $\mathcal{M}$ be a model of $\mathfrak{T}$ not almost finitely determined in some outer model of $V$. Then $\Sigma(\mathcal{M})$ $\Gamma_{\mathfrak{T}}^{\top} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})$-certifies $\emptyset$, so $\mathbb{P}(\mathfrak{T})^{\top}$ is non-empty.
+Assume not all models of $\mathfrak{T}$ are almost finitely determined, and let $\mathcal{M}$ be a model of $\mathfrak{T}$ not almost finitely determined in some outer model of $V$. Then $\Sigma(\mathfrak{T}, \mathcal{M})$ $\Gamma_{\mathfrak{T}}^{\top} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})$-certifies $\emptyset$, so $\mathbb{P}(\mathfrak{T})^{\top}$ is non-empty.
 
 Check that the hypotheses of Lemma \ref{main2} are satisfied when we have 
 \begin{itemize}
@@ -2675,7 +2675,7 @@ Recall Cohen forcing $\mathbb{C} = (C; \leq_{\mathbb{C}})$. We will use this lab
 \begin{lem}\label{ctblegeneric}
 Let $\mathfrak{T}$ be a code-friendly $\Pi_2$ TCI, and $(r, f)$ witness $(H(\omega); \in)$ is computable. 
 
-Then either all models of $\mathfrak{T}$ are almost finitely determined, or else there is an oracle machine $\Psi$ and a structure $\mathfrak{A}$ in the language of set theory, such that whenever $g$ is a $\mathbb{C}$-generic filter over $\mathfrak{A}$, there is a unique model $\mathcal{M}_g$ of $\mathfrak{T}$ satisfying $$\Psi^{(f" g) \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathcal{M}_g)).$$ Moreover, the function $g \mapsto \mathcal{M}_g$ defined as such is injective.
+Then either all models of $\mathfrak{T}$ are almost finitely determined, or else there is an oracle machine $\Psi$ and a structure $\mathfrak{A}$ in the language of set theory, such that whenever $g$ is a $\mathbb{C}$-generic filter over $\mathfrak{A}$, there is a unique model $\mathcal{M}_g$ of $\mathfrak{T}$ satisfying $$\Psi^{(f" g) \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_g)).$$ Moreover, the function $g \mapsto \mathcal{M}_g$ defined as such is injective.
 \end{lem}
 
 \begin{proof}
@@ -2700,17 +2700,17 @@ Following the proof of Theorem \ref{genericdichom}, while bearing in mind
 \begin{itemize}
     \item $\Gamma_{\mathfrak{T}} \subset \Gamma_{\mathfrak{T}}^{\top}$,
     \item Remark \ref{swapA} and how its invocation is justified by the preceding paragraph, as well as
-    \item the injectivity of the function $\mathcal{M} \mapsto \Sigma(\mathcal{M})$, 
+    \item the injectivity of the function $\mathcal{M} \mapsto \Sigma(\mathfrak{T}, \mathcal{M})$, 
 \end{itemize}
 we apply Lemma \ref{main2} to give us 
 \begin{align}\label{marker}
     \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } \mathbb{P}(\mathfrak{T})^{\top} \text{-generic filter over } \mathfrak{A} \nonumber \\ 
-    & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bigcup \bar{g} = \Sigma(\mathcal{M}_{\bar{g}}))) \text{.}
+    & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bigcup \bar{g} = \Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}}))) \text{.}
 \end{align}
 Passing ($\ref{marker}$) through $f$ leads us to the presence of an oracle machine $\bar{\Phi}$ fulfilling
 \begin{align}\label{marker2}
     \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } s \text{-generic filter over } \mathfrak{A} \nonumber \\ 
-    & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathcal{M}_{\bar{g}})))) \text{.}
+    & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}})))) \text{.}
 \end{align}
 
 Next, note that 
@@ -2790,7 +2790,7 @@ Passing Proposition \ref{lastprop0} through $f$ strengthens (\ref{number8}) to
 Now (\ref{marker2}) and (\ref{number8p}) in conjunction tells us that we can combine $\bar{\Phi}$ and $\Phi$ into an oracle machine $\Psi$ such that
 \begin{align}\label{number10p}
     \forall g \ \exists ! \mathcal{M}_g \ ( & g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \nonumber \\ 
-    & \implies (\mathcal{M}_g \models^* \mathfrak{T} \text{ and } \Psi^{(f" g) \oplus s} = f" (\Sigma(\mathcal{M}_g))))
+    & \implies (\mathcal{M}_g \models^* \mathfrak{T} \text{ and } \Psi^{(f" g) \oplus s} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_g))))
 \end{align}
 and
 \begin{align*}
@@ -2814,7 +2814,7 @@ In addition to Remark \ref{lastrem}, we can also strengthen Lemma \ref{ctblegene
 Let $(r, f)$ witness $(H(\omega); \in)$ is computable. Then there is an oracle machine $\Psi$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI, one of the following must hold:
 \begin{enumerate}[label=(\arabic*)]
     \item All models of $\mathfrak{T}$ are almost finitely determined.
-    \item\label{4532} For every $(f" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, there is a unique model $\mathcal{M}_t$ of $\mathfrak{T}$ satisfying $$\Psi^{t \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathcal{M}_t)).$$ Moreover for every $\mathfrak{T}$, the function $t \mapsto \mathcal{M}_t$ defined as such is injective.
+    \item\label{4532} For every $(f" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, there is a unique model $\mathcal{M}_t$ of $\mathfrak{T}$ satisfying $$\Psi^{t \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_t)).$$ Moreover for every $\mathfrak{T}$, the function $t \mapsto \mathcal{M}_t$ defined as such is injective.
 \end{enumerate}
 \end{lem}
 
@@ -2869,7 +2869,7 @@ Let $g$ be a filter on $\mathbb{P}(\mathfrak{T})^{\top}$ meeting $D^*_{1, 1}$. S
 Passing what we have hitherto shown through $f$ the way (\ref{marker}) was in the proof of Lemma \ref{ctblegeneric}, for some oracle machine $\bar{\Phi}$ we have
 \begin{align}\label{number9}
     \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \nonumber \\
-    & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathcal{M}_{\bar{g}})))) \text{.}
+    & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}})))) \text{.}
 \end{align}
 
 Adopt the abbreviations
@@ -2904,7 +2904,7 @@ If $c \cap a_z \neq \emptyset$, then by the definition of $a_z$, there are condi
 
 We can passing the definition of a $s$-$1$-generic real through $f$ to conclude that for every such real $t$, $\ddot{\Phi}^t$ is a subset of $u$ meeting all $\Sigma^{0, s}_1$ subsets of $u$. With (\ref{number9}) and (\ref{number10}) in mind, Proposition \ref{lastprop} then tells us that we can combine $\bar{\Phi}$, $\ddot{\Phi}$ and $\Phi$ to get an oracle machine $\Psi$ fulfilling the requirements 
 \begin{align}\label{lastreq}
-    \forall t \ \exists ! \mathcal{M}_t \ (t \text{ is a } s \text{-} 1 \text{-generic} \implies (\mathcal{M}_t \models^* \mathfrak{T} \text{ and } \Psi^{t \oplus s} = f" (\Sigma(\mathcal{M}_t))))
+    \forall t \ \exists ! \mathcal{M}_t \ (t \text{ is a } s \text{-} 1 \text{-generic} \implies (\mathcal{M}_t \models^* \mathfrak{T} \text{ and } \Psi^{t \oplus s} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_t))))
 \end{align}
 and 
 \begin{align*}
@@ -2926,7 +2926,7 @@ Fix any nicely computable code $r$ of $H(\omega)$. Check that
 \begin{itemize}
     \item the function $f$ given in Lemma \ref{ctblegeneric2} is a definable subset of $H(\omega)$ over the structure $(H(\omega); \in, r)$, in light of Fact \ref{uniquecode},
     \item the oracle machine $\Psi$ constructed in the proof of Lemma \ref{ctblegeneric2} is a definable element of $H(\omega)$ over the structure $(H(\omega); \in, r, f)$, and
-    \item the injective function $t \mapsto f" \Sigma(\mathcal{M}_t)$ defined in the proof of Lemma \ref{ctblegeneric2} always has a left inverse computable using only $f_r" (P(\mathfrak{T})^{\top})$ as parameter. Further, said left inverse is uniformly computable over all relevant code-friendly $\Pi_2$ TCIs $\mathfrak{T}$.
+    \item the injective function $t \mapsto f" \Sigma(\mathfrak{T}, \mathcal{M}_t)$ defined in the proof of Lemma \ref{ctblegeneric2} always has a left inverse computable using only $f_r" (P(\mathfrak{T})^{\top})$ as parameter. Further, said left inverse is uniformly computable over all relevant code-friendly $\Pi_2$ TCIs $\mathfrak{T}$.
 \end{itemize}
 As such, we have actually proven a more general version of Lemma \ref{ctblegeneric2}, which we formally present as our final theorem below.
 
@@ -2940,10 +2940,10 @@ There is a formula $\psi_{gmc}$ in two free variables, absolute for transitive m
         \item All models of $\mathfrak{T}$ are almost finitely determined.
         \item For every $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, there is a unique model $\mathcal{M}_t$ of $\mathfrak{T}$ satisfying 
         \begin{gather*}
-            \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathcal{M}_t)) \text{ and} \\
-            \bar{\Psi}_{r}^{(f_r" (\Sigma(\mathcal{M}_t))) \oplus (f_r" (P(\mathfrak{T})^{\top}))} = t.
+            \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathfrak{T}, \mathcal{M}_t)) \text{ and} \\
+            \bar{\Psi}_{r}^{(f_r" (\Sigma(\mathfrak{T}, \mathcal{M}_t))) \oplus (f_r" (P(\mathfrak{T})^{\top}))} = t.
         \end{gather*}
-        In particular, for each such pair $(t, \mathcal{M}_t)$, $$t \oplus (f_r" (P(\mathfrak{T})^{\top})) \equiv_{T} (f_r" (\Sigma(\mathcal{M}_t))) \oplus (f_r" (P(\mathfrak{T})^{\top})).$$
+        In particular, for each such pair $(t, \mathcal{M}_t)$, $$t \oplus (f_r" (P(\mathfrak{T})^{\top})) \equiv_{T} (f_r" (\Sigma(\mathfrak{T}, \mathcal{M}_t))) \oplus (f_r" (P(\mathfrak{T})^{\top})).$$
 \end{enumerate}
 \end{enumerate}
 \end{thm}
@@ -3031,7 +3031,7 @@ Let $\mathrm{NGE}_1$ be the set containing exactly all the code-friendly $\Pi_2$
     \item $\mathcal{M}$ is not almost finitely determined, and
     \item for every nicely computable code $r$ of $H(\omega)$ and every $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, if $\mathcal{M}'$ is a model of $\mathfrak{T}$ satisfying 
     \begin{equation*}
-        \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathcal{M}')) \text{,}
+        \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathfrak{T}, \mathcal{M}')) \text{,}
     \end{equation*}
     then $\mathcal{M} \not \cong \mathcal{M}'$.
 \end{enumerate}
@@ -3047,7 +3047,7 @@ Let $\mathrm{NGE}_2$ be the set containing exactly all the first-order $\Pi_2$ t
     \item if $\mathcal{M}$ is almost finitely determined then $M \not \cong \mathcal{M}$, and
     \item if $r$ is a nicely computable code of $H(\omega)$ and $t$ is a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real for which
     \begin{equation*}
-        \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathcal{M})) \text{,}
+        \Psi_r^{t \oplus (f_r" (P(\mathfrak{T})^{\top}))} = f_r" (\Sigma(\mathfrak{T}, \mathcal{M})) \text{,}
     \end{equation*}
     then $M \not \cong \mathcal{M}$.
 \end{enumerate}
