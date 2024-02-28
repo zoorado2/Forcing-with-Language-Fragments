@@ -1001,17 +1001,16 @@ Note that the proof of Lemma \ref{inout} does not require that $\Gamma$ contains
 Specifying ``$k$ satisfies $K$'' to be ``$k \models^{*}_{\mathfrak{A}} \Gamma$'', the following lemma is thus well-motivated. 
 
 \begin{lem}\label{main2}
-Let
+Let $W$, $\lambda$, $B$, $\mathfrak{A}$, $\mathcal{L}$, $\Gamma$, $P$, $\mathbb{P}$ and $g$ be such that
 \begin{itemize}
+    \item $\Gamma$ contains only $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences,
     \item $|trcl(\mathfrak{A})| \leq \lambda$,
-    \item $B$ be $\mathcal{L}$-closed under finite extensions,
-    \item $P := \{p \in B : \ \Vdash_{Col(\omega, \lambda)} \exists \Sigma \ (``\Sigma \ \Gamma(\mathcal{L}, \mathfrak{A}) \text{-certifies } p")\}$,
-    \item $\leq_{\mathbb{P}} \ := \{(p, q) \in P \times P : q \subset p\}$,
-    \item $\mathbb{P} := (P, \leq_{\mathbb{P}})$, 
-    \item $\mathbb{P}$ be definable in the language associated with $\mathfrak{A}$,
-    \item $W$ be a weak outer model of $V$,
-    \item $g \in W \cap \mathcal{P}(P)$ be a filter on $\mathbb{P}$, and
-    \item $g$ is $\mathbb{P}$-generic over $\mathfrak{A}$.
+    \item $B$ is $\mathcal{L}$-closed under finite extensions,
+    \item $P = \{p \in B : \ \Vdash_{Col(\omega, \lambda)} \exists \Sigma \ (``\Sigma \ \Gamma(\mathcal{L}, \mathfrak{A}) \text{-certifies } p")\}$,
+    \item $\mathbb{P} = (P, \supset \cap \ P)$, 
+    \item $\mathbb{P}$ is definable in the language associated with $\mathfrak{A}$,
+    \item $W$ is a weak outer model of $V$,
+    \item $g \in W$ is a $\mathbb{P}$-generic filter over $\mathfrak{A}$.
 \end{itemize}
 If there is $\Sigma$ in a weak outer model $W'$ of $V$ such that $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$, then $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$.
 
@@ -2174,7 +2173,7 @@ There is a formula $\psi_{trans}$ in three free variables, absolute for transiti
 \end{lem}
 
 \begin{proof}
-Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula, because the binary relation $\models^*$ is $\Delta_1$ definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$ definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
+Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula, because the binary relation $\models^*$ is $\Delta_1$-definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$-definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
 \end{proof}
 
 \begin{rem}\label{swapA}
