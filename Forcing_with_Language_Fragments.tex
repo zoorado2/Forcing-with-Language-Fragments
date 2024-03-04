@@ -179,6 +179,25 @@ For any structure $\mathfrak{A} = (A; \mathcal{I})$, an $\mathfrak{A}$\emph{-val
 The \emph{size of a structure} $\mathfrak{A} = (A; \mathcal{I})$ is equal to $$max\{|A|, |\mathcal{I}|\}.$$ We say $\mathfrak{A}$ is a \emph{countable structure} iff its size is a countable cardinal.
 \end{defi}
 
+\begin{defi}
+Let $\phi$ be a first-order formula over a signature $\sigma$. We inductively define what it means for $\phi$ to be $\Pi_n$ or $\Sigma_n$ as $n$ ranges over the natural numbers.
+\begin{enumerate}[label=(\arabic*)]
+    \item If $n = 0$, then $\phi$ is $\Pi_0$ iff $\phi$ is $\Sigma_0$ iff $\phi$ is quantifier-free.
+    \item\label{3292} If $n = m + 1$ for some $m < \omega$, then 
+    \begin{enumerate}[label=(\alph*)]
+        \item\label{3292a} $\phi$ is $\Pi_n$ iff there is a $\Sigma_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ such that 
+        \begin{equation*}
+            \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{, and}
+        \end{equation*}
+        \item\label{3292b} $\phi$ is $\Sigma_n$ iff there is a $\Pi_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ such that 
+        \begin{equation*}
+            \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{.}
+        \end{equation*}
+    \end{enumerate}
+\end{enumerate}
+Note that if $k = 0$ in \ref{3292}\ref{3292a} and \ref{3292}\ref{3292b}, then $\phi$ is $\Sigma_m$ and $\Pi_m$ respectively.
+\end{defi}
+
 \subsection{Basic Set Theory}
 
 Unless specified otherwise, we follow the standard definitions of concepts typically encountered in a foundational set theory course, following e.g. \cite{jechhrbacek}.
@@ -2597,7 +2616,7 @@ A direct application of said lemma, coupled with the knowledge that $\Gamma_{\ma
 For a countable TCI $\mathfrak{T}$, the consistency of $\mathfrak{T}$ implies the existence of a model of $\mathfrak{T}$ in $V$. 
 
 \begin{lem}\label{modelinV}
-Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a $\Pi_2$ TCI such that $$|\sigma \cup y| \leq \aleph_0$$ whenever $\vartheta(\dot{\mathcal{U}}) = (y, z)$ for some $z$. If $\mathfrak{T}$ is consistent then $\mathfrak{T}$ has a model in $V$.
+Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI such that $$|\sigma \cup y| \leq \aleph_0$$ whenever $\vartheta(\dot{\mathcal{U}}) = (y, z)$ for some $z$. If $\mathfrak{T}$ is consistent then $\mathfrak{T}$ has a model in $V$.
 \end{lem}
 
 \begin{proof}
@@ -2606,7 +2625,7 @@ Fix $f_1$ a bijection between $y$ and $|y|$, and $f_2$ a form-preserving signatu
     \item a TCI $\mathfrak{T}' := (T', \sigma', \dot{\mathcal{U}}, \vartheta')$ in $V$ such that $\mathfrak{T}'$ has a countable transitive closure, and
     \item a bijection between $\{\mathcal{M} : \mathcal{M} \models^* \mathfrak{T}\}$ and $\{\mathcal{M} : \mathcal{M} \models^* \mathfrak{T}'\}$ in every weak outer model of $V$.
 \end{itemize}
-As a consequence, we can assume $\mathfrak{T}$ has a countable transitive closure without loss of generality. By Lemma \ref{setcode}, $\mathcal{T}$ can be coded as a real. Besides, if $\mathfrak{T}$ has a model $\mathcal{M}$ in an outer model $W$ of $V$, then $M$ has a real code. By a routine check while unfurling the definition of $\models^*$ (see e.g. the proof of Lemma \ref{inout} for an argument of the satisfaction relation being $\Sigma_1$), we get that the statement $$\exists \mathcal{M} \ (\mathcal{M} \models^* \mathfrak{T})$$ is equivalent to a $\mathbf{\Sigma^1_1}$ sentence involving a real code of $\mathfrak{T}$ found in $V$, so it is absolute for $V$ and any of its weak outer models. If $\mathfrak{T}$ is consistent, it must have a model in some outer model of $V$, whence it has a model in $V$.
+As a consequence, we can assume $\mathfrak{T}$ has a countable transitive closure without loss of generality. By Lemma \ref{setcode}, $\mathfrak{T}$ can be coded as a real. Besides, if $\mathfrak{T}$ has a model $\mathcal{M}$ in an outer model $W$ of $V$, then $M$ has a real code. By a routine check while unfurling the definition of $\models^*$ (see e.g. the proof of Lemma \ref{inout} for an argument of the satisfaction relation being $\Sigma_1$), we get that the statement $$\exists \mathcal{M} \ (\mathcal{M} \models^* \mathfrak{T})$$ is equivalent to a $\mathbf{\Sigma^1_1}$ sentence involving a real code of $\mathfrak{T}$ found in $V$, so it is absolute for $V$ and any of its weak outer models. If $\mathfrak{T}$ is consistent, it must have a model in some outer model of $V$, whence it has a model in $V$.
 \end{proof}
 
 Ideally, in the spirit of Lemmas \ref{genericls} and \ref{genericlscor}, we want to prove a generic version of Lemma \ref{modelinV}. This can be done through a relatively effective version of Theorem \ref{genericdichom} for a certain class of countable TCIs, so as to kill two birds with one stone. Some definitions and facts are prerequisites.
@@ -2672,9 +2691,15 @@ This means that the definition of $\mathbb{P}(\mathfrak{T})^{\top}$ from a code-
 Recall Cohen forcing $\mathbb{C} = (C; \leq_{\mathbb{C}})$. We will use this labelling in the statements and proofs of the subsequent lemmas.
 
 \begin{lem}\label{ctblegeneric}
-Let $\mathfrak{T}$ be a code-friendly $\Pi_2$ TCI, and $(r, f)$ witness $(H(\omega); \in)$ is computable. 
-
-Then either all models of $\mathfrak{T}$ are almost finitely determined, or else there is an oracle machine $\Psi$ and a structure $\mathfrak{A}$ in the language of set theory, such that whenever $g$ is a $\mathbb{C}$-generic filter over $\mathfrak{A}$, there is a unique model $\mathcal{M}_g$ of $\mathfrak{T}$ satisfying $$\Psi^{(f" g) \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_g)).$$ Moreover, the function $g \mapsto \mathcal{M}_g$ defined as such is injective.
+Let $\mathfrak{T}$ be a code-friendly $\Pi_2$ TCI, and $(r, f)$ witness $(H(\omega); \in)$ is computable. Then one of the following must hold.
+\begin{enumerate}[label=(\arabic*)]
+    \item All models of $\mathfrak{T}$ are almost finitely determined.
+    \item\label{3782} There is an oracle machine $\Psi$ and a countable structure $\mathfrak{A}$ in the language of set theory, such that whenever $g$ is a $\mathbb{C}$-generic filter over $\mathfrak{A}$, there is a unique model $\mathcal{M}_g$ of $\mathfrak{T}$ satisfying 
+    \begin{equation*}
+        \Psi^{(f" g) \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_g)) \text{.}
+    \end{equation*}
+    Moreover, the function $g \mapsto \mathcal{M}_g$ defined as such is injective.
+\end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -2810,7 +2835,7 @@ Observe that we derived $\pi$ in a uniform way from the parameters given in Prop
 In addition to Remark \ref{lastrem}, we can also strengthen Lemma \ref{ctblegeneric} by lowering the requirement on the genericity of $g$ and omitting $(A; \in)$ altogether. We formulate a strengthened version below in the nomenclature of computability theory.
 
 \begin{lem}\label{ctblegeneric2}
-Let $(r, f)$ witness $(H(\omega); \in)$ is computable. Then there is an oracle machine $\Psi$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI, one of the following must hold:
+Let $(r, f)$ witness $(H(\omega); \in)$ is computable. Then there is an oracle machine $\Psi$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI, one of the following must hold.
 \begin{enumerate}[label=(\arabic*)]
     \item All models of $\mathfrak{T}$ are almost finitely determined.
     \item\label{4532} For every $(f" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, there is a unique model $\mathcal{M}_t$ of $\mathfrak{T}$ satisfying $$\Psi^{t \oplus (f" (P(\mathfrak{T})^{\top}))} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_t)).$$ Moreover for every $\mathfrak{T}$, the function $t \mapsto \mathcal{M}_t$ defined as such is injective.
