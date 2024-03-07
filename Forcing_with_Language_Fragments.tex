@@ -2681,11 +2681,11 @@ A TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ is \emph{code-f
 \end{defi}
 
 Code-friendly TCIs are relatively well-behaved and easy to reason about, especially when it comes to things like absoluteness. Notice that given any code-friendly TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ and any ordinal $\alpha$,
-\begin{itemize}
-    \item $\mathcal{L}_{\mathfrak{T}}$ and $\Gamma_{\mathfrak{T}}$ are definable subsets of $H(\omega)$ over the structure $$\mathfrak{A}^*_{\mathfrak{T}} := \mathfrak(H(\omega); \in, T, \sigma, \dot{\mathcal{U}}, \vartheta),$$
+\begin{enumerate}[leftmargin=40pt, label=(CF\arabic*)]
+    \item\label{cf1} $\mathcal{L}_{\mathfrak{T}}$ and $\Gamma_{\mathfrak{T}}$ are definable subsets of $H(\omega)$ over the structure $$\mathfrak{A}^*_{\mathfrak{T}} := \mathfrak(H(\omega); \in, T, \sigma, \dot{\mathcal{U}}, \vartheta),$$
     \item $P(\mathfrak{T})^{(\alpha)} = \{p \in [\mathcal{L}_{\mathfrak{T}}]^{< \omega} : \exists \Sigma \ (``\Sigma \ \Gamma_{\mathfrak{T}}^{(\alpha)} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}^*_{\mathfrak{T}})\text{-certifies } p")\}$ by straightforward induction incorporating an argument similar to that which proved Lemma \ref{inout}, and hence
     \item $P(\mathfrak{T})^{\top}$ is $\Delta_1$-definable in $\mathfrak{A}^*_{\mathfrak{T}}$.
-\end{itemize}
+\end{enumerate}
 This means that the definition of $\mathbb{P}(\mathfrak{T})^{\top}$ from a code-friendly TCI $\mathfrak{T}$ is absolute for transitive models of $\mathsf{ZFC - Powerset}$.
 
 Recall Cohen forcing $\mathbb{C} = (C; \leq_{\mathbb{C}})$. We will use this labelling in the statements and proofs of the subsequent lemmas.
@@ -3050,7 +3050,7 @@ Fix $\psi_{gmc}$ to be as in Theorem \ref{lastthm}. Let $r$ be a nicely computab
 Analogous to Question \ref{q548}, we want to pick out every code-friendly TCI $\mathfrak{T}$ with a model $M$ that neither almost finitely determined nor isomorphic to any $\mathcal{M}_t$ born from a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$ \`{a} la Theorem \ref{lastthm}. As turns out, because $f_r \circ f_s^{-1}$ is computable for any other nicely computable code $s$ of $H(\omega)$, the answer to this question is independent of
 the choice of $r$.
 
-Let $\mathrm{NGE}_1$ be the set containing exactly all the code-friendly $\Pi_2$ TCIs $\mathfrak{T}$ with a model $\mathcal{M}$ such that
+Let $\mathrm{NGE}'_1$ be the set containing exactly all the code-friendly $\Pi_2$ TCIs $\mathfrak{T}$ with a model $\mathcal{M}$ such that
 \begin{enumerate}[label=(\alph*)]
     \item $\mathcal{M}$ is not almost finitely determined, and
     \item for every nicely computable code $r$ of $H(\omega)$ and every $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$, if $\mathcal{M}'$ is a model of $\mathfrak{T}$ satisfying 
@@ -3059,6 +3059,11 @@ Let $\mathrm{NGE}_1$ be the set containing exactly all the code-friendly $\Pi_2$
     \end{equation*}
     then $\mathcal{M} \not \cong \mathcal{M}'$.
 \end{enumerate}
+We are interested in representing $\mathrm{NGE}'_1$ as a set of reals, so fix a nicely computable code $r$ of $H(\omega)$ and set
+\begin{equation*}
+    \mathrm{NGE}_1 := \{(f_r" \Gamma_{\mathfrak{T}}) \oplus (f_r" \mathcal{L}_{\mathfrak{T}}) : \mathfrak{T} \in \mathrm{NGE}'_1\} \text{.}
+\end{equation*}
+Notice that the pair $(\Gamma_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}})$ completely determines $\mathfrak{T}$. Further, both $f_r" \Gamma_{\mathfrak{T}}$ and $f_r" \mathcal{L}_{\mathfrak{T}}$ are well-defined by \ref{cf1}.
 
 \begin{ques}\label{q553}
 Is $\mathrm{NGE}_1$ a $\mathbf{\Delta^1_0}$ set of reals?
@@ -3066,7 +3071,7 @@ Is $\mathrm{NGE}_1$ a $\mathbf{\Delta^1_0}$ set of reals?
 
 We can replace $\mathrm{NGE}_1$ Question \ref{q553} with another set to get an analogue of Question \ref{q552} in the same spirit of relative effectiveness. 
 
-Let $\mathrm{NGE}_2$ be the set containing exactly all the first-order $\Pi_2$ theories $T$ with a model $M$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI and $\mathcal{M} \models^* \mathfrak{T}$,
+Let $\mathrm{NGE}'_2$ be the set containing exactly all the first-order $\Pi_2$ theories $T$ with a model $M$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI and $\mathcal{M} \models^* \mathfrak{T}$,
 \begin{enumerate}[label=(\alph*)]
     \item if $\mathcal{M}$ is almost finitely determined then $M \not \cong \mathcal{M}$, and
     \item if $r$ is a nicely computable code of $H(\omega)$ and $t$ is a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real for which
@@ -3075,6 +3080,10 @@ Let $\mathrm{NGE}_2$ be the set containing exactly all the first-order $\Pi_2$ t
     \end{equation*}
     then $M \not \cong \mathcal{M}$.
 \end{enumerate}
+Fix a nicely computable code $r$ of $H(\omega)$ and set
+\begin{equation*}
+    \mathrm{NGE}_2 := \{(f_r" \Gamma_{\mathfrak{T}}) \oplus (f_r" \mathcal{L}_{\mathfrak{T}}) : \mathfrak{T} \in \mathrm{NGE}'_2\} \text{.}
+\end{equation*}
 
 \begin{ques}
 Is $\mathrm{NGE}_2$ a $\mathbf{\Delta^1_0}$ set of reals?
