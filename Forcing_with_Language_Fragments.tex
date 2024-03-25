@@ -823,10 +823,15 @@ Then there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A 
 \begin{proof}
 By induction on the length of $\phi$. We work in $W$ throughout.
 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
-    \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. Note first that $$X \models^*_{\mathfrak{A}, \nu} \phi \iff X \models^*_{\mathfrak{A}} \nu^*(\mathsf{DNF}(\phi)),$$ so we have that $X \models^*_{\mathfrak{A}} \nu^*(\mathsf{DNF}(\phi))$. Next, since $\nu^*(\mathsf{DNF}(\phi)) \in \mathcal{D}$, there is a disjunct $\varphi$ of $\nu^*(\mathsf{DNF}(\phi))$ for which $X \models^*_{\mathfrak{A}} \varphi$. 
+    \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. Note first that $$X \models^*_{\mathfrak{A}, \nu} \phi \iff X \models^*_{\mathfrak{A}} \nu^*(\mathsf{DNF}(\phi)),$$ so we have that $$X \models^*_{\mathfrak{A}} \nu^*(\mathsf{DNF}(\phi)).$$ Next, since $\nu^*(\mathsf{DNF}(\phi)) \in \mathcal{D}$, there is a disjunct $\varphi$ of $\nu^*(\mathsf{DNF}(\phi))$ for which $X \models^*_{\mathfrak{A}} \varphi$. 
     
     Let $(p, q)$ be $\mathsf{set}(\varphi)$. Then $p$ and $q$ are finite sets with $p \subset q \subset \mathcal{L}$. Since $(A; \in)$ models enough set theory and $\mathcal{L} \subset A$, we too have $\{p, q\} \subset A$. As $\varphi$ has all occurrences of literals over $\{E\}$ being conjuncts, we must have $$X \cap q = p.$$ It is thus easy to see that for any $X' \subset \mathcal{L}$ in any weak outer model of $V$, $$X' \cap q = p \implies X' \models^*_{\mathfrak{A}} \varphi \implies X' \models^*_{\mathfrak{A}, \nu} \phi.$$
-    \item $\phi = \ulcorner \exists y \ \phi' \urcorner$ for some $y$ and $\phi'$. There is an $\mathfrak{A}$-valuation $\nu'$ that agrees with $\nu$ on the free variables of $\phi$, for which $X \models^{*}_{\mathfrak{A}, \nu'} \phi'$. By the induction hypothesis, there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A \cap \mathcal{P}(\mathcal{L})$ for which $$X \cap q = p$$ and $\phi'$ is $\models^*_{\mathfrak{A}, \nu'}$-true for $(p, q)$. Since $(\nu')^*(\phi')$ logically implies $\nu^*(\phi)$, it must also be that $\phi$ is $\models^{*}_{\mathfrak{A}, \nu}$-true for $(p, q)$. \qedhere
+    \item $\phi = \ulcorner \exists y \ \phi' \urcorner$ for some $y$ and $\phi'$. Then there must be an $\mathfrak{A}$-valuation $\nu'$ that agrees with $\nu$ on the free variables of $\phi$, for which $$X \models^{*}_{\mathfrak{A}, \nu'} \phi'.$$ By the induction hypothesis, there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A \cap \mathcal{P}(\mathcal{L})$ satisfying 
+    \begin{itemize}
+        \item $X \cap q = p$ and
+        \item $\phi'$ is $\models^*_{\mathfrak{A}, \nu'}$-true for $(p, q)$. 
+    \end{itemize}
+    Since $(\nu')^*(\phi')$ logically implies $\nu^*(\phi)$, it must also be that $\phi$ is $\models^{*}_{\mathfrak{A}, \nu}$-true for $(p, q)$. \qedhere
 \end{enumerate}
 \end{proof}
 
