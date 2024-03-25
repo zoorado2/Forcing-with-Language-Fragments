@@ -48,7 +48,7 @@ linkcolor=blue
 
 \title{Forcing with Language Fragments, Extending Namba Forcing, and Models of Theories with Constraints in Interpretation}
 \author{Lau Chee Loong Desmond}
-\date{24 March 2024}
+\date{25 March 2024}
 
 \renewcommand*\contentsname{Table of Contents}
 
@@ -866,9 +866,17 @@ By the form of $\mathsf{check}(\mathsf{pos}(\phi))$, it is sufficient to prove t
  That $\Sigma \subset \Sigma'$ means $$\Sigma \models^*_{\mathfrak{A}} \varphi \implies \Sigma' \models^*_{\mathfrak{A}} \varphi,$$ so it is sufficient to prove $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner.$$ We examine the possible cases below.
 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
     \item $x \not\in \mathcal{L}$. Then $x \not\in \Sigma'$, so $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
-    \item $x \in \mathcal{L}$ and $\varphi$ occurs in $\mathsf{pos}(\phi)$. Then $x$ cannot be a variable symbol. Since $\mathsf{check}(\mathsf{pos}(\phi))$ logically implies $\mathsf{pos}(\phi)$ and $\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$, also $\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{pos}(\phi)$. By the definition of $\mathsf{pos}$, $\ulcorner \neg \varphi \urcorner$ must not occur in $\mathsf{pos}(\phi)$, so $\varphi$ is a conjunct of $\mathsf{pos}(\phi)$ and $\Sigma \models^*_{\mathfrak{A}} \varphi$. As a result, $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$$ trivially holds.
-    \item $x \in \mathcal{L}$, $\varphi$ does not occur in $\mathsf{pos}(\phi)$ and moreover, $\ulcorner \neg \varphi \urcorner$ does not occur in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. If $\varphi$ occurs in $\nu^*(\mathsf{pos}(\phi))$ then by the same argument as in Case 2, $\Sigma \models^*_{\mathfrak{A}} \varphi$ and we have our desired conclusion. Otherwise, $\varphi$ occurs as a subformula of $\nu^*(\varphi')$ for some $\varphi' \in \mathrm{CS}(\mathsf{pos}(\phi))$. By the definition of $\mathrm{CS}$ and the fact that $\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$, $\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$ means $x \not \in \mathcal{L}$, in which case also $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
-    \item $x \in \mathcal{L}$, $\varphi$ does not occur in $\mathsf{pos}(\phi)$ and moreover, $\ulcorner \neg \varphi \urcorner$ occurs in \\ $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. Here $\ulcorner \neg \varphi \urcorner$ must occur in $\nu^*(\mathsf{pos}(\phi))$, so by the definition of $\mathrm{CS}$, $$\ulcorner (x \in \mathcal{L} \implies E(\neg x)) \urcorner$$ occurs in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. Now $\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$ implies either $x \not \in \mathcal{L}$ or $\neg x \in \Sigma$. In the former case $x \not \in \Sigma'$; in the latter case $\neg x \in \Sigma'$ and $\Sigma'$ being $\mathcal{L}$-nice tell us that $x \not \in \Sigma'$. In both cases, we end up with $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$. \qedhere
+    \item $x \in \mathcal{L}$ and $\varphi$ occurs in $\mathsf{pos}(\phi)$. Then $x$ cannot be a variable symbol. Since $\mathsf{check}(\mathsf{pos}(\phi))$ logically implies $\mathsf{pos}(\phi)$ and $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi)),$$ also $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{pos}(\phi).$$ By the definition of $\mathsf{pos}$, $\ulcorner \neg \varphi \urcorner$ must not occur in $\mathsf{pos}(\phi)$, so $\varphi$ is a conjunct of $\mathsf{pos}(\phi)$, and $\Sigma \models^*_{\mathfrak{A}} \varphi$. As a result, $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$$ trivially holds.
+    \item $x \in \mathcal{L}$, $\varphi$ does not occur in $\mathsf{pos}(\phi)$ and moreover, $\ulcorner \neg \varphi \urcorner$ does not occur in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. 
+    
+    If $\varphi$ occurs in $\nu^*(\mathsf{pos}(\phi))$ then by the same argument as in Case 2, $\Sigma \models^*_{\mathfrak{A}} \varphi$ and we have our desired conclusion. Otherwise, $\varphi$ occurs as a subformula of $\nu^*(\varphi')$ for some $\varphi' \in \mathrm{CS}(\mathsf{pos}(\phi))$. By the definition of $\mathrm{CS}$ and the fact that $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi)),$$ $\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$ means $x \not \in \mathcal{L}$, in which case also $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
+    \item $x \in \mathcal{L}$, $\varphi$ does not occur in $\mathsf{pos}(\phi)$ and moreover, $\ulcorner \neg \varphi \urcorner$ occurs in \\ $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. 
+    
+    Here $\ulcorner \neg \varphi \urcorner$ must occur in $\nu^*(\mathsf{pos}(\phi))$, so by the definition of $\mathrm{CS}$, $$\ulcorner (x \in \mathcal{L} \implies E(\neg x)) \urcorner$$ occurs in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. Now $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$$ implies either $x \not \in \mathcal{L}$ or $\neg x \in \Sigma$. 
+    \begin{enumerate}[label=Subcase \arabic*:, leftmargin=60pt]
+        \item $x \not \in \mathcal{L}$. Then clearly $x \not \in \Sigma'$, so $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
+        \item $\neg x \in \Sigma$. Then $\neg x \in \Sigma'$ because $\Sigma \subset \Sigma'$. Since $\Sigma'$ is $\mathcal{L}$-nice, it must be that $x \not \in \Sigma'$. We thus also have $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$. \qedhere
+    \end{enumerate}
 \end{enumerate}
 \end{proof}
 
@@ -2511,7 +2519,7 @@ Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a $\Pi_2$ TCI.
 The theorem follows directly from Lemmas \ref{main2}, \ref{mcequiv} and \ref{mcequiv2}, noting that the hypotheses of Lemma \ref{main2} are satisfied with
 \begin{itemize}
     \item $\mathfrak{A}_{\mathfrak{T}}$ in place of $\mathfrak{A}$,
-    \item $|\mathfrak{A}_{\mathfrak{T}}|$ in place of $\lambda$,
+    \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
     \item $\mathcal{L}_{\mathfrak{T}}$ in place of $\mathcal{L}$,
     \item $[\mathcal{L}_{\mathfrak{T}}]^{< \omega}$ in place of $B$,
     \item $P(\mathfrak{T})$ in place of $P$,
@@ -2713,7 +2721,7 @@ Assume not all models of $\mathfrak{T}$ are almost finitely determined, and let 
 Check that the hypotheses of Lemma \ref{main2} are satisfied when we have 
 \begin{itemize}
     \item $\mathfrak{A}_{\mathfrak{T}}$ in place of $\mathfrak{A}$,
-    \item $|\mathfrak{A}_{\mathfrak{T}}|$ in place of $\lambda$,
+    \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
     \item $\mathcal{L}_{\mathfrak{T}}$ in place of $\mathcal{L}$,
     \item $[\mathcal{L}_{\mathfrak{T}}]^{< \omega}$ in place of $B$,
     \item $P(\mathfrak{T})^{\top}$ in place of $P$,
@@ -2824,10 +2832,12 @@ We shall identify $s$ with $(s, \leq_s)$ whenever contextually necessary. This c
 
 Going forward, even beyond this proof, we would often argue about things in $H(\omega)$ even though our intended domain of discourse is the set of natural numbers. This is because first-order truths about $(H(\omega); \in)$ are uniformly propagated by $f$ onto its range, so that specific versions of them hold there as well. If one such truth is sufficiently simple, then $r$ knows the version of it on $ran(f)$ and can then relay that to the appropriate machines for further processing. 
 
-Let $\mathfrak{A} = (A; \in)$ be any countable elementary substructure of $\mathfrak{A}_{\mathfrak{T}}$ with $P(\mathfrak{T})^{\top} \in A$. Since $\mathcal{L}_{\mathfrak{T}}$ is just the closure of $\bigcup P(\mathfrak{T})^{\top}$ under negation and $\mathfrak{A} \models \mathsf{ZFC - Powerset}$, we have $\mathcal{L}_{\mathfrak{T}} \in A$. That $\mathfrak{T}$ is code-friendly and $H(\omega) \subset A$ implies $\mathcal{L}_{\mathfrak{T}} \subset A$ too, so $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. The members of $\Gamma_{\mathfrak{T}}$ are $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}_{\mathfrak{T}}}$-$\Pi_2$ sentences with a single parameter $P(\mathfrak{T})^{\top}$ and quantification exclusively over $H(\omega)$, entailing that $\Gamma_{\mathfrak{T}}$ is also a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences. Similar to what we did in the proof of Theorem \ref{genericdichom}, check that all except the last two hypotheses of Lemma \ref{main2} are satisfied with 
+Let $\mathfrak{A} = (A; \in)$ be any countable elementary substructure of $\mathfrak{A}_{\mathfrak{T}}$ with $P(\mathfrak{T})^{\top} \in A$. Since $\mathcal{L}_{\mathfrak{T}}$ is just the closure of $\bigcup P(\mathfrak{T})^{\top}$ under negation and $\mathfrak{A} \models \mathsf{ZFC - Powerset}$, we have $\mathcal{L}_{\mathfrak{T}} \in A$. That $\mathfrak{T}$ is code-friendly and $H(\omega) \subset A$ implies $\mathcal{L}_{\mathfrak{T}} \subset A$ too, so $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. The members of $\Gamma_{\mathfrak{T}}^{\top}$ are $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}_{\mathfrak{T}}}$-$\Pi_2$ sentences with a single parameter $P(\mathfrak{T})^{\top}$ and quantification exclusively over $H(\omega)$, entailing that $\Gamma_{\mathfrak{T}}^{\top}$ is also a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences. 
+
+In this vein, similar to what we did in the proof of Theorem \ref{genericdichom}, check that all except the last two hypotheses of Lemma \ref{main2} are satisfied with 
 \begin{itemize}
     \item $\mathfrak{A}$ as defined,
-    \item $|\mathfrak{A}_{\mathfrak{T}}|$ in place of $\lambda$,
+    \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
     \item $\mathcal{L}_{\mathfrak{T}}$ in place of $\mathcal{L}$,
     \item $[\mathcal{L}_{\mathfrak{T}}]^{< \omega}$ in place of $B$,
     \item $P(\mathfrak{T})^{\top}$ in place of $P$,
@@ -2969,28 +2979,39 @@ Choose an arbitrary a code-friendly $\Pi_2$ TCI $\mathfrak{T}$ with not all mode
 \end{align*}
 and identify $s$ with $(s, \leq_s)$ whenever contextually necessary. We will modify the proof of Lemma \ref{ctblegeneric} to get an oracle machine $\Psi$ witnessing \ref{4532}, before checking that a very slightly modified version of Remark \ref{lastrem} applies to $\Psi$. 
 
-Let $\mathfrak{A} = (H(\omega); \in, \mathbb{P}(\mathfrak{T})^{\top})$, so that 
+Let $\mathfrak{A} = (H(\omega); \in, P(\mathfrak{T})^{\top})$, so that 
 \begin{itemize}
     \item $(H(\omega); \in)$ is a model of a sufficiently strong set theory, and
     \item $\mathcal{L}_{\mathfrak{T}}$ is a $\Delta_1$-definable subset of $H(\omega)$ over the $\mathfrak{A}$,
 \end{itemize}
-whence $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. We argue as in the proof of Lemma \ref{ctblegeneric} to conclude the following:
+whence $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. We argue as in the proof of Lemma \ref{ctblegeneric} to conclude 
 \begin{enumerate}[label=(\arabic*)]
-    \item\label{5571} $\Gamma_{\mathfrak{T}}$ is a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences, and
-    \item\label{5572} Lemma \ref{main2} can be applied to arrive at (\ref{marker0}).
+    \item\label{5571} all but the last two hypotheses of Lemma \ref{main2} hold with
+    \begin{itemize}[label=$\circ$]
+        \item $\mathfrak{A}$ as defined,
+        \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
+        \item $\mathcal{L}_{\mathfrak{T}}$ in place of $\mathcal{L}$,
+        \item $[\mathcal{L}_{\mathfrak{T}}]^{< \omega}$ in place of $B$,
+        \item $P(\mathfrak{T})^{\top}$ in place of $P$,
+        \item $\mathbb{P}(\mathfrak{T})^{\top}$ in place of $\mathbb{P}$, and
+        \item $\Gamma_{\mathfrak{T}}^{\top}$ in place of $\Gamma$;
+    \end{itemize} 
+    \item\label{5572} in particular, $\Gamma_{\mathfrak{T}}^{\top}$ is a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences.
 \end{enumerate}
-Noting that
+Now apply Lemma \ref{main2} with $V$ in place of $W$, as well as the substitutions in \ref{5571}, to arrive at (\ref{marker0}).
+
+Notice that
 \begin{itemize}
     \item $H(\omega)$ is closed under the function $\chi_{\mathfrak{T}}$ as defined in Remark \ref{subsafe2}, and 
     \item the $f$-image of $\chi_{\mathfrak{T}}$ is $\Delta^0_0$ (i.e. computable),
 \end{itemize} 
-we deduce the following:
+from which we deduce the following:
 \begin{enumerate}[label=(\arabic*)]
     \setcounter{enumi}{2}
     \item\label{5573} the $f$-image of each $\Sigma_1$-definable subset of $P(\mathfrak{T})^{\top}$ over $\mathfrak{A}$ is $\Sigma^{0, s}_1$.
 \end{enumerate}
 
-Passing \ref{5571} to \ref{5573} through $f$ the way (\ref{marker}) was passed through $f$ in the proof of Lemma \ref{ctblegeneric}, for some oracle machine $\bar{\Phi}$ we have
+Passing (\ref{marker0}) and \ref{5573} through $f$ the way (\ref{marker}) was passed through $f$ in the proof of Lemma \ref{ctblegeneric}, for some oracle machine $\bar{\Phi}$ we have
 \begin{align}\label{number9}
     \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \nonumber \\
     & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}})))) \text{.}
