@@ -48,7 +48,7 @@ linkcolor=blue
 
 \title{Forcing with Language Fragments, Extending Namba Forcing, and Models of Theories with Constraints in Interpretation}
 \author{Lau Chee Loong Desmond}
-\date{25 March 2024}
+\date{1 April 2024}
 
 \renewcommand*\contentsname{Table of Contents}
 
@@ -1324,7 +1324,7 @@ As $|H(\lambda_f)| = \lambda_f$, we can fix a bijection $c : \lambda_f \longrigh
 for each $\lambda < \lambda_f$.
 
 Making use of straightforward closure arguments, we inductively define $C$ such that 
-\begin{enumerate}[label=(Q\arabic*), leftmargin=40pt]
+\begin{enumerate}[label=(Q$_\lambda$\arabic*), leftmargin=40pt]
     \item\label{q1} $C$ is a club in $\lambda_f$, and
     \item\label{q2} for all $\lambda \in C$, 
     \begin{itemize}
@@ -1866,17 +1866,22 @@ In the likely event that the answer to Question \ref{addsreals} is in the negati
 
 As a consequence of Jensen's work, we need only consider the case of $\lambda$ being a weakly inaccessible cardinal without further qualification.
 
-\begin{ques}
+\begin{ques}\label{q428}
 Must $Nb_2(\lambda)$ hold for a weakly inaccessible $\lambda$, if $\lambda$ is not strongly inaccessible?
 \end{ques}
 
 In another direction, we can ask about the possibility of eschewing the assumptions in Corollary \ref{nambacoro}.
 
-\begin{ques}\label{nbonenores}
-Is it true that $\mathsf{ZFC} \vdash ``Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$''?
-\end{ques}
+\begin{enumerate}[label=(Q\arabic*)]
+    \setcounter{enumi}{1}
+    \item\label{newq2} Is it true that $\mathsf{ZFC} \vdash ``Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$''?
+\end{enumerate}
 
-Apparently, Question \ref{nbonenores} has been resolved in the affirmative by Bondt and Velickovic in the former's forthcoming thesis. In fact, Bondt claims the duo have proven an even stronger theorem in $\mathsf{ZFC}$ alone, when answering a question of mine on MathOverflow (see \cite{bendb}). However, as the finer details of their proof are not provided in his MathOverflow post, I shall conservatively mark Question \ref{nbonenores} as open.
+Very recent results by De Bondt and Velickovic (to be found in \cite{bendb}) resolved \ref{newq2} in the affirmative. In fact, the class of forcing notions constructed by De Bondt and Velickovic assuming only $\mathsf{ZFC}$, bears witness to a theorem significantly stronger than 
+\begin{quote}
+    ``$Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$''.
+\end{quote}
+However, these forcing notions always add reals, so they cannot be used to answer Question \ref{q428}.
 
 \section{Theories with Constraints in Interpretation (TCIs) and their Models}\label{TCIsec}
 
@@ -3123,7 +3128,7 @@ Precisely because Theorem \ref{lastthm} establishes a very strong version of per
 The study of how abundant generic models of a TCI are, can be approached from another direction: by comparing them with arbitrary models of the same TCI. As such, the propensity for a model of a TCI to be isomorphic to a generic model becomes of fundamental interest. In view of much of the work done in this section, the following is a most natural question.
 
 \begin{enumerate}[label=(Q\arabic*)]
-    \setcounter{enumi}{1}
+    \setcounter{enumi}{2}
     \item\label{54qn2} Is there a consistent $\Pi_2$ TCI $\mathfrak{T}$ such that every model of $\mathfrak{T}$ found in some outer model of $V$ is isomorphic to a $V$-generic model of $\mathfrak{T}$?
 \end{enumerate}
 
@@ -3134,14 +3139,14 @@ Even if we require $\mathfrak{T}$ to have an infinite model in each of these que
 However, the question dual to \ref{54qn2} appears more difficult.
 
 \begin{enumerate}[label=(Q\arabic*)]
-    \setcounter{enumi}{2}
+    \setcounter{enumi}{3}
     \item\label{54qn3} Is there a $\Pi_2$ TCI $\mathfrak{T}$ with a model $\mathcal{M}$ in some outer model of $V$ such that $\mathcal{M}$ is not isomorphic to any $V$-generic model of $\mathfrak{T}$?
 \end{enumerate}
 
 Since our impetus for studying TCIs stems from our interest in uncovering links between forcing/genericity and the semantics of first-order logic, it is perhaps fitting that we ask for a similar example of a first-order theory. 
 
 \begin{enumerate}[label=(Q\arabic*)]
-    \setcounter{enumi}{3}
+    \setcounter{enumi}{4}
     \item\label{54qn4} Is there a first-order $\Pi_2$ theory $T$ with a model $M$ in some outer model of $V$ such that for no $\Pi_2$ TCI $\mathfrak{T}$ is $M$ isomorphic to a $V$-generic model of $\mathfrak{T}$?
 \end{enumerate}
 
