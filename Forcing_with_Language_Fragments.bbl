@@ -453,34 +453,28 @@
     \endentry
     \entry{bendb}{misc}{}
       \name{author}{1}{}{%
-        {{hash=2007bfc351a37cdfe95166fc086fafa0}{%
-           family={(https://mathoverflow.net/users/506456/bdebondt)},
-           familyi={(\bibinitperiod},
-           given={BDeBondt},
+        {{hash=f954e39597eff0a6612aac687f5df4db}{%
+           family={De\bibnamedelima Bondt},
+           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Ben},
            giveni={B\bibinitperiod}}}%
       }
-      \strng{namehash}{2007bfc351a37cdfe95166fc086fafa0}
-      \strng{fullhash}{2007bfc351a37cdfe95166fc086fafa0}
-      \strng{bibnamehash}{2007bfc351a37cdfe95166fc086fafa0}
-      \strng{authorbibnamehash}{2007bfc351a37cdfe95166fc086fafa0}
-      \strng{authornamehash}{2007bfc351a37cdfe95166fc086fafa0}
-      \strng{authorfullhash}{2007bfc351a37cdfe95166fc086fafa0}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \list{publisher}{1}{%
+        {Université Paris Cité}%
+      }
+      \strng{namehash}{f954e39597eff0a6612aac687f5df4db}
+      \strng{fullhash}{f954e39597eff0a6612aac687f5df4db}
+      \strng{bibnamehash}{f954e39597eff0a6612aac687f5df4db}
+      \strng{authorbibnamehash}{f954e39597eff0a6612aac687f5df4db}
+      \strng{authornamehash}{f954e39597eff0a6612aac687f5df4db}
+      \strng{authorfullhash}{f954e39597eff0a6612aac687f5df4db}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{MathOverflow}
-      \field{note}{URL:https://mathoverflow.net/q/448463 (version: 2023-06-08)}
-      \field{title}{Extending Namba forcing to arbitrary lengths}
-      \verb{eprint}
-      \verb https://mathoverflow.net/q/448463
-      \endverb
-      \verb{urlraw}
-      \verb https://mathoverflow.net/q/448463
-      \endverb
-      \verb{url}
-      \verb https://mathoverflow.net/q/448463
-      \endverb
+      \field{howpublished}{PhD Thesis}
+      \field{title}{Stationary Set Preserving Forcing, Side Conditions and Games}
+      \field{year}{2024}
     \endentry
   \enddatalist
 \endrefsection
