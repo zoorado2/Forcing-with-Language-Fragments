@@ -570,17 +570,17 @@ A set $\mathcal{L}$ is \emph{closed under negation} iff for each $\phi \in \math
 
 Before we proceed, fix a set $\mathcal{L}$ that is closed under negation and does not contain any variable symbol. We will stick to this $\mathcal{L}$ for the rest of this section.
 
-\begin{defi}
+\begin{defi}\label{lsuitable}
 A structure $\mathfrak{A} = (A; \in, \Vec{R})$ is $\mathcal{L}$\emph{-suitable} iff
 \begin{itemize}
     \item $\Vec{R}$ is a set of relations on $A$,
     \item $(A; \in)$ is a model of a sufficiently strong set theory,
     \item $\mathcal{L} \subset A$, and
-    \item $\mathcal{L}$ is definable in the language associated with $\mathfrak{A}$.
+    \item $\mathcal{L}$ is $\Pi_1$-definable in the language associated with $\mathfrak{A}$.
 \end{itemize}
 \end{defi}
 
-We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$.
+We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypotheses.
 
 Fix an $\mathcal{L}$-suitable $\mathfrak{A} = (A; \in, \Vec{R})$ for the rest of this section.
 
@@ -903,7 +903,7 @@ For the rest of this subsection, we fix a forcing notion $\mathbb{P} = (P, \leq_
     \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, and
     \item $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}$.
 \end{itemize}
-The requirement for $\mathbb{P}$ to be $\Sigma_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypotheses.
+Similar in motivation to the final bullet point in Definition \ref{lsuitable}, the requirement for $\mathbb{P}$ to be $\Sigma_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypotheses.
 
 \begin{defi}
 For $p \in P$, a $p$\emph{-candidate for} $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universality} is a set $\Sigma$ for which
