@@ -201,6 +201,54 @@
       \field{pages}{37\bibrangedash 49}
       \range{pages}{13}
     \endentry
+    \entry{fmw}{incollection}{}
+      \name{author}{3}{}{%
+        {{hash=60d32e5e5c0aeb219b221bc422c03542}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=555a2a74b7fb36f7e5a08b35065e3946}{%
+           family={Magidor},
+           familyi={M\bibinitperiod},
+           given={Menachem},
+           giveni={M\bibinitperiod}}}%
+        {{hash=28d462c0ab21d2fdd33a67ac7bb822aa}{%
+           family={Woodin},
+           familyi={W\bibinitperiod},
+           given={Hugh},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{93e55cc7150005d3db9cb7189c3a242e}
+      \strng{fullhash}{93e55cc7150005d3db9cb7189c3a242e}
+      \strng{bibnamehash}{93e55cc7150005d3db9cb7189c3a242e}
+      \strng{authorbibnamehash}{93e55cc7150005d3db9cb7189c3a242e}
+      \strng{authornamehash}{93e55cc7150005d3db9cb7189c3a242e}
+      \strng{authorfullhash}{93e55cc7150005d3db9cb7189c3a242e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Set theory of the continuum ({B}erkeley, {CA}, 1989)}
+      \field{series}{Math. Sci. Res. Inst. Publ.}
+      \field{title}{Universally {B}aire sets of reals}
+      \field{volume}{26}
+      \field{year}{1992}
+      \field{pages}{203\bibrangedash 242}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1007/978-1-4613-9754-0_15
+      \endverb
+      \verb{urlraw}
+      \verb https://doi-org.libproxy1.nus.edu.sg/10.1007/978-1-4613-9754-0_15
+      \endverb
+      \verb{url}
+      \verb https://doi-org.libproxy1.nus.edu.sg/10.1007/978-1-4613-9754-0_15
+      \endverb
+    \endentry
     \entry{kechris}{book}{}
       \name{author}{1}{}{%
         {{hash=c20ec70302197b9127746c09db04c836}{%
@@ -341,6 +389,81 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.4310/MRL.2009.v16.n5.a4
+      \endverb
+    \endentry
+    \entry{larson}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=ecaaec26a836018bed7282be07ad408c}{%
+           family={Larson},
+           familyi={L\bibinitperiod},
+           given={Paul\bibnamedelima B.},
+           giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Dordrecht}%
+      }
+      \strng{namehash}{ecaaec26a836018bed7282be07ad408c}
+      \strng{fullhash}{ecaaec26a836018bed7282be07ad408c}
+      \strng{bibnamehash}{ecaaec26a836018bed7282be07ad408c}
+      \strng{authorbibnamehash}{ecaaec26a836018bed7282be07ad408c}
+      \strng{authornamehash}{ecaaec26a836018bed7282be07ad408c}
+      \strng{authorfullhash}{ecaaec26a836018bed7282be07ad408c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of set theory. {V}ols. 1, 2, 3}
+      \field{title}{Forcing over models of determinacy}
+      \field{year}{2010}
+      \field{pages}{2121\bibrangedash 2177}
+      \range{pages}{57}
+      \verb{doi}
+      \verb 10.1007/978-1-4020-5764-9_25
+      \endverb
+      \verb{urlraw}
+      \verb https://doi-org.libproxy1.nus.edu.sg/10.1007/978-1-4020-5764-9_25
+      \endverb
+      \verb{url}
+      \verb https://doi-org.libproxy1.nus.edu.sg/10.1007/978-1-4020-5764-9_25
+      \endverb
+    \endentry
+    \entry{woodin}{book}{}
+      \name{author}{1}{}{%
+        {{hash=aec46f0a7b0eb765653110262007ad27}{%
+           family={Woodin},
+           familyi={W\bibinitperiod},
+           given={W.\bibnamedelimi Hugh},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Walter de Gruyter GmbH \& Co. KG, Berlin}%
+      }
+      \strng{namehash}{aec46f0a7b0eb765653110262007ad27}
+      \strng{fullhash}{aec46f0a7b0eb765653110262007ad27}
+      \strng{bibnamehash}{aec46f0a7b0eb765653110262007ad27}
+      \strng{authorbibnamehash}{aec46f0a7b0eb765653110262007ad27}
+      \strng{authornamehash}{aec46f0a7b0eb765653110262007ad27}
+      \strng{authorfullhash}{aec46f0a7b0eb765653110262007ad27}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{revised}
+      \field{isbn}{978-3-11-019702-0}
+      \field{series}{De Gruyter Series in Logic and its Applications}
+      \field{title}{The axiom of determinacy, forcing axioms, and the nonstationary ideal}
+      \field{volume}{1}
+      \field{year}{2010}
+      \field{pages}{vi+852}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1515/9783110213171
+      \endverb
+      \verb{urlraw}
+      \verb https://doi-org.libproxy1.nus.edu.sg/10.1515/9783110213171
+      \endverb
+      \verb{url}
+      \verb https://doi-org.libproxy1.nus.edu.sg/10.1515/9783110213171
       \endverb
     \endentry
     \entry{kunen}{book}{}
