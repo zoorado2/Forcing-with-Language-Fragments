@@ -6,10 +6,10 @@
 \usepackage{bbm}
 \usepackage{mathbbol}
 \usepackage[]{enumitem}
-\setlist[enumerate,1]{itemsep=0pt, parsep=5pt, listparindent=\parindent}
+\setlist[enumerate,1]{itemsep=0pt, parsep=0pt, listparindent=\parindent}
 \setlist[enumerate,2]{ref=\theenumii, itemsep=0pt, parsep=5pt, listparindent=\parindent}
-\setlist[itemize,1]{itemsep=0pt, parsep=5pt, listparindent=\parindent}
-\setlist[itemize,2]{itemsep=0pt, parsep=5pt, listparindent=\parindent}
+\setlist[itemize,1]{itemsep=0pt, parsep=0pt, listparindent=\parindent}
+\setlist[itemize,2]{itemsep=0pt, parsep=0pt, listparindent=\parindent}
 \usepackage{titling}
 \usepackage{mathtools}
 \usepackage[backend=biber,
@@ -48,7 +48,6 @@ linkcolor=blue
 
 \title{Forcing with Language Fragments, Extending Namba Forcing, and Models of Theories with Constraints in Interpretation}
 \author{Lau Chee Loong Desmond}
-\date{1 April 2024}
 
 \renewcommand*\contentsname{Table of Contents}
 
@@ -57,7 +56,7 @@ linkcolor=blue
 \maketitle
 
 \begin{abstract}
-    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical Henkin model. We then demonstrate the usefulness of this framework by applying it to both the extended Namba problem and the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and are of independent interest.
+    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical Henkin model. We then demonstrate the usefulness of this framework by applying it to variants of the extended Namba problem, as well as to the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and are of independent interest.
 \end{abstract}
 
 \newtheorem{thm}{Theorem}[section]
@@ -100,7 +99,7 @@ linkcolor=blue
 }
 
 {\let\clearpage\relax \tableofcontents} 
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
 \section{Introduction}\label{sect1}
 
@@ -110,17 +109,17 @@ An application of forcing involves coming up with a partial order (called a \emp
 
 Over the years, set theorists have discovered important relationships between forcing notions and their generic objects\slash extensions. These relationships usually associate higher-order properties of a partial order with its forcing consequences, to the extent that the former has become a good description of forcing theory. Now, in order to derive a generic extension we desire, we need to construct a forcing notion drawing from forcing theory with our generic object in mind, at the same time easing tensions between requirements. This balancing act can be extremely tough, in part because it sees little in the way of systematic support.
 
-In this paper we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, all we need to do is to translate requirements on the generic extension into requirements on the generic object. We see via a non-trivial example, how this structured approach can make things more convenient and intuitive in practice.
+In this paper we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, all we need to do is to translate requirements on the generic extension into requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
 
-It turns out that the bare-bones framework we initially envisioned can be adorned with additional layers of syntactic sugar to capture analogous properties of a specific type of first-order structures. These structures are incidentally models of what we term first-order \emph{theories with constraints in interpretation} (\emph{TCIs}). The concept of a first-order TCI, in some sense, generalises that of a first-order theory in logic, and can be useful in expressing different kinds of objects logicians care about. We devote some space in this paper to the basic theory of TCIs and their models, before relating forcing to generic models of TCIs in a variety of ways that traverses set theory and computability theory. As a side effect, we characterise the expressiveness of forcing as a technique by the kind of truths it is able to impose on generic objects.
+It turns out that the bare-bones framework we initially envisioned can be adorned with additional layers of syntactic sugar to capture analogous properties of a specific type of first-order structures. These structures are incidentally models of what we term first-order \emph{theories with constraints in interpretation} (\emph{TCIs}). The concept of a first-order TCI, in some sense, generalises that of a first-order theory in logic, and can be useful in expressing different kinds of objects logicians care about. We devote some space in this paper to the basic theory of TCIs and their models, before relating forcing to generic models of TCIs in a variety of ways that traverses set theory and computability theory. As an aside, we argue for a way to characterise the expressiveness of forcing as a technique, by the kind of truths it is able to impose on generic objects.
 
 \subsection{Sectional Content and Dependencies}
 
-Section \ref{sect15} lays the technical foundation for the rest of the paper. Potential philosophical and meta-theoretic concerns are addressed, prerequisite knowledge highlighted, and background readings recommended. Important definitions and conventions are made explicit, especially those that are more niched, and those that lack community consensus. Consequentially, the topic of forcing and genericity (Subsection \ref{subs24}) gets a more comprehensive treatment than the others. All subsequent sections depend on the materials here.
+Section \ref{sect15} lays the technical foundation for the rest of the paper. Potential philosophical and meta-theoretic concerns are addressed, prerequisite knowledge highlighted, and background readings recommended. Important definitions and conventions are made explicit, especially those that are more niched, and those that lack community consensus. Consequentially, the topics related to forcing and generic iterations (Subsections \ref{subs24} to \ref{ss27}) tend to get more comprehensive treatments than the others. All subsequent sections depend on Subsections \ref{subs21} to \ref{subs24}, whereas the materials in Subsections \ref{ss25} to \ref{ss27} are only referenced in Subsection \ref{ss43}.
 
 Section \ref{setupsec} concerns itself with the development of our central framework for forcing. The technical machinery of this section concentrates around Lemma \ref{uni}, which itself is a generalisation of Lemma \ref{main2}. On the other hand, Lemma \ref{main2} is the accessible and more applicable backbone of the paper, a throughline tying subsequent sections together. Subsection \ref{subs51} is notable for not depending on Lemma \ref{main2}, nor in fact, on any of Section \ref{setupsec}'s technology.
 
-The entirety of Section \ref{sect2} is devoted to applying the forcing framework developed in Section \ref{setupsec} to a non-trivial problem in set theory: a variant of the extended Namba problem. Said framework is used to construct a specific forcing notion that gives rise to generic extensions satisfying a given set of requirements. This construction is wholly contained in the proof of the section's key theorem, Theorem \ref{notion1}. No other section is dependent on what transpires here.
+The entirety of Section \ref{sect2} is devoted to applying the forcing framework developed in Section \ref{setupsec} to variants of the extended Namba problem. Said framework is used to construct specific forcing notions that give rise to generic extensions satisfying various sets of requirements. We start with a relatively simple construction in Theorem \ref{notion1}, before extending it to solve a more difficult problem in Theorem \ref{notion2}. No other section is dependent on what transpires here.
 
 Section \ref{TCIsec} introduces the notions of (first-order) TCIs and models of TCIs, before relating them to forcing and genericity. In particular, Subsection \ref{subs51} develops the basic theory of TCIs and their models, and can be read right after Section \ref{sect15}. The other subsections depend in part on the results of Section \ref{setupsec}, and give applications of Section \ref{setupsec}'s forcing framework to more general contexts of genericity. Here, genericity is investigated in both set-theoretic and computability-theoretic senses of the word. Like Section \ref{sect2}, this section is not the object of any dependency.
 
@@ -248,6 +247,13 @@ Let $X$ be a set and $\mathfrak{A}$ be a structure with base set $A$ in a possib
 
 \begin{defi}
 Let $X$ be a set and $\mathfrak{A}$ be a structure with base set $A$ in a possibly expanded language of set theory. Further, let $n < \omega$. We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) \emph{in the language associated with} $\mathfrak{A}$ iff $$X = \{y \in A : \mathfrak{A} \models \phi(y)\}$$ for some $\Sigma_n$ (resp. $\Pi_n$ and $\Delta_n$) formula $\phi$ with one free variable in the language associated with $\mathfrak{A}$ (in accordance with Definition \ref{def27}).
+\end{defi}
+
+\begin{defi}
+Given (externally) a class $\mathbf{M}$ of classes, we say a definition $\varphi$ in $n$ variables --- for some finite number $n$ --- is \emph{absolute for} $\mathbf{M}$ iff for every two members $X, Y$ of $\mathbf{M}$ such that $X \subset Y$, and for every sequence $\Vec{x}$ of $n$ members of $X$,
+\begin{equation*}
+    X \models \varphi(\Vec{x}) \iff Y \models \varphi(\Vec{x}) \text{.}
+\end{equation*}
 \end{defi}
 
 \begin{defi}\label{inoutmodels}
@@ -528,6 +534,296 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}
 If $\mathbb{P} = (P, \leq_{\mathbb{P}}) \lessdot \mathbb{Q}$, then for every $\mathbb{Q}$-generic filter $g$ over $V$, $g \cap P$ is a $\mathbb{P}$-generic filter over $V$.
 \end{fact}
 
+\subsection{Universally Baire Sets and Productive Classes}\label{ss25}
+
+\begin{defi}[Feng-Magidor-Woodin]
+Let 
+\begin{itemize}
+    \item $1 \leq k < \omega$, 
+    \item $D \in \mathcal{P}(\mathbb{R}^k)$, and
+    \item $T$ and $U$ be trees on ${^{k}{\omega}} \times \lambda$ for some cardinal $\lambda$.
+\end{itemize} 
+We say $T$ and $U$ \emph{witness} $D$ \emph{is universally Baire} iff 
+\begin{itemize}
+    \item $D = p[T]$, and
+    \item $\Vdash^V_{\mathbb{P}} ``p[U] = \mathbb{R}^k \setminus p[T]"$ for all set forcing notions $\mathbb{P}$.
+\end{itemize}
+We say $D$ is \emph{universally Baire} iff there are trees $T$ and $U$ witnessing $D$ is universally Baire.
+\end{defi}
+
+The definition of universally Baire sets of reals first appeared in \cite[Section 2]{fmw}. 
+
+If $T$ and $U$ witness $D$ is universally Baire, then we can read off $T$ an unambiguous version of $D$, which we denote $D^*$, in any generic extension of $V$. Essentially, we let $(D^*)^{V[g]} = (p[T])^{V[g]}$ for any poset $\mathbb{P} \in V$ and any $\mathbb{P}$-generic filter $g$ over $V$.
+
+Note also that if
+\begin{itemize}
+    \item $T$ and $U$ witness $D$ is universally Baire, and
+    \item $T'$ and $U'$ witness $D$ is universally Baire,
+\end{itemize}
+then for all set forcing notions $\mathbb{P}$, 
+\begin{equation*}
+    \Vdash^V_{\mathbb{P}} ``p[T] = p[T']",
+\end{equation*}
+so the evaluation of $D^*$ is independent of the witnesses for $D$ being universally Baire.
+
+\begin{defi}
+Let $\Gamma^{\infty}$ denote the set of all universally Baire sets of reals, i.e. 
+\begin{equation*}
+    \Gamma^{\infty} := \{D \in \bigcup_{1 \leq k < \omega} \mathcal{P}(\mathbb{R}^k) : D \text{ is universally Baire}\}.
+\end{equation*}
+\end{defi}
+
+\begin{defi}
+Let $\Gamma \subset \bigcup_{1 \leq k < \omega} \mathcal{P}(\mathbb{R}^k)$. We say $\Gamma$ is \emph{productive} iff
+\begin{enumerate}[label=(\arabic*), leftmargin=40pt]
+    \item $\Gamma \subset \Gamma^{\infty}$,
+    \item $\Gamma$ is closed under complements, i.e. for all $k < \omega$, if $D \in \Gamma \cap \mathcal{P}(\mathbb{R}^{k+1})$, then $\mathbb{R}^{k+1} \setminus D \in \Gamma$,
+    \item $\Gamma$ is closed under projections, i.e. for all $k < \omega$, if $D \in \Gamma \cap \mathcal{P}(\mathbb{R}^{k+2})$, then
+    \begin{equation*}
+        \exists^{\mathbb{R}} D := \{\Vec{x} \in \mathbb{R}^{k+1} : \exists y \ (\Vec{x}^{\frown}(y) \in D)\} \in \Gamma,
+    \end{equation*}
+    and
+    \item the closure of $\Gamma$ under projections is preserved by set forcing notions in a strong way: for all $k < \omega$, if $D \in \Gamma \cap \mathcal{P}(\mathbb{R}^{k+2})$, then
+    \begin{equation*}
+        (\exists^{\mathbb{R}} D)^* = \{\Vec{x} \in \mathbb{R}^{k+1} : \exists y \ (\Vec{x}^{\frown}(y) \in D^*)\}
+    \end{equation*}
+    in all generic extensions of $V$.
+\end{enumerate}
+\end{defi}
+
+\begin{lem}\label{prod}
+Let $\Gamma  = \bigcup_{1 \leq k < \omega} P(\mathbb{R}^{k}) \cap L(\Gamma, \mathbb{R})$ be productive, $D \in \Gamma$, and $\phi$ be a projective formula. If $\Vec{s} \in {^{< \omega}{\mathbb{R}}}$ and $arity(\phi) = dom(\Vec{s}) + 1$, then 
+\begin{equation*}
+    V \models \phi(\Vec{s}, D) \iff \ \Vdash^V_{\mathbb{P}} \phi(\Vec{s}, D^*)
+\end{equation*}
+for all set forcing notions $\mathbb{P}$.
+\end{lem}
+\begin{proof}
+By induction on the length of $\phi$.
+\end{proof}
+
+\subsection{Generic Iterations}
+
+We want to first define a fragment of $\mathsf{ZFC}$ rich enough to 
+\begin{itemize}
+    \item allow for basic analyses of generic ultrapowers, and
+    \item be preserved by the generic ultrapowers we will be using.
+\end{itemize}
+To this end, we follow \cite[Section 3.1]{woodin}.
+
+\begin{defi}[Woodin]\label{nota1}
+Let $\mathsf{ZFC}^*$ be the conjunction of $$\mathsf{ZFC} - \mathsf{Replacement} - \mathsf{Powerset}$$ and the following schema:
+\begin{quote}
+    ``Given any nonempty class of functions $\mathcal{R}$ with
+    \begin{itemize}
+        \item $dom(f) < \omega_1$ and
+        \item $f \restriction \alpha \in \mathcal{R}$
+    \end{itemize}
+    for all $f \in \mathcal{R}$ and all $\alpha \in dom(f)$, there is $\beta \leq \omega_1$ and a function $g$ with domain $\beta$ such that
+    \begin{itemize}
+        \item $g \not \in \mathcal{R}$,
+        \item for all $\gamma < \beta$, $g \restriction \gamma \in \mathcal{R}$, and
+        \item if $\beta = \gamma + 1$, then $g \restriction \gamma$ is $\subset$-maximal in $\mathcal{R}$.''
+    \end{itemize}
+\end{quote}
+\end{defi}
+
+Informally, the schema found in the block quote in Definition~\ref{nota1} says that every tree of height at most $\omega_1$ has a path.
+
+\begin{defi}\label{def257}
+For $\alpha \leq \omega_1$, we say a class $$\mathfrak{C} = \langle \bar{N}_i = (N_i; \tilde{\in}_i, I_i), \sigma_{ij} : i \leq j < \alpha \rangle$$ is a \emph{generic iteration} iff 
+\begin{itemize}
+    \item $\tilde{\in}_0$ is a binary relation on $N_0$ interpreting $\ulcorner \in \urcorner$ in the language of set theory,
+    \item $I_0$ is a unary relation on $N_0$,
+    \item $(N_0; \tilde{\in}_0) \models \mathsf{ZFC}^*$,
+    \item $\bar{N}_0 \models ``I_0$ is a normal uniform ideal on $\omega_1"$, 
+    \item for all $i < \alpha$, $\sigma_{ii} = id_{N_i}$,
+    \item for all $i < \alpha$ such that $i + 1 < \alpha$, there is $g_{i}$ a $\mathcal{P}(\omega_1)^{\bar{N}_{i}} / I$-generic filter over $N_{i}$ such that 
+    \begin{itemize}[label=$\circ$]
+        \item $N_{i + 1} = Ult(N_{i}, g_{i})$, and
+        \item $\sigma_{i(i + 1)} : N_{i} \longrightarrow N_{i + 1}$ is the corresponding ultrapower embedding,
+    \end{itemize}
+    \item for all limit ordinals $k < \alpha$, $(\bar{N}_{k}, \langle \sigma_{ik} : i < k \rangle)$ is the direct limit of $\langle \bar{N}_i, \sigma_{ij} : i \leq j < k \rangle$, and
+    \item for all $i \leq j \leq k < \alpha$, $\sigma_{ik} = \sigma_{jk} \circ \sigma_{ij}$.
+\end{itemize}
+In this case, we call $\alpha$ the \emph{length} of $\mathfrak{C}$.
+\end{defi}
+
+\begin{defi}
+For $\alpha \leq \omega_1$ and any class $\bar{N}$, a class $$\langle \bar{N}_i, \sigma_{ij} : i \leq j < \alpha \rangle$$ is a \emph{generic iteration of} $\bar{N}$ iff 
+\begin{itemize}
+    \item $\langle \bar{N}_i, \sigma_{ij} : i \leq j < \alpha \rangle$ is a generic iteration, and
+    \item $\bar{N} = \bar{N}_0$.
+\end{itemize}
+\end{defi}
+
+\begin{defi}
+A generic iteration $$\langle \bar{N}_i = (N_i; \tilde{\in}_i, I_i), \sigma_{ij} : i \leq j < \alpha \rangle$$ is \emph{well-founded} iff for all $i < \alpha$, $\tilde{\in}_i$ is a well-founded relation on $N_i$.
+\end{defi}
+
+Following convention, if $$\langle \bar{N}_i, \sigma_{ij} : i \leq j < \alpha \rangle$$ is a well-founded generic iteration, we shall identify 
+\begin{itemize}
+    \item each $\bar{N}_i$ with its transitive collapse, and
+    \item each $\sigma_{ij}$ with the unique embedding that commutes with $\sigma_{ij}$ and the transitive collapse isomorphisms of $\bar{N}_i$ and $\bar{N}_j$.
+\end{itemize}
+
+\begin{defi}
+For any class $\bar{N}$, $\bar{N}$ is \emph{generically iterable} iff  
+\begin{itemize}
+    \item for some $\sigma_{00}$, $\langle \bar{N}_0, \sigma_{00} \rangle$ is a generic iteration of $\bar{N}$, and
+    \item every generic iteration of $\bar{N}$ is well-founded.
+\end{itemize}
+\end{defi}
+
+\begin{defi}
+Given a class $\bar{N} = (N; \in, I)$, we say 
+\begin{equation*}
+    \bar{N} \models ``I \text{ is a precipitous ideal on } \omega_1"
+\end{equation*}
+iff
+\begin{itemize}
+    \item for some $\sigma_{00}$, $\langle \bar{N}_0, \sigma_{00} \rangle$ is a generic iteration of $\bar{N}$, and
+    \item every generic iteration of $\bar{N}$ of length $2$ is well-founded.
+\end{itemize}
+\end{defi}
+
+\begin{fact}\label{satipre}
+If $\bar{N} = (N; \in, I)$ is such that 
+\begin{itemize}
+    \item for some $\sigma_{00}$, $\langle \bar{N_0}, \sigma_{00} \rangle$ is a generic iteration of $\bar{N}$, and
+    \item $\bar{N} \models ``I \text{ is a saturated ideal on } \omega_1"$,
+\end{itemize}
+then
+\begin{equation*}
+    \bar{N} \models ``I \text{ is a precipitous ideal on } \omega_1".
+\end{equation*}
+\end{fact}
+
+\begin{lem}\label{gisubset}
+If $\bar{N}_0$ is generically iterable, $J$ is a normal uniform ideal on $\omega_1$, and $$\langle \bar{N}_i = (N_i; \in, I_i), \sigma_{ij} : i \leq j \leq \omega_1 \rangle$$ is a generic iteration of $\bar{N}_0$, then $I_{\omega_1} \subset J$.
+\end{lem}
+\begin{proof}
+As $\mathrm{NS}_{\omega_1}$ is the smallest normal uniform ideal on $\omega_1$, it suffices to show $I_{\omega_1} \subset \mathrm{NS}_{\omega_1}$. Note that $$C = \{\omega_1^{\bar{N}_i} : i < \omega_1\}$$ is a club in $\omega_1$. Now let $x \in I_{\omega_1}$, so that for some $i < \omega_1$, there is $x_i \in I_i$ for which $\sigma_{i\omega_1}(x_i) = x$. Since 
+\begin{equation*}
+    \bar{N}_{j+1} \cong Ult(\bar{N}_j, g_j := \{y \in \mathcal{P}(\omega_1)^{\bar{N}_j} : \omega_1^{\bar{N}_j} \in \sigma_{j(j+1)}(y)\})
+\end{equation*}
+and
+\begin{equation*}
+    g_j \cap I_j = \emptyset
+\end{equation*}
+for all $i \leq j < \omega_1$, we have 
+\begin{equation*}
+    \omega_1^{\bar{N}_j} \not\in \sigma_{i(j+1)}(x_i) = x \restriction (\omega_1^{\bar{N}_{j+1}}) 
+\end{equation*}
+for all $i \leq j < \omega_1$, whence $$x \cap (C \setminus \omega_1^{\bar{N}_i}) = \emptyset.$$ This means $x \in \mathrm{NS}_{\omega_1}$, and we are done.
+\end{proof}
+
+\begin{lem}\label{itercopy}
+Suppose 
+\begin{itemize}
+    \item for some $\sigma_{00}$, $\langle \bar{N}_0, \sigma_{00} \rangle$ is a generic iteration of $\bar{N} = (N; \in, I)$,
+    \item for some $\pi_{00}$, $\langle \bar{M}_0, \pi_{00} \rangle$ is a generic iteration of $\bar{M} = (M; \in, I)$,
+    \item $\bar{N} \in M$,
+    \item ${^{\omega_1^{\bar{M}}}{N}} \subset N$,
+    \item $N$ contains all maximal antichains of $(\mathcal{P}(\omega_1) / I)^{M}$.
+\end{itemize}
+Then for each generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i), \sigma_{ij} : i \leq j \leq \alpha \rangle$$ of $\bar{N}$, there is a unique generic iteration $$\langle \bar{M}_i = (M_i; \in, I_i), \pi_{ij} : i \leq j \leq \alpha \rangle$$ of $\bar{M}$ such that for all $i \leq j \leq \alpha$,
+\begin{itemize}
+    \item $\pi_{0i}(N) = N_i$,
+    \item ${^{\omega_1^{\bar{M_i}}}{N_i}} \subset N_i$,
+    \item $N_i$ contains all maximal antichains of $(\mathcal{P}(\omega_1) / I_i)^{M_i}$, and
+    \item $\pi_{ij} \restriction N_i = \sigma_{ij}$.
+\end{itemize}
+\end{lem}
+\begin{proof}
+By induction on $\gamma$.
+\end{proof}
+
+Lemma~\ref{itercopy} is a modified version of \cite[Lemma 1.5]{larson}: instead of requiring $N$ to contain $\mathcal{P}(\mathcal{P}(\omega_1) / I)^{M}$, we only require it to contain all the maximal antichains of $(\mathcal{P}(\omega_1) / I)^{M}$. These two lemmas share the same proof.
+
+\begin{lem}\label{iterlength}
+Suppose
+\begin{itemize}
+    \item $M$ is a transitive model of $\mathsf{ZFC}$,
+    \item $\bar{M} := (M; \in, J) \models ``J$ is a precipitous ideal on $\omega_1"$, and
+    \item for some $\alpha \in \omega_1^V \cap M$, $$\mathfrak{C} = \langle \bar{M}_i, \pi_{ij} : i \leq j \leq \alpha \rangle$$ is a generic iteration of $\bar{M}$.
+\end{itemize}
+Then $\mathfrak{C}$ is well-founded.
+\end{lem}
+\begin{proof}
+This follows from \cite[Lemma 1.6]{larson}.
+\end{proof}
+
+\begin{lem}\label{lift}
+Let $V \subset W$ be transitive models of $\mathsf{ZFC}$, such that 
+\begin{itemize}
+    \item $W \models ``H(\omega_2)^V$ is countable",
+    \item $V \models ``\mathrm{NS}_{\omega_1}$ is saturated'', and
+    \item $\omega_1^W \in V$.
+\end{itemize}
+If 
+\begin{itemize}
+    \item $\lambda \leq \kappa \leq \omega_1^W$,
+    \item in $W$, $$\langle \bar{M}_i = (M_i; \in, J_i), \pi_{ij} : \lambda \leq i \leq j \leq \kappa \rangle$$ is a generic iteration of $(H(\omega_2)^V; \in, \mathrm{NS}_{\omega_1}^V)$
+\end{itemize}
+then $\pi_{\lambda \kappa}$ lifts to a generic ultrapower map $\pi^{+}_{\lambda \kappa} : V \longrightarrow M^+$, for some well-founded $M^+ \subset W$ with $M_{\kappa} \subset M^+$.
+\end{lem}
+\begin{proof}
+This is immediate by the application of Lemmas~\ref{itercopy} and~\ref{iterlength} in $W$, with $$(V; \in, \mathrm{NS}_{\omega_1}^V)$$ in place of $\bar{M}$, noting Fact~\ref{satipre}.
+\end{proof}
+
+\subsection{\texorpdfstring{$\mathbb{P}_{max}$}{P-max} Forcing}\label{ss27}
+
+We start by overloading what it means to be a generic iteration.
+
+\begin{defi}\label{def269}
+A class
+\begin{equation*}
+    \mathfrak{C} = \langle \bar{N}_i = (N_i; \tilde{\in}_i, I_i, a_i), \sigma_{ij} : i \leq j < \alpha \rangle
+\end{equation*}
+is a \emph{generic iteration} iff
+\begin{itemize}
+    \item $a_i \in N_i$ for all $i < \alpha$,
+    \item $\langle (N_i; \tilde{\in}_i, I_i), \sigma_{ij} : i \leq j < \alpha \rangle$ is generic iteration in the sense of Definition \ref{def257}, and
+    \item $\sigma_{ij}(a_i) = a_j$.
+\end{itemize}
+\end{defi}
+
+Going forward, unless specified otherwise or under clear context, the term ``generic iteration'' will be used in the sense of Definition \ref{def269}.
+
+\begin{defi}\label{pmax}
+The conditions of $\mathbb{P}_{max}$ are exactly the structures $\bar{N} = (N; \in, I, a)$ such that
+\begin{itemize}
+    \item $N$ is countable and transitive,
+    \item $\bar{N} \models \mathsf{ZFC}^* + \mathsf{MA}(\omega_1)$,
+    \item $I \subset N$,
+    \item $x \cap I \in N$ for all $x \in N$,
+    \item $\bar{N} \models ``I$ is a normal uniform ideal on $\omega_1"$, 
+    \item $a \in N$
+    \item $\bar{N} \models ``a \subset \omega_1$ and $\omega_1 = \omega_1^{L[a, x]}$ for some real $x"$, and
+    \item $(N; \in, I)$ is generically iterable.
+\end{itemize}
+Let $\leq_{\mathbb{P}_{max}}$ be a binary relation on the conditions of $\mathbb{P}_{max}$, such that $$\bar{M} = (M; \in, J, b) \leq_{\mathbb{P}_{max}} \bar{N} = (N; \in, I, a)$$ iff one of the following conditions hold:
+\begin{itemize}
+    \item $\bar{M} = \bar{N}$, or 
+    \item $\bar{N} \in M$ and
+    \begin{align*}
+        \bar{M} \models `` & \text{there is a generic iteration } \\ 
+        & \langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1 \rangle \\
+        & \text{of } \bar{N} \text{ such that} \\
+        & a_{\omega_1} = b \text{ and } J \cap N_{\omega_1} = I_{\omega_1}".
+    \end{align*}
+\end{itemize}
+We can easily check that $\leq_{\mathbb{P}_{max}}$ is a partial ordering.
+\end{defi}
+
+\begin{lem}\label{ho2}
+Assume $\mathrm{NS}_{\omega_1}$ is saturated, $MA(\omega_1)$ holds, $2^{\omega_1} = \omega_2$, and $A \subset \omega_1$ is such that $\omega_1^{L[A]} = \omega_1$. Then $$\Vdash_{Col(\omega, \omega_2)} (H(\omega_2)^{\dot{V}}; \in, \mathrm{NS}_{\omega_1}^{\dot{V}}, A) \in \mathbb{P}_{max}.$$
+\end{lem}
+\begin{proof}
+First, note that $|H(\omega_2)| = \aleph_2$, so $$\Vdash_{Col(\omega, \omega_2)} ``H(\omega_2)^{\dot{V}} \text{ is countable}".$$ Next, we can invoke Lemma~\ref{lift} with $V^{Col(\omega, \omega_2)}$ in place of $W$, to give us the generic iterability of $$(H(\omega_2)^{V}; \in, \mathrm{NS}_{\omega_1})$$ in $V^{Col(\omega, \omega_2)}$. It is easy to check that $$(H(\omega_2)^{V}; \in, \mathrm{NS}_{\omega_1}, A)$$ satisfies the other prerequisites (as per Definition \ref{pmax}) of being a $\mathbb{P}_{max}$ condition in $V^{Col(\omega, \omega_2)}$. 
+\end{proof}
+
 \section{Forcing with Language Fragments}\label{setupsec}
 
 In model theory, a Henkin construction involves building a model of a theory over a language, from terms of that language. When such a construction is unequivocally guided by a given theory, we can safely identify the resulting Henkin model with said theory. As such, we have the following viable means of proving the existence of a object with property $P$: 
@@ -580,7 +876,7 @@ A structure $\mathfrak{A} = (A; \in, \Vec{R})$ is $\mathcal{L}$\emph{-suitable} 
 \end{itemize}
 \end{defi}
 
-We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypotheses.
+We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
 
 Fix an $\mathcal{L}$-suitable $\mathfrak{A} = (A; \in, \Vec{R})$ for the rest of this section.
 
@@ -903,7 +1199,7 @@ For the rest of this subsection, we fix a forcing notion $\mathbb{P} = (P, \leq_
     \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, and
     \item $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}$.
 \end{itemize}
-Similar in motivation to the final bullet point in Definition \ref{lsuitable}, the requirement for $\mathbb{P}$ to be $\Sigma_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypotheses.
+Similar in motivation to the final bullet point in Definition \ref{lsuitable}, the requirement for $\mathbb{P}$ to be $\Sigma_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
 
 \begin{defi}
 For $p \in P$, a $p$\emph{-candidate for} $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universality} is a set $\Sigma$ for which
@@ -928,7 +1224,7 @@ For $\Gamma \subset \mathcal{L}^{*}_{\mathfrak{A}}$, we say $\Gamma$ is $(\mathf
 For notational convenience in the proof of Lemma \ref{uni} --- indubitably our most important technical lemma --- we introduce the following definition.
 
 \begin{defi}
-For $p \in \mathbb{P}$, let $\mathcal{F}_p$ denote the set 
+For $p \in P$, let $\mathcal{F}_p$ denote the set 
 \begin{equation*}
     \{\Sigma : \Sigma \text{ is a } p \text{-candidate for } (\mathfrak{A}, \mathbb{P}, \mathcal{L}) \text{-universality in some weak outer model of } V\}.
 \end{equation*}
@@ -1045,6 +1341,43 @@ Let
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
 \end{customlem}
 \end{rem}
+
+As a surprising display of reciprocity, Lemma \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences.
+
+\begin{lem}\label{univer}
+Let 
+\begin{itemize}
+    \item $p \in P$, and
+    \item $\phi(x)$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ formula with $x$ as its only free variable. 
+\end{itemize}
+Suppose for each $a \in A$, $\phi(a)$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. Then
+\begin{equation*}
+    \varphi := \ulcorner \forall x \ \phi(x) \urcorner
+\end{equation*}
+is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$.
+\end{lem}
+\begin{proof}
+Clearly $\varphi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence. Fix $q \leq_P p$. It suffices to find a set $\Sigma$ fulfilling
+\begin{itemize}
+    \item $\Sigma$ is a $q$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality, and 
+    \item $\Sigma \models^{*}_{\mathfrak{A}} \varphi$.
+\end{itemize}
+
+Choose any $\mathbb{P}$-$\Sigma_1$-generic filter $g$ over $\mathfrak{A}$ from amongst the weak outer models of $V$, such that $q \in g$. Note that for each $a \in A$, $\phi(a)$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $q$, since $\phi(a)$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ and $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality is inherited downwards in $\mathbb{P}$. By Lemma \ref{uni},
+\begin{equation*}
+    \bigcup g \models^{*}_{\mathfrak{A}} \phi(a) \text{ for all } a \in A \text{.}
+\end{equation*}
+But this just means 
+\begin{equation*}
+    \bigcup g \models^{*}_{\mathfrak{A}} \varphi \text{.}
+\end{equation*}
+We know $\bigcup g$ is $\mathcal{L}$-nice due to Lemma \ref{uni}. That $\bigcup g$ is a $q$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality then follows from the following facts:
+\begin{itemize}
+    \item $q \in g$, and
+    \item $g$ is a filter.
+\end{itemize}
+All in all, we have shown that $\bigcup g$ is the $\Sigma$ we are looking for.
+\end{proof}
 
 A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Lemma \ref{uni}, we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, the following conjecture is then sufficiently motivated.
 
@@ -1191,12 +1524,12 @@ Fix a limit ordinal $\alpha$ and consider the chain of inequalities
 \end{equation} 
 which is provable in $\mathsf{ZFC}$. Set theorists have long investigated the ability to change the signs in (\ref{ineq1}) via forcing. If $|\alpha| < \alpha$ in $V$, then the same must hold in any forcing extension . If $cof(\alpha) < |\alpha|$ in $V$, we can always force $cof(\alpha) = |\alpha|$ by collapsing both $cof(\alpha)$ and $|\alpha|$ to a regular cardinal in $V$ no greater than $cof(\alpha)$.
 
-On the flipside, if $|\alpha| = \alpha$ in $V$, then $\alpha$ is a cardinal there. As long as $\alpha$ is uncountable, a forcing notion that collapses $\alpha$ exists and necessarily forces $|\alpha| < \alpha$. We are left with the case where $cof(\alpha) = |\alpha|$ in $V$. Note that by swapping $\alpha$ with a smaller ordinal if necessary, we can assume $\alpha$ is regular in $V$ without loss of generality. So assume $\alpha$ is an uncountable regular cardinal in $V$. Forcing $cof(\alpha) < |\alpha|$ under this assumption turned out to be highly non-trivial.
+On the flipside, if $|\alpha| = \alpha$ in $V$, then $\alpha$ is a cardinal there. As long as $\alpha$ is uncountable, a forcing notion that collapses $\alpha$ (to $\omega$, say) exists and necessarily forces $|\alpha| < \alpha$. We are left with the case where $cof(\alpha) = |\alpha|$ in $V$. Note that by swapping $\alpha$ with a smaller ordinal if necessary, we can assume $\alpha$ is regular in $V$ without loss of generality. So assume $\alpha$ is an uncountable regular cardinal in $V$. If there is a singular cardinal $\beta$ below $\alpha$, one can simply collapse $\alpha$ to $\beta$ to achieve $cof(\alpha) < |\alpha|$, since the usual forcing notion for this purpose preserves the cardinality of $\beta$. Otherwise, forcing $cof(\alpha) < |\alpha|$ appears to be highly non-trivial.
 
 In his doctoral dissertation \cite{prikry}, Prikry assumed $\alpha$ is a measurable cardinal, and gave an example of a forcing notion that preserves all cardinalities, yet changes $cof(\alpha)$ to $\omega$. A natural follow-up question to Prikry's result is thus:
 
 \begin{quote}
-    can we force the the separation of $cof(\alpha)$ and $|\alpha|$ on an uncountable regular $\alpha$ which provably exist over $\mathsf{ZFC}$?
+    can we force the the separation of $cof(\alpha)$ and $|\alpha|$ on an uncountable regular $\alpha$ which provably exists over $\mathsf{ZFC}$?
 \end{quote}
 
 As successor cardinals are the only uncountable regular cardinals proven to exist over $\mathsf{ZFC}$, a forcing notion separating $cof(\alpha)$ and $|\alpha|$ for any such $\alpha$ must collapse $\alpha$. But can we ensure $\alpha$ is not collapsed ``too far''? In other words, we want to force $cof(\alpha) < |\alpha|$ while preserving all cardinals below $\alpha$.
@@ -1274,42 +1607,78 @@ But can we have $Nb_1(\lambda)$ hold for a bigger class of cardinals $\lambda$ i
 
 \subsection{A Conditional Solution}
 
-It turns out there is a relatively simple proof of $$\text{``} Nb_1(\lambda) \text{ for all } \lambda \text{ above } \omega_2 \text{''}$$ if we assume something of greater consistency strength. This proof adopts a novel side-condition technique first employed in \cite{schindler} (cf. Remark \ref{rem47}). It also demonstrates how amenable the forcing framework of Subsection \ref{forframe} is in bolstering natural and obvious forcing conditions with said side conditions. 
+It turns out there is a somewhat simple proof of $$\text{``} Nb_1(\lambda) \text{ for all } \lambda \text{ above } \omega_2 \text{''}$$ (in fact, a slightly stronger statement) if we assume something of greater consistency strength. This proof adopts a novel side-condition technique first employed in \cite{schindler} (cf. Remark \ref{rem47}). It also demonstrates how amenable the forcing framework of Subsection \ref{forframe} is in bolstering natural and obvious forcing conditions with said side conditions. 
+
+\begin{defi}
+Let $Nb'_1(\lambda)$ denote the statement
+\begin{align*}
+    \text{`} & \text{there is a stationary-preserving forcing notion } \mathbb{P} \text{ such that} \\ 
+    & \Vdash_{\mathbb{P}} ``cof(\alpha) = \omega" \text{ for all regular cardinals } \alpha \text{ satisfying } \omega_2 \leq \alpha < \lambda \text{,} \\
+    & \Vdash_{\mathbb{P}} ``cof(\gamma) = \omega_1" \text{ for all regular cardinals } \gamma \text{ satisfying } \lambda \leq \gamma \leq 2^{< \lambda} \text{, and} \\
+    & \Vdash_{\mathbb{P}} ``cof(\beta) = \beta" \text{ for all regular cardinals } \beta \text{ satisfying } 2^{< \lambda} < \beta \text{'.}
+\end{align*}
+\end{defi}
+
+Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$.
 
 \begin{thm}\label{notion1}
-Assume the non-stationary ideal on $\omega_1$ is precipitous. Let $\lambda_f$ be a regular cardinal above $2^{\omega_1}$. Then there is a stationary-preserving forcing notion $\mathbb{P}$ such that 
+Assume $\mathrm{NS}_{\omega_1}$ is precipitous. Then $Nb'_1(\lambda_f)$ holds for all regular cardinals $\lambda_f > 2^{\omega_1}$. In other words, whenever $\lambda_f$ is a regular cardinal $> 2^{\omega_1}$, there is a stationary-preserving forcing notion $\mathbb{P}'$ such that 
 \begin{enumerate}[label=(\arabic*)]
-    \item\label{cond1} $\Vdash_{\mathbb{P}} ``cof(\alpha) = \omega"$ for all regular cardinals $\alpha$ satisfying $\omega_2 \leq \alpha < \lambda_f$,
-    \item\label{cond2} $\Vdash_{\mathbb{P}} ``cof(\lambda_f) = \omega_1"$, and
-    \item\label{cond3} $\Vdash_{\mathbb{P}} ``cof(\beta) > \omega"$ for all regular cardinals $\beta$ satisfying $\lambda_f < \beta$.
+    \item\label{cond1} $\Vdash_{\mathbb{P}'} ``cof(\alpha) = \omega"$ for all regular cardinals $\alpha$ satisfying $\omega_2 \leq \alpha < \lambda_f$,
+    \item\label{cond2} $\Vdash_{\mathbb{P}'} ``cof(\gamma) = \omega_1"$ for all regular cardinals $\gamma$ satisfying $\lambda_f \leq \gamma \leq 2^{< \lambda_f}$, and
+    \item\label{cond3} $\Vdash_{\mathbb{P}'} ``cof(\beta) = \beta"$ for all regular cardinals $\beta$ satisfying $2^{< \lambda_f} < \beta$.
 \end{enumerate}
-In other words, $Nb_1(\lambda_f)$ holds for all $\lambda_f$ above $2^{\omega_1}$.
 \end{thm}
 
 \begin{proof}
-Fix a regular cardinal $\lambda_f$ as specified in the statement of the theorem.  
+Assume $\mathrm{NS}_{\omega_1}$ is precipitous, and fix a regular cardinal $\lambda_f > 2^{\omega_1}$.  
 
 Let $h$ be a generic filter on $Col(\lambda_f, \lambda_f)$, so that in $V[h]$, 
 \begin{itemize}
     \item $cof(\alpha) = cof^{V}(\alpha)$ for all $ \alpha \leq \lambda_f$,
-    \item the non-stationary ideal on $\omega_1$ is still precipitous,
+    \item $\mathrm{NS}_{\omega_1}$ is still precipitous,
     \item $|H(\lambda_f)| = \lambda_f$, and
     \item there is a a $\Diamond_{\lambda_f}$-sequence $(\bar{A}_{\lambda} : \lambda < \lambda_f)$.
 \end{itemize}
 
 \begin{lem}\label{lem26}
-If in $V[h]$ there is a stationary-preserving forcing notion $\mathbb{P}$ of size at most $\lambda_f$ fulfilling \ref{cond1} and \ref{cond2} of Theorem \ref{notion1}, then $Col(\lambda_f, \lambda_f) * \dot{\mathbb{P}}$ is a stationary-preserving forcing notion fulfilling \ref{cond1} to \ref{cond3} of Theorem \ref{notion1} in $V$, where $\dot{\mathbb{P}}$ is a $Col(\lambda_f, \lambda_f)$-name for $\mathbb{P}$.
+If in $V[h]$ there is a stationary-preserving forcing notion $\mathbb{P}$ of size $\leq \lambda_f$ fulfilling 
+\begin{enumerate}[label=(\arabic*')]
+    \item\label{4101} $\Vdash_{\mathbb{P}} ``cof(\alpha) = \omega"$ for all regular cardinals $\alpha$ satisfying $\omega_2 \leq \alpha < \lambda_f$, and
+    \item\label{4102} $\Vdash_{\mathbb{P}} ``cof(\lambda_f) = \omega_1"$,
+\end{enumerate}
+then for some $Col(\lambda_f, \lambda_f)$-name $\dot{\mathbb{P}}$ for $\mathbb{P}$,
+\begin{equation*}
+    Col(\lambda_f, \lambda_f) * \dot{\mathbb{P}} \text{,}
+\end{equation*} 
+is a stationary-preserving forcing notion fulfilling \ref{cond1} to \ref{cond3} of Theorem \ref{notion1} in $V$.
 \end{lem}
 
 \begin{proof}
-In $V$, $Col(\lambda_f, \lambda_f) * \dot{\mathbb{P}}$ is a stationary-preserving forcing notion fulfilling \ref{cond1} and \ref{cond2} of Theorem \ref{notion1} because \begin{itemize}
-    \item $Col(\lambda_f, \lambda_f)$ is a stationary-preserving forcing notion forcing $\dot{\mathbb{P}}$ to be such, and
-    \item $Col(\lambda_f, \lambda_f)$ forces $cof(\alpha) = cof^{V}(\alpha)$ for all $ \alpha \leq \lambda_f$.
+Working in $V$, we set $$\mathbb{P}' := Col(\lambda_f, \lambda_f) * \dot{\mathbb{P}} \text{,}$$ and note the following facts:
+\begin{enumerate}[label=(\arabic*')]
+    \setcounter{enumi}{2}
+    \item\label{4103} $|Col(\lambda_f, \lambda_f)| = 2^{< \lambda_f}$,
+    \item\label{4104} $\Vdash_{Col(\lambda_f, \lambda_f)} ``2^{< \lambda_f} = \lambda_f"$
+\end{enumerate}
+$\mathbb{P}'$ is a stationary-preserving forcing notion fulfilling \ref{cond1} of Theorem \ref{notion1} because 
+\begin{itemize}
+    \item $Col(\lambda_f, \lambda_f)$ is a stationary-preserving forcing notion forcing $\dot{\mathbb{P}}$ to be stationary-preserving, 
+    \item $Col(\lambda_f, \lambda_f)$ forces $cof(\alpha) = cof^{V}(\alpha)$ for all $ \alpha < \lambda_f$, and
+    \item \ref{4101} holds.
 \end{itemize}
-To show $Col(\lambda_f, \lambda_f) * \dot{\mathbb{P}}$ fulfils \ref{cond3} of Theorem \ref{notion1}, let $\beta > \lambda_f$ be regular in $V$. Then $cof^{V[h]} (\beta) \geq \lambda_f$ because $Col(\lambda_f, \lambda_f)$ is $\lambda_f$-closed. That $\mathbb{P}$ is of size at most $\lambda_f$ implies it preserves cofinalities $\geq (\lambda_f^+)^{V[h]}$. That it also fulfils \ref{cond2} of Theorem \ref{notion1} implies it forces $cof(\beta) > \omega$. 
+
+In $V^{Col(\lambda_f, \lambda_f)}$, we are given $|\mathbb{P}| \leq \lambda_f$, so $\mathbb{P}$ preserves cofinalities $\geq \lambda_f^+$. But $\lambda_f^+$ in $V^{Col(\lambda_f, \lambda_f)}$ is exactly $(2^{< \lambda_f})^+$ in $V$, by \ref{4103} and \ref{4104}, so $\mathbb{P}'$ preserves cofinalities $\geq (2^{< \lambda_f})^+$ in $V$. This implies \ref{cond3} of Theorem  \ref{notion1}.
+
+Now let $\gamma \geq \lambda_f$ be regular in $V$. Then $cof^{Col(\lambda_f, \lambda_f)} (\gamma) \geq \lambda_f$ because $Col(\lambda_f, \lambda_f)$ is $\lambda_f$-closed. That $\mathbb{P}$ both preserves cofinalities $\geq \lambda_f^+$ and fulfils \ref{4102} implies it forces $cof(\gamma) \geq \omega_1$. We have thus shown
+\begin{enumerate}[label=(\arabic*')]
+    \setcounter{enumi}{4}
+    \item\label{4105} $\Vdash_{\mathbb{P}'} ``cof(\gamma) \geq \omega_1"$ for all regular cardinals $\gamma$ satisfying $\lambda_f \leq \gamma$.
+\end{enumerate}
+As \ref{4102}, \ref{4104} and \ref{cond1} of Theorem \ref{notion1} give us $$\Vdash_{\mathbb{P}'} ``cof(\gamma) \leq |\gamma| \leq \omega_1"$$ for all ordinals $\gamma$ satisfying $\lambda_f \leq \gamma \leq 2^{< \lambda_f}$, \ref{cond2} of Theorem \ref{notion1} must hold.
 \end{proof}
 
-Allow $W$ to denote $V[h]$. Unless otherwise stated, we work in $W$ from now on. For brevity, we write $\omega_1^V$ as just $\omega_1$. Let 
+Allow $W$ to denote $V[h]$. Unless otherwise stated, we work in $W$ from now on, towards a forcing notion $\mathbb{P}$ as in Lemma \ref{lem26}. For brevity, we write $\omega_1^V$ as just $\omega_1$. Let 
 \begin{align*}
     \kappa & := (2^{\lambda_f})^+ \text{,} \\
     \mathfrak{A} & := (H(\kappa); \in) \text{, and} \\
@@ -1371,6 +1740,7 @@ Now fix $\mathcal{L}$ to be the smallest set closed under negation, that contain
 
 Morally, each $\dot{F}_i$ labels an increasing and cofinal partial map from $f(i)$ into $i$, and each $\dot{X}_{\delta}$ labels a side condition. The side conditions will be used to preserve stationary subsets of $\omega_1$. As $\mathcal{L} \subset H(\lambda_f)$, $\mathfrak{A}$ is $\mathcal{L}$-suitable.
 
+\begin{rem}\label{rempp}
 Sometimes, we want to pass certain parameters of an expression in $\mathcal{L}$ via variables. In such circumstances we are formally passing the parameters through the functions
 \begin{enumerate}[label=$\chi_{\arabic*} :$, leftmargin=45pt]
     \item $(i, n, \alpha) \mapsto \ulcorner \dot{F}_i (n) = \alpha \urcorner$,
@@ -1379,6 +1749,7 @@ Sometimes, we want to pass certain parameters of an expression in $\mathcal{L}$ 
     \item $(\delta, \lambda, x) \mapsto \ulcorner \neg x \in \dot{X}_{\delta, \lambda} \urcorner$,
 \end{enumerate}
 with their domains restricted to $H(\lambda_f)$. Note that under this domain restriction, $\chi_1$, $\chi_2$, $\chi_3$ and $\chi_4$ are all members of $H(\kappa)$; in fact, they are all definable functions of $H(\lambda_f)$. For brevity's and clarity's sake, we will abuse notation and suppress mention of said functions, whenever it is clear that we are using variables as placeholders for parameters in our construction of $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences involving the symbol $\ulcorner E \urcorner$ --- see e.g. Definition \ref{defc}. Since the language associated with $\mathfrak{A}$ is of the lowest complexity class ($\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$) in our classification of $\mathcal{L}^{*}_{\mathfrak{A}}$ formulas, this method of passing parameters incurs no additional cost to the complexity of any $\mathcal{L}^{*}_{\mathfrak{A}}$ sentence thus abbreviated.
+\end{rem}
 
 By our choice of $C$, if $\lambda \in C$, then $\mathcal{L} \cap Q_{\lambda}$ is precisely the smallest set closed under negation, that contains expressions of the following types: 
 \begin{enumerate}[label=(L\arabic*)$_{\lambda}$, leftmargin=45pt]
@@ -1386,9 +1757,10 @@ By our choice of $C$, if $\lambda \in C$, then $\mathcal{L} \cap Q_{\lambda}$ is
     \item\label{l2lamb} $\ulcorner x \in \dot{X}_{\delta, \lambda'} \urcorner$, for $\delta < \omega_1$, $\lambda' \in C \cap \lambda$ and $x \in Q_{\lambda'}$.
 \end{enumerate}
 
-\begin{defi}
-An object of the form $$\langle \langle F_i : i \in R \rangle, \langle X_{\delta, \lambda} : \delta < \omega_1, \lambda \in C \rangle \rangle$$ \emph{interprets} $\mathcal{L}$ iff 
+\begin{defi}\label{def412}
+For any $\lambda \in C \cup \{\lambda_f\}$, an object of the form $$\langle \langle F_i : i \in Z \rangle, \langle X_{\delta, \lambda} : \delta < \omega_1, \lambda \in C \rangle \rangle$$ \emph{interprets} $\mathcal{L} \cap Q_{\lambda}$ iff 
 \begin{itemize}
+    \item $Z = R \cap Q_{\lambda}$,
     \item each $F_i$ is a partial function from $\omega$ into $i$, and 
     \item each $X_{\delta, \lambda}$ is a subset of $Q_{\lambda}$. 
 \end{itemize}
@@ -1404,9 +1776,9 @@ For any pair $(i, \Sigma)$, define $F_i(\Sigma)$ to be the set $$\{(n, \alpha) :
 For any triple $(\delta, \lambda, \Sigma)$, define $X_{\delta, \lambda}(\Sigma)$ to be the set $$\{x : \ulcorner x \in \dot{X}_{\delta, \lambda} \urcorner \in \Sigma\}.$$
 \end{defi}
 
-\begin{defi}
-Given $$\mathfrak{C} := \langle \langle F_i : i \in R \rangle, \langle X_{\delta, \lambda} : \delta < \omega_1, \lambda \in C \rangle \rangle$$
-interpreting $\mathcal{L}$ and $\mathcal{L}' \subset \mathcal{L}$, let $\Sigma(\mathfrak{C}, \mathcal{L}')$ denote the union of the following sets:
+\begin{defi}\label{def415}
+Given $\lambda \in C \cup \{\lambda_f\}$, $$\mathfrak{C} := \langle \langle F_i : i \in Z \rangle, \langle X_{\delta, \lambda} : \delta < \omega_1, \lambda \in C \rangle \rangle$$
+interpreting $\mathcal{L} \cap Q_{\lambda}$ and $\mathcal{L}' \subset \mathcal{L}$, let $\Sigma(\mathfrak{C}, \mathcal{L}')$ denote the union of the following sets:
 \begin{itemize}
     \item $\{\ulcorner \dot{F}_i (n) = \alpha \urcorner \in \mathcal{L}' : F_i (n) = \alpha\}$,
     \item $\{\ulcorner \neg \dot{F}_i (n) = \alpha \urcorner \in \mathcal{L}' : F_i (n) \neq \alpha\}$,
@@ -1415,6 +1787,16 @@ interpreting $\mathcal{L}$ and $\mathcal{L}' \subset \mathcal{L}$, let $\Sigma(\
 \end{itemize}
 It is clear that $\Sigma(\mathfrak{C}, \mathcal{L}) \cap Q_{\lambda} = \Sigma(\mathfrak{C}, \mathcal{L} \cap Q_{\lambda})$ is $\mathcal{L} \cap Q_{\lambda}$-nice for all $\lambda \in C \cup \{\lambda_f\}$.
 \end{defi}
+
+\begin{rem}\label{rem416}
+If 
+\begin{itemize}
+    \item $\lambda \in C \cup \{\lambda_f\}$, 
+    \item $\Sigma$ is $\mathcal{L} \cap Q_{\lambda}$-nice, and
+    \item $\mathfrak{C} := \langle \langle F_i(\Sigma) : i \in R \cap \lambda \rangle, \langle X_{\delta, \lambda'}(\Sigma) : \delta < \omega_1, \lambda' \in C \cap \lambda \rangle \rangle$ interprets $\mathcal{L} \cap Q_{\lambda}$,
+\end{itemize}
+then $\Sigma(\mathfrak{C}, \mathcal{L} \cap Q_{\lambda}) = \Sigma$.
+\end{rem}
 
 We will define $\{\mathbb{P}_{\lambda} : \lambda \in C \cup \{\lambda_f\}\}$ by induction on $\lambda$. Assume that $\mathbb{P}_{\lambda'}$ has been defined for all $\lambda' \in \lambda \cap C$. Also, for $\lambda' \in \lambda \cap C$, allow 
 \begin{itemize}
@@ -1450,7 +1832,7 @@ are clearly members of $H(\kappa)$.
 
 \begin{defi}\label{defc}
 Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences enumerated below.  
-\begin{enumerate}[label=(C\arabic*)$_{\lambda}$, leftmargin=40pt]
+\begin{enumerate}[label=(S\arabic*)$_{\lambda}$, leftmargin=40pt]
     \item\label{c1} $\ulcorner \forall i \ \forall n \ \forall \alpha \ \forall \beta \ ((E(\ulcorner \dot{F}_i (n) = \alpha \urcorner) \wedge E(\ulcorner \dot{F}_i (n) = \beta \urcorner)) \implies \alpha = \beta) \urcorner$,
     
     \item\label{c2}
@@ -1571,9 +1953,9 @@ It can be gleaned from Lemma \ref{extcert} and the definition of the $\mathbb{P}
 Let 
 \begin{itemize}
     \item $\lambda' \in C \cup \{\lambda_f\}$, and
-    \item $g$ be a $\mathbb{P}_{\lambda'}$-generic filter over $W$.
+    \item $g$ be a $\mathbb{P}_{\lambda'}$-$\Sigma_1$-generic filter over $W$.
 \end{itemize}
-Then $\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\lambda'}$.
+Then $\bigcup g \ \Gamma_{\lambda'} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset$.
 \end{lem}
 
 \begin{proof}
@@ -1592,24 +1974,24 @@ noting that
 \begin{itemize}
     \item $|trcl(\mathfrak{A})| \leq |H(\kappa)|$,
     \item $[\mathcal{L} \cap Q_{\lambda'}]^{< \omega}$ is closed under finite extensions,
-    \item the definition of $\mathbb{P}_{\lambda'}$ in relation to the other parameters is faithful to the hypotheses of Lemma \ref{main2},
-    \item $g$ satisfies the hypotheses of Lemma \ref{main2} with respect to the other parameters, and
+    \item the definition of $\mathbb{P}_{\lambda'}$ in relation to the other parameters is faithful to the hypothesis of Lemma \ref{main2},
+    \item $g$ satisfies the hypothesis of Lemma \ref{main2} with respect to the other parameters, and
     \item $\mathbb{P}_{\lambda'}$ being non-empty (per Lemma \ref{nonemp}) implies there is $\Sigma$ in some weak outer model $W'$ of $W$ such that $\Sigma$ $\Gamma_{\lambda'} (\mathcal{L} \cap Q_{\lambda'}, \mathfrak{A})$-certifies $\emptyset$,
 \end{itemize}
-to arrive at $\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\lambda'}$.
+to arrive at $\bigcup g \ \Gamma_{\lambda'} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset$.
 \end{proof}
 
 The proof of Lemma \ref{modeldone} serves as an instructive example of the utility of Lemma \ref{main2}. We shall omit details in subsequent applications of Lemma \ref{main2}, wherever the use cases are deemed similarly straightforward. 
 
 \begin{lem}\label{1done}
-$\mathbb{P}$ fulfils \ref{cond1} of Theorem \ref{notion1}.
+$\mathbb{P}$ fulfils \ref{4101} of Lemma \ref{lem26}.
 \end{lem}
 
 \begin{proof}
-For any $\mathbb{P}_{\lambda'}$-generic filter $g$ over $W$, $\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\lambda_f}$ by Lemma \ref{modeldone}. In particular, $\bigcup g \models^*_{\mathfrak{A}} \text{(C2)}_{\lambda_f}$. That $\mathbb{P}$ fulfils \ref{cond1} of Theorem \ref{notion1} follows immediately.
+For any $\mathbb{P}_{\lambda'}$-generic filter $g$ over $W$, $\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\lambda_f}$ by Lemma \ref{modeldone}. In particular, $\bigcup g \models^*_{\mathfrak{A}} \text{(S2)}_{\lambda_f}$. That $\mathbb{P}$ fulfils \ref{4101} of Lemma \ref{lem26} follows immediately.
 \end{proof}
 
-\begin{defi}
+\begin{defi}\label{def423}
 Let 
 \begin{itemize}
     \item $S(\omega_1)$ denote the set of all stationary subsets of $\omega_1$, and
@@ -1635,16 +2017,20 @@ Fix arbitrary
     \item $S \in S(\omega_1)$, and
     \item $U \in U(C, \lambda_f)$.
 \end{itemize}
-It suffices to show that there are 
+By Lemma \ref{univer}, it suffices to show that there are 
 \begin{itemize}
     \item $\mu \in S$, and
     \item $\nu \in U$
 \end{itemize} 
-for which $p \cup \ulcorner x \in \dot{X}_{\mu, \nu} \urcorner \in \mathbb{P}$.
+for which $p \cup \{\ulcorner x \in \dot{X}_{\mu, \nu} \urcorner\} \in \mathbb{P}$.
 
 To that end, let $\nu \in U$ be such that $x \in Q_{\nu}$ and $p \in \mathbb{P}_{\nu}$. This is possible by \ref{p2}. Choose $g \times f$ a $\mathbb{P}_{\nu} \times Col(\omega, \nu)$-generic filter over $W$ with $p \in g$, so that $g \in W[g \times f]$ is a $\mathbb{P}_{\nu}$-generic filter over $W$ and $|\nu|^{W[g \times f]} = \omega$. By Lemma \ref{modeldone}, $\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\nu}$.
 
-Label the non-stationary ideal on $\omega_1$ in $W$, $I$. Since $I$ is precipitous in $W$, $(W; \in, I)$ is generically iterable in $W[g \times f]$. Consider a one-step iteration $\mathfrak{I}_1 := \langle (W; \in, I), (W_1; \in, I_1) \rangle$ in $W[g \times f]$, where $(W_1; \in, I_1)$ is the generic ultrapower of $(W; \in, I)$ via a $W$-generic ultrafilter on $I$ containing $S$. Extend $\mathfrak{I}_1$ to a generic iteration $\mathfrak{I}$ of length $\omega_1^{W[g \times f]}$ in $W[g \times f]$. Said iteration gives rise to an elementary embedding $j : W \longrightarrow M$, where $M$, a transitive inner model of $W[g \times f]$, is the final iterate of $\mathfrak{I}$. Moreover, $crit(j) = \omega_1^W \in j(S)$.
+Since $\mathrm{NS}_{\omega_1}$ is precipitous in $W$, $(W; \in, (\mathrm{NS}_{\omega_1})^W)$ is generically iterable in $W[g \times f]$. Consider a one-step iteration $$\mathfrak{I}_1 = \langle (W; \in, (\mathrm{NS}_{\omega_1})^W), (W_1; \in, I_1) \rangle$$ in $W[g \times f]$, where $(W_1; \in, I_1)$ is the generic ultrapower of $(W; \in, (\mathrm{NS}_{\omega_1})^W)$ via a $W$-generic ultrafilter on $(\mathrm{NS}_{\omega_1})^W$ containing $S$. Extend $\mathfrak{I}_1$ to a generic iteration $\mathfrak{I}$ of length $\omega_1^{W[g \times f]} + 1$ in $W[g \times f]$. Said iteration gives rise to a generic ultrapower map $j : W \longrightarrow M$, where $M$, an inner model of $W[g \times f]$, is the final iterate of $\mathfrak{I}$. Moreover, 
+\begin{itemize}
+    \item $crit(j) = \omega_1^W \in j(S)$, and
+    \item $j(\omega_1^W) = \omega_1^{W[g \times f]}$.
+\end{itemize}
 
 Let 
 \begin{align*}
@@ -1654,17 +2040,17 @@ Let
 \end{align*} 
 Working in $W^*$, define $$\mathfrak{C} := \langle \langle F_i : i \in j(R) \rangle, \langle X_{\delta, \lambda} : \delta < \omega_1^M, \lambda \in j(C) \rangle \rangle$$ as follows:
 \begin{itemize}
-    \item $F_i(n) := \alpha$ iff $\ulcorner \dot{F}_i(n) = \alpha \urcorner \in \Sigma'$ whenever $\dot{F}_i$ occurs in $\Sigma'$,
+    \item $F_i := F_i(\Sigma')$ whenever $\dot{F}_i$ occurs in $\Sigma'$,
     \item $F_i$ is some (any) strictly increasing cofinal function from $\omega$ into $i$ whenever $\dot{F}_i$ does not occur in $\Sigma'$, and
     \item $x \in X_{\delta, \lambda}$ iff $\ulcorner x \in \dot{X}_{\delta, \lambda} \urcorner \in \Sigma'$.
 \end{itemize}
-Then $\mathfrak{C}$ interprets $j(\mathcal{L})$, and $\Sigma^* := \Sigma(\mathfrak{C}, j(\mathcal{L}))$ is $j(\mathcal{L})$-nice. Obviously $j" \bigcup g \subset \Sigma' \subset \Sigma^*$, so $j(p) = j" p \subset \Sigma^*$. By the definition of $\Sigma'$, we too have $$q^* := j(p) \cup \{\ulcorner j(x) \in \dot{X}_{\omega_1^W \!\! , j(\nu)} \urcorner\} \subset \Sigma^*.$$ In order to conclude that $\Sigma^*$ $j(\Gamma_{\lambda_f})(j(\mathcal{L}), j(\mathfrak{A}))$-certifies $q^*$, we are left with showing $\Sigma^* \models^*_{j(\mathfrak{A})} j(\Gamma_{\lambda_f})$. That $$\Sigma^* \models^*_{j(\mathfrak{A})} j(\text{(C<} k \text{>)}_{\lambda_f})$$ for <$k$> $\in \{1, 3, 4, 5, 6\}$ follows immediately from the construction of $\Sigma^*$, the elementarity of $j$, as well as the fact that $crit(j) = \omega_1^W$.
+Then $\mathfrak{C}$ interprets $j(\mathcal{L})$, and $\Sigma^* := \Sigma(\mathfrak{C}, j(\mathcal{L}))$ is $j(\mathcal{L})$-nice, noting Remark \ref{rem416}. Obviously $j" \bigcup g \subset \Sigma' \subset \Sigma^*$, so $j(p) = j" p \subset \Sigma^*$. By the definition of $\Sigma'$, we too have $$q^* := j(p) \cup \{\ulcorner j(x) \in \dot{X}_{\omega_1^W \!\! , j(\nu)} \urcorner\} \subset \Sigma^*.$$ In order to conclude that $\Sigma^*$ $j(\Gamma_{\lambda_f})(j(\mathcal{L}), j(\mathfrak{A}))$-certifies $q^*$, we are left with showing $\Sigma^* \models^*_{j(\mathfrak{A})} j(\Gamma_{\lambda_f})$. That $$\Sigma^* \models^*_{j(\mathfrak{A})} j(\text{(S<} k \text{>)}_{\lambda_f})$$ for <$k$> $\in \{1, 3, 4, 5, 6\}$ follows immediately from the construction of $\Sigma^*$, the elementarity of $j$, as well as the fact that $crit(j) = \omega_1^W$.
 
-For <$k$> $\in \{2, 7, 8\}$, we check that $\Sigma^* \models^*_{j(\mathfrak{A})} j(\text{(C<} k \text{>)}_{\lambda_f})$ in greater detail below. 
+For <$k$> $\in \{2, 7, 8\}$, we check that $\Sigma^* \models^*_{j(\mathfrak{A})} j(\text{(S<} k \text{>)}_{\lambda_f})$ in greater detail below. 
 
 \begin{enumerate}[label=<$k$> $\eq$ \arabic* :, leftmargin=70pt]
     \addtocounter{enumi}{1}
-    \item Let $i \in j(R)$. If $\dot{F}_i$ does not occur in $\Sigma'$, there is nothing to check, because the definition of $\mathfrak{C}$ guarantees $ran(F_i(\Sigma^*))$ is cofinal in $i$. Otherwise, $\dot{F}_i$ occurs in $\Sigma'$, which means $\dot{F}_i$ occurs in $j" \bigcup g$. Then there is $i' \in R$ such that $\dot{F}_i = \dot{F}_{j(i')} = j(\dot{F}_{i'})$. That $\bigcup g \models^*_{\mathfrak{A}} \text{(C2)}_{\nu}$ implies $ran(F_{i'}(\bigcup g))$ is cofinal in $i'$. By a basic property of elementary embeddings associated with generic iterations, we know that for any ordinal $\alpha$ satisfying the inequality $\omega_1^W < cof^{W}(\alpha)$, we must have $j(\alpha) = sup(j" \alpha)$. Thus, $ran(F_i(\Sigma^*)) = j" ran(F_{i'}(\bigcup g))$ is cofinal in $j(i') = i$, and we are done.
+    \item Let $i \in j(R)$. If $\dot{F}_i$ does not occur in $\Sigma'$, there is nothing to check, because the definition of $\mathfrak{C}$ guarantees $ran(F_i(\Sigma^*))$ is cofinal in $i$. Otherwise, $\dot{F}_i$ occurs in $\Sigma'$, which means $\dot{F}_i$ occurs in $j" \bigcup g$. Then there is $i' \in R$ such that $\dot{F}_i = \dot{F}_{j(i')} = j(\dot{F}_{i'})$. That $\bigcup g \models^*_{\mathfrak{A}} \text{(S2)}_{\nu}$ implies $ran(F_{i'}(\bigcup g))$ is cofinal in $i'$. By a basic property of elementary embeddings associated with generic iterations, we know that for any ordinal $\alpha$ satisfying the inequality $\omega_1^W < cof^{W}(\alpha)$, we must have $j(\alpha) = sup(j" \alpha)$. Thus, $ran(F_i(\Sigma^*)) = j" ran(F_{i'}(\bigcup g))$ is cofinal in $j(i') = i$, and we are done.
     \addtocounter{enumi}{4}
     \item\label{k7m} Let $\delta$, $\lambda$, $\phi$, $\bar{s}$ and $x$ be such that 
     \begin{enumerate}[label=(K7.\arabic*), leftmargin=50pt]
@@ -1694,7 +2080,7 @@ For <$k$> $\in \{2, 7, 8\}$, we check that $\Sigma^* \models^*_{j(\mathfrak{A})}
             X_{\delta, \lambda}(\Sigma^*) \cap j(A_{\lambda'}) = \ & j" A_{\lambda'},
         \end{align*}
         we can conclude $$(X_{\delta, \lambda}(\Sigma^*); \in, j(\mathbb{P}_{\lambda'}), j(A_{\lambda'})) \models \exists r \ \phi(r, \bar{s})$$ by invoking the elementarity of $j$ once again.
-        \item $\delta \neq \omega_1^W$. Then $\delta < \omega_1^W$, $\lambda' < \nu$, and $$\ulcorner j^{-1}(\bar{s})(n) \in \dot{X}_{\delta, \lambda'} \urcorner \in \bigcup g$$ for all $n \in dom(j^{-1}(\bar{s}))$. Moreover, $X_{\delta, \lambda}(\Sigma^*) = j" X_{\delta, \lambda'}(\bigcup g)$, so $X_{\delta, \lambda}(\Sigma^*)$ being non-empty implies $X_{\delta, \lambda'}(\bigcup g)$ is non-empty as well. Since $\bigcup g \models^*_{\mathfrak{A}} \text{(C7)}_{\nu}$, we have $$(X_{\delta, \lambda'}(\bigcup g); \in, \mathbb{P}_{\lambda'}, A_{\lambda'}) \models \exists r \ \phi(r, j^{-1}(\bar{s})).$$ As 
+        \item $\delta \neq \omega_1^W$. Then $\delta < \omega_1^W$, $\lambda' < \nu$, and $$\ulcorner j^{-1}(\bar{s})(n) \in \dot{X}_{\delta, \lambda'} \urcorner \in \bigcup g$$ for all $n \in dom(j^{-1}(\bar{s}))$. Moreover, $X_{\delta, \lambda}(\Sigma^*) = j" X_{\delta, \lambda'}(\bigcup g)$, so $X_{\delta, \lambda}(\Sigma^*)$ being non-empty implies $X_{\delta, \lambda'}(\bigcup g)$ is non-empty as well. Since $\bigcup g \models^*_{\mathfrak{A}} \text{(S7)}_{\nu}$, we have $$(X_{\delta, \lambda'}(\bigcup g); \in, \mathbb{P}_{\lambda'}, A_{\lambda'}) \models \exists r \ \phi(r, j^{-1}(\bar{s})).$$ As 
         \begin{align*}
             X_{\delta, \lambda}(\Sigma^*) \cap j(\mathbb{P}_{\lambda'}) = \ & j" (X_{\delta, \lambda'}(\bigcup g) \cap \mathbb{P}_{\lambda'}) \text{ and} \\
             X_{\delta, \lambda}(\Sigma^*) \cap j(A_{\lambda'}) = \ & j" (X_{\delta, \lambda'}(\bigcup g) \cap A_{\lambda'}),
@@ -1726,7 +2112,7 @@ For <$k$> $\in \{2, 7, 8\}$, we check that $\Sigma^* \models^*_{j(\mathfrak{A})}
     so $(\phi, j^{-1}(\bar{s})) \in Df^{\lambda_f}(\lambda')$. Henceforth, there are two possible cases. We will analyse them with reference to the way $\Sigma^*$ is constructed. 
     \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
         \item\label{c8c1} $\delta = \omega_1^W$. Then $\lambda' = \nu$ and $X_{\delta, \lambda}(\Sigma^*) = j" Q_{\nu}$. Clearly, $$[\bigcup g]^{< \omega} \cap Q_{\nu} \cap j^{-1}(D) = g \cap j^{-1}(D) \neq \emptyset,$$ as $g$ is $\mathbb{P}_{\nu}$-generic over $W$. That $j" \bigcup g \subset \Sigma^*$ means $$j(p) \in [\Sigma^*]^{< \omega} \cap X_{\delta, \lambda}(\Sigma^*) \cap D \neq \emptyset$$ for any $p \in g \cap j^{-1}(D)$.
-        \item $\delta \neq \omega_1^W$. Then $\delta < \omega_1^W$, $\lambda' < \nu$, and $$\ulcorner j^{-1}(\bar{s})(n) \in \dot{X}_{\delta, \lambda'} \urcorner \in \bigcup g$$ for all $n \in dom(j^{-1}(\bar{s}))$. Moreover, $X_{\delta, \lambda}(\Sigma^*) = j" X_{\delta, \lambda'}(\bigcup g)$, so $X_{\delta, \lambda}(\Sigma^*)$ being non-empty implies $X_{\delta, \lambda'}(\bigcup g)$ is non-empty too. Since $\bigcup g \models^*_{\mathfrak{A}} \text{(C8)}_{\nu}$, we have $$[\bigcup g]^{< \omega} \cap X_{\delta, \lambda'}(\bigcup g) \cap j^{-1}(D) \neq \emptyset.$$ As in Case 1, we can conclude $$[\Sigma^*]^{< \omega} \cap X_{\delta, \lambda}(\Sigma^*) \cap D \neq \emptyset.$$
+        \item $\delta \neq \omega_1^W$. Then $\delta < \omega_1^W$, $\lambda' < \nu$, and $$\ulcorner j^{-1}(\bar{s})(n) \in \dot{X}_{\delta, \lambda'} \urcorner \in \bigcup g$$ for all $n \in dom(j^{-1}(\bar{s}))$. Moreover, $X_{\delta, \lambda}(\Sigma^*) = j" X_{\delta, \lambda'}(\bigcup g)$, so $X_{\delta, \lambda}(\Sigma^*)$ being non-empty implies $X_{\delta, \lambda'}(\bigcup g)$ is non-empty too. Since $\bigcup g \models^*_{\mathfrak{A}} \text{(S8)}_{\nu}$, we have $$[\bigcup g]^{< \omega} \cap X_{\delta, \lambda'}(\bigcup g) \cap j^{-1}(D) \neq \emptyset.$$ As in Case 1, we can conclude $$[\Sigma^*]^{< \omega} \cap X_{\delta, \lambda}(\Sigma^*) \cap D \neq \emptyset.$$
     \end{enumerate}
 \end{enumerate}
 
@@ -1748,7 +2134,7 @@ we can apply Lemma \ref{inout} with
     \item $j(\mathfrak{A})$ in place of $\mathfrak{A}$, and
     \item $q^*$ in place of $p$,
 \end{itemize}
-noting that in $M$, $$Col(\omega, |H(j(\kappa))|) = j(Col(\omega, |H(\kappa)^W|^W)).$$ The application yields $$(M; \in) \models ``\Vdash_{j(Col(\omega, |H(\kappa)^W|^W)^W)} \exists \Sigma \ (``\Sigma \ j(\Gamma_{\lambda_f})(j(\mathcal{L}), j(\mathfrak{A})) \text{-certifies } q^*")".$$ But this means $q \in j(\mathbb{P})$, which implies $$(M; \in) \models \exists \mu \in j(S) \ (j(p) \cup \{\ulcorner j(x) \in \dot{X}_{\mu, j(\nu)} \urcorner\} \in j(\mathbb{P})).$$ By the elementarity of $j$, $$(W; \in) \models \exists \mu \in S \ (p \cup \{\ulcorner x \in \dot{X}_{\mu, \nu} \urcorner\} \in \mathbb{P}),$$ completing the proof.
+noting that in $M$, $$Col(\omega, |H(j(\kappa))|) = j(Col(\omega, |H(\kappa)^W|^W)).$$ The application yields $$(M; \in) \models ``\Vdash_{j(Col(\omega, |H(\kappa)^W|^W)^W)} \exists \Sigma \ (``\Sigma \ j(\Gamma_{\lambda_f})(j(\mathcal{L}), j(\mathfrak{A})) \text{-certifies } q^*")".$$ But this means $q \in j(\mathbb{P})$, which implies $$(M; \in) \models \exists \mu \in j(S) \ (``j(p) \cup \{\ulcorner j(x) \in \dot{X}_{\mu, j(\nu)} \urcorner\} \in j(\mathbb{P})") \text{.}$$ By the elementarity of $j$, $$(W; \in) \models \exists \mu \in S \ (``p \cup \{\ulcorner x \in \dot{X}_{\mu, \nu} \urcorner\} \in \mathbb{P}") \text{,}$$ completing the proof.
 \end{proof}
 
 \begin{lem}\label{statdone}
@@ -1760,7 +2146,7 @@ Let
 \begin{itemize}
     \item $S \in S(\omega_1)$,
     \item $p \in \mathbb{P}$,
-    \item $\dot{C}$ be a $\mathbb{P}$-name in such that $p \Vdash_{\mathbb{P}} ``\dot{C}$ is a club in $\omega_1^W"$,
+    \item $\dot{C}$ be a $\mathbb{P}$-name such that $p \Vdash_{\mathbb{P}} ``\dot{C}$ is a club in $\omega_1^W"$,
     \item $D := \{(q, \eta) \in \mathbb{P} \times \omega_1 : q \Vdash_{\mathbb{P}} \eta \in \dot{C}\}$,
     \item $g$ be a $\mathbb{P}$-generic filter over $W$ with $p \in g$.
 \end{itemize}
@@ -1779,13 +2165,13 @@ In $W[g]$, there are $\mu \in S$ and $\nu \in U$ such that
 \begin{align*}
     \emptyset \neq (X_{\mu, \nu}(\bigcup g); \in, \mathbb{P}, A_{\nu}) \prec (Q_{\nu}; \in, \mathbb{P}, A_{\nu}) \prec (H(\lambda_f); \in, \mathbb{P}, D),
 \end{align*}
-since $$\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\lambda_f} \text{ (in particular } \bigcup g \models^*_{\mathfrak{A}} \text{(C7)}_{\lambda_f} \text{) and } \bigcup g \models^*_{\mathfrak{A}} \text{(}\ref{c9}\text{)}$$ by Lemmas \ref{uni}, \ref{modeldone} and \ref{sideuni}. Now, noting \ref{p1}, we have 
+since $$\bigcup g \models^*_{\mathfrak{A}} \Gamma_{\lambda_f} \text{ (in particular } \bigcup g \models^*_{\mathfrak{A}} \text{(S7)}_{\lambda_f} \text{) and } \bigcup g \models^*_{\mathfrak{A}} \text{(}\ref{c9}\text{)}$$ by Lemmas \ref{uni}, \ref{modeldone} and \ref{sideuni}. Now, noting \ref{p1}, we have 
 \begin{align}\label{eseq}
     \emptyset \neq (X_{\mu, \nu}(\bigcup g); \in, \mathbb{P}, D) \prec (Q_{\nu}; \in, \mathbb{P}_{\nu}, A_{\nu}) \prec (H(\lambda_f); \in, \mathbb{P}, D).
 \end{align}
 It suffices to show that $\mu$ is a limit point of $\dot{C}[g]$. We fix $\zeta < \mu$ and seek some $\eta \in \dot{C}[g]$ with $\zeta < \eta < \mu$. 
 
-The set $$E_{\zeta} := \{q \in \mathbb{P} : \exists \eta > \zeta \ ((q, \eta) \in D)\}$$ is dense in $\mathbb{P}$, so (\ref{eseq}) tells us $$E_{\zeta} \cap Q_{\nu} = \{q \in \mathbb{P}_{\nu} : \exists \eta > \zeta \ ((q, \eta) \in A_{\nu})\}$$ is dense in $\mathbb{P}_{\nu}$. As $\bigcup g \models^*_{\mathfrak{A}} \text{(C5)}_{\lambda_f}$, we know $\zeta \in X_{\mu, \nu}(\bigcup g)$. Having $\bigcup g \models^*_{\mathfrak{A}} \text{(C8)}_{\lambda_f}$ then bestows us the existence of some $$q \in [\bigcup g]^{< \omega} \cap X_{\mu, \nu}(\bigcup g) \cap E_{\zeta} \cap Q_{\nu} \neq \emptyset.$$ That $q \in X_{\mu, \nu}(\bigcup g)$ and (\ref{eseq}) holds means $$(X_{\mu, \nu}(\bigcup g); \in, \mathbb{P}, D) \models \exists \eta > \zeta \ ((q, \eta) \in D).$$ Invoking the fact that $\bigcup g \models^*_{\mathfrak{A}} \text{(C6)}_{\lambda_f}$ gives us some $\eta$ such that 
+The set $$E_{\zeta} := \{q \in \mathbb{P} : \exists \eta > \zeta \ ((q, \eta) \in D)\}$$ is dense in $\mathbb{P}$, so (\ref{eseq}) tells us $$E_{\zeta} \cap Q_{\nu} = \{q \in \mathbb{P}_{\nu} : \exists \eta > \zeta \ ((q, \eta) \in A_{\nu})\}$$ is dense in $\mathbb{P}_{\nu}$. As $\bigcup g \models^*_{\mathfrak{A}} \text{(S5)}_{\lambda_f}$, we know $\zeta \in X_{\mu, \nu}(\bigcup g)$. Having $\bigcup g \models^*_{\mathfrak{A}} \text{(S8)}_{\lambda_f}$ then bestows us the existence of some $$q \in [\bigcup g]^{< \omega} \cap X_{\mu, \nu}(\bigcup g) \cap E_{\zeta} \cap Q_{\nu} \neq \emptyset.$$ That $q \in X_{\mu, \nu}(\bigcup g)$ and (\ref{eseq}) holds means $$(X_{\mu, \nu}(\bigcup g); \in, \mathbb{P}, D) \models \exists \eta > \zeta \ ((q, \eta) \in D).$$ Invoking the fact that $\bigcup g \models^*_{\mathfrak{A}} \text{(S6)}_{\lambda_f}$ gives us some $\eta$ such that 
 \begin{itemize}
     \item $\zeta < \eta < \mu$, and
     \item $(q, \eta) \in D$.
@@ -1794,7 +2180,7 @@ Recalling the definition of $D$, we conclude $\eta \in \dot{C}[g]$ because $q \i
 \end{proof}
 
 \begin{lem}\label{2done}
-$\mathbb{P}$ fulfils \ref{cond2} of Theorem \ref{notion1}.
+$\Vdash_{\mathbb{P}} ``cof(\lambda_f) = \omega_1"$. That is, $\mathbb{P}$ fulfils \ref{4102} of Lemma \ref{lem26}.
 \end{lem}
 
 \begin{proof}
@@ -1808,46 +2194,1359 @@ Let $g$ be $\mathbb{P}$-generic over $W$. By Lemma \ref{modeldone}, $\bigcup g \
 In view of Lemma \ref{lem26}, the theorem follows from Lemmas \ref{size}, \ref{1done}, \ref{statdone} and \ref{2done}.
 \end{proof}
 
-According to Theorem \ref{notion1}, if the non-stationary ideal on $\omega_1$ is precipitous, then there is a uniform way of generating witnesses --- in place of $\mathbb{P}_N$ --- to analogues of Fact \ref{fact26}, that helps overcome the difficulty presented by the same fact to the extension of Namba forcing via iteration. To wit, we have the following corollary.
+According to Theorem \ref{notion1}, if $\mathrm{NS}_{\omega_1}$ is precipitous, then there is a uniform way of generating witnesses --- in place of $\mathbb{P}_N$ --- to analogues of Fact \ref{fact26}, that helps overcome the difficulty presented by the same fact to the extension of Namba forcing via iteration. To wit, we have the following corollary.
 
 \begin{cor}\label{nambacoro}
 Assume 
 \begin{itemize}
-    \item the non-stationary ideal on $\omega_1$ is precipitous, and
+    \item $\mathrm{NS}_{\omega_1}$ is precipitous, and
     \item $GCH$ holds below $\omega_2$.
 \end{itemize}
-Then $Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$. 
+Then $Nb'_1(\lambda)$ --- and thus $Nb_1(\lambda)$ --- holds for each $\lambda > \omega_2$. 
 \end{cor}
+
+An advantage of the forcing framework of Subsection \ref{forframe} is that it facilitates modular analyses of the generic object. Adding components to the generic object can be done by extending the language on which the forcing notion is based. Under the right circumstances, that said addition preserves a property of the original forcing notion is readily derived from examining the extended language.
+
+In the next subsection, we will augment the forcing notion $\mathbb{P}$ defined in the proof of Theorem \ref{notion1} while assuming a stronger hypothesis, so that the $\mathbb{P}$-generic object has a generic iteration as one of its components. The reader should notice that there is ample carryover from the proof of Theorem \ref{notion1} in the analysis of the new and augmented $\mathbb{P}$.
+
+\subsection{Incorporating Asper\'{o}-Schindler Forcing}\label{ss43}
+
+Asper\'{o}'s and Schindler's approach to proving ``$\mathsf{MM}^{++}$ implies $(*)$'' in \cite{schindler} goes along the following lines. 
+\begin{enumerate}[label=(\arabic*)]
+    \item Assume $\mathsf{MM}^{++}$.
+    \item Define 
+    \begin{align*}
+        g_A := \{\bar{N} \in \mathbb{P}_{max} : \ & \text{there is a generic iteration } \\ 
+        & \langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1 \rangle \\
+        & \text{of } \bar{N} \text{ such that} \\
+        & a_{\omega_1} = A \text{ and } \mathrm{NS}_{\omega_1} \cap N_{\omega_1} = I_{\omega_1}\} \text{.}
+    \end{align*}
+    \item Show that whenever $\omega_1^{L[A]} = \omega_1$,
+    \begin{itemize}
+        \item $g_A$ is a filter, and
+        \item if $g_A$ is $\mathbb{P}_{max}$-generic over $L(\mathbb{R})$, then $\mathcal{P}(\omega_1) \subset L(\mathbb{R})[g_A]$.
+    \end{itemize}
+    \item\label{434} For each dense subset $D \in L(\mathbb{R})$ of $\mathbb{P}_{max}$, find a stationary-preserving forcing notion $\mathbb{P}(D)$ that forces
+    \begin{quote}
+        ``there are $p \in D^*$ ($D^*$ being the interpretation of $D$ in $V^{\mathbb{P}(D)}$ via some universally Baire encoding) and a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ for which
+        \begin{itemize}
+            \item $p = \bar{N}_0$,
+            \item $I_{\omega_1^V} = \mathrm{NS}_{\omega_1} \cap N_{\omega_1^V}$, and
+            \item $a_{\omega_1^V} = A$'',
+        \end{itemize}
+    \end{quote}
+    so that $g_A$ is $\mathbb{P}_{max}$-generic over $L(\mathbb{R})$.
+\end{enumerate}
+Each of the $\mathbb{P}(D)$'s satisfying \ref{434}, as defined in the proof of Lemma 2.14 of \cite{schindler}, possesses curious properties tangential to its chief purpose:
+\begin{enumerate}[label=(\roman*)]
+    \item\label{43i} its conditions are fragments of a language depending on $D$,
+    \item\label{43ii} it forces ``$cof(\omega_2^V) = \omega$'', and
+    \item\label{43iii} it forces ``$cof(\omega_3^V) = \omega_1$''.
+\end{enumerate}
+Since \ref{43ii} and \ref{43iii} make each $\mathbb{P}(D)$ ``Namba-like'', the conjunction of \ref{43i} to \ref{43iii} points to the viability of incorporating the design of each $\mathbb{P}(D)$ into the construction of $\mathbb{P}$ as described in the proof of Theorem \ref{notion1}, so as to strengthen Lemma 2.14 of \cite{schindler}. This incorporation can be thought of both as
+\begin{itemize}
+    \item an augmentation of $\mathbb{P}$ to serve an expanded agenda, and
+    \item a means to extend the ``Namba consequences'' of each $\mathbb{P}(D)$,
+\end{itemize}
+hence it is sufficiently motivated. We shall spend the rest of this subsection ironing out the details of our (natural) incorporation attempt, with Theorem \ref{notion2} being its upshot.
+
+\begin{defi}\label{defl2}
+For the definition of $\mathcal{L}^{s_0}$, we set aside the following distinguished symbols:
+\begin{itemize}
+    \item $\dot{M}_i$, $\dot{N}_i$ for $i < \omega_1$,
+    \item $\dot{\pi}_{ij}$ for $i \leq j \leq \omega_1$,
+    \item $\dot{\sigma}_{ij}$ for $i \leq j < \omega_1$,
+    \item $\dot{n}$ for $n < \omega$, and
+    \item $\dot{T}$, $\dot{\Vec{M}}$, $\dot{I}$, $\dot{a}$.
+\end{itemize}
+Assume, without loss of generality, that none of the distinguished symbols is represented (as a set) by an ordinal.
+\end{defi}
+
+\begin{defi}
+Let $\hat{\sigma}$ denote the signature
+\begin{equation*}
+    \{\dot{I}, \dot{a}, \dot{\Vec{M}}\} \cup \{\xi : \xi < \omega_1^W\} \cup \{\dot{M}_j : j < \omega_1^W\} \cup \{\dot{\pi}_{jk} : j \leq k \leq \omega_1^W\} \text{,}
+\end{equation*}
+in which
+\begin{itemize}
+    \item $\dot{I}$ is a unary relation symbol, and
+    \item every member of $\hat{\sigma} \setminus \{\dot{I}\}$ is a constant symbol.
+\end{itemize}
+\end{defi}
+
+\begin{defi}
+Let $\mathcal{L}^{s_0}$ contain precisely all expressions of the following forms:
+\begin{enumerate}[label=(L\arabic*), leftmargin=40pt]
+    \setcounter{enumi}{2}
+    \item\label{l3} $\ulcorner \dot{N}_i \models \phi(\xi_1, \ldots, \xi_k, \dot{n_1}, \ldots, \dot{n_l}, \dot{I}, \dot{a}, \dot{M}_{j_1}, \ldots, \dot{M}_{j_m}, \dot{\pi}_{q_{1}r_{1}}, \ldots, \dot{\pi}_{q_{s}r_{s}}, \dot{\Vec{M}}) \urcorner$, for 
+    \begin{itemize}[leftmargin=10pt]
+        \item $i, \xi_1, \ldots, \xi_k, j_i, \ldots, j_m < \omega_1$,
+        \item $n_1, \ldots, n_l < \omega$, 
+        \item $q_1 \leq r_1 < \omega_1^V, \ldots, q_s \leq r_s < \omega_1$,
+        \item $\phi$ a first-order formula in the language of set theory expanded with $\hat{\sigma}$.
+    \end{itemize}
+    \item\label{l4} $\ulcorner \dot{\pi}_{i\omega_1}(\dot{n}) = x \urcorner$, for $n < \omega$, $i < \omega_1$ and $x \in H(\omega_2)$,
+    \item\label{l6} $\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner$, for $i \leq j < \omega_1$ and $m, n < \omega$, 
+    \item\label{l7} $\ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner$, for $\Vec{u} \in {^{<\omega}{\omega}}$, $\Vec{\alpha} \in {^{<\omega}{(\omega_2)}}$ and $dom(\Vec{u}) = dom(\Vec{\alpha})$,
+\end{enumerate}
+\end{defi}
+
+\begin{defi}\label{defsvf}
+Given a signature $\sigma$, define $\mathcal{L}^1(\sigma, x)$ to be the set of formulas over $\sigma$ with $x$ as its only variable.
+\end{defi}
+
+\begin{defi}\label{subn}
+For $1 \leq n \leq 6$, let $\mathcal{L}_n$ denote the set of all expressions of the form (L$n$) in Definitions \ref{defl} and \ref{defl2}. Further, define $\mathcal{L}_0$ such that its members are exactly expressions in $\mathcal{L}$ of the form 
+\begin{equation*}
+    \ulcorner \dot{N}_i \models \phi(\dot{n_1}, \ldots, \dot{n_l}, \dot{I}, \dot{a}) \urcorner,
+\end{equation*}
+with $i$ ranging over $\omega_1$ and $l$ ranging over $\omega$. Clearly $\mathcal{L}_0 \subset \mathcal{L}_3$.
+\end{defi}
+
+\begin{defi}
+For $i < \omega_1$ and $n \in \{0, 3\}$, define 
+\begin{equation*}
+    \mathcal{L}^i_n := \{x \in \mathcal{L}_n : \ulcorner \dot{N}_i \urcorner \text{ occurs in } x\}.
+\end{equation*}
+\end{defi}
+
+\begin{con}
+If $\varphi = \ulcorner \dot{N}_i \models \phi \urcorner \in \mathcal{L}_1$, denote $\neg(\varphi)$ by $\ulcorner \dot{N}_i \models \neg(\phi) \urcorner$, where $\neg(\phi)$ is resolved as per Definition \ref{neg}. This allows us to conclude that 
+\begin{itemize}
+    \item $\mathcal{L}_0$, $\mathcal{L}_3$ are closed under negation, and
+    \item $\mathcal{L}^i_0$, $\mathcal{L}^i_3$ are closed under negation for any $i < \omega_1$.
+\end{itemize}
+\end{con}
+
+\begin{defi}
+If $\bar{N} = (N; \in, I, a)$ is a countable structure and $f : \omega \longrightarrow N$ is a surjection, then we define the \emph{simple} $\mathcal{L}$\emph{-theory of $\bar{N}$ along $f$}, denoted $Th^{0}_{\mathcal{L}}(\bar{N}, f)$, to be 
+\begin{align*}
+    \{\ulcorner \dot{N}_0 \models \phi(\dot{n_1}, \ldots, \dot{n_l}, \dot{I}, \dot{a}) \urcorner \in \mathcal{L}^0_0 : \bar{N} \models \phi(f(n_1), \ldots, f(n_l), I, a)\}.
+\end{align*}
+$Th^{0}_{\mathcal{L}}(\bar{N}, f)$ is obviously $\Delta_0$-definable in $\bar{N}$ and $f$.
+\end{defi}
+
+Fix a (recursive) G\"{o}del numbering $Gd$ of $\mathcal{L}^0_0$.
+
+\begin{defi}\label{nota4}
+If $s \in {^{A}{(B \times C)}}$, let $pr(s)$ denote the member $t \in {^{A}{B}}$ such that for all $a \in A$, $t(a) = b$ iff there is some $c$ for which $s(a) = (b, c)$.
+\end{defi}
+
+\begin{fact}\label{fact434}
+Assume
+\begin{enumerate}[label=(\roman*), leftmargin=40pt]
+    \item $\Gamma  = \bigcup_{1 \leq k < \omega} \mathcal{P}(\mathbb{R}^{k}) \cap L(\Gamma, \mathbb{R})$,
+    \item $\Gamma$ is productive,
+    \item $\mathrm{NS}_{\omega_1}$ is saturated,
+    \item $2^{\omega_1} = \mathbf{\delta^1_2} = \omega_2$, and
+    \item $MA(\omega_1)$ holds.
+\end{enumerate}
+Let $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$, and $A \subset \omega_1$ such that $\omega_1^{L[A]} = \omega_1$. Then there are
+\begin{itemize}
+    \item a $\Delta_1$-definition for a partial map $F^*$ from $^{\omega}{\omega}$ onto the members of $\mathbb{P}_{max}$,
+    \item a tree $T$ of size $\aleph_2$ on $\omega \times \omega_2$, and
+    \item a $Col(\omega, \omega_2)$-name $\dot{p} \subset H(\omega_2)$ for a member of ${^{\omega}{\omega}}$
+\end{itemize}
+such that 
+\begin{enumerate}[label=(4.34.\arabic*), leftmargin=50pt]
+    \item\label{4341} $\Vdash_{Col(\omega, \omega_2)} ``\dot{p} \in p[T] \wedge F^*(\dot{p}) \leq_{\mathbb{P}_{max}} (H(\omega_2)^V; \in, \mathrm{NS}_{\omega_1}^V, A)"$,
+    \item\label{4342} $D' := (F^*)^{-1}(D)$ is universally Baire, 
+\end{enumerate}
+and in every forcing extension of $V$,
+\begin{enumerate}[label=(4.34.\arabic*), leftmargin=50pt]
+    \setcounter{enumi}{2}
+    \item\label{4343} $D'^* \subset dom(F^*)$,
+    \item\label{4344} $D^* := (F^*) " (D'^*)$ is a dense subset of $\mathbb{P}_{max}$, 
+    \item\label{4345} $F^*(pr(\bigcup S)) \in D^*$ for every $S$ satisfying
+    \begin{itemize}
+        \item $S \subset T$, and
+        \item $\bigcup S \in [T]$, 
+    \end{itemize}
+    \item\label{4346b} whenever $\bar{M}$, $\bar{N}$, $f$, $S$ fulfil the following:
+    \begin{itemize}
+        \item $\bar{N}$ is an expansion of some structure of the form $(N; \in, I, a)$, where $I$ interprets $\dot{I}$ and $a$ interprets $\dot{a}$,
+        \item $f : \omega \longrightarrow N$ is a surjection,
+        \item $S \subset T$,
+        \item $\bigcup S \in [T]$, and
+        \item $ran(pr(\bigcup S)) = Gd" Th^0_{\mathcal{L}}(\bar{N}, f)$,
+    \end{itemize}
+    it must be the case that $F^*(pr(\bigcup S)) = \bar{N} \in D^*$, and
+    \item\label{4346} whenever $\bar{M}$, $\bar{N}$ fulfil the following:
+    \begin{itemize}
+        \item $\bar{N}$ is a member of $\mathbb{P}_{max}$, and
+        \item $\bar{N} \models ``\bar{M} \text{ is a member of } \mathbb{P}_{max}"$,
+    \end{itemize}
+    it must be the case that
+    \begin{itemize}
+        \item $\bar{M} \in \bar{N}$, and
+        \item $\bar{M}$ is a member of $\mathbb{P}_{max}$.
+    \end{itemize}
+\end{enumerate}
+\end{fact}
+
+In light of Fact \ref{fact434}, we can make sense of --- and subsequently prove --- the next theorem.
+
+\begin{thm}\label{notion2}
+Assume
+\begin{enumerate}[label=(\roman*), leftmargin=40pt]
+    \item\label{h1} $\Gamma  = \bigcup_{1 \leq k < \omega} \mathcal{P}(\mathbb{R}^{k}) \cap L(\Gamma, \mathbb{R})$,
+    \item\label{h2} $\Gamma$ is productive,
+    \item\label{h3} $\mathrm{NS}_{\omega_1}$ is saturated,
+    \item\label{h4} $2^{\omega_1} = \mathbf{\delta^1_2} = \omega_2$, 
+    \item\label{h5} $MA(\omega_1)$ holds, and
+    \item\label{h7} $\lambda_f$ is a regular cardinal $> \omega_2$.
+\end{enumerate}
+Let $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$, and $A \subset \omega_1$ such that $\omega_1^{L[A]} = \omega_1$. Then there is a stationary-preserving forcing notion $\mathbb{P}$ such that in $V^{\mathbb{P}}$,
+\begin{itemize}
+    \item there is a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
+    \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
+        \item\label{nov1} $\bar{N}_0 \in D^* \subset \mathbb{P}_{max}$,
+        \item\label{nov2} $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$, and
+        \item\label{nov3} $a_{\omega_1^V} = A$, and
+    \end{enumerate}
+    \item $Nb'_1(\lambda_f)$ holds.
+\end{itemize}
+\end{thm}
+
+\begin{proof}
+We first import the notation the labelling of definitions from the proof of Theorem \ref{notion1}; they will be reused until subsequent reassignments. 
+
+Move to $W$ as in the proof of Theorem \ref{notion1} via forcing with $Col(\lambda_f, \lambda_f)$, so that 
+\begin{itemize}[label=($\diamond$)]
+    \item for all $P, B \subset H(\lambda_f)$, the set
+    \begin{align*}
+        \{\lambda \in C : (Q_{\lambda}; \in, P, A_{\lambda}) \prec (H(\lambda_f); \in, P, B)\}
+    \end{align*}
+    is stationary in $\lambda_f$.
+\end{itemize}
+holds in $W$. We further require 
+\begin{equation*}
+    \{T, \dot{p}, H(\omega_2)^W = H(\omega_2)^V, \mathrm{NS}_{\omega_1}^W = \mathrm{NS}_{\omega_1}^V, A\} \subset Q_{\lambda}
+\end{equation*}
+for all $\lambda \in C$, where $T$ and $\dot{p}$ are as provided by Fact \ref{fact434}, considering the hypothesis of the theorem. But this is easily done. 
+
+Set
+\begin{align*}
+    \mathcal{L}^o := \ & \text{the closure of } \mathcal{L}_1 \cup \mathcal{L}_2 \text{ under negation} \\
+    \mathcal{L}^s := \ & \text{the closure of } \mathcal{L}^{s_0} \text{ under negation},
+\end{align*}
+and enlarge $\mathcal{L}$ just enough to include $\mathcal{L}^s$. It is easy to see that
+\begin{itemize}
+    \item $\mathcal{L}^o$ is the original $\mathcal{L}$ before enlargement,
+    \item both $\mathcal{L}^s$ and the newly enlarged $\mathcal{L}$ are closed under negation, 
+    \item $\mathcal{L}$ now equals $\mathcal{L}^o \cup \mathcal{L}^s$, and
+    \item $\mathcal{L}^s \subset Q_{\lambda}$ for every $\lambda \in C$, so that
+    \item $\mathcal{L} \cap Q_{\lambda} = \mathcal{L}^s \sqcup (\mathcal{L}^o \cap Q_{\lambda})$ for every $\lambda \in C \cup \{\lambda_f\}$.
+\end{itemize}
+
+\begin{rem}\label{rempp2}
+The naturally extended version of Remark \ref{rempp} applies to the updated $\mathcal{L}$.
+\end{rem}
+
+Note also that the following hold in $W$:
+\begin{itemize}
+    \item the hypothesis \ref{h3}, and
+    \item the conclusion of Fact \ref{fact434} (i.e. the conjunction of \ref{4341} to \ref{4346}) with our given $D$ and $A$. 
+\end{itemize}
+
+The aforementioned truths in $W$ are all we need to proceed, aided by the next fact, which can be viewed as an extension of Lemma \ref{lem26}.
+
+\begin{fact}\label{fact436}
+The theorem holds if in $W$, we can define a forcing notion $\mathbb{P}$ with the following properties: 
+\begin{enumerate}[label=(K\arabic*), leftmargin=40pt]
+    \item\label{K1} $\mathbb{P} \subset H(\lambda_f)$, so that $|\mathbb{P}| \leq \lambda_f$ by the proof of Lemma \ref{size},
+    \item\label{K2} $\mathbb{P}$ is stationary-preserving, 
+    \item\label{K3} in $V^{\mathbb{P}}$ there is a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
+    \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
+        \item\label{k31} $\bar{N}_0 \in D^* \subset \mathbb{P}_{max}$,
+        \item\label{k32} $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$ and
+        \item\label{k33} $a_{\omega_1^V} = A$.
+    \end{enumerate} 
+    \item\label{K4} $\Vdash_{\mathbb{P}} ``cof(\alpha) = \omega"$ for all regular cardinals $\alpha$ satisfying $\omega_2 \leq \alpha < \lambda_f$,
+    \item\label{K5} $\Vdash_{\mathbb{P}} ``cof(\lambda_f) = \omega_1"$,
+\end{enumerate}
+\end{fact}
+
+Going forward, unless otherwise specified, 
+\begin{itemize}
+    \item we work in $W$ towards a forcing notion $\mathbb{P}$ as in Fact \ref{fact436}, and
+    \item every new object (to be) defined in $W$ always denotes its realisation in $W$. 
+\end{itemize}
+Recall that
+\begin{align*}
+    \kappa & := (2^{\lambda_f})^+ \text{,} \\
+    \mathfrak{A} & := (H(\kappa); \in) \text{, and} \\
+    R & := \{i < \lambda_f : \omega_2 \leq i \text{ and } i \text{ is regular}\},
+\end{align*}
+We shall formally describe the mathematical object that forcing with fragments of $\mathcal{L}$ is supposed to help construct. 
+
+\begin{defi}\label{def437}
+Let $\lambda \in C \cup \{\lambda_f\}$. A $\lambda$\emph{-certificate} is a tuple 
+\begin{equation*}
+    \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+\end{equation*}
+such that in some outer model of $W$ containing $\mathfrak{D}$,
+\begin{enumerate}[label=(C\arabic*)$_{\lambda}$, leftmargin=40pt]
+    \item\label{cd0} for all $i \leq \omega_1^W$, $\bar{N}_i$ is a structure of the form
+    \begin{equation*}
+        (N_i; \tilde{\in}_i, \Vec{X}_i) \text{,}
+    \end{equation*}
+    where 
+    \begin{itemize}
+        \item $\tilde{\in}_i$ interprets the binary relation symbol $\ulcorner \in \urcorner$, and
+        \item $\Vec{X}_i$ interprets $\hat{\sigma}$ 
+    \end{itemize}
+    (we shall use $I_i$ to denote $\dot{I}^{\bar{N}_i}$ and $a_i$ to denote $\dot{a}^{\bar{N}_i}$, both of which are members of $\Vec{X}_i$),
+    \item\label{cd1} $\bar{N}_0 \models ``\bar{M}_0$ is a member of $\mathbb{P}_{max}"$,
+    \item\label{cd1.5} for all $i < \omega_1^W$, $e_i$ is a bijection $\omega \longrightarrow N_i$,
+    \item\label{cd2} $S \subset T$ and $\bigcup S \in [T]$,
+    \item\label{cd3} $ran(pr(\bigcup S)) = Gd" Th^0_{\mathcal{L}}(\bar{N}_0, e_0)$,
+    \item\label{cd4} $\langle \bar{M}_i, \pi_{ij} : i \leq j \leq \omega_1^{\bar{N}_0} \rangle \in N_0$ is a generic iteration witnessing $(N_0; \tilde{\in}_0, I_0, a_0) < \bar{M}_0$ in $\mathbb{P}_{max}$,
+    \item\label{cdnew} $ORD \cap N_i \in \omega_1^W$ for all $i < \omega_1^W$,
+    \item\label{cd5} $\langle (N_i; \tilde{\in}_i, I_i, a_i), \sigma_{ij} : i \leq  j \leq \omega_1^{W} \rangle$ is a generic iteration and $\tilde{\in}_i = \ \in$, for $i < \omega_1^W$,
+    \item\label{cd6} $\sigma_{0\omega_1^W}(\langle \bar{M}_i, \pi_{ij} : i \leq j \leq \omega_1^{\bar{N}_0} \rangle) = \langle \bar{M}_i, \pi_{ij} : i \leq j \leq \omega_1^W \rangle$, 
+    \item\label{cd7} $\bar{M}_{\omega_1^W} = (H(\omega_2)^W; \in, \mathrm{NS}_{\omega_1}^W, A)$,
+    \item\label{2ndlast} for all $i \leq \omega_1^W$, 
+    \begin{align*}
+         \dot{\Vec{M}}^{\bar{N}_i} = \ & \langle \bar{M}_j, \pi_{jk} : j \leq k \leq \omega_1^{\bar{N}_i} \rangle \\
+         \xi^{\bar{N}_i} = \ & \xi \text{ for all } \xi \in \omega_1^W \cap N_i \\
+         \xi^{\bar{N}_i} = \ & \emptyset \text{ for all } \xi \in \omega_1^W \setminus N_i \\
+         \dot{M}_j^{\bar{N}_i} = \ & \bar{M}_j \text{ for all } j \leq \omega_1^{\bar{N}_i} \\
+         \dot{M}_j^{\bar{N}_i} = \ & \emptyset \text{ for all } \omega_1^{\bar{N}_i} < j < \omega_1^W \\
+         \dot{\pi}_{jk}^{\bar{N}_i} = \ & \pi_{jk} \text{ for all } j \leq k \leq \omega_1^{\bar{N}_0} \\
+         \dot{\pi}_{jk}^{\bar{N}_i} = \ & \emptyset \text{ for all } j \leq k \text{ and } \omega_1^{\bar{N}_0} < k < \omega_1^W \text{,}
+    \end{align*}
+    \item\label{cdlast} $\mathfrak{C}$ interprets $\mathcal{L}^o \cap Q_{\lambda}$ (see Definition \ref{def412}), and
+    \item\label{cdrlast} $\Sigma(\mathfrak{C}, \mathcal{L}^o \cap Q_{\lambda})$ $\Gamma_{\lambda} (\mathcal{L}^o \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset$ (see Definition \ref{def415}).
+\end{enumerate}
+\end{defi}
+
+One can easily verify that being a $\lambda$-certificate, for any $\lambda \in C \cup \{\lambda_f\}$, is absolute for outer models of $W$. If a $\lambda$-certificate shows up in some context without reference to the universe it inhabits, we may assume said universe to be any outer model of $W$.
+
+\begin{rem}\label{rem438}
+\leavevmode
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{dependl} \ref{cdlast} and \ref{cdrlast} are the only two out of the thirteen conditions --- \ref{cd0} to \ref{cdrlast} --- in Definition \ref{def437} that depend on $\lambda$.
+    \item\label{4390} For any two tuples $\mathfrak{C}$ and
+    \begin{equation*}
+        \mathfrak{D}' = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle \rangle \text{,}
+    \end{equation*}
+    if
+    \begin{itemize}
+        \item $\mathfrak{C}$ satisfies \ref{cdlast} to \ref{cdrlast} of Definition \ref{def437}, and
+        \item $\mathfrak{D}'$ satisfies \ref{cd0} to \ref{2ndlast} of Definition \ref{def437},
+    \end{itemize}
+    then
+    \begin{equation*}
+        \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+    \end{equation*}
+    is a $\lambda$-certificate.
+    \item\label{4391} If a tuple
+    \begin{equation*}
+        \mathfrak{D}' = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle \rangle
+    \end{equation*}
+    satisfies 
+    \begin{itemize}
+        \item $\langle \bar{N}_i, \sigma_{ij} : i \leq  j \leq \omega_1^{W} \rangle$ is a generic iteration, 
+        \item $ORD \cap N_i \in \omega_1^W$ for all $i < \omega_1^W$, where $N_i$ denotes the base set of $\bar{N}_i$, and
+        \item \ref{cd1} to \ref{cd4} and \ref{cd6} to \ref{cd7} of Definition \ref{def437},
+    \end{itemize}
+    then the $\bar{N}_i$'s can be canonically expanded as structures such that $\mathfrak{D}'$ satisfies \ref{cd0} to \ref{2ndlast} of Definition \ref{def437}.
+    \item\label{4392} As a result of \ref{4390} and \ref{4391}, if a tuple
+    \begin{equation*}
+        \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+    \end{equation*}
+    satisfies 
+    \begin{itemize}
+        \item $\langle \bar{N}_i, \sigma_{ij} : i \leq  j \leq \omega_1^{W} \rangle$ is a generic iteration, 
+        \item $ORD \cap N_i \in \omega_1^W$ for all $i < \omega_1^W$, where $N_i$ denotes the base set of $\bar{N}_i$, and
+        \item \ref{cd1} to \ref{cd4}, \ref{cd6} to \ref{cd7}, and \ref{cdlast} to \ref{cdrlast} of Definition \ref{def437},
+    \end{itemize}
+    then the $\bar{N}_i$'s can be canonically expanded as structures such that $\mathfrak{D}$ is a $\lambda$-certificate.
+\end{enumerate}
+
+\end{rem}
+
+\begin{defi}
+Given
+\begin{itemize}
+    \item $i < \omega_1^W$,
+    \item a structure $\bar{N} = (N; \tilde{\in}, \Vec{X})$ such that
+    \begin{itemize}[label=$\circ$]
+        \item $\tilde{\in}$ interprets the binary relation symbol $\ulcorner \in \urcorner$, and
+        \item $\Vec{X}$ interprets $\hat{\sigma}$,
+    \end{itemize}
+    and
+    \item a function $e$ from $\omega$ into $N$, 
+\end{itemize} 
+define $Th^{1}_{\mathcal{L}}(\bar{N}, e, i)$ to be 
+\begin{align*}
+    \{\ulcorner \dot{N}_i \models \phi(\xi_1, \ldots, \xi_k, \dot{n_1}, \ldots, \dot{n_l}, \dot{I}, \dot{a}, \dot{M}_{j_1}, & \ldots, \dot{M}_{j_m}, \dot{\pi}_{q_{1}r_{1}}, \ldots, \dot{\pi}_{q_{s}r_{s}}, \dot{\Vec{M}}) \urcorner \in \mathcal{L}^i_3 : \\ & \bar{N} \models \phi[\dot{n}_1 \mapsto e(n_1), \ldots, \dot{n}_l \mapsto e(n_l)]\}.
+\end{align*}
+\end{defi}
+
+\begin{defi}\label{def439}
+Given 
+\begin{itemize}
+    \item a tuple
+    \begin{equation*}
+        \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+    \end{equation*}
+    satisfying 
+    \begin{itemize}[label=$\circ$]
+        \item \ref{cd0} and \ref{cdlast} of Definition \ref{def437} for some $\lambda \in C \cup \{\lambda_f\}$, 
+        \item $e_i$ is a function from $\omega$ into $N_i$ whenever $i < \omega_1^W$, 
+        \item $\pi_{i\omega_1^W}$ is a partial function from $N_i$ into $H(\omega_2)^W$ whenever $i \leq \omega_1^W$, and
+        \item $\sigma_{ij}$ is a function from $N_i$ into $N_j$ whenever $i \leq j < \omega_1^W$,
+    \end{itemize}
+    as well as 
+    \item a set $\mathcal{L}' \subset \mathcal{L}$,
+\end{itemize}
+let $\Sigma'(\mathfrak{D}, \mathcal{L}')$ denote the union of the following sets:
+\begin{itemize}
+    \item $\bigcup \{Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) : i < \omega_1^W\}$,
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \{\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner : \ & \ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner \in \mathcal{L}' \text{, } e_i(n) \in dom(\pi_{i\omega_1^W}) \\ 
+        & \text{ and } \pi_{i\omega_1^W}(e_i(n)) = x\} \text{,}
+    \end{aligned}$
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \{\ulcorner \neg \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner : \ & \ulcorner \neg \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner \in \mathcal{L}' \text{, and} \\
+        & \text{either } e_i(n) \not\in dom(\pi_{i\omega_1^W}) \text{ or } \pi_{i\omega_1^W}(e_i(n)) \neq x\} \text{,}
+    \end{aligned}$
+    \item $\{\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner : \ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner \in \mathcal{L}' \text{ and } \sigma_{ij}(e_i(m)) = e_j(n)\}$,
+    \item $\{\ulcorner \neg \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner : \ulcorner \neg \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner \in \mathcal{L}' \text{ and } \sigma_{ij}(e_i(m)) \neq e_j(n)\}$,
+    \item $\{\ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner : \ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner \in \mathcal{L}' \text{ and } (\Vec{u}, \Vec{\alpha}) \in S\}$,
+    \item $\{\ulcorner \neg (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner : \ulcorner \neg (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner \in \mathcal{L}' \text{ and } (\Vec{u}, \Vec{\alpha}) \not\in S\}$, and
+    \item $\Sigma(\mathfrak{C}, \mathcal{L}' \cap \mathcal{L}^o)$.
+\end{itemize}
+As a result, we can view $\Sigma'(\cdot, \cdot)$ as a function in two variables.
+\end{defi}
+
+It is clear that $\Sigma'(\mathfrak{D}, \mathcal{L}) \cap Q_{\lambda} = \Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda})$ is $\mathcal{L} \cap Q_{\lambda}$-nice for all $\lambda \in C \cup \{\lambda_f\}$.
+
+\begin{defi}
+Let $\Gamma'$ be the following set
+\begin{align*}
+    \{\phi : \ & \phi \text{ is a } (\mathcal{L}^s)^*_{\mathfrak{A}}\text{-}\Pi_2 \text{ sentence and} \\
+    & \mathsf{ZFC} \vdash \forall \mathfrak{D} \ \forall \lambda \ (``\mathfrak{D} \text{ is a } \lambda \text{-certificate} \implies \Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda}) \models^*_{\mathfrak{A}} \phi")\} \text{.}
+\end{align*}
+\end{defi}
+
+As in the proof of Theorem \ref{notion1}, we will define $\{\mathbb{P}_{\lambda} : \lambda \in C \cup \{\lambda_f\}\}$ by induction on $\lambda$. Assume that $\mathbb{P}_{\lambda'}$ has been defined for all $\lambda' \in \lambda \cap C$. 
+
+\begin{defi}\label{def447}
+Set
+\begin{equation*}
+    \Gamma'_{\lambda} := \Gamma' \cup \Gamma_{\lambda} \text{,}
+\end{equation*}
+where $\Gamma_{\lambda}$ is as in Definition \ref{defc}. 
+\end{defi}
+
+\begin{rem}\label{rem443}
+\leavevmode
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{443'1} If $\lambda \in C \cup \{\lambda_f\}$ and
+    \begin{equation*}
+        \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+    \end{equation*}
+    is a $\lambda$-certificate, then
+    \begin{equation*}
+        \Sigma'(\mathfrak{D}, \mathcal{L}^o \cap Q_{\lambda}) = \Sigma(\mathfrak{C}, \mathcal{L}^o \cap Q_{\lambda}) \text{.}
+    \end{equation*}
+    \item\label{443'2} In part due to \ref{4431}, as long as $\lambda \in C \cup \{\lambda_f\}$ and $\mathfrak{D}$ is a $\lambda$-certificate, it must be that $\Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda})$ $\Gamma'_{\lambda} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A})$-certifies $\emptyset$.
+    \item\label{443'3} If $\lambda \in C \cup \{\lambda_f\}$ and $\Sigma \ \Gamma'_{\lambda} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset$, then also
+    \begin{equation*}
+        (\Sigma \cap \mathcal{L}^o) \ \Gamma_{\lambda} (\mathcal{L}^o \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset \text{.}
+    \end{equation*}
+\end{enumerate}
+\end{rem}
+
+Redefine $\mathbb{P}_{\lambda}$ as follows:
+\begin{align*}
+    \mathbb{P}_{\lambda} := \ & (P_{\lambda}, \leq_{\lambda}) \text{, where } \\
+    P_{\lambda} := \ & \{p \in [\mathcal{L} \cap Q_{\lambda}]^{< \omega} : \ \Vdash_{Col(\omega, |H(\kappa)|)} \exists \Sigma \ (``\Sigma \ \Gamma'_{\lambda} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } p")\}, \text{ and} \\
+    \leq_{\lambda} \ := \ & \{(p, q) \in P_{\lambda} \times P_{\lambda} : q \subset p\}.
+\end{align*}
+As before, let $\mathbb{P}$ denote $\mathbb{P}_{\lambda_f}$. 
+
+\begin{rem}\label{rem447}
+\ref{K1} of Fact \ref{fact436} is obvious from the definition of $\mathbb{P}$.
+\end{rem}
+
+\begin{con}
+Given an elementary embedding $\pi$ of $W$ into some transitive model $M$ of $\mathsf{ZFC}$ such that $ORD^W = ORD^M$, we say a statement (or definition) $\varphi$ holds when relativised to $(\pi, M)$ iff $\varphi$ holds with
+\begin{itemize}
+    \item every instance therein of each parameter $\zeta$ replaced by $\pi(\zeta)$, and
+    \item every evaluation therein, after the replacement of parameters, being done in $M$ instead of $W$.
+\end{itemize}
+\end{con}
+
+\begin{lem}\label{nonemp2}
+For all $\lambda \in C \cup \{\lambda_f\}$, $\emptyset \in P_{\lambda}$.
+\end{lem}
+
+\begin{proof}
+Fix $\lambda \in C \cup \{\lambda_f\}$ and let 
+\begin{itemize}
+    \item $h$ be $Col(\omega, \omega_2)$-generic over $W$,
+    \item $S \in W[h]$ be a path on $T$ such that $pr(\bigcup S) = p := \dot{p}[h]$, and
+    \item $\bar{N}_0 = F^*(p) \in W[h]$ (possible by \ref{4341}).
+\end{itemize}
+Set $\theta := \omega_1^{W[h]}$. Choose a generic iteration $\langle \bar{M}_i, \pi_{ij} : i \leq j \leq \omega_1^{\bar{N}_0} \rangle$ witnessing $\bar{N}_0 \leq_{\mathbb{P}^{W[h]}_{max}} (H(\omega_2)^W; \in, \mathrm{NS}_{\omega_1}^W, A)$, possible by \ref{4342} to \ref{4345}. Let 
+\begin{itemize}
+    \item $\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \theta \rangle \in W[h]$ be a generic iteration of $\bar{N}_0$,
+    \item $\langle \bar{M}_i = (M_i; \in, J_i, b_i), \pi_{ij} : i \leq j \leq \theta \rangle$ denote $\sigma_{0\theta}(\langle \bar{M}_i, \pi_{ij} : i \leq j \leq \omega_1^{\bar{N}_0} \rangle)$, and
+    \item $\langle e_i : i < \theta \rangle$ be such that for each $i < \theta$, $e_i$ is a bijection from $\omega$ onto $N_i$.
+\end{itemize}
+Then by Lemma~\ref{lift}, $\pi_{0\theta}$ lifts to a generic ultrapower map $\pi : W \longrightarrow M$, for some inner model $M$ of $W[h]$. 
+
+Now let $h'$ be $Col(\omega, \pi(\lambda_f))$-generic over $W[h]$, so that in $W[h][h']$, there is 
+\begin{equation*}
+    \langle F_i : i \in \pi(R) \rangle
+\end{equation*}
+for which $F_i$ is a strictly increasing cofinal map from $\omega$ into $i$ whenever $i \in \pi(R)$. It is easy to verify that if
+\begin{equation*}
+    \mathfrak{C} := \langle \langle F_i : i \in \pi(R) \rangle, \langle \rangle \rangle \text{,}
+\end{equation*}
+then without loss of generality,
+\begin{equation*}
+    \mathfrak{D} := \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \theta \rangle, S, \langle e_i : i < \theta \rangle, \mathfrak{C} \rangle \in W[h][h']
+\end{equation*}
+is a $\pi(\lambda)$-certificate relative to $M$. In other words, $\mathfrak{D}$ fulfils the requirements of Definition \ref{def437} relativised to $(\pi, M)$, bearing in mind \ref{4392} of Remark \ref{rem438}. 
+
+Use $(\Sigma')^{\pi, M}(\cdot, \cdot)$ to denote the function $\Sigma'(\cdot, \cdot)$ relativised to $(\pi, M)$. Following \ref{443'2} of Remark \ref{rem443}, we have that
+\begin{itemize}
+    \item the hypothesis on $\mathfrak{D}$ in \ref{def439}, relativised to $(\pi, M)$, is satisfied, 
+    \item $(\Sigma')^{\pi, M}(\mathfrak{D}, \pi(\mathcal{L} \cap Q_{\lambda}))$ is a set found in some weak outer model of $M$, and
+    \item $(\Sigma')^{\pi, M}(\mathfrak{D}, \pi(\mathcal{L} \cap Q_{\lambda}))$ $\pi(\Gamma'_{\lambda}) (\pi(\mathcal{L} \cap Q_{\lambda}), \pi(\mathfrak{A}))$-certifies $\emptyset$. 
+\end{itemize}
+Applying Lemma \ref{inout} in $M$ gives us the fact that 
+\begin{equation*}
+    \emptyset \in \pi(P_{\lambda}) \text{,}
+\end{equation*}
+so also $\emptyset \in \mathbb{P}_{\lambda}$ by the elementarity of $\pi$. 
+\end{proof}
+
+By Proposition \ref{certgood}, $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}$. Obviously, $\mathbb{P}$ is definable in the language associated with $\mathfrak{A}$ because $\mathbb{P} \in H(\kappa)$. Moreover, the following hold as they do in the proof of Theorem \ref{notion1}.
+\begin{enumerate}[label=(P\arabic*), leftmargin=40pt]
+    \item\label{p1'} $P_{\lambda_0} = P_{\lambda_1} \cap Q_{\lambda_0}$ whenever $\lambda_0, \lambda_1 \in C \cup \{\lambda_f\}$ and $\lambda_0 \leq \lambda_1$, and
+    \item\label{p2'} $P_{\lambda} = \bigcup \{P_{\lambda'} : \lambda' \in C \cap \lambda\}$ whenever $\lambda \in C \cup \{\lambda_f\}$ and $sup(\lambda \cap C) = \lambda$.
+\end{enumerate}
+
+\begin{lem}\label{modeldone2}
+Let 
+\begin{itemize}
+    \item $\lambda \in C \cup \{\lambda_f\}$, and
+    \item $g$ be a $\mathbb{P}_{\lambda}$-$\Sigma_1$-generic filter over $W$.
+\end{itemize}
+Then $\bigcup g \ \Gamma'_{\lambda} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset$.
+\end{lem}
+
+\begin{proof}
+Straightforward, by Lemma \ref{main2} (cf. Lemma \ref{modeldone}).
+\end{proof}
+
+\begin{lem}\label{lem446}
+There is a definition $\mathfrak{D}(\cdot)$ of a function in one variable such that
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{4461} $\mathfrak{D}(\cdot)$ is absolute for forcing extensions of $W$, and
+    \item\label{4462} whenever
+    \begin{itemize}
+        \item $\lambda \in C \cup \{\lambda_f\}$, 
+        \item $W'$ is a forcing extension of $W$, and
+        \item $g \in W'$ is a $\mathbb{P}_{\lambda}$-$\Sigma_1$-generic filter over $W$,
+    \end{itemize}
+    $\mathfrak{D}(g)$ is a $\lambda$-certificate satisfying 
+    \begin{equation*}
+        \Sigma'(\mathfrak{D}(g), \mathcal{L}) = \bigcup g \text{.}
+    \end{equation*} 
+\end{enumerate} 
+\end{lem}
+
+\begin{proof}
+Let $\lambda$, $W'$ and $g$ fulfil the hypothesis of the lemma. Work in $W'$ for the rest of the proof. We shall unambiguously describe --- constituent by constituent --- the construction of a $\lambda$-certificate
+\begin{equation*}
+    \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij}, \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+\end{equation*}
+from $g$, checking that $\mathfrak{D}$ fulfils the conditions of Definition \ref{def437} as we go along. The reader ought to check for themselves that 
+\begin{itemize}
+    \item every step of the construction, as well as the argument for the purpose it serves, requires only facts which are absolute for forcing extensions (often, even for weak outer models) of $W$, and
+    \item at every step of the construction, whatever can be deduced about $\Sigma'(\mathfrak{D}(g), \mathcal{L})$ is consistent with 
+    \begin{equation*}
+        \Sigma'(\mathfrak{D}(g), \mathcal{L}) = \bigcup g \text{.}
+    \end{equation*}
+\end{itemize}
+
+First, by Lemma \ref{modeldone2}, 
+\begin{equation*}
+    \bigcup g \ \Gamma'_{\lambda} (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } \emptyset \text{,}
+\end{equation*}
+so \ref{cdlast} of Definition \ref{def437} is satisfied with
+\begin{equation*}
+    \mathfrak{C} := \langle \langle F_i(\bigcup g \cap \mathcal{L}^o) : i \in R \cap \lambda \rangle, \langle X_{\delta, \lambda'}(\bigcup g \cap \mathcal{L}^o) : \delta < \omega_1, \lambda' \in C \cap \lambda \rangle \rangle \text{.}
+\end{equation*}
+By Remark \ref{rem416} and \ref{443'3} of Remark \ref{rem443}, we too have \ref{cdrlast} of Definition \ref{def437}. 
+
+Set
+\begin{equation*}
+    S := \{(\Vec{u}, \Vec{\alpha}) : \ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner \in \bigcup g\} 
+\end{equation*}
+as one would naturally do. For each $i < \omega_1^W$, define a binary relation $\sim_i$ on 
+\begin{equation*}
+    \hat{\sigma}' := (\hat{\sigma} \cup \{\dot{n} : n < \omega\}) \setminus \{\dot{I}\} 
+\end{equation*}
+as follows: 
+\begin{equation*}
+    \tau \sim_i \rho \text{ iff } \ulcorner \dot{N}_i \models \tau = \rho \urcorner \in \bigcup g \text{.}
+\end{equation*}
+Whenever $i < \omega_1^W$, let $\sim'_i$ be the equivalence closure of $\sim_i$, and
+\begin{align*}
+    N_i := \ & \{[\tau]_{\sim'_i} : \tau \in \hat{\sigma}'\} \\
+    \ulcorner \in \urcorner^{\bar{N}_i} = \tilde{\in}_i := \ & \{([\tau]_{\sim'_i}, [\rho]_{\sim'_i}) : \tau, \rho \in \hat{\sigma}' \text{ and } \ulcorner \dot{N}_i \models \tau \in \rho \urcorner \in \bigcup g\} \\
+    I_i := \ & \{[\tau]_{\sim'_i} \in N_i : \ulcorner \dot{N}_i \models \dot{I}(\tau) \urcorner \in \bigcup g\} \\
+    \tau^{\bar{N}_i} := \ & [\tau]_{\sim'_i} \text{ for every } \tau \in \hat{\sigma}' \\
+    \bar{N}_i := \ & (N_i; \tilde{\in}_i, I_i, \langle \tau^{\bar{N}_i} : \tau \in \hat{\sigma}' \rangle) \\
+    e_i : \ & \omega \longrightarrow N_i \ (n \mapsto [\dot{n}]_{\sim'_i}) \text{.}
+\end{align*}
+Then $Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i)$ is well-defined for all $i < \omega_1^W$.
+
+\begin{prop}\label{prop448}
+For all
+\begin{equation*}
+    \varphi = \ulcorner \dot{N}_i \models \phi(\xi_1, \ldots, \xi_k, \dot{n_1}, \ldots, \dot{n_l}, \dot{I}, \dot{a}, \dot{M}_{j_1}, \ldots, \dot{M}_{j_m}, \dot{\pi}_{q_{1}r_{1}}, \ldots, \dot{\pi}_{q_{s}r_{s}}, \dot{\Vec{M}}) \urcorner \in \mathcal{L}_3 \text{,}
+\end{equation*}
+we have
+\begin{gather*}
+    \varphi \in \bigcup g \iff \bar{N}_i \models \phi[\dot{n}_1 \mapsto e_i(n_1), \ldots, \dot{n}_l \mapsto e_i(n_l)] \text{.}
+\end{gather*}
+\end{prop}
+
+\begin{proof}
+Fix $i < \omega_1^W$. It suffices to show 
+\begin{equation*}
+    \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi \in \bigcup g
+\end{equation*}
+for all $\phi \in \mathcal{L}^i_3$. We do this by induction on the length of $\phi$. 
+
+\begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
+    \item $\phi = \ulcorner \dot{N}_i \models \tau = \rho \urcorner$ for some $\tau, \rho \in \hat{\sigma}'$. Then 
+    \begin{equation*}
+        \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi \in \bigcup g
+    \end{equation*}
+    is implied by $\sim_i$ being an equivalence relation, the latter of which holds because 
+    \begin{itemize}
+        \item $\ulcorner \forall \tau \in \hat{\sigma}' \ (E(\ulcorner \dot{N}_i \models \tau = \tau \urcorner)) \urcorner$,
+        \item $\ulcorner \forall \tau, \rho \in \hat{\sigma}' \ (E(\ulcorner \dot{N}_i \models \tau = \rho \urcorner) \implies E(\ulcorner \dot{N}_i \models \rho = \tau \urcorner)) \urcorner$, and
+        \item 
+        \!
+        $\begin{aligned}[t]\ulcorner \forall \tau, \rho, \zeta \in \hat{\sigma}' \ (&(E(\ulcorner \dot{N}_i \models \tau = \rho \urcorner) \wedge (E(\ulcorner \dot{N}_i \models \rho = \zeta \urcorner)) \\
+        & \implies E(\ulcorner \dot{N}_i \models \tau = \zeta \urcorner)) \urcorner
+        \end{aligned}$
+    \end{itemize}
+    are members of $\Gamma'$.
+    \item $\phi = \ulcorner \dot{N}_i \models \tau \in \rho \urcorner$ for some $\tau, \rho \in \hat{\sigma}'$. Then 
+    \begin{equation*}
+        \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi \in \bigcup g
+    \end{equation*}
+    is implied by  
+    \begin{align*}
+        \ulcorner \forall \tau, \rho, \zeta, \gamma \in \hat{\sigma}' \ (( & E(\ulcorner \dot{N}_i \models \tau = \rho \urcorner) \wedge E(\ulcorner \dot{N}_i \models \zeta = \gamma \urcorner) \\
+        & \wedge E(\ulcorner \dot{N}_i \models \tau \in \zeta \urcorner)) \implies E(\ulcorner \dot{N}_i \models \rho \in \gamma \urcorner)) \urcorner,
+    \end{align*}
+    being a member of $\Gamma'$.
+    \item $\phi = \ulcorner \dot{N}_i \models \dot{I}(\tau) \urcorner$ for some $\tau \in \hat{\sigma}'$. Then 
+    \begin{equation*}
+        \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi \in \bigcup g
+    \end{equation*}
+    is implied by  
+    \begin{align*}
+        \ulcorner \forall \tau, \rho \in \hat{\sigma}' \ ( & (E(\ulcorner \dot{N}_i \models \tau = \rho \urcorner) \wedge E(\ulcorner \dot{N}_i \models \dot{I}(\tau) \urcorner)) \\
+        & \implies E(\ulcorner \dot{N}_i \models \dot{I}(\rho) \urcorner)) \urcorner,
+    \end{align*}
+    being a member of $\Gamma'$.
+    \item $\phi = \ulcorner \dot{N}_i \models \neg \psi \urcorner$ for some $\psi$. Then by the induction hypothesis, we have \begin{equation*}
+        \phi' \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi' \in \bigcup g \text{,} 
+    \end{equation*}
+    where
+    \begin{align*}
+        \phi' := \ulcorner \dot{N}_i \models \psi \urcorner \text{.} 
+    \end{align*}
+    This means  
+    \begin{align*}
+        \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi' \not \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi' \not \in \bigcup g \text{,}
+    \end{align*}
+    and we are done if 
+    \begin{equation*}
+        \phi' \not \in \bigcup g \iff \phi \in \bigcup g \text{.}
+    \end{equation*}
+    But this must hold because $\phi' = \neg(\phi)$ and $\bigcup g$ is $\mathcal{L} \cap Q_{\lambda}$-nice. 
+    \item $\phi = \ulcorner \dot{N}_i \models \psi_1 \wedge \psi_2 \urcorner$ for some $\psi_1$ and $\psi_2$. Then by the induction hypothesis, we have 
+    \begin{align*}
+        \phi' \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) & \iff \phi' \in \bigcup g \text{ and } \\
+        \phi'' \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) & \iff \phi'' \in \bigcup g \text{,} 
+    \end{align*}
+    where
+    \begin{align*}
+        \phi' := \ & \ulcorner \dot{N}_i \models \psi_1 \urcorner \text{ and } \\
+        \phi'' := \ & \ulcorner \dot{N}_i \models \psi_2 \urcorner.
+    \end{align*}
+    This means  
+    \begin{align*}
+        \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi', \phi'' \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi', \phi'' \in \bigcup g,
+    \end{align*}
+    and we are done if 
+    \begin{equation*}
+        \phi', \phi'' \in \bigcup g \iff \phi \in \bigcup g \text{.}
+    \end{equation*}
+    But this is implied by
+    \begin{align*}
+        \ulcorner (E(\phi) \iff (E(\phi') \wedge E(\phi'')) \urcorner
+    \end{align*}
+    being a member of $\Gamma'$.
+    \item $\phi = \ulcorner \dot{N}_i \models \exists x \ \psi \urcorner$ for some $\psi$. Then by the induction hypothesis, we have 
+    \begin{equation*}
+        \phi_{\tau} \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) \iff \phi_{\tau} \in \bigcup g \text{,}
+    \end{equation*} 
+    for all $\tau < \hat{\sigma}'$, where
+    \begin{align*}
+        \phi_{\tau} := \ulcorner \dot{N}_i \models \psi[x \mapsto \tau] \urcorner \text{.}
+    \end{align*}
+    This means 
+    \begin{align*}
+        \phi \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i) & \iff \exists \tau \in \hat{\sigma}' \ (\phi_{\tau} \in Th^{1}_{\mathcal{L}}(\bar{N}_i, e_i, i)) \\
+        & \iff \exists \tau \in \hat{\sigma}' \ (\phi_{\tau} \in \bigcup g) \text{,}
+    \end{align*}
+    and we are done if 
+    \begin{equation*}
+        \exists \tau \in \hat{\sigma}' \ (\phi_{\tau} \in \bigcup g) \iff \phi \in \bigcup g \text{.}
+    \end{equation*} 
+    But this is implied by  
+    \begin{align*}
+        \ulcorner E(\phi) \iff \exists \tau \in \hat{\sigma}' \ (E(\phi_{\tau})) \urcorner
+    \end{align*}
+    being a member of $\Gamma'$. \qedhere
+\end{enumerate}
+\end{proof}
+
+In the rest of the proof, we will apply Proposition \ref{prop448} repeatedly and with great fervour. To minimise annoyance, these applications will be done implicitly as much as possible. 
+
+For every $i < \omega_1^W$ and $\phi \in \mathsf{ZFC}^* + \mathsf{MA}(\omega_1)$, 
+\begin{equation*}
+    \ulcorner E(\ulcorner \dot{N}_i \models \phi \urcorner) \urcorner \in \Gamma' \text{,}
+\end{equation*}
+so also 
+\begin{equation*}
+    \bar{N}_i \models \mathsf{ZFC}^* + \mathsf{MA}(\omega_1) \text{.}
+\end{equation*}
+Particularly, 
+\begin{equation*}
+    \bar{N}_i \models ``\text{Axiom of Extensionality}"
+\end{equation*}
+for $i < \omega_1^W$. In a similar vein, 
+\begin{equation*}
+    \bar{N}_i \models ``I_i \text{ is a normal uniform ideal on } \omega_1 \text{ and } a_i \subset \omega_1" 
+\end{equation*}
+because
+\begin{equation*}
+    \ulcorner E(\ulcorner \dot{N}_i \models ``\dot{I} \text{ is a normal uniform ideal on } \omega_1 \text{ and } \dot{a} \subset \omega_1" \urcorner) \urcorner \in \Gamma' \text{,}
+\end{equation*}
+as $i$ ranges over $\omega_1^W$. Since
+\begin{itemize}
+    \item $\ulcorner \forall \xi < \omega_1^W \ (E(\ulcorner \dot{N}_i \models ``\xi \text{ is an ordinal}" \urcorner)) \urcorner$,
+    \item $\ulcorner \forall \tau \in \hat{\sigma}' \ \exists \xi < \omega_1^W \ (E(\ulcorner \dot{N}_i \models ``\tau \text{ is an ordinal}" \urcorner) \implies E(\ulcorner \dot{N}_i \models \tau = \xi \urcorner)) \urcorner$,
+    \item $\ulcorner \forall \xi_1 < \xi_2 < \omega_1^W \ (E(\ulcorner \dot{N}_i \models ``\xi_2 \neq \emptyset" \urcorner) \implies E(\ulcorner \dot{N}_i \models \xi_1 \in \xi_2 \urcorner)) \urcorner$, and
+    \item $\ulcorner \forall \tau \in \hat{\sigma}' \ \forall \xi_1 < \omega_1^W \ \exists \xi_2 < \xi_1 \ (E(\ulcorner \dot{N}_i \models \tau \in \xi_1  \urcorner) \implies E(\ulcorner \dot{N}_i \models \tau = \xi_2 \urcorner)) \urcorner$
+\end{itemize}
+are members of $\Gamma'$ for each $i < \omega_1^W$, we also have the $\tilde{\in}_i$'s being well-founded. This means the $\bar{N}_i$'s are isomorphic to their respective (well-defined) Mostowski collapse, the latter of which shall be henceforth identified with the former. For $n < \omega$, the $e_i(n)$'s shall also be identified with their respective images under the Mostowski collapse function. As a consequence, for all $i < \omega_1^W$,
+\begin{itemize}
+    \item $(N_i; \tilde{\in}_i = \ \in)$ is a transitive model of $\mathsf{ZFC}^* + \mathsf{MA}(\omega_1)$ 
+    \item $ORD \cap N_i \in \omega_1^W + 1$,
+    \item $\xi^{\bar{N}_i} = \xi$ for all $\xi \in \omega_1^W \cap N_i$,
+    \item $\xi^{\bar{N}_i} = 0$ for all $\xi \in \omega_1^W \setminus N_i$.
+\end{itemize}
+That 
+\begin{equation*}
+\ulcorner \forall i < \omega_1^W \ \exists \xi < \omega_1^W \ (\xi \neq 0 \wedge E(\ulcorner \dot{N}_i \models ``\xi = \emptyset" \urcorner)) \urcorner \in \Gamma'
+\end{equation*}
+allows us to conclude \ref{cdnew} of Definition \ref{def437}.
+
+Now for each $i < \omega_1^W$, 
+\begin{itemize}
+    \item $\ulcorner \forall \tau \in \hat{\sigma}' \ \exists n < \omega \ (E(\ulcorner \dot{N}_i \models \tau = \dot{n} \urcorner)) \urcorner$, and
+    \item $\ulcorner \forall m, n < \omega \ (m \neq n \implies E(\ulcorner \dot{N}_i \models \neg \ \dot{m} = \dot{n} \urcorner)) \urcorner$
+\end{itemize}
+being members of $\Gamma'$ tells us that $e_i$ is a bijection from $\omega$ into $N_i$. This settles \ref{cd1.5} of Definition \ref{def437}. Then 
+\begin{itemize}
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall (\Vec{u}_1, \Vec{\alpha}_1), (\Vec{u}_2, \Vec{\alpha}_2) \in {^{< \omega}{\omega}} \times {^{<\omega}{\omega_2^W}} \\
+        & ((E(\ulcorner (\Vec{u}_1, \Vec{\alpha}_1) \in \dot{T} \urcorner) \wedge E(\ulcorner (\Vec{u}_2, \Vec{\alpha}_2) \in \dot{T} \urcorner)) \\
+        & \mspace{5mu} \implies ((\Vec{u}_1 \subset \Vec{u}_2 \wedge \Vec{\alpha}_1 \subset \Vec{\alpha}_2) \vee (\Vec{u}_2 \subset \Vec{u}_1 \wedge \Vec{\alpha}_2 \subset \Vec{\alpha}_1))) \urcorner \text{,}
+    \end{aligned}$
+    \item $\ulcorner \forall n < \omega \ \exists (\Vec{u}, \Vec{\alpha}) \in {^{< \omega}{\omega}} \times {^{<\omega}{\omega_2^W}} \ (E(\ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner) \wedge n \in dom(\Vec{u})) \urcorner$, and
+    \item $\ulcorner \forall (\Vec{u}, \Vec{\alpha}) \in {^{< \omega}{\omega}} \times {^{< \omega}{\omega_2^W}} \ (E(\ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner) \implies (\Vec{u}, \Vec{\alpha}) \in T) \urcorner$
+\end{itemize}
+being members of $\Gamma'$, and 
+\begin{itemize}
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall x \in \mathcal{L}^0_0 \ \exists (\Vec{u}, \Vec{\alpha}) \in {^{< \omega}{\omega}} \times {^{< \omega}{\omega_2^W}} \\
+        & (E(x) \implies (Gd(x) \in ran(\Vec{u}) \wedge E(\ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner))) \urcorner \text{, and}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall (\Vec{u}, \Vec{\alpha}) \in {^{< \omega}{\omega}} \times {^{< \omega}{\omega_2^W}} \ \forall n < \omega \ \exists x \in \mathcal{L}^0_0 \\
+        & ((n \in ran(\Vec{u}) \wedge E(\ulcorner (\Vec{u}, \Vec{\alpha}) \in \dot{T} \urcorner)) \implies (E(x) \wedge Gd(x) = n)) \urcorner 
+    \end{aligned}$
+\end{itemize}
+being members of $\Gamma'$, respectively give us \ref{cd2} and \ref{cd3} of Definition \ref{def437}. According to \ref{4344} and \ref{4346b}, $(N_0; \in, I_0, a_0)$ must be a member of $\mathbb{P}_{max}$. In particular, $(N_0; \in, I_0)$ is generically iterable.
+
+Whenever $i \leq j < \omega_1^W$, define
+\begin{equation*}
+    \sigma_{ij} := \{(e_i(m), e_j(n)) : \ulcorner E(\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner) \urcorner \in \bigcup g\} \subset N_i \times N_j \text{.}
+\end{equation*}
+We see that $\langle N_i, \sigma_{ij} : i \leq  j < \omega_1^{W} \rangle$ is a directed system as
+\begin{itemize}
+    \item $\ulcorner \forall i \leq j < \omega_1^W \ \forall m < \omega \ \exists n < \omega \ (E(\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner)) \urcorner$,
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall i \leq j < \omega_1^W \ \forall m, n_1, n_2 < \omega \ ( & (E(\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n_1} \urcorner) \wedge E(\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n_2} \urcorner)) \\
+        & \implies n_1 = n_2) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall i \leq j < \omega_1^W \ \forall m_1, m_2, n < \omega \ ( & (E(\ulcorner \dot{\sigma}_{ij}(\dot{m_1}) = \dot{n} \urcorner) \wedge E(\ulcorner \dot{\sigma}_{ij}(\dot{m_2}) = \dot{n} \urcorner)) \\
+        & \implies m_1 = m_2) \urcorner \text{, and}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall i \leq j \leq k < \omega_1^W \ \forall l, m, n < \omega \ ( & (E(\ulcorner \dot{\sigma}_{ij}(\dot{l}) = \dot{m} \urcorner) \wedge E(\ulcorner \dot{\sigma}_{jk}(\dot{m}) = \dot{n} \urcorner)) \\
+        & \implies E(\ulcorner \dot{\sigma}_{ik}(\dot{l}) = \dot{n} \urcorner)) \urcorner
+    \end{aligned}$
+\end{itemize}
+are members of $\Gamma'$. Furthermore, because  
+\begin{itemize}
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i, j < \omega_1^W \ \forall \phi \in \mathcal{L}^1(\hat{\sigma} \cup \ulcorner \in \urcorner, x) \ \forall m, n \in \omega \ (E(\ulcorner \dot{\sigma}_{ij}(\dot{m}) = \dot{n} \urcorner) \\ 
+        & \implies (E(\ulcorner \dot{N}_i \models \phi[x \mapsto \dot{m}] \urcorner) \iff E(\ulcorner \dot{N}_j \models \phi[x \mapsto \dot{n}] \urcorner))) \urcorner,
+    \end{aligned}$
+    \\
+    \\
+    (Recalling Definition \ref{defsvf} and given what we have shown thus far, this means to say that for $i \leq j < \omega_1^W$, $\sigma_{ij}$ is an elementary embedding from $\bar{N}_i$ into $\bar{N}_j$.)
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i < \omega_1^W \ \forall m < \omega \ \exists \xi < \omega_1^W \ \exists n, n' < \omega \ \\
+        & (E(\ulcorner \dot{N}_i \models ``\dot{n} \text{ is a function with domain } \omega_1" \urcorner) \wedge E(\ulcorner \dot{N}_i \models ``\xi = \omega_1" \urcorner) \\ 
+        & \mspace{6mu} \wedge E(\ulcorner \dot{\sigma}_{i(i+1)}(\dot{n}) = \dot{n'} \urcorner) \wedge E(\ulcorner \dot{N}_{i+1} \models ``\dot{n'}(\xi) = \dot{m}" \urcorner)) \urcorner,
+    \end{aligned}$
+    \\
+    \\
+    (This means to say that for all $i < \omega_1^W$, $\bar{N}_{i+1}$ is generated over $\bar{N}_i$ from the ``seed'' $\omega_1^{\bar{N}_i}$.)
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i < \omega_1^W \ \forall m < \omega \ \exists \xi < \omega_1^W \ \exists n, n' < \omega \ (E(\ulcorner \dot{N}_i \models ``\dot{m} \text{ is dense in } \mathcal{P}(\omega_1) \setminus \dot{I}" \urcorner) \\ 
+        & \implies (E(\ulcorner \dot{N}_i \models \dot{n} \in \dot{m} \urcorner) \ \wedge E(\ulcorner \dot{N}_i \models ``\xi = \omega_1" \urcorner) \\
+        & \mspace{55mu} \wedge E(\ulcorner \dot{\sigma}_{i(i+1)}(\dot{n}) = \dot{n'} \urcorner) \wedge E(\ulcorner \dot{N}_{i+1} \models \xi \in \dot{n'} \urcorner))) \urcorner,
+    \end{aligned}$
+    \\
+    \\
+    (This means to say that the set $$\{x \in \mathcal{P}(\omega_1^{\bar{N}_i}) \cap N_i : \omega_1^{\bar{N}_i} \in \sigma_{i(i+1)}(x)\}$$ is $((\mathcal{P}(\omega_1^{\bar{N}_i}) \cap N_i) \setminus I_i)$-generic over $N_i$, for all $i < \omega_1^W$.)
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall i < \omega_1^W \ \forall m < \omega \ \exists j < \omega_1^W \ \exists n < \omega \ ( & ``i \text{ is a limit ordinal}'' \\ 
+        & \implies  (j < i \wedge E(\ulcorner \dot{\sigma}_{ji}(\dot{n}) = \dot{m} \urcorner))) \urcorner,
+    \end{aligned}$
+    \\
+    \\
+    (Given what we have shown thus far, this means to say that $(\bar{N}_i, \langle \sigma_{ji} : j < i \rangle)$ is the direct limit of $\langle \bar{N}_j, \sigma_{jj'} : j \leq j' < i \rangle$ for all limit ordinals $i < \omega_1^W$.)
+\end{itemize}
+are members of $\Gamma'$, 
+\begin{equation*}
+    \langle (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j < \omega_1^W \rangle
+\end{equation*} 
+is a generic iteration. Letting 
+\begin{itemize}
+    \item $\hat{N} := (\bar{N}_{\omega_1^W}, \langle \sigma_{i\omega_1^W} : i < \omega_1^W \rangle)$ be a direct limit of the directed system
+    \begin{equation*}
+        \langle \bar{N}_i, \sigma_{ij} : i \leq j < \omega_1^W \rangle \text{,}
+    \end{equation*}
+    of elementary embeddings, and
+    \item $\sigma_{\omega_1^W\omega_1^W}$ be the identity map on the base set of $\bar{N}_{\omega_1^W}$,
+\end{itemize}
+we arrive at \ref{cd0} of Definition \ref{def437}. The generic iterability of $(N_0; \in, I_0)$ then guarantees the existence of a (unique) Mostowski collapse of $\hat{N}$. Identifying $\hat{N}$ with its Mostowski collapse, we have \ref{cd5} of Definition \ref{def437}.
+
+Finally, set
+\begin{align*}
+    \bar{M}_i := \ & \dot{M}_i^{\bar{N}_i} \text{ for } i < \omega_1^W \\
+    \pi_{ij} := \ & \dot{\pi}_{ij}^{\bar{N}_j} \text{ for } i \leq j < \omega_1^W \\
+    \bar{M}_{\omega_1^W} := \ & (H(\omega_2)^W; \in, \mathrm{NS}_{\omega_1}^W, A) \\
+    \pi_{i\omega_1^W} := \ & \{(e_i(n), x) : \ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner \in \bigcup g\} \\
+    \pi_{\omega_1^W\omega_1^W} := \ & \text{the identity map on } H(\omega_2)^W \text{,}
+\end{align*}
+so that \ref{cd7} of Definition \ref{def437} clearly holds. Considering 
+\begin{itemize}
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i, j, k, \xi < \omega_1^W \ ((E(\ulcorner \dot{N}_k \models ``\xi = \omega_1" \urcorner) \wedge i \leq j \leq \xi) \\ 
+        & \implies E(\ulcorner \dot{N}_{k} \models ``\dot{\Vec{M}} = \langle \check{M}_{i'}, \check{\pi}_{i'j'} : i' \leq j' \leq \xi \rangle \text{ is a generic iteration} \\
+        & \mspace{130mu} \text{with } \check{M}_{i} = \dot{M}_j \text{ and } \check{\pi}_{ij} = \dot{\pi}_{ij}" \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i, j, k, \xi < \omega_1^W \ ((E(\ulcorner \dot{N}_k \models ``\xi = \omega_1" \urcorner) \wedge i \leq j \wedge \xi < j) \\ 
+        & \implies E(\ulcorner \dot{N}_{k} \models ``\dot{M}_i = \emptyset \text{ and } \dot{\pi}_{ij} = \emptyset" \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item 
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i, \xi < \omega_1^W \ (E(\ulcorner \dot{N}_i \models ``\xi = \omega_1" \urcorner) \implies i \leq \xi) \urcorner \text{, and}
+    \end{aligned}$
+    \item $\ulcorner E(\ulcorner \dot{N}_0 \models ``\dot{M}_0 \text{ is a member of } \mathbb{P}_{max}" \urcorner) \urcorner$
+\end{itemize}
+are members of $\Gamma'$, 
+\begin{equation*}
+    \Vec{I} := \langle (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^W \rangle
+\end{equation*}
+being a generic iteration then gives us
+\begin{itemize}
+    \item \ref{cd1} of Definition \ref{def437},
+    \item $\langle \bar{M}_i, \pi_{ij} : i \leq j < \omega_1^W \rangle$ is a generic iteration, and
+    \item for every $i < \omega_1^W$,
+    \begin{align*}
+         \dot{\Vec{M}}^{\bar{N}_i} = \ & \langle \bar{M}_j, \pi_{jk} : j \leq k \leq \omega_1^{\bar{N}_i} \rangle \\
+         \dot{M}_j^{\bar{N}_i} = \ & \bar{M}_j \text{ for all } j \leq \omega_1^{\bar{N}_i} \\
+         \dot{M}_j^{\bar{N}_i} = \ & \emptyset \text{ for all } \omega_1^{\bar{N}_i} < j < \omega_1^W \\
+         \dot{\pi}_{jk}^{\bar{N}_i} = \ & \pi_{jk} \text{ for all } j \leq k \leq \omega_1^{\bar{N}_0} \\
+         \dot{\pi}_{jk}^{\bar{N}_i} = \ & \emptyset \text{ for all } j \leq k \text{ and } \omega_1^{\bar{N}_0} < k < \omega_1^W \text{,}
+    \end{align*}
+\end{itemize}
+implying that \ref{2ndlast} of Definition \ref{def437} is also fulfilled. Now \ref{cd4} of Definition \ref{def437} is true by \ref{4346} and the fact that 
+\begin{align*}
+    \ulcorner E(\ulcorner \dot{N}_0 \models `` & \dot{\Vec{M}} = \langle \check{M}_{i}, \check{\pi}_{ij} : i \leq j \leq \omega_1 \rangle \text{ is a generic iteration and} \\ 
+    & \text{if } \check{M}_{\omega_1} = (M_{\omega_1}; \in, J_{\omega_1}, b_{\omega_1}) \text{ then} \\
+    &  \dot{a} = b_{\omega_1} \text{ and } \dot{I} \cap M_{\omega_1} = J_{\omega_1}" \urcorner) \urcorner
+\end{align*}
+is a member of of $\Gamma'$.
+
+Among the conditions of Definition \ref{def437} to be verified, we are left with \ref{cd6}. In order to show \ref{cd6} of Definition \ref{def437}, we need only show that
+\begin{equation*}
+    (\bar{M}_{\omega_1^W}, \langle \pi_{i\omega_1^W} : i < \omega_1^W \rangle)
+\end{equation*}
+is a direct limit of 
+\begin{equation*}
+    \langle \bar{M}_i, \pi_{ij} : i \leq j < \omega_1^W \rangle \text{.}
+\end{equation*}
+But in light of what is known thus far, this is a result of $\Gamma'$ having the following as members:
+\begin{enumerate}[label=(\alph*)]
+    \item\label{448a}
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall i < \omega_1^W \ \forall n < \omega \ \forall x \in H(\omega_2)^W \ ( & E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner) \\
+        & \implies E(\ulcorner \dot{N}_i \models ``\dot{n} \in dom(\dot{\pi}_{ii})" \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall i < \omega_1^W \ \forall n < \omega \ \exists x \in H(\omega_2)^W \ ( & E(\ulcorner \dot{N}_i \models ``\dot{n} \in dom(\dot{\pi}_{ii})" \urcorner) \\
+        & \implies E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i < \omega_1^W \ \forall n < \omega \ \forall x, y \in H(\omega_2)^W \\
+        & ((E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner) \wedge E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = y \urcorner)) \implies x = y) \urcorner \text{,}
+    \end{aligned}$
+    \item\label{448d}
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i < \omega_1^W \ \forall m, n < \omega \ \forall x \in H(\omega_2)^W \\
+        & ((E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{m}) = x \urcorner) \wedge E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \implies m = n) \urcorner \text{,}
+    \end{aligned}$
+    \\
+    \\
+    (Points \ref{448a} to \ref{448d} mean to say that $\pi_{i\omega_1^W}$ is an injection from the base set of $\bar{M}_i$ into $H(\omega_2)^W$, for all $i < \omega_1^W$.)
+    \item\label{448e}
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i \leq j < \omega_1^W \ \forall m, n < \omega \ \forall x \in H(\omega_2)^W \ \exists l < \omega \\
+        & ((E(\ulcorner \dot{\pi}_{j\omega_1^W}(\dot{n}) = x \urcorner) \wedge E(\ulcorner \dot{N}_j \models ``\dot{m} \in dom(\dot{\pi}_{ij}) \text{ and } \dot{\pi}_{ij}(\dot{m}) = \dot{n}" \urcorner)) \\
+        & \mspace{5mu} \implies (E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{l}) = x \urcorner) \wedge E(\ulcorner \dot{\sigma}_{ij}(\dot{l}) = \dot{m} \urcorner))) \urcorner
+    \end{aligned}$
+    \item\label{448f}
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i \leq j < \omega_1^W \ \forall m, n < \omega \ \forall x \in H(\omega_2)^W \ \exists l < \omega \\
+        & ((E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{l}) = x \urcorner) \wedge E(\ulcorner \dot{\sigma}_{ij}(\dot{l}) = \dot{m} \urcorner) \\
+        & \mspace{5mu} \wedge E(\ulcorner \dot{N}_j \models ``\dot{m} \in dom(\dot{\pi}_{ij}) \text{ and } \dot{\pi}_{ij}(\dot{m}) = \dot{n}" \urcorner)) \\
+        & \mspace{5mu} \implies E(\ulcorner \dot{\pi}_{j\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner
+    \end{aligned}$
+    \\
+    \\
+    (Points \ref{448e} to \ref{448f} mean to say that 
+    \begin{equation*}
+        \langle M_i, \pi_{ij} : i \leq  j \leq \omega_1^{W} \rangle
+    \end{equation*}
+    is a directed system, where $M_i$ denotes the base set of $\bar{M}_i$ for each $i < \omega_1^W$.)
+    \item\label{448g}
+    \!
+    $\begin{aligned}[t]
+        \ulcorner \forall x \in H(\omega_2)^W \ \exists i < \omega_1^W \ \exists n < \omega \ (E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i < \omega_1^W \ \forall n < \omega \ \exists x \in \mathrm{NS}_{\omega_1}^W \\
+        & (E(\ulcorner \dot{N}_i \models ``\dot{M}_i = (M_i; \in, J_i, b_i) \text{ and } \dot{n} \in J_i" \urcorner) \implies E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall x \in \mathrm{NS}_{\omega_1}^W \ \exists i < \omega_1^W \ \exists n < \omega  \\
+        & (E(\ulcorner \dot{N}_i \models ``\dot{M}_i = (M_i; \in, J_i, b_i) \text{ and } \dot{n} \in J_i" \urcorner) \wedge E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner \text{,}
+    \end{aligned}$
+    \item
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall i < \omega_1^W \ \forall n < \omega \ \exists x \in A \\
+        & (E(\ulcorner \dot{N}_i \models ``\dot{M}_i = (M_i; \in, J_i, b_i) \text{ and } \dot{n} \in b_i" \urcorner) \implies E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner \text{, and}
+    \end{aligned}$
+    \item\label{448k}
+    \!
+    $\begin{aligned}[t]
+        \ulcorner & \forall x \in A \ \exists i < \omega_1^W \ \exists n < \omega  \\
+        & (E(\ulcorner \dot{N}_i \models ``\dot{M}_i = (M_i; \in, J_i, b_i) \text{ and } \dot{n} \in b_i" \urcorner) \wedge E(\ulcorner \dot{\pi}_{i\omega_1^W}(\dot{n}) = x \urcorner)) \urcorner \text{.} 
+    \end{aligned}$
+    \\
+    \\
+    (Points \ref{448g} to \ref{448k} mean to say that $H(\omega_2)^W$, $\mathrm{NS}_{\omega_1}^W$, and $A$ behave as they would relative to
+    \begin{equation*}
+        \langle \bar{M}_i, \pi_{i\omega_1^W} : i < \omega_1^W \rangle \text{,}
+    \end{equation*}
+    if
+    \begin{equation*}
+        (\bar{M}_{\omega_1^W}, \langle \pi_{i\omega_1^W} : i < \omega_1^W \rangle)
+    \end{equation*}
+    is a direct limit of 
+    \begin{equation*}
+        \langle \bar{M}_i, \pi_{ij} : i \leq j < \omega_1^W \rangle \text{.)} \qedhere
+    \end{equation*}
+    \end{enumerate}
+\end{proof}
+
+We hereby fix a function definition $\mathfrak{D}(\cdot)$ satisfying properties \ref{4461} and \ref{4462} of Lemma \ref{lem446}.
+
+Analogous to how the proof of Theorem \ref{notion1} goes, we want what is essentially a souped up version of Lemma \ref{sideuni}.
+
+\begin{lem}\label{lem452}
+The $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentence 
+\begin{align}\label{eq4.4}
+\begin{split}
+    \ulcorner & \forall x \in H(\lambda_f) \ \forall U \in U(C, \lambda_f) \ \forall i < \omega_1^W \ \forall m < \omega \ \exists \delta < \omega_1^W \ \exists n < \omega \ \exists \nu \in U \\ 
+    & (E(\ulcorner \dot{N}_i \models ``\dot{m} \in \mathcal{P}(\omega_1) \setminus \dot{I}" \urcorner) \implies (i < \delta \wedge E(\ulcorner \dot{\sigma}_{i(\delta + 1)}(\dot{m}) = \dot{n} \urcorner) \\
+    & \mspace{279mu} \wedge E(\ulcorner \dot{N}_{\delta + 1} \models \delta \in \dot{n} \urcorner) \\
+    & \mspace{279mu} \wedge E(\ulcorner x \in \dot{X}_{\delta, \nu} \urcorner))) \urcorner \text{,}
+\end{split}
+\end{align}
+where $U(C, \lambda_f)$ is as in Definition \ref{def423}, is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal.
+\end{lem}
+
+\begin{proof}
+Fix arbitrary
+\begin{itemize}
+    \item $p \in \mathbb{P}$,
+    \item $x \in H(\lambda_f)$,
+    \item $U \in U(C, \lambda_f)$,
+    \item $i < \omega_1^W$, and
+    \item $m < \omega$.
+\end{itemize}
+By Lemma \ref{univer}, it suffices to assume 
+\begin{equation}\label{eq4.5}
+    \ulcorner \dot{N}_i \models ``\dot{m} \in \mathcal{P}(\omega_1) \setminus \dot{I}" \urcorner \in p
+\end{equation}
+and show that there are 
+\begin{itemize}
+    \item $i < \delta < \omega_1^W$,
+    \item $n < \omega$, and
+    \item $\nu \in U$
+\end{itemize} 
+for which 
+\begin{equation*}
+    p \cup \{\ulcorner \dot{\sigma}_{i(\delta + 1)}(\dot{m}) = \dot{n} \urcorner, \ulcorner \dot{N}_{\delta + 1} \models \delta \in \dot{n} \urcorner, \ulcorner x \in \dot{X}_{\delta, \nu} \urcorner\} \in \mathbb{P} \text{.}
+\end{equation*}
+
+Choose 
+\begin{itemize}
+    \item $\nu \in U$ such that $x \in Q_{\nu}$ and $p \in \mathbb{P}_{\nu}$ (possible by \ref{p2'}), and
+    \item $g \times f$ a $\mathbb{P}_{\nu} \times Col(\omega, \nu)$-generic filter over $W$ with $p \in g$,
+\end{itemize}
+so that $g \in W[g \times f]$ is a $\mathbb{P}_{\nu}$-generic filter over $W$ and $|\nu|^{W[g \times f]} = \omega$. By Lemma \ref{lem446}, 
+\begin{equation*}
+    \mathfrak{D}(g) = \langle \langle \bar{M}_i, \pi_{ij}, \bar{N}_i = (N_i; \in, \Vec{X}), \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
+\end{equation*}
+is a $\nu$-certificate satisfying
+\begin{equation*}
+    \Sigma'(\mathfrak{D}(g), \mathcal{L}) = \bigcup g \text{.}
+\end{equation*}
+Set $\theta := \omega_1^{W[g \times f]}$, and find a one-step extension 
+\begin{equation*}
+    \mathfrak{I}_1 = \langle (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^{W} + 1 \rangle
+\end{equation*}  
+of the generic iteration 
+\begin{equation*}
+    \langle (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle
+\end{equation*}
+in $W[g \times f]$, where $(N_{\omega_1^W + 1}; \in, I_{\omega_1^W + 1})$ is the generic ultrapower of $(N_{\omega_1^W}; \in, I_{\omega_1^W})$ via a $N_{\omega_1^W}$-generic ultrafilter on $I_{\omega_1^W}$ containing $\sigma_{i\omega_1^W}(e_i(m))$. The latter is possible by (\ref{eq4.5}). As a result, $\omega_1^W \in N_{\omega_1^W + 1}$ and
+\begin{equation}\label{eq4.6}
+    (N_{\omega_1^W + 1}; \in, I_{\omega_1^W + 1}) \models \omega_1^W \in \sigma_{i(\omega_1^W + 1)}(e_i(m)) \text{.}
+\end{equation}
+Still in $W[g \times f]$, let 
+\begin{itemize}
+    \item $\mathfrak{I} = \langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \theta \rangle \in W[g \times f]$ be a generic iteration extending $\mathfrak{I}_1$,
+    \item $\langle \bar{M}_i = (M_i; \in, J_i, b_i), \pi_{ij} : i \leq j \leq \theta \rangle$ denote $\sigma_{0\theta}(\langle \bar{M}_i, \pi_{ij} : i \leq j \leq \omega_1^{\bar{N}_0} \rangle)$, and
+    \item $\langle e_i : i < \theta \rangle$ extending $\langle e_i : i < \omega_1^W \rangle$ be such that for each $i < \theta$, $e_i$ is a bijection from $\omega$ onto $N_i$.
+\end{itemize}
+Then by Lemma~\ref{lift}, $\pi_{\omega_1^W\theta}$ lifts to a generic ultrapower map $j : W \longrightarrow M$, for some inner model $M$ of $W[g \times f]$. Moreover, 
+\begin{enumerate}[label=(\alph*)]
+    \item\label{451a'} $crit(j) = \omega_1^W$, and
+    \item\label{451b'} $j(\omega_1^W) = \theta$.
+\end{enumerate}
+
+Within a suitable forcing extension $W^*$ of $W[g \times f]$, there is $\mathfrak{C}'$ such that 
+\begin{itemize}
+    \item $\mathfrak{C}'$ satisfies \ref{cdlast} to \ref{cdrlast} of Definition \ref{def437} relativised to $(j, M)$, and
+    \item $\{\ulcorner j(x) \in \dot{X}_{\omega_1^W, j(\nu)} \urcorner\} \in \Sigma(\mathfrak{C}', j(\mathcal{L}^o \cap Q_{\lambda}))$,
+\end{itemize} 
+where $\lambda := \lambda_f$. Indeed, let us stipulate that $\mathfrak{C}'$ be constructed the same way $\mathfrak{C}$ is in the proof of Lemma \ref{sideuni}. By \ref{4344}, \ref{4346b}, \ref{4346}, \ref{451b'} and the elementarity of $j$, 
+\begin{equation*}
+    \langle \langle \bar{M}_i, \pi_{ij}, \bar{N}_i, \sigma_{ij} : i \leq j \leq \theta \rangle, j(S), \langle e_i : i < \theta \rangle \rangle
+\end{equation*}
+satisfies the hypothesis of \ref{4391} of Remark \ref{rem438} relativised to $(j, M)$. Applications of \ref{4390} and \ref{4391} of Remark \ref{rem438} relativised to $(j, M)$ then allow us to conclude, without loss of generality, that
+\begin{equation*}
+    \mathfrak{D}' := \langle \langle \bar{M}_i, \pi_{ij}, \bar{N}_i, \sigma_{ij} : i \leq j \leq \theta \rangle, j(S), \langle e_i : i < \theta \rangle, \mathfrak{C}' \rangle
+\end{equation*}
+is a $j(\lambda)$-certificate relative to $M$. In other words, $\mathfrak{D}'$ fulfils the requirements of Definition \ref{def437} relativised to $(j, M)$. By (\ref{eq4.6}), the elementarity of $j$, and \ref{443'1} and \ref{443'2} of Remark \ref{rem443} relativised to $(j, M)$, 
+\begin{enumerate}[label=(\alph*)]
+    \setcounter{enumi}{2}
+    \item\label{451c} $\Sigma'(\mathfrak{D}', j(\mathcal{L}))$ is a set found in some weak outer model of $M$,
+    \item\label{451a} $\Sigma'(\mathfrak{D}', j(\mathcal{L}))$ $j(\Gamma'_{\lambda}) (j(\mathcal{L}), j(\mathfrak{A}))$-certifies $\emptyset$, and
+    \item\label{451b} there is $n < \omega$ for which 
+    \begin{gather*}
+        \{\ulcorner \dot{\sigma}_{i(\omega_1^W + 1)}(\dot{m}) = \dot{n} \urcorner, \ulcorner \dot{N}_{\omega_1^W + 1} \models \omega_1^W \in \dot{n} \urcorner, \ulcorner j(x) \in \dot{X}_{\omega_1^W, j(\nu)} \urcorner\} \\
+        \subset \Sigma'(\mathfrak{D}', j(\mathcal{L})) \text{.}
+    \end{gather*}
+\end{enumerate}
+Through a routine unfolding of the definition of $\mathfrak{D}'$, with \ref{451a'} in mind, one may ascertain 
+\begin{equation*}
+    j(p) = j" p \subset \Sigma'(\mathfrak{D}', j(\mathcal{L})) \text{.}
+\end{equation*}
+a fact which can be combined with \ref{451c} to \ref{451b} and Lemma \ref{inout} to yield
+\begin{align*}
+    (M; \in) \models \exists \delta < \theta \ \exists n < j(\omega) \ (``\phi \text{ and } j(i) < \delta") \text{,}
+\end{align*}
+where $\phi$ is a formula in variables $\delta$ and $n$ expressing
+\begin{equation*}
+    ``j(p) \cup \{\ulcorner \dot{\sigma}_{j(i)(\delta + 1)}(j(\dot{m})) = \dot{n} \urcorner, \ulcorner \dot{N}_{\delta + 1} \models \delta \in \dot{n} \urcorner, \ulcorner j(x) \in \dot{X}_{\delta, j(\nu)} \urcorner\} \in j(\mathbb{P})" \text{.}
+\end{equation*}
+Appealing once more to \ref{451b'} and the elementarity of $j$, we obtain
+\begin{align*}
+    (W; \in) \models \ & \exists \delta < \omega_1^W \ \exists n < \omega \\
+    & (``p \cup \{\ulcorner \dot{\sigma}_{i(\delta + 1)}(\dot{m}) = \dot{n} \urcorner, \ulcorner \dot{N}_{\delta + 1} \models \delta \in \dot{n} \urcorner, \ulcorner x \in \dot{X}_{\delta, \nu} \urcorner\} \in \mathbb{P} \\
+    & \mspace{15mu} \text{and } i < \delta") \text{,}
+\end{align*}
+and we are done.
+\end{proof}
+
+\begin{lem}\label{lem453}
+Let $g$ be $\mathbb{P}$-generic over $W$, and
+\begin{equation*}
+    \mathfrak{D}(g) = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i = (N_i; \in, \Vec{X}), \sigma_{ij} : i \leq j \leq \omega_1^W \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle \in W[g] \text{.}
+\end{equation*}
+Then every member of $\mathcal{P}(\omega_1^W) \cap N_{\omega_1^W} \setminus I_{\omega_1^W}$ is stationary in $W[g]$.
+\end{lem}
+
+\begin{proof}
+Let 
+\begin{itemize}
+    \item $p \in \mathbb{P}$,
+    \item $\dot{C}$ be a $\mathbb{P}$-name such that $p \Vdash^W_{\mathbb{P}} ``\dot{C}$ is a club in $\omega_1^W"$,
+    \item $D := \{(q, \eta) \in \mathbb{P} \times \omega_1 : q \Vdash^W_{\mathbb{P}} \eta \in \dot{C}\}$,
+    \item $g$ be a $\mathbb{P}$-generic filter over $W$ with $p \in g$.
+\end{itemize}
+Applying ($\diamond$) with 
+\begin{itemize}
+    \item $\mathbb{P}$ in place of $P$, and
+    \item $D$ in place of $B$,
+\end{itemize}
+we get
+\begin{align*}
+    U := \{\lambda \in C : (Q_{\lambda}; \in, \mathbb{P}, A_{\lambda}) \prec (H(\lambda_f); \in, \mathbb{P}, D)\}
+\end{align*}
+is stationary in $\lambda_f$, so $U \in U(C, \lambda_f)$.
+
+Move to $W[g]$. There, due to Lemma \ref{lem446}, $\mathfrak{D}(g)$ is a $\lambda_f$-certificate and
+\begin{equation*}
+    \Sigma'(\mathfrak{D}(g), \mathcal{L}) = \bigcup g \text{.}
+\end{equation*}
+Choose $Y \in \mathcal{P}(\omega_1^W) \cap N_{\omega_1^W} \setminus I_{\omega_1^W}$. It suffices to show $Y$ has non-trivial intersection with $\dot{C}[g]$. To that end, note that there are $i < \omega_1^W$ and $m < \omega$ for which $\sigma_{i\omega_1^W}(e_i(m)) = Y$. But this means
+\begin{equation*}
+    \ulcorner \dot{N}_i \models ``\dot{m} \in \mathcal{P}(\omega_1) \setminus \dot{I}" \urcorner \in \bigcup g \text{,}
+\end{equation*}
+so by Lemma \ref{lem452}, 
+\begin{equation*}
+    \{\ulcorner \dot{\sigma}_{i(\delta + 1)}(\dot{m}) = \dot{n} \urcorner, \ulcorner \dot{N}_{\delta + 1} \models \delta \in \dot{n} \urcorner, \ulcorner x \in \dot{X}_{\delta, \nu} \urcorner\} \subset \bigcup g
+\end{equation*}
+for some $\delta < \omega_1^W$ and $n < \omega$. Consequently, 
+\begin{equation*}
+    \delta \in \sigma_{i(\delta + 1)}(e_i(m)) \subset Y \text{.}
+\end{equation*}
+
+Furnished with \ref{443'3} of Remark \ref{rem443}, the argument for $\mu \in \dot{C}[g]$ in the proof of Lemma \ref{statdone} can be reused with 
+\begin{itemize}
+    \item $\delta$ in place of $\mu$, 
+    \item (\ref{eq4.4}) in place of (\ref{c9}),
+    \item Lemma \ref{modeldone2} in place of Lemma \ref{modeldone}, and
+    \item Lemma \ref{lem452} in place of Lemma \ref{sideuni},
+\end{itemize}
+to net us $\delta \in \dot{C}[g]$. This completes the proof.
+\end{proof}
+
+\begin{lem}\label{lem454}
+$\mathbb{P}$ is stationary-preserving. That is, $\mathbb{P}$ fulfils \ref{K2} of Fact \ref{fact436}.
+\end{lem}
+
+\begin{proof}
+Let 
+\begin{itemize}
+    \item $g$ be $\mathbb{P}$-generic over $W$,
+    \item $\lambda$ denote $\lambda_f$, 
+\end{itemize} 
+and work in $W[g]$. Consider the $\lambda$-certificate
+\begin{equation*}
+    \mathfrak{D}(g) = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i = (N_i; \in, \Vec{X}), \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle \text{,}
+\end{equation*}
+so that 
+\begin{equation*}
+    \mathfrak{I} := \langle (N_i; \in, I_a, a_i), \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle
+\end{equation*}
+is a generic iteration. By \ref{cd4}, \ref{cd6} and \ref{cd7} of Definition \ref{def437}, 
+\begin{equation*}
+    \mathcal{P}(\omega_1^W) \cap H(\omega_2)^W \setminus \mathrm{NS}_{\omega_1}^W \subset \mathcal{P}(\omega_1^W) \cap N_{\omega_1^W} \setminus I_{\omega_1^W} \text{.}
+\end{equation*}
+Then Lemma \ref{lem453} tells us every member of $\mathcal{P}(\omega_1^W) \cap H(\omega_2)^W \setminus \mathrm{NS}_{\omega_1}^W$ is stationary in $W[g]$. But this is equivalent to $\mathbb{P}$ being stationary-preserving.
+\end{proof}
+
+\begin{lem}\label{lem455}
+$\mathbb{P}$ fulfils \ref{K3} of Fact \ref{fact436}.
+\end{lem}
+
+\begin{proof}
+Let 
+\begin{itemize}
+    \item $g$ be $\mathbb{P}$-generic over $W$,
+    \item $\lambda$ denote $\lambda_f$, 
+\end{itemize} 
+and work in $W[g]$. Consider the $\lambda$-certificate
+\begin{equation*}
+    \mathfrak{D}(g) = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i = (N_i; \in, \Vec{X}), \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle \text{,}
+\end{equation*}
+so that 
+\begin{equation*}
+    \mathfrak{I} := \langle (N_i; \in, I_a, a_i), \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle
+\end{equation*}
+is a generic iteration. We check that $\mathfrak{I}$ fulfils \ref{k31} to \ref{k33} of \ref{K3}.
+\begin{enumerate}[label=That \ref{k3\arabic*} holds:, leftmargin=100pt]
+    \item by \ref{4344}, \ref{4346b}, and \ref{cd0}, \ref{cd1.5} to \ref{cd3} of Definition \ref{def437}.
+    \item by Lemmas \ref{gisubset} and \ref{lem453}.
+    \item by \ref{cd4}, \ref{cd6} and \ref{cd7} of Definition \ref{def437}. \qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{lem}\label{lem456}
+$\mathbb{P}$ fulfils \ref{K4} and \ref{K5} of Fact \ref{fact436}.
+\end{lem}
+
+\begin{proof}
+Proceed as in the proofs of Lemmas \ref{1done} and \ref{2done}, noting \ref{443'3} of Remark \ref{rem443}.
+\end{proof}
+
+In view of Fact \ref{fact436}, the theorem follows from Remark \ref{rem447} and Lemmas \ref{lem454}, \ref{lem455} and \ref{lem456}.
+\end{proof}
 
 \subsection{Open Questions}
 
-In the proof of Theorem \ref{notion1}, fix any $\theta$ such that $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$. Should we alter the definition of $\Gamma_{\lambda}$ and $P_{\lambda}$ for each $\lambda \in C \cup \{\lambda_f\}$ as follows:
+Working in the universe $W$ as defined in the proof of Theorem \ref{notion1} and thinning $C$ if necessary, fix any $\theta$ such that $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$. Should we then alter the definition of $\Gamma_{\lambda}$ and $P_{\lambda}$ for each $\lambda \in C \cup \{\lambda_f\}$ as follows:
 \begin{align*}
-    \Gamma_{\lambda} := \Gamma_{\lambda}(\theta) := \ & \text{the set defined as per Definition \ref{defc},} \\
-    & \text{but with } \{\mathbb{P}_{\lambda'}(\theta) : \lambda' \in \lambda \cap C\} \text{ as the set of parameters,} \\
-    P_{\lambda} := P_{\lambda}(\theta) := \ & \{p \in [\mathcal{L} \cap Q_{\lambda}]^{< \theta} : \\
+    \Gamma_{\lambda}(\theta) := \ & \text{the set } \Gamma_{\lambda} \text{ defined according to Definition \ref{defc},} \\
+    & \text{but with } \mathbb{P}_{\lambda'}(\theta) \text{ in place of the parameter } \mathbb{P}_{\lambda'} \text{ for each } \lambda' \in \lambda \cap C \text{,} \\
+    P_{\lambda}(\theta) := \ & \{p \in [\mathcal{L} \cap Q_{\lambda}]^{< \theta} : \\
     & \ \Vdash_{Col(\omega, |H(\kappa)|)} \exists \Sigma \ (``\Sigma \ \Gamma_{\lambda}(\theta) (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } p")\} \text{, and} \\
-    \mathbb{P}_{\lambda} := \mathbb{P}_{\lambda}(\theta) := \ & (P_{\lambda}(\theta), \supset) \text{,}
+    \mathbb{P}_{\lambda}(\theta) := \ & (P_{\lambda}(\theta), \supset) \text{,}
 \end{align*}
 all subsequent lemmas in the proof still go through without a hitch. What then differentiates the $\mathbb{P}_{\lambda_f}(\theta)$'s that result from varying $\theta$? More specifically, because we can always choose $C$ such that $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$, this next question is of particular interest.
 
 \begin{ques}\label{oq1}
-Let $\lambda_f$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be as in the proof of Theorem \ref{notion1}. Can $C$ be chosen such that, furthermore,
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
 \begin{enumerate}[label=(\arabic*)]
-    \item $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$, and
+    \item $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$,
+    \item $\mathbb{P} := \mathbb{P}_{\lambda_f}(\omega_1)$ fulfils \ref{4101} and \ref{4102} of Lemma \ref{lem26}, and
     \item there is a first-order sentence $\varphi$ in the language of set theory for which $$``\Vdash_{\mathbb{P}_{\lambda_f}(\omega)} \varphi \text{ and } \Vdash_{\mathbb{P}_{\lambda_f}(\omega_1)} \neg \varphi" \text{?}$$
 \end{enumerate}
 \end{ques}
 
-We are optimistic that an answer to Question \ref{oq1} can be generalised to associate forcing consequences of similar forcing notions with cardinality limitations placed upon their conditions. For example, an affirmative answer might allow us to separate the forcing consequences of two $\mathbb{P}$'s fulfilling the hypothesis of Lemma \ref{main2}, according to differences in cardinality bounds on the members of their respective $B$'s.
+We are optimistic that an answer to Question \ref{oq1} can be generalised to associate forcing consequences of similar forcing notions (such as the $\mathbb{P}_{\lambda}$'s defined in the proof of Theorem \ref{notion2}) with the cardinality limitations placed upon their conditions. For example, an affirmative answer might allow us to separate the forcing consequences of two $\mathbb{P}$'s fulfilling the hypothesis of Lemma \ref{main2}, according to differences in cardinality bounds on the members of their respective $B$'s.
 
 In the spirit of Jensen's results on the extended Namba problem, we are interested in whether the forcing notion $\mathbb{P}_{\lambda_f}$ constructed in the proof of Theorem \ref{notion1} adds reals. More generally, we can ask the same about the parametrised versions of said forcing notion. 
 
 \begin{ques}\label{addsreals}
-Let $\lambda_f$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be as in the proof of Theorem \ref{notion1}. Can $C$ and a cardinal $\theta$ be chosen such that, furthermore,
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $C$, $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{,}$$ and a cardinal $\theta$ be chosen such that
 \begin{enumerate}[label=(\arabic*)]
-    \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$, and
+    \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
+    \item $\mathbb{P} := \mathbb{P}_{\lambda_f}(\theta)$ fulfils \ref{4101} and \ref{4102} of Lemma \ref{lem26}, and
     \item $\mathbb{P}_{\lambda_f}(\theta)$ does not add reals?
+\end{enumerate}
+\end{ques}
+
+Comparing Theorem \ref{notion1} with Theorem \ref{notion2} makes clear the existence of close relatives of Questions \ref{oq1} and \ref{addsreals}, given the following definitions in the universe $W$, where $W$ is as defined in the proof of Theorem \ref{notion2}:
+\begin{align*}
+    \Gamma'_{\lambda}(\theta) := \ & \text{the set } \Gamma'_{\lambda} \text{ defined according to Definition \ref{def447},} \\
+    & \text{but with } \mathbb{P}_{\lambda'}(\theta) \text{ in place of the parameter } \mathbb{P}_{\lambda'} \text{ for each } \lambda' \in \lambda \cap C \text{,} \\
+    P'_{\lambda}(\theta) := \ & \{p \in [\mathcal{L} \cap Q_{\lambda}]^{< \theta} : \\
+    & \ \Vdash_{Col(\omega, |H(\kappa)|)} \exists \Sigma \ (``\Sigma \ \Gamma'_{\lambda}(\theta) (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } p")\} \text{, and} \\
+    \mathbb{P}'_{\lambda}(\theta) := \ & (P_{\lambda}(\theta), \supset) \text{.}
+\end{align*}
+
+\begin{ques}\label{oq2}
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
+\begin{enumerate}[label=(\arabic*)]
+    \item $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$,
+    \item $\mathbb{P} := \mathbb{P}'_{\lambda_f}(\omega_1)$ fulfils \ref{K1} to \ref{K5} of Fact \ref{fact436}, and
+    \item there is a first-order sentence $\varphi$ in the language of set theory for which $$``\Vdash_{\mathbb{P}'_{\lambda_f}(\omega)} \varphi \text{ and } \Vdash_{\mathbb{P}'_{\lambda_f}(\omega_1)} \neg \varphi" \text{?}$$
+\end{enumerate}
+\end{ques}
+
+\begin{ques}\label{addsreals2}
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $C$, $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{,}$$ and a cardinal $\theta$ be chosen such that
+\begin{enumerate}[label=(\arabic*)]
+    \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
+    \item $\mathbb{P} := \mathbb{P}'_{\lambda_f}(\theta)$ fulfils \ref{K1} to \ref{K5} of Fact \ref{fact436}, and
+    \item $\mathbb{P}'_{\lambda_f}(\theta)$ does not add reals?
 \end{enumerate}
 \end{ques}
 
@@ -1877,7 +3576,7 @@ In another direction, we can ask about the possibility of eschewing the assumpti
     \item\label{newq2} Is it true that $\mathsf{ZFC} \vdash ``Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$''?
 \end{enumerate}
 
-Very recent results by De Bondt and Velickovic (to be found in \cite{bendb}) resolved \ref{newq2} in the affirmative. In fact, the class of forcing notions constructed by De Bondt and Velickovic assuming only $\mathsf{ZFC}$, bears witness to a theorem significantly stronger than 
+Very recent results by De Bondt and Veli\v{c}kovi\'{c} (as a part of De Bondt's PhD dissertation, \cite{bendb}) resolved \ref{newq2} in the affirmative. In fact, the class of forcing notions constructed by De Bondt and Velickovic assuming only $\mathsf{ZFC}$, bears witness to a theorem significantly stronger than 
 \begin{quote}
     ``$Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$''.
 \end{quote}
@@ -2526,7 +4225,7 @@ Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a $\Pi_2$ TCI.
 \end{thm}
 
 \begin{proof}
-The theorem follows directly from Lemmas \ref{main2}, \ref{mcequiv} and \ref{mcequiv2}, noting that the hypotheses of Lemma \ref{main2} are satisfied with
+The theorem follows directly from Lemmas \ref{main2}, \ref{mcequiv} and \ref{mcequiv2}, noting that the hypothesis of Lemma \ref{main2} are satisfied with
 \begin{itemize}
     \item $\mathfrak{A}_{\mathfrak{T}}$ in place of $\mathfrak{A}$,
     \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
@@ -2616,7 +4315,7 @@ A routine verification should enable the reader to see that $$T^*_1 := T' \cup (
 We have thus checked that $\mathfrak{T}^*$ possesses the properties we want: it is a consistent $\Pi_2$ TCI, and from every model $\mathcal{M}^*$ of $\mathfrak{T}^*$ we can read off a structure $\mathcal{M} = (U; \mathcal{I})$ and a function $f$ satisfying both \ref{gglsb'} defined at the beginning of the proof as well as \ref{gglsb} of the lemma. An invocation of Theorem \ref{genericmodels} with $\mathfrak{T^*}$ in place of $\mathfrak{T}$ then completes the proof.
 \end{proof}
 
-By strengthening the hypotheses on $\mathfrak{T}$ in Lemma \ref{genericls}, we can derive more from our witnesses.
+By strengthening the hypothesis on $\mathfrak{T}$ in Lemma \ref{genericls}, we can derive more from our witnesses.
 
 \begin{lem}\label{genericlscor}
 Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a $\Pi_2$ TCI with only infinite model(s) across all outer models of $V$. Then for every infinite ordinal $\beta$, there is a forcing notion $\mathbb{P}$ such that whenever $g$ is a $\mathbb{P}$-generic filter over $V$, there are sets $\mathcal{M} = (U; \mathcal{I})$ and $f$ in some outer model of $V$ for which  
@@ -2728,7 +4427,7 @@ Let $\mathfrak{T}$ be a $\Pi_2$ TCI. If not all models of $\mathfrak{T}$ are alm
 \begin{proof}
 Assume not all models of $\mathfrak{T}$ are almost finitely determined, and let $\mathcal{M}$ be a model of $\mathfrak{T}$ not almost finitely determined in some outer model of $V$. Then $\Sigma(\mathfrak{T}, \mathcal{M})$ $\Gamma_{\mathfrak{T}}^{\top} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})$-certifies $\emptyset$, so $\mathbb{P}(\mathfrak{T})^{\top}$ is non-empty.
 
-Check that the hypotheses of Lemma \ref{main2} are satisfied when we have 
+Check that the hypothesis of Lemma \ref{main2} are satisfied when we have 
 \begin{itemize}
     \item $\mathfrak{A}_{\mathfrak{T}}$ in place of $\mathfrak{A}$,
     \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
@@ -2844,7 +4543,7 @@ Going forward, even beyond this proof, we would often argue about things in $H(\
 
 Let $\mathfrak{A} = (A; \in)$ be any countable elementary substructure of $\mathfrak{A}_{\mathfrak{T}}$ with $P(\mathfrak{T})^{\top} \in A$. Since $\mathcal{L}_{\mathfrak{T}}$ is just the closure of $\bigcup P(\mathfrak{T})^{\top}$ under negation and $\mathfrak{A} \models \mathsf{ZFC - Powerset}$, we have $\mathcal{L}_{\mathfrak{T}} \in A$. That $\mathfrak{T}$ is code-friendly and $H(\omega) \subset A$ implies $\mathcal{L}_{\mathfrak{T}} \subset A$ too, so $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. The members of $\Gamma_{\mathfrak{T}}^{\top}$ are $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}_{\mathfrak{T}}}$-$\Pi_2$ sentences with a single parameter $P(\mathfrak{T})^{\top}$ and quantification exclusively over $H(\omega)$, entailing that $\Gamma_{\mathfrak{T}}^{\top}$ is also a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences. 
 
-In this vein, similar to what we did in the proof of Theorem \ref{genericdichom}, check that all except the last two hypotheses of Lemma \ref{main2} are satisfied with 
+In this vein, similar to what we did in the proof of Theorem \ref{genericdichom}, check that all except the last two points in the hypothesis of Lemma \ref{main2} are satisfied with 
 \begin{itemize}
     \item $\mathfrak{A}$ as defined,
     \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
@@ -2862,18 +4561,24 @@ Following the proof of Theorem \ref{genericdichom}, while bearing in mind
 \end{itemize}
 we apply Lemma \ref{main2} with $V$ in place of $W$ to give us 
 \begin{align}\label{marker0}
-    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } \mathbb{P}(\mathfrak{T})^{\top} \text{-} \Sigma_1 \text{-generic filter over } \mathfrak{A} \nonumber \\ 
+\begin{split}
+    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } \mathbb{P}(\mathfrak{T})^{\top} \text{-} \Sigma_1 \text{-generic filter over } \mathfrak{A} \\ 
     & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bigcup \bar{g} = \Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}}))) \text{.}
+\end{split}
 \end{align}
 In particular,
 \begin{align}\label{marker}
-    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } \mathbb{P}(\mathfrak{T})^{\top} \text{-generic filter over } \mathfrak{A} \nonumber \\ 
+\begin{split}
+    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } \mathbb{P}(\mathfrak{T})^{\top} \text{-generic filter over } \mathfrak{A} \\ 
     & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bigcup \bar{g} = \Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}}))) \text{.}
+\end{split}
 \end{align}
 Passing ($\ref{marker}$) through $f$ leads us to the presence of an oracle machine $\bar{\Phi}$ fulfilling
 \begin{align}\label{marker2}
-    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } s \text{-generic filter over } \mathfrak{A} \nonumber \\ 
+\begin{split}
+    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a } s \text{-generic filter over } \mathfrak{A} \\ 
     & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}})))) \text{.}
+\end{split}
 \end{align}
 
 Next, note that 
@@ -2926,8 +4631,10 @@ It in not difficult to see that $ran(\pi)$ is dense in $P^*$, and thus in $P(\ma
 
 Proposition \ref{notlastp}, via $f$, implies the existence of a dense embedding $\pi$ of $\mathbb{C}$ into $\mathbb{P}(\mathfrak{T})^{\top}$ with $f" \pi$ computable in $s$, which is all we need to proceed. Fix any such $\pi$. It is not difficult to verify that $f \circ \pi = (f" \pi) \circ f$ on domain $C$ and taking upward closure of a set in a forcing notion commutes with $f$. As such, 
 \begin{align}\label{number8}
-    \forall g \ (g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \implies ( & \mathrm{UC}(s, (f" \pi)" (f" g)) \text{ is a filter on } s \text{ and} \nonumber \\
+\begin{split}
+    \forall g \ (g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \implies ( & \mathrm{UC}(s, (f" \pi)" (f" g)) \text{ is a filter on } s \text{ and} \\
     & \Phi^{(f" g) \oplus s} = \mathrm{UC}(s, (f" \pi)" (f" g))))
+\end{split}
 \end{align}
 for some oracle machine $\Phi$.
 
@@ -2947,13 +4654,18 @@ As $g$ is $\mathbb{C}$-generic over $\mathfrak{A}$, we can find $p \in g \cap D'
 
 Passing Proposition \ref{lastprop0} through $f$ strengthens (\ref{number8}) to 
 \begin{align}\label{number8p}
-    \forall g \ (g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \implies ( & \mathrm{UC}(s, (f" \pi)" (f" g)) \text{ is a } s \text{-generic} \nonumber \\ & \text{filter over } \mathfrak{A} \text{ and} \nonumber \\
+\begin{split}
+    \forall g \ (g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \implies ( & \mathrm{UC}(s, (f" \pi)" (f" g)) \text{ is a } s \text{-generic} \\ 
+    & \text{filter over } \mathfrak{A} \text{ and} \\
     & \Phi^{(f" g) \oplus s} = \mathrm{UC}(s, (f" \pi)" (f" g)))) \text{.}
+\end{split}
 \end{align}
 Now (\ref{marker2}) and (\ref{number8p}) in conjunction tells us that we can combine $\bar{\Phi}$ and $\Phi$ into an oracle machine $\Psi$ such that
 \begin{align}\label{number10p}
-    \forall g \ \exists ! \mathcal{M}_g \ ( & g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \nonumber \\ 
+\begin{split}
+    \forall g \ \exists ! \mathcal{M}_g \ ( & g \text{ is a } \mathbb{C} \text{-generic filter over } \mathfrak{A} \\ 
     & \implies (\mathcal{M}_g \models^* \mathfrak{T} \text{ and } \Psi^{(f" g) \oplus s} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_g))))
+\end{split}
 \end{align}
 and
 \begin{align*}
@@ -2996,7 +4708,7 @@ Let $\mathfrak{A} = (H(\omega); \in, P(\mathfrak{T})^{\top})$, so that
 \end{itemize}
 whence $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. We argue as in the proof of Lemma \ref{ctblegeneric} to conclude 
 \begin{enumerate}[label=(\arabic*)]
-    \item\label{5571} all but the last two hypotheses of Lemma \ref{main2} hold with
+    \item\label{5571} all but the last two points in the hypothesis of Lemma \ref{main2} hold with
     \begin{itemize}[label=$\circ$]
         \item $\mathfrak{A}$ as defined,
         \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
@@ -3023,8 +4735,10 @@ from which we deduce the following:
 
 Passing (\ref{marker0}) and \ref{5573} through $f$ the way (\ref{marker}) was passed through $f$ in the proof of Lemma \ref{ctblegeneric}, for some oracle machine $\bar{\Phi}$ we have
 \begin{align}\label{number9}
-    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \nonumber \\
+\begin{split}
+    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \\
     & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}})))) \text{.}
+\end{split}
 \end{align}
 
 Adopt the abbreviations
@@ -3041,8 +4755,10 @@ To deal with generic reals instead of generic filter, we first fix an oracle mac
 \end{itemize}
 we have
 \begin{align}\label{number10}
-    \forall t \ \exists ! c \ (t \text{ is a } s \text{-} 1 \text{-generic real} \implies ( & \mathrm{UC}(s, (f" \pi)" c) \text{ is a filter on } s \text{ and} \nonumber \\
+\begin{split}
+    \forall t \ \exists ! c \ (t \text{ is a } s \text{-} 1 \text{-generic real} \implies ( & \mathrm{UC}(s, (f" \pi)" c) \text{ is a filter on } s \text{ and} \\
     & \ddot{\Phi}^t = c \text{ and } \Phi^{c \oplus s} = \mathrm{UC}(s, (f" \pi)" c))) \text{.}
+\end{split}
 \end{align}
 
 The upcoming proposition is an analogue of Proposition \ref{lastprop0}, formulated to restrict the universe of discourse to the (even) natural numbers. 
