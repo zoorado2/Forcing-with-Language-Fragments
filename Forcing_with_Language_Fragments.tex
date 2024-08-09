@@ -769,7 +769,7 @@ If
 then $\pi_{\lambda \kappa}$ lifts to a generic ultrapower map $\pi^{+}_{\lambda \kappa} : V \longrightarrow M^+$, for some inner model $M^+$ of $W$.
 \end{lem}
 \begin{proof}
-Since $\mathrm{NS}_{\omega_1}$ being saturated implies $\mathrm{NS}_{\omega_1}$ is precipitous, the lemma immediately follows from applications of Lemmas \ref{itercopy} and~\ref{iterlength} in $W$, with $$(V; \in, \mathrm{NS}_{\omega_1}^V)$$ in place of $\bar{M}$, while noting Fact~\ref{satipre}.
+With Fact~\ref{satipre} in mind, the lemma follows immediately from applications of Lemmas \ref{itercopy} and~\ref{iterlength} in $W$, with $$(V; \in, \mathrm{NS}_{\omega_1}^V)$$ in place of $\bar{M}$.
 \end{proof}
 
 \subsection{\texorpdfstring{$\mathbb{P}_{max}$}{P-max} Forcing}\label{ss27}
@@ -821,8 +821,14 @@ We can easily check that $\leq_{\mathbb{P}_{max}}$ is a partial ordering.
 Assume $\mathrm{NS}_{\omega_1}$ is saturated, $MA(\omega_1)$ holds, $2^{\omega_1} = \omega_2$, and $A \subset \omega_1$ is such that $\omega_1^{L[A]} = \omega_1$. Then $$\Vdash_{Col(\omega, \omega_2)} (H(\omega_2)^{\dot{V}}; \in, \mathrm{NS}_{\omega_1}^{\dot{V}}, A) \in \mathbb{P}_{max}.$$
 \end{lem}
 \begin{proof}
-First, note that $|H(\omega_2)| = \aleph_2$, so $$\Vdash_{Col(\omega, \omega_2)} ``H(\omega_2)^{\dot{V}} \text{ is countable}".$$ Next, we can invoke Lemma~\ref{lift} with $V^{Col(\omega, \omega_2)}$ in place of $W$, to give us the generic iterability of $$(H(\omega_2)^{V}; \in, \mathrm{NS}_{\omega_1})$$ in $V^{Col(\omega, \omega_2)}$. It is easy to check that $$(H(\omega_2)^{V}; \in, \mathrm{NS}_{\omega_1}, A)$$ satisfies the other prerequisites (as per Definition \ref{pmax}) of being a $\mathbb{P}_{max}$ condition in $V^{Col(\omega, \omega_2)}$. 
+First, note that $|H(\omega_2)| = \aleph_2$, so $$\Vdash_{Col(\omega, \omega_2)} ``H(\omega_2)^{\dot{V}} \text{ is countable}".$$ Next, we can invoke Lemma~\ref{lift} with $V^{Col(\omega, \omega_2)}$ in place of $W$, to give us the generic iterability of $$(H(\omega_2)^{V}; \in, \mathrm{NS}_{\omega_1}^V)$$ in $V^{Col(\omega, \omega_2)}$. It is easy to check that $$(H(\omega_2)^{V}; \in, \mathrm{NS}_{\omega_1}^V, A)$$ satisfies the other prerequisites (as per Definition \ref{pmax}) of being a $\mathbb{P}_{max}$ condition in $V^{Col(\omega, \omega_2)}$. 
 \end{proof}
+
+Lemma \ref{ho2} is a first step towards deriving the $Col(\omega, \omega_2)$-name $\dot{p}$ in Fact \ref{fact434}. It is also why the structure 
+\begin{equation*}
+    (H(\omega_2); \in, \mathrm{NS}_{\omega_1}, A)
+\end{equation*}
+is instrumental in the proof of Theorem \ref{notion2}.
 
 \section{Forcing with Language Fragments}\label{setupsec}
 
@@ -2332,6 +2338,8 @@ Fix a (recursive) G\"{o}del numbering $Gd$ of $\mathcal{L}^0_0$.
 If $s \in {^{A}{(B \times C)}}$, let $pr(s)$ denote the member $t \in {^{A}{B}}$ such that for all $a \in A$, $t(a) = b$ iff there is some $c$ for which $s(a) = (b, c)$.
 \end{defi}
 
+We will use the fact below without proof.
+
 \begin{fact}\label{fact434}
 Assume
 \begin{enumerate}[label=(\roman*), leftmargin=40pt]
@@ -2384,7 +2392,7 @@ and in every forcing extension of $V$,
 \end{enumerate}
 \end{fact}
 
-In light of Fact \ref{fact434}, we can make sense of --- and subsequently prove --- the next theorem.
+Fix $F^*$, $T$ and $\dot{p}$ as provided by Fact \ref{fact434}. In light of said fact, we can make sense of --- and subsequently prove --- the next theorem.
 
 \begin{thm}\label{notion2}
 Assume
@@ -2400,7 +2408,7 @@ Let $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$, and $
 \begin{itemize}
     \item there is a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
     \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
-        \item\label{nov1} $\bar{N}_0 \in D^* \subset \mathbb{P}_{max}$,
+        \item\label{nov1} $\bar{N}_0 \in D^* := (F^*) " ((F^*)^{-1}(D)^*) \subset \mathbb{P}_{max}$,
         \item\label{nov2} $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$, and
         \item\label{nov3} $a_{\omega_1^V} = A$, and
     \end{enumerate}
@@ -2421,9 +2429,9 @@ Move to $W$ as in the proof of Theorem \ref{notion1} via forcing with $Col(\lamb
 \end{itemize}
 holds in $W$. We further require 
 \begin{equation*}
-    \{T, \dot{p}, H(\omega_2)^W = H(\omega_2)^V, \mathrm{NS}_{\omega_1}^W = \mathrm{NS}_{\omega_1}^V, A\} \subset Q_{\lambda}
+    \mathrm{Par} := \{T, \dot{p}, H(\omega_2)^W = H(\omega_2)^V, \mathrm{NS}_{\omega_1}^W = \mathrm{NS}_{\omega_1}^V, A\} \subset Q_{\lambda}
 \end{equation*}
-for all $\lambda \in C$, where $T$ and $\dot{p}$ are as provided by Fact \ref{fact434}, considering the hypothesis of the theorem. But this is easily done. 
+for all $\lambda \in C$. But this is easily done because $\mathrm{Par}$ is small by Fact \ref{fact434} and the hypothesis of the theorem. 
 
 Set
 \begin{align*}
