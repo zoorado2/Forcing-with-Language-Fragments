@@ -724,13 +724,13 @@ Suppose
     \item for some $\sigma_{00}$, $\langle \bar{N}_0, \sigma_{00} \rangle$ is a generic iteration of $\bar{N} = (N; \in, I)$,
     \item for some $\pi_{00}$, $\langle \bar{M}_0, \pi_{00} \rangle$ is a generic iteration of $\bar{M} = (M; \in, I)$,
     \item $\bar{N} \in M$,
-    \item ${^{\omega_1^{\bar{M}}}{N}} \subset N$,
+    \item $\bar{N} \models ``\text{every } {\omega_1^{\bar{M}}} \text{-sequence is a set}"$,
     \item $N$ contains all maximal antichains of $(\mathcal{P}(\omega_1) / I)^{M}$.
 \end{itemize}
 Then for each generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i), \sigma_{ij} : i \leq j \leq \alpha \rangle$$ of $\bar{N}$, there is a unique generic iteration $$\langle \bar{M}_i = (M_i; \in, I_i), \pi_{ij} : i \leq j \leq \alpha \rangle$$ of $\bar{M}$ such that for all $i \leq j \leq \alpha$,
 \begin{itemize}
     \item $\pi_{0i}(N) = N_i$,
-    \item ${^{\omega_1^{\bar{M_i}}}{N_i}} \subset N_i$,
+    \item $\bar{N}_i \models ``\text{every } {\omega_1^{\bar{M}_i}} \text{-sequence is a set}"$,
     \item $N_i$ contains all maximal antichains of $(\mathcal{P}(\omega_1) / I_i)^{M_i}$, and
     \item $\pi_{ij} \restriction N_i = \sigma_{ij}$.
 \end{itemize}
@@ -757,16 +757,16 @@ This follows from \cite[Lemma 1.6]{larson}.
 \begin{lem}\label{lift}
 Let $V \subset W$ be transitive models of $\mathsf{ZFC}$, such that 
 \begin{itemize}
-    \item $W \models ``H(\omega_2)^V$ is countable",
-    \item $V \models ``\mathrm{NS}_{\omega_1}$ is saturated'', and
+    \item $V$ is definable in $W$,
+    \item $V \models ``\mathrm{NS}_{\omega_1}$ is precipitous'', and
     \item $\omega_1^W \in V$.
 \end{itemize}
 If 
 \begin{itemize}
-    \item $\lambda \leq \kappa \leq \omega_1^W$,
+    \item $\lambda \leq \kappa \leq \omega_1^W$, and
     \item in $W$, $$\langle \bar{M}_i = (M_i; \in, J_i), \pi_{ij} : \lambda \leq i \leq j \leq \kappa \rangle$$ is a generic iteration of $(H(\omega_2)^V; \in, \mathrm{NS}_{\omega_1}^V)$
 \end{itemize}
-then $\pi_{\lambda \kappa}$ lifts to a generic ultrapower map $\pi^{+}_{\lambda \kappa} : V \longrightarrow M^+$, for some well-founded $M^+ \subset W$ with $M_{\kappa} \subset M^+$.
+then $\pi_{\lambda \kappa}$ lifts to a generic ultrapower map $\pi^{+}_{\lambda \kappa} : V \longrightarrow M^+$, for some inner model $M^+$ of $W$.
 \end{lem}
 \begin{proof}
 This is immediate by the application of Lemmas~\ref{itercopy} and~\ref{iterlength} in $W$, with $$(V; \in, \mathrm{NS}_{\omega_1}^V)$$ in place of $\bar{M}$, noting Fact~\ref{satipre}.
