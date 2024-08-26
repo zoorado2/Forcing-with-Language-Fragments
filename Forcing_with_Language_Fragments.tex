@@ -60,6 +60,10 @@ linkcolor=blue
 \end{abstract}
 
 \newtheorem{thm}{Theorem}[section]
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
 \newtheorem{innercustomlem}{Lemma}
 \newenvironment{customlem}[1]
   {\renewcommand\theinnercustomlem{#1}\innercustomlem}
@@ -4121,7 +4125,8 @@ Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI in $V$ a
 It is time to cash the cheque issued in Remark \ref{promise}.
 
 \begin{lem}\label{conalt}
-Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI. Then $\mathfrak{T}$ is consistent iff $$\Vdash_{Col(\omega, \lambda)} \exists \mathcal{M} \ (``\mathcal{M} \models^* \mathfrak{T}"),$$ where $\lambda := |H(|trcl(\mathfrak{T})|^+)|$.
+Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI. Then $\mathfrak{T}$ is consistent iff $$\Vdash_{Col(\omega, \lambda)} \exists \Sigma \ (``\Sigma \ \Gamma_{\mathfrak{T}} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})\text{-certifies } \emptyset")$$ iff
+$$\Vdash_{Col(\omega, \lambda)} \exists \mathcal{M} \ (``\mathcal{M} \models^* \mathfrak{T}"),$$ where $\lambda := |H(|trcl(\mathfrak{T})|^+)|$.
 \end{lem}
 
 \begin{proof}
@@ -4143,6 +4148,14 @@ tells us that $\mathfrak{T}$ is consistent iff $$\Vdash_{Col(\omega, \lambda)} \
 
 As every $Col(\omega, \lambda)$-generic extension of $V$ is a transitive model of $\mathsf{ZFC - Powerset}$, we can apply Lemma \ref{mcequiv2} again to complete the proof. 
 \end{proof}
+
+\begin{cor}\label{cor527}
+There is a procedure to decide in $V$, whether any given $\Pi_2$ TCI is consistent.
+\end{cor}
+
+\begin{proof}
+By Lemma \ref{conalt}, a $\Pi_2$ TCI $\mathfrak{T}$ is consistent iff $P(\mathfrak{T})$ is non-empty.
+\end{proof} 
 
 Intuitively, the consistency of a theory --- however it is defined --- should be absolute in a sufficiently strong sense. This is the case for first-order theories, any of which consistency is absolute for transitive models of set theory. The following Lemma establishes a similar absoluteness property with regards to the consistency of a TCI.
 
@@ -4328,6 +4341,13 @@ The theorem follows directly from Lemmas \ref{main2}, \ref{mcequiv} and \ref{mce
     \item $V[g]$ in place of $W$. \qedhere
 \end{itemize}
 \end{proof}
+
+\begin{rem}\label{rem537}
+By the proof of Corollary \ref{cor527}, Theorem \ref{genericmodels} is equivalent to, and can be restated as:
+\begin{customthm}{5.36$'$}
+Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a $\Pi_2$ TCI. If $P(\mathfrak{T})$ is not empty, then every $\mathbb{P}(\mathfrak{T})$-generic filter over $V$ witnesses a $(\mathbb{P}(\mathfrak{T}), V)$-generic model of $\mathfrak{T}$.
+\end{customthm}
+\end{rem}
 
 \begin{rem}\label{ramble2}
 By Theorem \ref{genericmodels} and \ref{5282} of Observation \ref{smallvgen}, we see that for every $\Pi_2$ TCI $\mathfrak{T}$,
@@ -4531,6 +4551,17 @@ Check that the hypothesis of Lemma \ref{main2} are satisfied when we have
 \end{itemize}
 A direct application of said lemma, coupled with the knowledge that $\Gamma_{\mathfrak{T}} \subset \Gamma_{\mathfrak{T}}^{\top}$, completes the proof. 
 \end{proof}
+
+Two important, yet perhaps surprising, properties of $\Pi_2$ TCIs follow from the dichotomy in Theorem \ref{genericdichom}. We state these properties in the next corollary.
+
+\begin{cor}\label{cor549}
+The following statements hold.
+\begin{enumerate}[label=(\arabic*)]
+    \item Let $\mathfrak{T}$ be a $\Pi_2$ TCI. Every model of $\mathfrak{T}$ can be found in $V$ iff every model of $\mathfrak{T}$ is almost finitely determined (see also Lemma \ref{afdinV}).
+    \item\label{cor5492} There is a procedure to decide in $V$, whether every model of any given $\Pi_2$ TCI can be found in $V$.
+\end{enumerate}
+\end{cor}
+Notice that \ref{cor5492} of Corollary \ref{cor549} is similar in form to Corollary \ref{cor527}. Through Remark \ref{rem537}, this points further to Theorem \ref{genericdichom} being an improvement upon Theorem \ref{genericmodels}.
 
 For a countable TCI $\mathfrak{T}$, the consistency of $\mathfrak{T}$ implies the existence of a model of $\mathfrak{T}$ in $V$. 
 
