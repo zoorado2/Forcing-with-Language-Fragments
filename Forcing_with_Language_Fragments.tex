@@ -1626,12 +1626,18 @@ Namba forcing belongs to the class of \emph{uniformly-splitting tree forcings}, 
 
 By means of tree combinatorics, one can show that Namba forcing gives $\omega_2^V$ a cofinality of $\omega$ without collapsing $\omega_1^V$. In fact, Namba forcing is a textbook example of such a forcing notion. It also has a stronger property than not collapsing $\omega_1^V$ --- it is stationary-preserving. In the parlance of the preceding paragraph, the primary generic object here is a cofinal function from $\omega$ into $\omega_2^V$, whereas the regularity property of pertinence is being stationary-preserving. We can then observe the following division of labour: the stems of Namba forcing are in charge of changing the cofinality of $\omega_2^V$ to $\omega$, while the crowns of Namba forcing ensure all stationary subsets of $\omega_1$ in $V$ have their stationarity preserved.
 
-The extended Namba problem, at its most rudimentary, asks (in $V$) for which regular cardinals $\lambda$ above $\omega_2$ is the statement
+The extended Namba problem, at its most rudimentary, asks (in $V$) for which ordinals $\lambda > \omega_2$ is the statement
 \begin{align*}
     Nb_0(\lambda) := \text{`} & \text{there is a stationary-preserving forcing notion } \mathbb{P} \text{ such that} \\ 
     & \Vdash_{\mathbb{P}} ``cof(\alpha) = \omega" \text{ for all regular cardinals } \alpha \text{ satisfying } \omega_2 \leq \alpha < \lambda \text{'}
 \end{align*} 
-true. This formulation of the problem is already non-trivial, as the following fact tells us that iterating Namba forcing in the usual way is insufficient to get us further than $Nb_0(\omega_3^V)$, without assuming a strong failure of $GCH$. 
+true. It is easy to see that if $\lambda > \omega_2$ is not a regular cardinal, then 
+\begin{equation*}
+    Nb_0(\lambda) \iff Nb_0(\lambda^+) \text{,}
+\end{equation*}
+so it suffices to only consider $Nb_0(\lambda)$ for regular cardinals $\lambda > \omega_2$.
+
+This formulation of the problem is already non-trivial, as the following fact tells us that iterating Namba forcing in the usual way is insufficient to get us $Nb_0(\lambda)$ for any $\lambda > \omega_3$, without assuming a strong failure of $GCH$. 
 
 \begin{fact}\label{fact26}
 Assume $GCH$ holds below $\omega_2$. Then 
@@ -1645,7 +1651,7 @@ Assume $GCH$ holds below $\omega_2$. Then
 That the naive two-step iteration of Namba forcing fails to be stationary-preserving assuming the hypothesis of Fact \ref{fact26}, suggests our natural conception of iteration is incompatible with the side conditions of Namba forcing. To overcome this incompatibility, it makes sense to consider either a new kind of iteration or an overhaul of the side conditions. The latter option could mean a departure from the intuition of uniformly-splitting tree forcings so radical, that the resultant forcing notion has conditions best presented as objects other than trees.
 \end{rem}
 
-Indeed, a stronger variant of the extended Namba problem, asking for which regular cardinals $\lambda$ above $\omega_2$ is the statement
+Indeed, a stronger variant of the extended Namba problem, asking for which regular cardinals $\lambda > \omega_2$ is the statement
 \begin{align*}
     Nb_1(\lambda) := \text{`} & \text{there is a stationary-preserving forcing notion } \mathbb{P} \text{ such that} \\ 
     & \Vdash_{\mathbb{P}} ``cof(\alpha) = \omega" \text{ for all regular cardinals } \alpha \text{ satisfying } \omega_2 \leq \alpha < \lambda \text{,} \\
@@ -1660,7 +1666,7 @@ But can we have $Nb_1(\lambda)$ hold for a bigger class of cardinals $\lambda$ i
 
 \subsection{A Conditional Solution}
 
-It turns out there is a somewhat simple proof of $$\text{``} Nb_1(\lambda) \text{ for all } \lambda \text{ above } \omega_2 \text{''}$$ (in fact, a slightly stronger statement) if we assume something of greater consistency strength. This proof adopts a novel side-condition technique first employed in \cite{schindler} (cf. Remark \ref{rem47}). It also demonstrates how amenable the forcing framework of Subsection \ref{forframe} is in bolstering natural and obvious forcing conditions with said side conditions. 
+It turns out there is a somewhat simple proof of $$\text{``} Nb_1(\lambda) \text{ for every regular cardinal } \lambda > \omega_2 \text{''}$$ (in fact, a slightly stronger statement) if we assume a theory of greater consistency strength than $\mathsf{ZFC}$. This proof adopts a novel side-condition technique first employed in \cite{schindler} (cf. Remark \ref{rem47}). It also demonstrates how amenable the forcing framework of Subsection \ref{forframe} is in bolstering natural and obvious forcing conditions with said side conditions. 
 
 \begin{defi}
 Let $Nb'_1(\lambda)$ denote the statement
@@ -1672,10 +1678,10 @@ Let $Nb'_1(\lambda)$ denote the statement
 \end{align*}
 \end{defi}
 
-Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$.
+Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal.
 
 \begin{thm}\label{notion1}
-Assume $\mathrm{NS}_{\omega_1}$ is precipitous. Then $Nb'_1(\lambda_f)$ holds for all regular cardinals $\lambda_f > 2^{\omega_1}$. In other words, whenever $\lambda_f$ is a regular cardinal $> 2^{\omega_1}$, there is a stationary-preserving forcing notion $\mathbb{P}'$ such that 
+Assume $\mathrm{NS}_{\omega_1}$ is precipitous. Then $Nb'_1(\lambda_f)$ holds for all regular cardinals $\lambda_f > 2^{\omega_1}$. In other words, whenever $\lambda_f > 2^{\omega_1}$ is a regular cardinal, there is a stationary-preserving forcing notion $\mathbb{P}'$ such that 
 \begin{enumerate}[label=(\arabic*)]
     \item\label{cond1} $\Vdash_{\mathbb{P}'} ``cof(\alpha) = \omega"$ for all regular cardinals $\alpha$ satisfying $\omega_2 \leq \alpha < \lambda_f$,
     \item\label{cond2} $\Vdash_{\mathbb{P}'} ``cof(\gamma) = \omega_1"$ for all regular cardinals $\gamma$ satisfying $\lambda_f \leq \gamma \leq 2^{< \lambda_f}$, and
@@ -2253,9 +2259,9 @@ According to Theorem \ref{notion1}, if $\mathrm{NS}_{\omega_1}$ is precipitous, 
 Assume 
 \begin{itemize}
     \item $\mathrm{NS}_{\omega_1}$ is precipitous, and
-    \item $GCH$ holds below $\omega_2$.
+    \item $2^{\omega_1} = \omega_2$.
 \end{itemize}
-Then $Nb'_1(\lambda)$ --- and thus $Nb_1(\lambda)$ --- holds for each $\lambda > \omega_2$. 
+Then $Nb'_1(\lambda)$ --- thus also $Nb_1(\lambda)$ --- holds for each regular cardinal $\lambda > \omega_2$. Furthermore, $Nb_0(\alpha)$ holds for each ordinal $\alpha > \omega_2$.
 \end{cor}
 
 An advantage of the forcing framework of Subsection \ref{forframe} is that it facilitates modular analyses of the generic object. Adding components to the generic object can be done by extending the language on which the forcing notion is based. Under the right circumstances, that said addition preserves a property of the original forcing notion is readily derived from examining the extended language.
@@ -2454,7 +2460,7 @@ Let
 \begin{itemize}
     \item $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$,
     \item $A \subset \omega_1$ be such that $\omega_1^{L[A]} = \omega_1$, and
-    \item $\lambda_f$ be a regular cardinal $> 2^{\omega_1}$.
+    \item $\lambda_f > 2^{\omega_1}$ be a regular cardinal .
 \end{itemize}
 Then there is a stationary-preserving forcing notion $\mathbb{P}$ such that in $V^{\mathbb{P}}$,
 \begin{itemize}
@@ -3573,13 +3579,13 @@ Assume
     \item $\mathrm{NS}_{\omega_1}$ is saturated,
     \item $2^{\omega_1} = \mathbf{\delta^1_2} = \omega_2$, 
     \item $MA(\omega_1)$ holds, and
-    \item GCH holds below $\omega_2$.
+    \item $2^{\omega_1} = \omega_2$.
 \end{enumerate}
 Let 
 \begin{itemize}
     \item $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$,
     \item $A \subset \omega_1$ be such that $\omega_1^{L[A]} = \omega_1$, and
-    \item $\lambda_f$ be a regular cardinal $> \omega_2$.
+    \item $\alpha > \omega_2$ be an ordinal.
 \end{itemize}
 Then there is a stationary-preserving forcing notion $\mathbb{P}$ such that in $V^{\mathbb{P}}$,
 \begin{itemize}
@@ -3587,9 +3593,10 @@ Then there is a stationary-preserving forcing notion $\mathbb{P}$ such that in $
     \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
         \item $\bar{N}_0 \in D^* := (F^*) " ((F^*)^{-1}(D)^*) \subset \mathbb{P}_{max}$,
         \item $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$, and
-        \item $a_{\omega_1^V} = A$, and
+        \item $a_{\omega_1^V} = A$, 
     \end{enumerate}
-    \item $Nb'_1(\lambda_f)$ holds.
+    \item $Nb_0(\alpha)$ holds, and
+    \item $Nb'_1(\alpha)$ --- thus also $Nb_1(\alpha)$ --- holds if $\alpha$ is a regular cardinal.
 \end{itemize}
 \end{cor}
 
