@@ -2692,9 +2692,23 @@ It is clear that $\Sigma'(\mathfrak{D}, \mathcal{L}) \cap Q_{\lambda} = \Sigma'(
 Let $\Gamma'$ be the following set
 \begin{align*}
     \{\phi : \ & \phi \text{ is a } (\mathcal{L}^s)^*_{\mathfrak{A}}\text{-}\Pi_2 \text{ sentence and} \\
-    & \mathsf{ZFC} \vdash \forall \mathfrak{D} \ \forall \lambda \ (``\mathfrak{D} \text{ is a } \lambda \text{-certificate} \implies \Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda}) \models^*_{\mathfrak{A}} \phi")\} \text{.}
+    & \Vdash_{Col(\omega, \lambda_f)} \forall \mathfrak{D} \ \forall \lambda \in C \cup \{\lambda_f\} \\
+    & \mspace{80mu} (``\mathfrak{D} \text{ is a } \lambda \text{-certificate} \implies \Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda}) \models^*_{\mathfrak{A}} \phi")\} \text{.}
 \end{align*}
 \end{defi}
+
+Notice that in any $Col(\omega, \lambda_f)$-generic extension of $V$, 
+\begin{equation*}
+    \varphi(\phi) := \forall \mathfrak{D} \ \forall \lambda \in C \cup \{\lambda_f\} \ (``\mathfrak{D} \text{ is a } \lambda \text{-certificate} \implies \Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda}) \models^*_{\mathfrak{A}} \phi")
+\end{equation*}
+is equivalent to a $\mathbf{\Pi^1_2}$ sentence. An argument akin to that which proved Lemma \ref{inout}, combined with Shoenfield's absoluteness theorem, thus yields 
+\begin{equation*}
+    \Vdash_{Col(\omega, \lambda_f)} \neg \varphi(\phi) \iff \text{``} W \models \neg \varphi(\phi) \text{ for some outer model } W \text{ of } V \text{''.}
+\end{equation*}
+Therefore, $\Gamma'$ is precisely the set 
+\begin{align*}
+    \{\phi : \phi \text{ is a } (\mathcal{L}^s)^*_{\mathfrak{A}}\text{-}\Pi_2 \text{ sentence and ``} W \models \varphi(\phi) \text{ for every outer model } W \text{ of } V \text{''}\} \text{.}
+\end{align*}
 
 As in the proof of Theorem \ref{notion1}, we will define $\{\mathbb{P}_{\lambda} : \lambda \in C \cup \{\lambda_f\}\}$ by induction on $\lambda$. Assume that $\mathbb{P}_{\lambda'}$ has been defined for all $\lambda' \in \lambda \cap C$. 
 
