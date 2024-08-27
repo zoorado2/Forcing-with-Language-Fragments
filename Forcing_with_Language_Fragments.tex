@@ -1622,9 +1622,9 @@ Define
 We call the forcing notion $\mathbb{P}_N := (P_N, \leq_N)$ \emph{Namba forcing}.
 \end{defi}
 
-Namba forcing belongs to the class of \emph{uniformly-splitting tree forcings}, one of which earliest-known members is Mathias forcing. A typical condition of a uniformly-splitting tree forcing is a tree, and it can be divided into two components --- the stem and the crown. The stem is the main working part of a condition; stems in a generic filter combine to form a function that is the primary generic object we desire. The crowns work as \emph{side conditions}, which in unity, endow the forcing notion with specific regularity properties. These properties are often crucial to the satisfaction of constraints placed on the forcing extension. If $T$ is a Namba tree with root $s$, then its stem is $$\{t \in T : t \subset s\}$$ and its crown is $T_s^{\leq^{\dagger}} \setminus \{s\}$.
+Namba forcing belongs to the class of \emph{uniformly-splitting tree forcings}, one of which earliest-known members is Mathias forcing. A typical condition of a uniformly-splitting tree forcing is a tree, and it can be divided into two components, the stem and the crown. The stem is the main working part of a condition; stems in a generic filter combine to form a function that is the primary generic object we desire. The crowns work as \emph{side conditions}, which in unity, endow the forcing notion with specific regularity properties. These properties are often crucial to the satisfaction of constraints placed on the forcing extension. If $T$ is a Namba tree with root $s$, then its stem is $$\{t \in T : t \subset s\}$$ and its crown is $T_s^{\leq^{\dagger}} \setminus \{s\}$.
 
-By means of tree combinatorics, one can show that Namba forcing gives $\omega_2^V$ a cofinality of $\omega$ without collapsing $\omega_1^V$. In fact, Namba forcing is a textbook example of such a forcing notion. It also has a stronger property than not collapsing $\omega_1^V$ --- it is stationary-preserving. In the parlance of the preceding paragraph, the primary generic object here is a cofinal function from $\omega$ into $\omega_2^V$, whereas the regularity property of pertinence is being stationary-preserving. We can then observe the following division of labour: the stems of Namba forcing are in charge of changing the cofinality of $\omega_2^V$ to $\omega$, while the crowns of Namba forcing ensure all stationary subsets of $\omega_1$ in $V$ have their stationarity preserved.
+By means of tree combinatorics, one can show that Namba forcing gives $\omega_2^V$ a cofinality of $\omega$ without collapsing $\omega_1^V$. In fact, Namba forcing is a textbook example of such a forcing notion. It also has a stronger property than not collapsing $\omega_1^V$, for it is stationary-preserving. In the parlance of the preceding paragraph, the primary generic object here is a cofinal function from $\omega$ into $\omega_2^V$, whereas the regularity property of pertinence is being stationary-preserving. We can then observe the following division of labour: the stems of Namba forcing are in charge of changing the cofinality of $\omega_2^V$ to $\omega$, while the crowns of Namba forcing ensure all stationary subsets of $\omega_1$ in $V$ have their stationarity preserved.
 
 The extended Namba problem, at its most rudimentary, asks (in $V$) for which ordinals $\lambda > \omega_2$ is the statement
 \begin{align*}
@@ -1642,13 +1642,15 @@ This formulation of the problem is already non-trivial, as the following fact te
 \begin{fact}\label{fact26}
 Assume $GCH$ holds below $\omega_2$. Then 
 \begin{enumerate}[label=(\arabic*)]
-    \item $\Vdash_{\mathbb{P}_{N}} ``cof(\omega_3^V) = \omega_1"$, and
+    \item\label{fact261} $\Vdash_{\mathbb{P}_{N}} ``cof(\omega_3^V) = \omega_1"$, and
     \item $\Vdash_{\mathbb{P}_{N}} ``cof(\beta) > \omega"$ for all regular cardinals $\beta$ satisfying $\omega_3 < \beta$.
 \end{enumerate}
 \end{fact}
 
 \begin{rem}\label{rem47}
-That the naive two-step iteration of Namba forcing fails to be stationary-preserving assuming the hypothesis of Fact \ref{fact26}, suggests our natural conception of iteration is incompatible with the side conditions of Namba forcing. To overcome this incompatibility, it makes sense to consider either a new kind of iteration or an overhaul of the side conditions. The latter option could mean a departure from the intuition of uniformly-splitting tree forcings so radical, that the resultant forcing notion has conditions best presented as objects other than trees.
+That the naive two-step iteration of Namba forcing fails to extend $Nb_0(\lambda)$ beyond $\lambda = \omega_3$, assuming the hypothesis of Fact \ref{fact26}, suggests our natural conception of iteration is incompatible with the side conditions of Namba forcing. Indeed, \ref{fact261} of Fact \ref{fact26} is a result of interactions between the hypothesis of said fact, and the behaviour of these side conditions. 
+
+To overcome this incompatibility, it makes sense to consider either a new kind of iteration or an overhaul of the side conditions. The former option is almost unfathomable, since the typical intuitions to --- and (informal) definitions of --- iterated forcing always involve scaling up from the two-step iteration. The latter option could mean a departure from the intuition of uniformly-splitting tree forcings so radical, that the resultant forcing notion has conditions best presented as objects other than trees.
 \end{rem}
 
 Indeed, a stronger variant of the extended Namba problem, asking for which regular cardinals $\lambda > \omega_2$ is the statement
@@ -1678,7 +1680,17 @@ Let $Nb'_1(\lambda)$ denote the statement
 \end{align*}
 \end{defi}
 
-Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal.
+Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal. By generalising the (redacted) proof of Fact \ref{fact26}, we can show that statements in the class
+\begin{equation*}
+    \{Nb'_1(\lambda) : \lambda > \omega_2\}
+\end{equation*}
+are indeed extensions of a property of Namba forcing, modulo mild assumptions beyond $\mathsf{ZFC}$.
+
+\begin{fact}
+Assume $GCH$ holds below $\omega_2$. Then Namba forcing witnesses $Nb'_1(\omega_3)$.
+\end{fact}
+
+The next theorem, also the main one in this section, tells us $Nb'_1(\lambda)$ holds for all but set many regular cardinals $\lambda$, under significantly stronger assumptions.
 
 \begin{thm}\label{notion1}
 Assume $\mathrm{NS}_{\omega_1}$ is precipitous. Then $Nb'_1(\lambda_f)$ holds for all regular cardinals $\lambda_f > 2^{\omega_1}$. In other words, whenever $\lambda_f > 2^{\omega_1}$ is a regular cardinal, there is a stationary-preserving forcing notion $\mathbb{P}'$ such that 
