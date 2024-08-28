@@ -25,7 +25,6 @@ sorting=ynt
 \usepackage{xcolor}
 \usepackage[bottom]{footmisc} %to place footnote at bottom of the page 
 \usepackage{amssymb}
-\usepackage{amsthm}
 %\usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{blindtext}
 \usepackage{etoolbox}
@@ -60,18 +59,6 @@ linkcolor=blue
 \end{abstract}
 
 \newtheorem{thm}{Theorem}[section]
-\newtheorem{innercustomthm}{Theorem}
-\newenvironment{customthm}[1]
-  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
-  {\endinnercustomthm}
-\newtheorem{innercustomlem}{Lemma}
-\newenvironment{customlem}[1]
-  {\renewcommand\theinnercustomlem{#1}\innercustomlem}
-  {\endinnercustomlem}
-\newtheorem{innercustomdef}{Definition}
-\newenvironment{customdef}[1]
-  {\renewcommand\theinnercustomdef{#1}\innercustomdef}
-  {\endinnercustomdef}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
@@ -87,6 +74,30 @@ linkcolor=blue
 \newtheorem{ob}[thm]{Observation}
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{con}[thm]{Convention}
+
+\theoremstyle{definition}
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+\theoremstyle{definition}
+\newtheorem{innercustomlem}{Lemma}
+\newenvironment{customlem}[1]
+  {\renewcommand\theinnercustomlem{#1}\innercustomlem}
+  {\endinnercustomlem}
+
+\theoremstyle{definition}
+\newtheorem{innercustomdef}{Definition}
+\newenvironment{customdef}[1]
+  {\renewcommand\theinnercustomdef{#1}\innercustomdef}
+  {\endinnercustomdef}
+
+\theoremstyle{remark}
+\newtheorem{innercustomfact}{Fact}
+\newenvironment{customfact}[1]
+  {\renewcommand\theinnercustomfact{#1}\innercustomfact}
+  {\endinnercustomfact}
 
 \newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
 \newcommand{\RR}{\mathbb{R}}      % for Real numbers
@@ -1379,6 +1390,7 @@ By recycling the argument in Remark \ref{endremmain} with
     \item ``$\mathbb{P}_{\leq_p}$-generic'' in place of ``$\mathbb{P}_{\leq_p}$-$\Sigma_1$-generic'',
 \end{itemize}
 we can conclude that Lemma \ref{lem332} is equivalent to, and can be restated as:
+
 \begin{customlem}{3.32$'$}
 Assume 
 \begin{itemize}
@@ -1637,20 +1649,34 @@ true. It is easy to see that if $\lambda > \omega_2$ is not a regular cardinal, 
 \end{equation*}
 so it suffices to only consider $Nb_0(\lambda)$ for regular cardinals $\lambda > \omega_2$.
 
-This formulation of the problem is already non-trivial, as the following fact tells us that iterating Namba forcing in the usual way is insufficient to get us $Nb_0(\lambda)$ for any $\lambda > \omega_3$, without assuming a strong failure of $GCH$. 
+\begin{fact}
+Namba forcing witnesses $Nb_0(\omega_3)$.
+\end{fact}
+
+This formulation of the problem is already non-trivial, because finding witnesses to $Nb_0(\lambda)$ for $\lambda > \omega_3$ turns out to be nearly as difficult as proving $\neg Nb_0(\lambda)$. Perhaps as a sign of this difficulty, the following fact tells us that iterating Namba forcing in the usual way is insufficient to get us $Nb_0(\lambda)$ for any $\lambda > \omega_3$, without assuming a strong failure of $\mathsf{GCH}$. 
 
 \begin{fact}\label{fact26}
-Assume $GCH$ holds below $\omega_2$. Then 
+Assume $\mathsf{GCH}$ holds below $\omega_2$. Then 
 \begin{enumerate}[label=(\arabic*)]
     \item\label{fact261} $\Vdash_{\mathbb{P}_{N}} ``cof(\omega_3^V) = \omega_1"$, and
     \item $\Vdash_{\mathbb{P}_{N}} ``cof(\beta) > \omega"$ for all regular cardinals $\beta$ satisfying $\omega_3 < \beta$.
 \end{enumerate}
 \end{fact}
 
-\begin{rem}\label{rem47}
-That the naive two-step iteration of Namba forcing fails to extend $Nb_0(\lambda)$ beyond $\lambda = \omega_3$, assuming the hypothesis of Fact \ref{fact26}, suggests our natural conception of iteration is incompatible with the side conditions of Namba forcing. Indeed, \ref{fact261} of Fact \ref{fact26} is a result of interactions between the hypothesis of said fact, and the behaviour of these side conditions. 
+Notice that if $\mathsf{GCH}$ holds below $\omega_2$, then by Fact \ref{fact26}, iterating Namba forcing any number of times in the standard sense would not result in $cof(\omega_3^V) = \omega$, not without collapsing $\omega_1^V$.
 
-To overcome this incompatibility, it makes sense to consider either a new kind of iteration or an overhaul of the side conditions. The former option is almost unfathomable, since the typical intuitions to --- and (informal) definitions of --- iterated forcing always involve scaling up from the two-step iteration. The latter option could mean a departure from the intuition of uniformly-splitting tree forcings so radical, that the resultant forcing notion has conditions best presented as objects other than trees.
+\begin{rem}\label{rem47}
+That any standard iteration of Namba forcing fails to extend $Nb_0(\lambda)$ beyond $\lambda = \omega_3$, assuming the hypothesis of Fact \ref{fact26}, suggests our natural conception of iteration is incompatible with the side conditions of Namba forcing. Indeed, \ref{fact261} of Fact \ref{fact26} is a result of interactions between the hypothesis of said fact, and the behaviour of these side conditions. 
+
+To overcome this incompatibility, it makes sense to consider either
+\begin{enumerate}[label=(\alph*)]
+    \item\label{s41a} a new kind of iteration, or 
+    \item\label{s41b} an overhaul of the side conditions.
+\end{enumerate} 
+
+Option \ref{s41a} is almost unfathomable, since the typical intuitions to --- and (informal) definitions of --- iterated forcing necessitates that an iterated forcing notion be a regular extension of each of its initial iterands. In other words, an iterated Namba forcing extension ought to include a Namba forcing extension as a submodel. This forbids an iteration of Namba forcing from witnessing $Nb_0(\lambda)$ for any $\lambda > \omega_3$, should $\mathsf{GCH}$ hold below $\omega_2$. 
+
+On the other hand, option \ref{s41b} could mean a departure from the intuition of uniformly-splitting tree forcings so radical, that the resultant forcing notion has conditions best presented as objects other than trees.
 \end{rem}
 
 Indeed, a stronger variant of the extended Namba problem, asking for which regular cardinals $\lambda > \omega_2$ is the statement
@@ -1660,9 +1686,13 @@ Indeed, a stronger variant of the extended Namba problem, asking for which regul
     & \Vdash_{\mathbb{P}} ``cof(\lambda) = \omega_1" \text{, and} \\
     & \Vdash_{\mathbb{P}} ``cof(\beta) > \omega" \text{ for all regular cardinals } \beta \text{ satisfying } \lambda < \beta \text{'}
 \end{align*}
-true, naturally arises from Fact \ref{fact26}.
+true, naturally arises from Fact \ref{fact26}. Indeed, Fact \ref{fact26} is equivalent to --- and can be rewritten as --- the following.
 
-Drawing from the deep and complex theories of subcomplete forcing and $\mathcal{L}$-forcing, Jensen showed in \cite{lforcing} that, modulo weak fragments of $GCH$, $Nb_1(\lambda)$ holds for all successor and strongly inaccessible cardinals above $\omega_2$. Jensen used very different methods to construct the witnesses $\mathbb{P}$ for different categories of $\lambda$, but in doing so, he also ensured that $\mathbb{P}$ never adds reals. 
+\begin{customfact}{4.7$'$}\label{f46p}
+Assume $\mathsf{GCH}$ holds below $\omega_2$. Then Namba forcing witnesses $Nb_1(\omega_3)$.
+\end{customfact}
+
+Drawing from the deep and complex theories of subcomplete forcing and $\mathcal{L}$-forcing, Jensen showed in \cite{lforcing} that, modulo weak fragments of $\mathsf{GCH}$, $Nb_1(\lambda)$ holds for all successor and strongly inaccessible cardinals above $\omega_2$. Jensen used very different methods to construct the witnesses $\mathbb{P}$ for different categories of $\lambda$, but in doing so, he also ensured that $\mathbb{P}$ never adds reals. 
 
 But can we have $Nb_1(\lambda)$ hold for a bigger class of cardinals $\lambda$ if we allow $\mathbb{P}$ to add reals?
 
@@ -1680,14 +1710,14 @@ Let $Nb'_1(\lambda)$ denote the statement
 \end{align*}
 \end{defi}
 
-Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal. By generalising the (redacted) proof of Fact \ref{fact26}, we can show that statements in the class
+Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal. By generalising the (redacted) proof of Fact \ref{fact26} (or equivalently, Fact \ref{f46p}), we can show that statements in the class
 \begin{equation*}
     \{Nb'_1(\lambda) : \lambda > \omega_2\}
 \end{equation*}
-are indeed extensions of a property of Namba forcing, modulo mild assumptions beyond $\mathsf{ZFC}$.
+are indeed extensions of a property of Namba forcing, modulo the same mild assumption beyond $\mathsf{ZFC}$.
 
 \begin{fact}
-Assume $GCH$ holds below $\omega_2$. Then Namba forcing witnesses $Nb'_1(\omega_3)$.
+Assume $\mathsf{GCH}$ holds below $\omega_2$. Then Namba forcing witnesses $Nb'_1(\omega_3)$.
 \end{fact}
 
 The next theorem, also the main one in this section, tells us $Nb'_1(\lambda)$ holds for all but set many regular cardinals $\lambda$, under significantly stronger assumptions.
