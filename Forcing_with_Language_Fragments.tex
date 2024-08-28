@@ -2758,7 +2758,7 @@ Therefore, $\Gamma'$ is precisely the set
     \{\phi : \phi \text{ is a } (\mathcal{L}^s)^*_{\mathfrak{A}}\text{-}\Pi_2 \text{ sentence and ``} W \models \varphi(\phi) \text{ for every outer model } W \text{ of } V \text{''}\} \text{.}
 \end{align*}
 
-As in the proof of Theorem \ref{notion1}, we will define $\{\mathbb{P}_{\lambda} : \lambda \in C \cup \{\lambda_f\}\}$ by induction on $\lambda$. Assume that $\mathbb{P}_{\lambda'}$ has been defined for all $\lambda' \in \lambda \cap C$. 
+As in the proof of Theorem \ref{notion1}, we will (re)define $$\{\mathbb{P}_{\lambda} : \lambda \in C \cup \{\lambda_f\}\}$$ by induction on $\lambda$. Indeed, we are inductively modifying the definitions of the $\mathbb{P}_{\lambda}$'s we knew from the proof of Theorem \ref{notion1}. Assume that $\mathbb{P}_{\lambda'}$ has been modified for all $\lambda' \in \lambda \cap C$. 
 
 \begin{defi}\label{def447}
 Set
@@ -2794,6 +2794,12 @@ Redefine $\mathbb{P}_{\lambda}$ as follows:
     \leq_{\lambda} \ := \ & \{(p, q) \in P_{\lambda} \times P_{\lambda} : q \subset p\}.
 \end{align*}
 As before, let $\mathbb{P}$ denote $\mathbb{P}_{\lambda_f}$. 
+
+Notice that $\Gamma_{\lambda}$ contains references to the set 
+\begin{equation*}
+    \{\mathbb{P}_{\lambda'} : \lambda' \in \lambda \cap C\} \text{,}
+\end{equation*}
+so we would expect the semantic value of $\Gamma_{\lambda}$ to be altered when changes are made to the definitions of the $\mathbb{P}_{\lambda'}$'s. In fact, it is through $\Gamma_{\lambda}$ that the definition of $\mathbb{P}_{\lambda}$ gets updated based on the updated definitions of the $\mathbb{P}_{\lambda'}$'s.
 
 \begin{rem}\label{rem447}
 \ref{K1} of Fact \ref{fact436} is obvious from the definition of $\mathbb{P}$.
