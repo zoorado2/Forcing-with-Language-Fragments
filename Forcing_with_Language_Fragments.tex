@@ -1525,7 +1525,7 @@ then $\varphi$ is a $\Sigma_1$ (in fact, $\Delta_1$, although that delineation i
     \item $p \subset \Sigma$, and
     \item $``\Sigma \text{ is } \mathcal{L}\text{-nice}"$,
 \end{itemize}
-every of which aforementioned points are $\Delta_0$-expressible in the language of set theory. Note also that whenever $\varphi(\Sigma, y)$ holds, $\Sigma$, $y$ and any witness $f$ must have transitive closures of cardinalities no larger than $\lambda$. Moreover, we have $$\psi \iff \exists \Sigma \ \exists y \ \varphi(\Sigma, y).$$ As $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$ are subsets of $trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))$ and $|trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))| \leq \lambda$, the structure $$\mathfrak{B} := (trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)); \in, p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)$$ can be coded as a real in $V[g]$, by Lemma \ref{setcode}. This means that in all weak outer models of $V[g]$, $\psi$ can be thought of as a $\mathbf{\Sigma^1_1}$ sentence involving a real code of $\mathfrak{B}$ found in $V[g]$. In particular, $\psi$ is absolute for $V[g]$ and $W[g]$. Now $W[g] \models \psi$ implies $V[g] \models \psi$, contradicting (\ref{eq10}).
+every of which aforementioned points are $\Delta_0$-expressible in the language of set theory. Note also that whenever $\varphi(\Sigma, y)$ holds, $\Sigma$, $y$ and any witness $f$ must have transitive closures of cardinalities no larger than $\lambda$. Moreover, we have $$\psi \iff \exists \Sigma \ \exists y \ \varphi(\Sigma, y).$$ As $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$ are subsets of $trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))$ and $|trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))| \leq \lambda$, the structure $$\mathfrak{B} := (trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)); \in, p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)$$ can be coded as a real in $V[g]$, by Lemma \ref{setcode}. This means that in all weak outer models of $V[g]$, $\psi$ can be thought of as a $\mathbf{\Sigma^1_1}$ sentence involving a real code of $\mathfrak{B}$ found in $V[g]$. In particular, by Mostowski's absoluteness theorem, $\psi$ is absolute for $V[g]$ and $W[g]$. Now $W[g] \models \psi$ implies $V[g] \models \psi$, contradicting (\ref{eq10}).
 \end{proof}
 
 Note that the proof of Lemma \ref{inout} does not require that $\Gamma$ contains only $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences. Indeed, for a litany of properties $K$, the existence of an object satisfying $K$ is absolute between $V$ and its weak outer models and hence, between $V$ and its forcing extensions. However, it is often useful --- if not integral --- to have a proper handle on such an object. It is towards this end that we are often interested in the existence of a $V$-generic object $k$ such that $k$ satisfies $K$ in $V[k]$.
@@ -2745,17 +2745,24 @@ Let $\Gamma'$ be the following set
 \end{align*}
 \end{defi}
 
-Notice that in any $Col(\omega, \lambda_f)$-generic extension of $V$, 
+Notice whenever $\phi$ is a $(\mathcal{L}^s)^*_{\mathfrak{A}}$-$\Pi_2$ sentence, it must be the case that in any $Col(\omega, \lambda_f)$-generic extension of $V$, 
 \begin{equation*}
     \varphi(\phi) := \forall \mathfrak{D} \ \forall \lambda \in C \cup \{\lambda_f\} \ (``\mathfrak{D} \text{ is a } \lambda \text{-certificate} \implies \Sigma'(\mathfrak{D}, \mathcal{L} \cap Q_{\lambda}) \models^*_{\mathfrak{A}} \phi")
 \end{equation*}
-is equivalent to a $\mathbf{\Pi^1_2}$ sentence. An argument akin to that which proved Lemma \ref{inout}, combined with Shoenfield's absoluteness theorem, thus yields 
-\begin{equation*}
-    \Vdash_{Col(\omega, \lambda_f)} \neg \varphi(\phi) \iff \text{``} W \models \neg \varphi(\phi) \text{ for some outer model } W \text{ of } V \text{''.}
-\end{equation*}
+is equivalent to a $\mathbf{\Pi^1_2}$ sentence. We can thus employ an argument akin to that which proved Lemma \ref{inout}, bearing in mind to replace each invocation of Mostowski's absoluteness theorem with an invocation of Shoenfield's absoluteness theorem, to obtain the fact below.
+
+\begin{fact}
+Let $\phi$ be a $(\mathcal{L}^s)^*_{\mathfrak{A}}$-$\Pi_2$ sentence. Then the following are equivalent.
+\begin{enumerate}[label=(\arabic*)$_{\phi}$]
+    \item $\Vdash_{Col(\omega, \lambda_f)} \varphi(\phi)$.
+    \item $\mspace{-3mu}\not \mspace{3mu}\Vdash_{Col(\omega, \lambda_f)} \neg \varphi(\phi)$.
+    \item $W \models \varphi(\phi)$ for every outer model $W$ of $V$.
+\end{enumerate}
+\end{fact}
+
 Therefore, $\Gamma'$ is precisely the set 
 \begin{align*}
-    \{\phi : \phi \text{ is a } (\mathcal{L}^s)^*_{\mathfrak{A}}\text{-}\Pi_2 \text{ sentence and ``} W \models \varphi(\phi) \text{ for every outer model } W \text{ of } V \text{''}\} \text{.}
+    \{\phi : \phi \text{ is a } (\mathcal{L}^s)^*_{\mathfrak{A}}\text{-}\Pi_2 \text{ sentence and } W \models \varphi(\phi) \text{ for every outer model } W \text{ of } V\} \text{.}
 \end{align*}
 
 As in the proof of Theorem \ref{notion1}, we will (re)define $$\{\mathbb{P}_{\lambda} : \lambda \in C \cup \{\lambda_f\}\}$$ by induction on $\lambda$. Indeed, we are inductively modifying the definitions of the $\mathbb{P}_{\lambda}$'s we knew from the proof of Theorem \ref{notion1}. Assume that $\mathbb{P}_{\lambda'}$ has been modified for all $\lambda' \in \lambda \cap C$. 
@@ -2795,7 +2802,7 @@ Redefine $\mathbb{P}_{\lambda}$ as follows:
 \end{align*}
 As before, let $\mathbb{P}$ denote $\mathbb{P}_{\lambda_f}$. 
 
-Notice that $\Gamma_{\lambda}$ contains references to the set 
+Since $\Gamma_{\lambda}$ contains references to the set 
 \begin{equation*}
     \{\mathbb{P}_{\lambda'} : \lambda' \in \lambda \cap C\} \text{,}
 \end{equation*}
