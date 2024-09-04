@@ -55,7 +55,7 @@ linkcolor=blue
 \maketitle
 
 \begin{abstract}
-    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical Henkin model. We then demonstrate the usefulness of this framework by applying it to variants of the extended Namba problem, as well as to the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and are of independent interest.
+    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical term model. We then demonstrate the usefulness of this framework by applying it to variants of the extended Namba problem, as well as to the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and are of independent interest.
 \end{abstract}
 
 \newtheorem{thm}{Theorem}[section]
@@ -849,9 +849,9 @@ is instrumental in the proof of Theorem \ref{notion2}.
 
 \section{Forcing with Language Fragments}\label{setupsec}
 
-In model theory, a Henkin construction involves building a model of a theory over a language, from terms of that language. When such a construction is unequivocally guided by a given theory, we can safely identify the resulting Henkin model with said theory. As such, we have the following viable means of proving the existence of a object with property $P$: 
+In model theory, a Henkin construction involves building a model of a theory over a language, from terms of that language. When such a construction is unequivocally guided by a given theory, we can safely identify the resulting term model with said theory. As such, we have the following viable means of proving the existence of a object with property $P$: 
 \begin{enumerate}
-    \item Translate $P$ into a specification $S$ for a theory, such that the unique Henkin model of any theory satisfying $S$ has property $P$.
+    \item Translate $P$ into a specification $S$ for a theory, such that the unique term model of any theory satisfying $S$ has property $P$.
     \item Prove that a theory satisfying $S$ exists.
 \end{enumerate}
 In a similar fashion, we can force the existence of an object with property $P$ by forcing the existence of a theory satisfying $S$. Naturally, this leads to forcing notions with conditions being fragments of the language over which a theory satisfying $S$ is defined.
@@ -1354,7 +1354,7 @@ Let $p$ be an arbitrary member of $P$ and define $$\mathbb{P}_{\leq p} := (\{q \
     \item whenever $g$ is a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$ containing $p$, $$g \cap \{q \in P : q \leq_{\mathbb{P}} p\}$$ is a $\mathbb{P}_{\leq p}$-$\Sigma_1$-generic filter over $\mathfrak{A}$.
 \end{enumerate}
 Consequently, Lemma \ref{uni} is equivalent to, and can be restated as:
-\begin{customlem}{3.29$'$}
+\begin{customlem}{3.29$'$}\label{lem329p}
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
@@ -1367,6 +1367,7 @@ Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}}
 
 \begin{rem}
 The proof of Lemma \ref{uni} can be reused to prove the following variation of said lemma.
+
 \begin{lem}\label{lem332}
 Assume 
 \begin{itemize}
@@ -1391,7 +1392,7 @@ By recycling the argument in Remark \ref{endremmain} with
 \end{itemize}
 we can conclude that Lemma \ref{lem332} is equivalent to, and can be restated as:
 
-\begin{customlem}{3.32$'$}
+\begin{customlem}{3.32$'$}\label{lem332p}
 Assume 
 \begin{itemize}
     \item $\mathcal{L}$ is just definable (instead of $\Pi_1$-definable) in the language associated with $\mathfrak{A}$, and
@@ -1405,6 +1406,17 @@ Let
 \end{itemize} 
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
 \end{customlem}
+\end{rem}
+
+\begin{rem}
+It is actually useful to note that Case 3 of the inductive step in the inductive proof of Lemma \ref{uni} is, for lack of a better term, superfluous. Indeed, this means substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of
+\begin{itemize}
+    \item Lemma \ref{uni},
+    \item Lemma \ref{lem329p},
+    \item Lemma \ref{lem332}, and
+    \item Lemma \ref{lem332p},
+\end{itemize}
+always returns a statement of equivalent strength.
 \end{rem}
 
 As a surprising display of reciprocity, Lemma \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences.
