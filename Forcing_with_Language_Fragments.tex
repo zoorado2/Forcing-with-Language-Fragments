@@ -1444,20 +1444,23 @@ We know $\bigcup g$ is $\mathcal{L}$-nice due to Lemma \ref{uni}. That $\bigcup 
 All in all, we have shown that $\bigcup g$ is the $\Sigma$ we are looking for.
 \end{proof}
 
-A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Lemma \ref{uni}, we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, the following conjecture is then sufficiently motivated.
+A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Lemma \ref{uni}, we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, it makes sense to ask the following question.
 
-\begin{conj}
-There are sets $\mathfrak{A}$, $\mathcal{L}$, $\mathbb{P} = (P, \leq_{\mathbb{P}})$, $W$, $g$, and $\phi$ such that
-\begin{itemize}
-    \item $\mathcal{L}$ is closed under negation,
-    \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
-    \item $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}$,
-    \item $W$ is a weak outer model of $V$,
-    \item $g \in W \cap \mathcal{P}(P)$ is a $\mathbb{P}$-generic filter over $\mathfrak{A}$,
-    \item $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal, and
-    \item $\bigcup g \ \not \! \models^{*}_{\mathfrak{A}} \phi$.
-\end{itemize}
-\end{conj}
+\begin{enumerate}[label=(Q\arabic*)]
+    \setcounter{enumi}{-1}
+    \item\label{qn0} Are there sets $\mathfrak{A}'$, $\mathcal{L}'$, $\mathbb{P}' = (P', \leq_{\mathbb{P}'})$, $W$, $g$, and $\phi$ such that
+    \begin{itemize}
+        \item $\mathcal{L}'$ is closed under negation,
+        \item $\mathbb{P}'$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}'$,
+        \item $(\mathfrak{A}', \mathbb{P}')$ is good for $\mathcal{L}'$,
+        \item $W$ is a weak outer model of $V$,
+        \item $g \in W \cap \mathcal{P}(P')$ is a $\mathbb{P}'$-$\Sigma_1$-generic filter over $\mathfrak{A}'$,
+        \item $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Sigma_2$ sentence which is $(\mathfrak{A}', \mathbb{P}', \mathcal{L}')$-universal, and
+        \item $\bigcup g \not \models^{*}_{\mathfrak{A}'} \phi$?
+    \end{itemize}
+\end{enumerate}
+
+We shall defer answering \ref{qn0} until the next subsection.
 
 \subsection{A Useful Framework}\label{forframe}
 
@@ -1484,7 +1487,12 @@ For any $\Sigma$ and any $p$, we say $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})
 \end{enumerate}
 \end{defi}
 
-It is easy to see that if $\mathcal{L}$, $\mathfrak{A}$, $\Gamma$, $\Sigma$ and $p$ are such that $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $p$, then for all $q \subset \Sigma$, $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $q$. This gives us the following proposition.
+It is easy to see that if $\mathcal{L}$, $\mathfrak{A}$, $\Gamma$, $\Sigma$ and $p$ are such that $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $p$, then 
+\begin{itemize}
+    \item $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $q$ for all $q \subset \Sigma$, and
+    \item $\Sigma$ $\Gamma'(\mathcal{L}, \mathfrak{A})$-certifies $p$ for all $\Gamma' \subset \Gamma$.
+\end{itemize}
+This gives us the following proposition.
 
 \begin{prop}\label{certgood}
 Let $|\mathcal{L}| \leq \lambda$ and $B$ be $\mathcal{L}$-closed under finite extensions. If we define $\mathbb{P} := (P, \leq_{\mathbb{P}})$, where
@@ -1495,7 +1503,7 @@ Let $|\mathcal{L}| \leq \lambda$ and $B$ be $\mathcal{L}$-closed under finite ex
 then as long as $P \neq \emptyset$, 
 \begin{itemize}
     \item $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}$, and
-    \item whenever $p \in P$ and $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $p$, $\Sigma$ is a $p$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality.
+    \item whenever $p \in P$ and $\Sigma$ $\Gamma'(\mathcal{L}, \mathfrak{A})$-certifies $p$ for some $\Gamma' \supset \Gamma$, $\Sigma$ is a $p$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality.
 \end{itemize}
 \end{prop}
 
@@ -1533,15 +1541,14 @@ Note that the proof of Lemma \ref{inout} does not require that $\Gamma$ contains
 Specifying ``$k$ satisfies $K$'' to be ``$k \models^{*}_{\mathfrak{A}} \Gamma$'', the following lemma is thus well-motivated. 
 
 \begin{lem}\label{main2}
-Let $W$, $\lambda$, $B$, $\mathfrak{A}$, $\mathcal{L}$, $\Gamma$, $P$, $\mathbb{P}$ and $g$ be such that
+Let $W$, $\lambda$, $B$, $P$, $\mathbb{P}$ and $g$ be such that
 \begin{itemize}
-    \item $\Gamma$ contains only $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences,
     \item $|trcl(\mathfrak{A})| \leq \lambda$,
     \item $B$ is $\mathcal{L}$-closed under finite extensions,
     \item $P = \{p \in B : \ \Vdash_{Col(\omega, \lambda)} \exists \Sigma \ (``\Sigma \ \Gamma(\mathcal{L}, \mathfrak{A}) \text{-certifies } p")\}$,
     \item $\mathbb{P} = (P, \supset \cap \ P)$, 
     \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
-    \item $W$ is a weak outer model of $V$,
+    \item $W$ is a weak outer model of $V$, and
     \item $g \in W$ is a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$.
 \end{itemize}
 If there is $\Sigma$ in a weak outer model $W'$ of $V$ such that $\Sigma$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$, then $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$.
@@ -1553,7 +1560,86 @@ In particular, if $g$ is $\mathbb{P}$-generic over $V$, then $\bigcup g$ $\Gamma
 The general statement is clear from Lemma \ref{uni}, Remark \ref{endremmain}, Proposition \ref{certgood} and Lemma \ref{inout}. That $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ is absolute for transitive models of $\mathsf{ZFC - Powerset}$, so if $g$ is $\mathbb{P}$-generic over $V$, then  $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ in $V[g]$. Moreover, since $g = [\bigcup g]^{< \omega}$, we have $V[g] = V[\bigcup g]$.
 \end{proof}
 
-We close this subsection with another absoluteness result. This time, instead of looking for witnesses in forcing extensions, we turn our focus to the forcing notions themselves.
+We are now fully equipped to tackle \ref{qn0}. In the presence of Proposition \ref{certgood}, the next lemma immediately implies an affirmative answer to \ref{qn0}.
+
+\begin{lem}
+There are $W$, $\mathfrak{A}'$, $\mathcal{L}'$, $\Gamma'$, $P'$, $\mathbb{P}'$, $g$ and $\phi$ such that
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{3391} $\mathcal{L}'$ is closed under negation,
+    \item\label{3392} $\mathfrak{A}'$ is $\mathcal{L}'$-suitable,
+    \item\label{3393} $\Gamma'$ is a set of $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Pi_2$ sentences,
+    \item\label{3394} $P' = \{p \in [\mathcal{L}']^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\} \neq \emptyset$,
+    \item\label{3395} $\mathbb{P}' = (P', \supset \cap \ P')$, 
+    \item\label{3396} $\mathbb{P}'$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}'$,
+    \item\label{3397} $W$ is a weak outer model of $V$,
+    \item\label{3398} $g \in W$ is a $\mathbb{P}'$-generic filter over $\mathfrak{A}'$,
+    \item\label{3399} $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Sigma_2$ sentence which is $(\mathfrak{A}', \mathbb{P}', \mathcal{L}')$-universal, and
+    \item\label{33910} $\bigcup g \not \models^{*}_{\mathfrak{A}'} \phi$.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+Let $\mathcal{L}'$ be the closure under negation of the following set of expressions (strings):
+\begin{equation*}
+    \{\ulcorner \dot{F} (\alpha) = \beta \urcorner : (\alpha, \beta) \in \omega_1 \times \omega_2\}
+\end{equation*}
+Clearly, \ref{3391} holds. Set $\mathfrak{A}'$ to be $(H((2^{\omega_2})^+); \in)$, so that \ref{3392} holds. Using a natural notational shorthand for passing parameters into $\mathcal{L}'$ formulas (see Remark \ref{rempp} for more information), define 
+\begin{align*}
+    \Gamma' := \{ & \ulcorner \forall \alpha < \omega_1 \ \exists \beta \ (E(\ulcorner \dot{F}(\alpha) = \beta \urcorner)) \urcorner, \\ 
+    & \ulcorner \forall \alpha \ \forall \beta \ \forall \gamma \ ((E(\ulcorner \dot{F}(\alpha) = \beta \urcorner) \wedge E(\ulcorner \dot{F}(\alpha) = \gamma \urcorner)) \implies \beta = \gamma) \urcorner\} \text{,}
+\end{align*}
+and observe that \ref{3393} is satisfied (refer again to Remark \ref{rempp} for justification of the shorthand not underselling the complexity of any formula it abbreviates). 
+
+Next, set 
+\begin{gather*}
+    P' := \{p \in [\mathcal{L}']^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\} \\
+    \mathbb{P}' := (P', \supset \cap \ P')
+\end{gather*}
+to satisfy \ref{3395} and \ref{3396}, since $[\mathcal{L}']^{< \omega} \in H((2^{\omega_2})^+)$ implies $\mathbb{P}' \in H((2^{\omega_2})^+)$.
+
+\begin{defi}
+Given a set $X$, let $\Sigma(X)$ denote
+\begin{align*}
+    & \{\ulcorner \dot{F} (\alpha) = \beta \urcorner : (\alpha, \beta) \in (\omega_1 \times \omega_2) \cap X\} \ \cup \\
+    & \{\ulcorner \neg \dot{F} (\alpha) = \beta \urcorner : (\alpha, \beta) \in (\omega_1 \times \omega_2) \setminus X\} \text{.}
+\end{align*}
+\end{defi}
+
+Note that for any $Z$ in an outer model of $V$, 
+\begin{equation*}
+    Z \cap (\omega_1 \times \omega_2) \text{ is a function from } \omega_1 \text{ into } \omega_2 \iff \Sigma(Z) \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } \emptyset \text{.}
+\end{equation*}
+As there already exist functions from $\omega_1$ into $\omega_2$ in $V$, $\emptyset \in P'$ by Lemma \ref{inout}, giving us \ref{3394}. It suffices to show that \ref{3397} to \ref{33910} hold for
+\begin{itemize}
+    \item any $\mathbb{P}'$-generic filter $g$ over $V$ (and thus over $\mathfrak{A}$),
+    \item $W := V[g]$, and
+    \item $\phi := \ulcorner \exists f \in {^{\omega}{\omega_2}} \ \forall n < \omega \ (E(\ulcorner \dot{F}(n) = f(n) \urcorner)) \urcorner$.
+\end{itemize}
+Trivially, \ref{3397} and \ref{3398} are done, and $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Sigma_2$ sentence.
+
+Choose any $p \in P'$. It is not hard to see that there exists 
+\begin{equation*}
+    p^* \in Col(\omega_1, \omega_2) = (\bigcup \{{^{\alpha}{\omega_2}} : \alpha < \omega_1\}, \supset)
+\end{equation*} 
+for which $p \subset \Sigma(q^*)$ whenever $q^*$ extends $p^*$ in $Col(\omega_1, \omega_2)$. Let $h$ be a $Col(\omega_1, \omega_2)$-generic filter over $V$ containing $p^*$. Then in $V[h]$, 
+\begin{equation*}
+    \Sigma(\bigcup h) \ (\Gamma' \cup \{\phi\})(\mathcal{L}', \mathfrak{A}') \text{-certifies } p \text{.}
+\end{equation*}
+According to Proposition \ref{certgood}, we arrive at \ref{3399}.
+
+Finally, choose any $f^* \in {^{\omega}{\omega_2}}$. Due to the straightforward observation that 
+\begin{align*}
+    D_{f^*} := \{p \in P' : \exists n < \omega \ \exists \beta < \omega_2 \ ( & (\ulcorner \dot{F}(n) = \beta \urcorner \in p \wedge f(n) \neq \beta) \ \vee \\
+    & (\ulcorner \neg \dot{F}(n) = \beta \urcorner \in p \wedge f(n) = \beta))\}
+\end{align*}
+is dense in $\mathbb{P}'$, we must have $\bigcup g \models^{*}_{\mathfrak{A}'} \varphi_{f^*}$, where
+\begin{equation*}
+    \varphi_{f^*} := \ulcorner \neg \forall n < \omega \ (E(\ulcorner \dot{F}(n) = f^*(n) \urcorner)) \urcorner \text{.}
+\end{equation*}
+Having $f^*$ range over ${^{\omega}{\omega_2}}$ then nets us \ref{33910}.
+\end{proof}
+
+This subsection shall be concluded with another absoluteness result. This time, instead of looking for witnesses in forcing extensions, we turn our focus to the forcing notions themselves.
 
 \begin{lem}\label{Pisabs}
 The definition of $\mathbb{P}$ from parameters $B$, $\mathcal{L}$, $\mathfrak{A}$, $\Gamma$ in Proposition \ref{certgood}, where $\lambda$ is additionally specified to be $|trcl(\mathfrak{A})|$, is absolute for transitive models of $\mathsf{ZFC}$.
