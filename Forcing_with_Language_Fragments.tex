@@ -1560,9 +1560,9 @@ In particular, if $g$ is $\mathbb{P}$-generic over $V$, then $\bigcup g$ $\Gamma
 The general statement is clear from Lemma \ref{uni}, Remark \ref{endremmain}, Proposition \ref{certgood} and Lemma \ref{inout}. That $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ is absolute for transitive models of $\mathsf{ZFC - Powerset}$, so if $g$ is $\mathbb{P}$-generic over $V$, then  $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ in $V[g]$. Moreover, since $g = [\bigcup g]^{< \omega}$, we have $V[g] = V[\bigcup g]$.
 \end{proof}
 
-We are now fully equipped to tackle \ref{qn0}. In the presence of Proposition \ref{certgood}, the next lemma immediately implies an affirmative answer to \ref{qn0}.
+We are now equipped to tackle \ref{qn0}. In the presence of Proposition \ref{certgood}, the next lemma implies an affirmative answer to \ref{qn0}.
 
-\begin{lem}
+\begin{lem}\label{lem339}
 There are $W$, $\mathfrak{A}'$, $\mathcal{L}'$, $\Gamma'$, $P'$, $\mathbb{P}'$, $g$ and $\phi$ such that
 \begin{enumerate}[label=(\arabic*)]
     \item\label{3391} $\mathcal{L}'$ is closed under negation,
@@ -1615,9 +1615,9 @@ As there already exist functions from $\omega_1$ into $\omega_2$ in $V$, $\empty
     \item $W := V[g]$, and
     \item $\phi := \ulcorner \exists f \in {^{\omega}{\omega_2}} \ \forall n < \omega \ (E(\ulcorner \dot{F}(n) = f(n) \urcorner)) \urcorner$.
 \end{itemize}
-Trivially, \ref{3397} and \ref{3398} are done, and $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Sigma_2$ sentence.
+Trivially, \ref{3397} and \ref{3398} are done. Further, $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Sigma_2$ sentence, seeing that ${^{\omega}{\omega_2}} \in H((2^{\omega_2})^+)$.
 
-Choose any $p \in P'$. It is not hard to see that there exists 
+Choose any $p \in P'$. It is not hard to verify that there exists 
 \begin{equation*}
     p^* \in Col(\omega_1, \omega_2) = (\bigcup \{{^{\alpha}{\omega_2}} : \alpha < \omega_1\}, \supset)
 \end{equation*} 
@@ -1926,6 +1926,8 @@ Now fix $\mathcal{L}$ to be the smallest set closed under negation, that contain
 \end{defi}
 
 Morally, each $\dot{F}_i$ labels an increasing and cofinal partial map from $f(i)$ into $i$, and each $\dot{X}_{\delta}$ labels a side condition. The side conditions will be used to preserve stationary subsets of $\omega_1$. As $\mathcal{L} \subset H(\lambda_f)$, $\mathfrak{A}$ is $\mathcal{L}$-suitable.
+
+One may argue that the remark below has been a long time coming, ever since the proof of Lemma \ref{lem339} was laid out.
 
 \begin{rem}\label{rempp}
 Sometimes, we want to pass certain parameters of an expression in $\mathcal{L}$ via variables. In such circumstances we are formally passing the parameters through the functions
