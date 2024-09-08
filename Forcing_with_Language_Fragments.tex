@@ -997,7 +997,7 @@ The rest of the details are standard.
 \end{proof}
 
 \begin{defi}
-If $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, we say $\phi$ is $(\mathfrak{A}, \mathcal{L})$-satisfiable iff there are $\nu$, $W$ and $X$ such that
+If $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, we say $\phi$ is $(\mathfrak{A}, \mathcal{L})$\emph{-satisfiable} iff there are $\nu$, $W$ and $X$ such that
 \begin{itemize}
     \item $\nu$ is an $\mathfrak{A}$-valuation,
     \item $W$ is a weak outer model of $V$,
@@ -1103,7 +1103,10 @@ Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$ formula. Define $\mathrm{QA}(\p
     \item $\varphi$ starts with a quantifier, and
     \item no prefix of $\varphi$ is a subformula of $\phi$.
 \end{itemize}
-A $\phi$\emph{-max peeling} is a maximal member of $\mathrm{QA}(\phi)$ with respect to set inclusion.
+\end{defi}
+
+\begin{defi}
+Given any $\mathcal{L}^{*}_{\mathfrak{A}}$ formula $\phi$, a $\phi$\emph{-max peeling} is a maximal member of $\mathrm{QA}(\phi)$ with respect to set inclusion.
 \end{defi}
 
 Notice that if $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$ formula, then any two distinct $\phi$-max peelings must not overlap in $\phi$. 
@@ -1835,7 +1838,7 @@ As successor cardinals are the only uncountable regular cardinals proven to exis
 The late 1960s saw two independent solutions to this problem in the affirmative, by Bukovsk\'{y} \cite{bukovsky} and Namba \cite{namba}. Both solutions work with $\alpha = \omega_2$, which is the smallest possible value $\alpha$ can take in an affirmative answer. Simplifications were made to the presentation of Bukovsk\'{y}'s and Namba's forcing notions over the years, without losing sight of the goal of their constructions. These simplifications culminated in what is now commonly known as \emph{Namba forcing}. Since the focus of this section is on extending the key effects of Namba forcing, we feel obliged to define the forcing notion for the sake of completeness.
 
 \begin{defi}
-We say $(T, \leq)$ is a $\kappa$-splitting in $A$ iff
+We say $(T, \leq)$ is a $\kappa$\emph{-splitting in} $A$ iff
 \begin{itemize}
     \item $(T, \leq)$ is a tree, and
     \item for every $s \in T \cap A$, $s$ has $\kappa$ many immediate $\leq$-successors in $T$. 
@@ -2587,7 +2590,7 @@ Since \ref{43ii} and \ref{43iii} make each $\mathbb{P}(D)$ ``Namba-like'', the c
 hence it is sufficiently motivated. We shall spend the rest of this subsection ironing out the details of our (natural) incorporation attempt, with Theorem \ref{notion2} being its upshot.
 
 \begin{defi}\label{defl2}
-For the definition of $\mathcal{L}^{s_0}$, we set aside the following distinguished symbols:
+To prepare for Definition \ref{def433}, let us first set aside the following distinguished symbols:
 \begin{itemize}
     \item $\dot{M}_i$, $\dot{N}_i$ for $i < \omega_1$,
     \item $\dot{\pi}_{ij}$ for $i \leq j \leq \omega_1$,
@@ -2610,7 +2613,7 @@ in which
 \end{itemize}
 \end{defi}
 
-\begin{defi}
+\begin{defi}\label{def433}
 Let $\mathcal{L}^{s_0}$ contain precisely all expressions of the following forms:
 \begin{enumerate}[label=(L\arabic*), leftmargin=40pt]
     \setcounter{enumi}{2}
