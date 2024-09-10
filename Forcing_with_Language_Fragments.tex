@@ -65,6 +65,7 @@ linkcolor=blue
 \newtheorem{conj}[thm]{Conjecture}
 \newtheorem{ques}[thm]{Question}
 \newtheorem*{claim}{Claim}
+\newtheorem{claim2}[thm]{Claim}
 \theoremstyle{definition}
 \newtheorem{defi}[thm]{Definition}
 \theoremstyle{remark}
@@ -1072,8 +1073,9 @@ Let $\mathcal{L}^{*}_{1, \mathfrak{A}}$ be the smallest $\mathcal{L}'$ satisfyin
     \item $\{\ulcorner E(x) \urcorner : x \in \mathrm{Ter}(\mathcal{L}^{*}_{0, \mathfrak{A}})\} \subset \mathcal{L}'$,
     \item if 
     \begin{itemize}[label=$\circ$]
-        \item $\phi \in \mathcal{L}'$, and
-        \item $z$ is a variable not bound in $\phi$,
+        \item $\phi \in \mathcal{L}'$,
+        \item $z$ is a variable not bound in $\phi$, and
+        \item $p$ is either a constant or a variable not bound in $\phi$,
     \end{itemize} 
     then $$\ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \phi) \urcorner \in \mathcal{L}',$$
     \item $\mathcal{L}'$ is closed under all zeroth-order logical operations.
@@ -1117,13 +1119,46 @@ Notice that if $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$ formula, then any tw
 Given a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula $\phi$, we say $\phi$ is \emph{safe} iff every occurrence of $\ulcorner E \urcorner$ in $\phi$ lies outside the scope of any quantifier. In particular, every member of $\mathcal{D}$ is a safe $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula.
 \end{defi}
 
-There are algorithms to convert arbitrary propositional formulas into disjunctive normal forms. Fix one such algorithm, call it $\mathsf{P_1}$. If $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula, then we can apply $\mathsf{P_1}$ on $\phi$ by viewing each $\phi$-max peeling as a(n atomic) proposition. Have $\mathsf{DNF}_1$ denote the function that takes $\phi$ to the result of this application of $\mathsf{P_1}$. 
+There are algorithms to convert arbitrary propositional formulas into disjunctive normal forms. Fix one such algorithm, call it $\mathsf{P_1}$. If $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula, then we can apply $\mathsf{P_1}$ on $\phi$ by viewing each $\phi$-max peeling as a(n atomic) proposition. Have $\mathsf{DNF}_1$ denote the function that takes $\phi$ to the result of this application of $\mathsf{P_1}$. For convenience of analysis, we shall choose $\mathsf{P_1}$ in a way that guarantees $$\mathsf{DNF}_1(\phi) = \mathsf{DNF}_1(\mathsf{DNF}_1(\phi))$$ for all $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formulas $\phi$ --- this is always possible.
 
 Due to the nature of conversion algorithms such as $\mathsf{P_1}$, whenever $\phi$ is a safe $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula, $\mathsf{DNF}_1(\phi)$ is a sentence in $\mathcal{D}$ logically equivalent to $\phi$. 
 
-Let $\mathsf{DNF}$ be the function with domain
+Let $\mathsf{WNF}$ be the function with domain
 \begin{equation*}
-    \mathrm{FV} := \{\phi: \phi \text{ is a } \mathcal{L}^{*}_{\mathfrak{A}}\text{-}\Delta_0 \text{ formula}\} \times \{\nu : \nu \text{ is a } \mathfrak{A}\text{-valuation}\} \text{,}
+    \{\phi: \phi \text{ is a } \mathcal{L}^{*}_{\mathfrak{A}}\text{-}\Delta_0 \text{ formula}\} 
+\end{equation*} 
+defined by the following recursive procedure.
+
+\begin{quote}
+    \underline{$\mathsf{Procedure}$ $\mathsf{P_W}$}
+
+    On input $\phi$:
+    \begin{enumerate}[label=(\arabic*)]
+        \item Set $\phi' := \mathsf{DNF}_1(\phi)$.
+        \item If there is no $\phi'$-max peeling containing $\ulcorner E \urcorner$, return $\phi'$.
+        \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter since distinct $\phi'$-max peelings are disjoint):
+        \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
+            \item Necessarily, for some $p$ and $\varphi'$,
+                \begin{equation*}
+                    \varphi = \ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \varphi') \urcorner \text{.}
+                \end{equation*}
+            \item Replace $\varphi'$ with $\mathsf{P_W}(\varphi')$ in $\phi'$.
+        \end{enumerate}
+        \item Return $\phi'$.
+    \end{enumerate}
+\end{quote}
+
+\begin{rem}\label{rem321}
+Obviously, $\mathsf{P_W}$ always terminates and returns a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Furthermore, routine code tracing allows us to ascertain that the output of $\mathsf{P_W}$ is always logically equivalent to its input. In other words, 
+\begin{equation*}
+    \mathsf{WNF}(\phi) \text{ is logically equivalent to } \phi
+\end{equation*}
+whenever $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. We can therefore, without loss of generality, assume every $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula we encounter to be a member of $ran(\mathsf{WNF})$.
+\end{rem}
+
+Now let $\mathsf{DNF}$ be the function with domain
+\begin{equation*}
+    \mathrm{FV} := \{\phi: \phi \text{ is a } \mathcal{L}^{*}_{\mathfrak{A}}\text{-}\Delta_0 \text{ formula}\} \times \{\nu : \nu \text{ is a } \mathfrak{A}\text{-valuation}\} 
 \end{equation*} 
 defined by the following recursive procedure.
 \begin{quote}
@@ -1137,7 +1172,7 @@ defined by the following recursive procedure.
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
             \item Necessarily, for some $p$ and $\varphi'$,
                 \begin{equation*}
-                    \varphi = \ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \varphi') \urcorner
+                    \varphi = \ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \varphi') \urcorner \text{.}
                 \end{equation*}
                 There are only two possible cases.
                 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
@@ -1168,7 +1203,7 @@ defined by the following recursive procedure.
             \end{equation*}
             in $\phi'$. Otherwise, replace $\varphi$ with 
             \begin{equation*}
-                \ulcorner p = \nu(p) \urcorner
+                \ulcorner \neg \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''} \urcorner
             \end{equation*}
             in $\phi'$.
             
@@ -1209,7 +1244,14 @@ That $\mathsf{P_0}$ always terminates and returns a safe $\mathcal{L}^{*}_{\math
 \end{itemize}
 $\mathsf{P_0}$ must return a member of $\mathcal{D}$. We can thus conclude that $\mathsf{DNF}$ is a function from $\mathrm{FV}$ into $\mathcal{D}$.
 
-The next proposition can be checked by routine, if tedious, applications of mathematical induction.
+The next two propositions can be verified by routine, if tedious, applications of mathematical induction.
+
+\begin{prop}\label{prop321}
+Let $\phi \in ran(\mathsf{WNF})$. Then for any $\mathfrak{A}$-valuation $\nu$,
+\begin{equation*}
+    \mathsf{pos}(\mathsf{DNF}(\phi, \nu)) = \mathsf{DNF}(\mathsf{pos}(\phi), \nu) \text{.}
+\end{equation*}
+\end{prop}
 
 \begin{prop}\label{p320}
 Let
@@ -1283,12 +1325,35 @@ By induction on the length of $\phi$. We work in $W$ throughout.
 For any free variable $x$ and any $\mathcal{L}^{*}_{\mathfrak{A}}$ formula $\phi$, it is often a desideratum (if not an imperative) in practice to have $\phi$ explicitly ``guarantee $E(\neg x)$ insofar as $x$ is a member of $\mathcal{L}$'', whenever $\ulcorner \neg E(x) \urcorner$ occurs in $\phi$. Towards this end, we are incentivised to augment $\phi$ with a suitable gadget.
 
 \begin{defi}\label{check}
-Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Define $$\mathrm{CS}(\phi) := \{\ulcorner (x \in \mathcal{L} \implies E(\neg x)) \urcorner : x \text{ is free in } \phi \text{ and } \ulcorner \neg E(x) \urcorner \text{ occurs in } \phi\},$$ and $$\mathsf{check}(\phi) := \ulcorner \phi \wedge \bigwedge \mathrm{CS}(\phi) \urcorner.$$
+Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Define $$\mathrm{CS}(\phi) := \{\ulcorner (x \in \mathcal{L} \implies E(\neg x)) \urcorner : x \text{ is a variable in } \phi \text{ and } \ulcorner \neg E(x) \urcorner \text{ occurs in } \phi\},$$ and $$\mathsf{check}(\phi) := \ulcorner (\phi \wedge \bigwedge \mathrm{CS}(\phi)) \urcorner.$$
 \end{defi}
 
 \begin{rem}\label{shcs}
 In the definition of $\mathrm{CS}(\phi)$, $E(\neg x)$ is a shorthand for $$\exists y \ (y = \neg (x) \wedge E(y)),$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$y = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. As a consequence, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula, then $\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\phi) \urcorner$ is logically equivalent to a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula.
 \end{rem}
+
+\begin{defi}
+Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Define $\mathsf{Echeck}(\phi)$ to be the unique result of replacing every atomic subformula $\varphi$ of $\phi$ satisfying
+\begin{equation*}
+    \varphi = \ulcorner \neg E(x) \urcorner \text{ for some variable } x 
+\end{equation*}
+with $\mathsf{check}(\varphi)$ in $\phi$.
+\end{defi}
+
+The fact below can be derived from definitions through straightforward variable tracing.
+
+\begin{fact}\label{fact330}
+The functions $\mathsf{Echeck}$ and $\mathsf{DNF}$ commute. To be precise, let
+\begin{itemize}
+    \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula, and
+    \item $\nu$ be a $\mathfrak{A}$-valuation.
+\end{itemize}
+Then $\mathsf{Echeck}(\mathsf{DNF}(\phi, \nu))$ and $\mathsf{DNF}(\mathsf{Echeck}(\phi)$ are logically equivalent. As such, without loss of generality, we can assume
+\begin{equation}\label{eq31'}
+    \mathsf{Echeck}(\mathsf{DNF}(\phi, \nu)) = \mathsf{DNF}(\mathsf{Echeck}(\phi), \nu) \text{.}
+\end{equation}
+In fact, (\ref{eq31'}) already holds if $\phi \in ran(\mathsf{WNF})$.
+\end{fact}
 
 \begin{lem}\label{postrue}
 Let 
@@ -1299,7 +1364,7 @@ Let
         \item $T$ is a finite subset of $\mathcal{L}^{*}_{\mathfrak{A}}$ containing only formulas either of the form $\ulcorner E(x) \urcorner$ or of the form $\ulcorner \neg E(x) \urcorner$,
     \end{itemize}
     \item $\nu$ be an $\mathfrak{A}$-valuation, and
-    \item $\Sigma \subset \mathcal{L}$.
+    \item $\Sigma \subset \mathcal{L}$ in some weak outer model of $V$.
 \end{itemize}
 If $\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$, then $\mathsf{check}(\mathsf{pos}(\phi))$ is $\models^*_{\mathfrak{A}, \nu}$-nice for $\Sigma$.
 \end{lem}
@@ -1374,7 +1439,7 @@ We say $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universal} iff 
 For $\Gamma \subset \mathcal{L}^{*}_{\mathfrak{A}}$, we say $\Gamma$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universal} (\emph{for $p$}) iff $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal (for $p$) for all $\phi \in \Gamma$.
 \end{defi}
 
-For notational convenience in the proof of Lemma \ref{uni} --- indubitably our most important technical lemma --- we introduce the following definition.
+For notational convenience in the proofs to follow, we introduce the following definition.
 
 \begin{defi}
 For $p \in P$, let $\mathcal{F}_p$ denote the set 
@@ -1387,7 +1452,7 @@ For $p \in P$, let $\mathcal{F}_p$ denote the set
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
-    \item $g \in W \cap \mathcal{P}(P)$ be a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$,
+    \item $g \in W$ be a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$,
     \item $p \in g$, and
     \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$.
 \end{itemize} 
@@ -1421,28 +1486,68 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     
     Let $x \in \mathcal{L}$ and $p' \leq_{P} p$. That $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ means $\mathcal{F}_{p'} \neq \emptyset$, so choose any $\Sigma \in \mathcal{F}_{p'}$. We must have $\Sigma \models^{*}_{\mathfrak{A}} \varphi_x$ because $\Sigma$ is $\mathcal{L}$-nice. This allows us to conclude that for all $x \in \mathcal{L}$, $\varphi_x$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As Case 1 has been proven, we can apply it to yield $$\bigcup g \models^{*}_{\mathfrak{A}} \varphi_x \text{ for all } x \in \mathcal{L},$$ which is just another way of saying $\bigcup g$ fulfils the last two conditions of Definition \ref{lnice}. We have thus shown that $\bigcup g$ is $\mathcal{L}$-nice. 
     
-    Once more, let $p' \leq_{P} p$, so that there is $\Sigma \in \mathcal{F}_{p'}$ for which $\Sigma \models^{*}_{\mathfrak{A}} \phi$. Then there must be $\nu$ such that
+    Once more, let $p' \leq_{P} p$, so that there is $\Sigma \in \mathcal{F}_{p'}$ for which $\Sigma \models^{*}_{\mathfrak{A}} \phi$. By Remark \ref{rem321}, we can safely assume $\phi^* \in ran(\mathsf{WNF})$. Then there is $\nu$ such that
     \begin{itemize}
         \item $\nu$ is a $\mathfrak{A}$-valuation, and
         \item $\Sigma \models^{*}_{\mathfrak{A}, \nu} \phi^*$.
     \end{itemize}
-    According to $\ref{p3202}$ of Proposition \ref{p320}, it must be the case that $\Sigma \models^{*}_{\mathfrak{A}, \nu} \phi'$, where
+    According to $\ref{p3202}$ of Proposition \ref{p320}, it must be the case that
+    \begin{equation}\label{eq32'}
+        \Sigma \models^{*}_{\mathfrak{A}, \nu} \phi'\text{,}
+    \end{equation}
+    where
+    \begin{align*}
+        \phi' := \mathsf{DNF}(\phi^*, \nu) \text{.} 
+    \end{align*}
+    Define two other $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences as follows: 
+    \begin{align*}
+        \phi'' := \ & \mathsf{Echeck}(\phi^*) \\
+        \phi''' := \ & \ulcorner \bigvee \{\mathsf{check}(\mathsf{pos}(\psi)) : \psi \text{ is a disjunct of } \phi'\} \urcorner \text{.}
+    \end{align*}
+    Clearly, 
     \begin{equation*}
-        \phi' := \mathsf{DNF}(\phi^*, \nu) \text{.}
+        \phi''' = \mathsf{Echeck}(\mathsf{pos}(\phi')) = \mathsf{pos}(\mathsf{Echeck}(\phi')) \text{,}
     \end{equation*}
-    There also ought to exist some $\varphi$ for which
+    from which, citing Proposition \ref{prop321} and Fact \ref{fact330}, we can conclude
+    \begin{equation}\label{eq32f}
+        \phi''' = \mathsf{pos}(\mathsf{DNF}(\phi'', \nu)) = \mathsf{DNF}(\mathsf{pos}(\phi''), \nu) \text{.}
+    \end{equation}
+    Finally, set
+    \begin{equation*}
+        \phi^{\dagger} := \ulcorner \exists x_1 \dots \exists x_n \ \mathsf{pos}(\phi'') \urcorner \text{.}
+    \end{equation*}
+    It is imperative to highlight that both $\phi''$ and $\phi^{\dagger}$ depend on $\phi^*$, and thus on $\phi$, but not on any $\mathfrak{A}$-valuation.
+
+    \begin{rem}\label{rem339}
+    Note that we have just described a constructive procedure which converts an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ sentence $\phi$ into another $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ sentence $\phi^{\dagger}$. Indeed, this procedure makes sense even if $n = 0$ in the expansion of $\phi$, i.e. even if $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. From now on, call the function associated with this procedure $\mathsf{Conv}$, so that both the domain and codomain of $\mathsf{Conv}$ are equal to
+    \begin{equation*}
+        \{\phi: \phi \text{ is a } \mathcal{L}^{*}_{\mathfrak{A}}\text{-}\Sigma_1 \text{ sentence}\} \text{.}
+    \end{equation*}
+    \end{rem}
+
+    \begin{claim2}\label{claim335}
+    There exists $q \in P$ for which
+    \begin{itemize}
+        \item $q \leq_P p'$, and
+        \item $q \models^{*}_{\mathfrak{A}} \phi^{\dagger}$.
+    \end{itemize}
+    \end{claim2}
+
+    \begin{proof}
+    Beginning with (\ref{eq32'}), we observe that there ought to be some $\varphi$ for which
     \begin{itemize}
         \item $\varphi$ is a disjunct of $\phi'$, and
         \item $\Sigma \models^{*}_{\mathfrak{A}} \nu^*(\varphi)$.
     \end{itemize}
-    $\Sigma$ being $\mathcal{L}$-nice and Lemma \ref{corr} gives us $\Sigma \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$. Since literals of the form $$\ulcorner \neg E(x) \urcorner \text{ for some } x \in \mathcal{L}$$ do not occur in $\mathsf{pos}(\nu^*(\varphi))$, following the proof of Case 1 of Lemma \ref{exist}, there must be a finite set $p^{\dagger} \in A \cap \mathcal{P}(\Sigma)$ such that 
+    $\Sigma$ being $\mathcal{L}$-nice and Lemma \ref{corr} gives us $\Sigma \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$. 
+    Since literals of the form $$\ulcorner \neg E(x) \urcorner \text{ for some } x \in \mathcal{L}$$ do not occur in $\mathsf{pos}(\nu^*(\varphi))$, following the proof of Case 1 of Lemma \ref{exist}, there must be a finite set $p^{\dagger} \in A \cap \mathcal{P}(\Sigma)$ such that 
     \begin{itemize}
         \item $\mathsf{set}(\mathsf{pos}(\nu^*(\varphi))) = (p^{\dagger}, p^{\dagger})$, and 
         \item $\mathsf{pos}(\nu^*(\varphi))$ is $\models^{*}_{\mathfrak{A}}$-true for $p^{\dagger}$. 
     \end{itemize}
-    By the fact that $\Sigma$ is a $p'$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality, we can find $q \in P$ with $$p' \cup p^{\dagger} \subset q.$$ In particular, $q \leq_P p'$ and $q \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$. 
+    By the fact that $\Sigma$ is a $p'$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality, we can find $q \in P$ with $$p' \cup p^{\dagger} \subset q.$$ In particular, $q \leq_P p'$ and $q \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$.
     
-    That $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ tells us that $q$ can be extended to an $\mathcal{L}$-nice set. Necessarily, $q$ must be ``internally consistent'' in the following sense:
+    That $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ tells us that $q$ can be extended to a $\mathcal{L}$-nice set. Necessarily, $q$ must be ``internally consistent'' in the following sense:
     \begin{align*}
         q \models^{*}_{\mathfrak{A}} \ulcorner \neg E(x) \urcorner \text{ whenever } & x \in \mathcal{L} \text{ and } \\
         & \ulcorner \neg E(x) \urcorner \text{ occurs in } \nu^*(\varphi).
@@ -1455,35 +1560,106 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     \begin{equation}\label{eq33}
         q \models^{*}_{\mathfrak{A}} \nu^*(\varphi') \text{ for all } \varphi' \in \mathrm{CS}(\mathsf{pos}(\varphi)).
     \end{equation}
-    Through a routine unfurling of definitions, one can check that $$q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$$ indeed follows from (\ref{eq32}) and (\ref{eq33}). As $\nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$ logically implies the $\mathcal{L}^{*}_{\mathfrak{A}}$ sentence $$\phi'' := \ulcorner \exists x_1 ... \exists x_n \ (\bigvee \{\mathsf{check}(\mathsf{pos}(\psi)) : \psi \text{ is a disjunct of } \phi'\}) \urcorner,$$ we have $q \models^{*}_{\mathfrak{A}} \phi''$ as well.
-    
-    The upshot of the preceding two paragraphs is that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi''\}$$ is dense below $p$ in $\mathbb{P}$. By Lemma \ref{def2}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since 
+    Through a routine unfurling of definitions, one can check that $$q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$$ indeed follows from (\ref{eq32}) and (\ref{eq33}). As $\nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$ logically implies $\nu^*(\phi''')$, we have $q \models^{*}_{\mathfrak{A}} \nu^*(\phi''')$ as well. Invoking (\ref{eq32f}) and \ref{p3203} of Proposition \ref{p320} now would yield $q \models^{*}_{\mathfrak{A}, \nu} \mathsf{pos}(\phi'')$, from which
+    \begin{equation*}
+        q \models^{*}_{\mathfrak{A}} \phi^{\dagger}
+    \end{equation*}
+    logically follows.
+    \end{proof}
+
+    \begin{claim2}\label{claim341}
+    For every pair $(\Sigma', \Sigma'')$ in any weak outer model of $V$ such that 
     \begin{itemize}
-        \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
-        \item $\phi''$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
-        \item the act of replacing every subformula of $\phi''$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi''$.
+        \item $\Sigma''$ is $\mathcal{L}$-nice, and 
+        \item $\Sigma' \subset \Sigma''$,
     \end{itemize}
-    So $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$, so that $q^* \models^{*}_{\mathfrak{A}} \phi''$. But this means we can find $\nu'$ and $\varphi^*$ such that
+    we must observe
+    \begin{equation*}
+        \Sigma' \models^{*}_{\mathfrak{A}} \phi^{\dagger} \implies \Sigma'' \models^{*}_{\mathfrak{A}} \phi \text{.}
+    \end{equation*}
+    \end{claim2}
+
+    \begin{proof}
+    Assume 
+    \begin{itemize}
+        \item $(\Sigma', \Sigma'')$ is in some weak outer model of $V$,
+        \item $\Sigma''$ is $\mathcal{L}$-nice,
+        \item $\Sigma' \subset \Sigma''$, and 
+        \item $\Sigma' \models^{*}_{\mathfrak{A}} \phi^{\dagger}$.
+    \end{itemize} 
+    By \ref{p3202} of Proposition \ref{p320}, this means we can find $\nu'$ and $\varphi^*$ such that
     \begin{itemize}
         \item $\nu'$ is a $\mathfrak{A}$-valuation, 
-        \item $\varphi^*$ is a disjunct of $\phi'$, and
-        \item $q^* \models^{*}_{\mathfrak{A}, \nu'} \mathsf{check}(\mathsf{pos}(\varphi^*))$.
+        \item $\varphi^*$ is a disjunct of $\mathsf{DNF}(\mathsf{pos}(\phi''), \nu')$, and
+        \item $\Sigma' \models^{*}_{\mathfrak{A}, \nu'} \varphi^*$.
     \end{itemize}
-    Seeing that $\bigcup g$ is $\mathcal{L}$-nice and recalling Remark \ref{rem328}, we are permitted to apply Lemma \ref{postrue} to obtain $$\bigcup g \models^{*}_{\mathfrak{A}, \nu'} \mathsf{check}(\mathsf{pos}(\varphi^*)),$$ or equivalently, $$\bigcup g \models^{*}_{\mathfrak{A}} (\nu')^*(\mathsf{check}(\mathsf{pos}(\varphi^*))).$$
-
-    According to the definition of $\mathsf{check}$ in Definition \ref{check}, it is immediate that $(\nu')^*(\mathsf{check}(\mathsf{pos}(\varphi^*)))$ logically implies $(\nu')^*(\mathsf{pos}(\varphi^*))$, so we also have $$\bigcup g \models^{*}_{\mathfrak{A}} (\nu')^*(\mathsf{pos}(\varphi^*)).$$ By Lemma \ref{corr} and the fact that $\bigcup g$ is $\mathcal{L}$-nice, $$\bigcup g \models^{*}_{\mathfrak{A}} (\nu')^*(\varphi^*).$$ That $(\nu')^*(\varphi^*)$ logically implies $(\nu')^*(\phi')$ then yields $$\bigcup g \models^{*}_{\mathfrak{A}, \nu'} \phi'.$$ Now we can invoke \ref{p3203} of Proposition \ref{p320} to arrive at 
+    By an argument similar to that which led us to (\ref{eq32f}), $\varphi^*$ must be a disjunct of 
     \begin{equation*}
-        \bigcup g \models^{*}_{\mathfrak{A}, \nu'} \phi^* \text{,}
+        \ulcorner \bigvee \{\mathsf{check}(\mathsf{pos}(\psi)) : \psi \text{ is a disjunct of } \mathsf{DNF}(\phi^*, \nu')\} \urcorner \text{,}
+    \end{equation*}
+    and so 
+    \begin{equation*}
+        \varphi^* = \mathsf{check}(\mathsf{pos}(\psi))
+    \end{equation*}
+    for some disjunct $\psi$ of $\mathsf{DNF}(\phi^*, \nu')$. Seeing that $\Sigma''$ is $\mathcal{L}$-nice and recalling Remark \ref{rem328}, we are permitted to apply Lemma \ref{postrue} to obtain $$\Sigma'' \models^{*}_{\mathfrak{A}, \nu'} \mathsf{check}(\mathsf{pos}(\psi)),$$ or equivalently, $$\Sigma'' \models^{*}_{\mathfrak{A}} (\nu')^*(\mathsf{check}(\mathsf{pos}(\psi))).$$
+    
+    According to the definition of $\mathsf{check}$ in Definition \ref{check}, it is immediate that $(\nu')^*(\mathsf{check}(\mathsf{pos}(\psi)))$ logically implies $(\nu')^*(\mathsf{pos}(\psi))$, so we also have $$\Sigma'' \models^{*}_{\mathfrak{A}} (\nu')^*(\mathsf{pos}(\psi)).$$ By Lemma \ref{corr} and the fact that $\Sigma''$ is $\mathcal{L}$-nice, $$\Sigma'' \models^{*}_{\mathfrak{A}} (\nu')^*(\psi).$$ That $(\nu')^*(\psi)$ logically implies $(\nu')^*(\mathsf{DNF}(\phi^*, \nu'))$ then yields $$\Sigma'' \models^{*}_{\mathfrak{A}, \nu'} \mathsf{DNF}(\phi^*, \nu').$$ Now we can invoke \ref{p3203} of Proposition \ref{p320} to arrive at 
+    \begin{equation*}
+        \Sigma'' \models^{*}_{\mathfrak{A}, \nu'} \phi^* \text{,}
     \end{equation*}
     from which 
     \begin{equation*}
-        \bigcup g \models^{*}_{\mathfrak{A}} \phi
+        \Sigma'' \models^{*}_{\mathfrak{A}} \phi
     \end{equation*}
     logically follows.
+    \end{proof}
+
+    Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to Remark \ref{def2}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
+    \begin{itemize}
+        \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
+        \item $\phi^{\dagger}$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
+        \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$.
+    \end{itemize}
+    Thus $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, 
+    \begin{itemize}
+        \item $q^* \subset \bigcup g$, and
+        \item $(q^*, \bigcup g) \in V[g]$.
+    \end{itemize}
+    We have also shown that $\bigcup g$ is $\mathcal{L}$-nice. As a result, the pair $(q^*, \bigcup g)$ satisfies the hypothesis of Claim \ref{claim341}. Applying Claim \ref{claim341} to $(q^*, \bigcup g)$ then gives us
+    \begin{equation*}
+        q^* \models^{*}_{\mathfrak{A}} \phi^{\dagger} \implies \bigcup g \models^{*}_{\mathfrak{A}} \phi \text{.}
+    \end{equation*}
+    Now $q^* \in D_2$ just means $$q^* \models^{*}_{\mathfrak{A}} \phi^{\dagger},$$ so necessarily, 
+    \begin{equation*}
+        \bigcup g \models^{*}_{\mathfrak{A}} \phi \text{.}
+    \end{equation*}
     
     \item $\phi = \ulcorner \forall x \ \varphi(x, \Vec{d}) \urcorner$ for some $x$, $\varphi$ and $\Vec{d}$. Then for each $a \in A$, $\varphi(a, \Vec{d})$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. By the induction hypothesis, $$\bigcup g \models^{*}_{\mathfrak{A}} \varphi(a, \Vec{d})$$ for all $a \in A$, so also $$\bigcup g \models^{*}_{\mathfrak{A}} \phi.$$ \qedhere
 \end{enumerate}
 \end{proof}
+
+The upshot of Remark \ref{rem339} and Claims \ref{claim335} and \ref{claim341}, given the choice of parameters therein, is the general fact below. 
+
+\begin{fact}\label{fact336}
+Let 
+\begin{itemize}
+    \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula, and
+    \item $\Sigma$ be a $\mathcal{L}$-nice set in some outer model of $V$.
+\end{itemize}
+Assume $\Sigma \models^{*}_{\mathfrak{A}} \phi$. Then
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{3363} for every pair $(\Sigma', \Sigma'')$ in any weak outer model of $V$ such that $\Sigma''$ is $\mathcal{L}$-nice and $\Sigma' \subset \Sigma''$,
+    \begin{equation*}
+        \Sigma' \models^{*}_{\mathfrak{A}} \mathsf{Conv}(\phi) \implies \Sigma'' \models^{*}_{\mathfrak{A}} \phi \text{,}
+    \end{equation*}
+    and
+    \item\label{3361} for every $p \in P$ with $\Sigma \in \mathcal{F}_p$, we can find $q \in P$ such that
+    \begin{enumerate}[label=(\alph*)]
+        \item $q \leq_P p$, and
+        \item\label{3362} $q \models^{*}_{\mathfrak{A}} \mathsf{Conv}(\phi)$. 
+    \end{enumerate}
+\end{enumerate}
+\end{fact}
 
 \begin{rem}\label{endremmain}
 Let $p$ be an arbitrary member of $P$ and define $$\mathbb{P}_{\leq p} := (\{q \in P : q \leq_{\mathbb{P}} p\}, \leq_{\mathbb{P}}).$$ Then 
@@ -1498,7 +1674,7 @@ Consequently, Lemma \ref{uni} is equivalent to, and can be restated as:
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
-    \item $g \in W \cap \mathcal{P}(P)$ be a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$, and
+    \item $g \in W$ be a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$, and
     \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal.
 \end{itemize} 
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
@@ -1517,7 +1693,7 @@ Assume
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
-    \item $g \in W \cap \mathcal{P}(P)$ be a $\mathbb{P}$-generic filter over $\mathfrak{A}$, 
+    \item $g \in W$ be a $\mathbb{P}$-generic filter over $\mathfrak{A}$, 
     \item $p \in g$, and
     \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$.
 \end{itemize} 
@@ -1541,7 +1717,7 @@ Assume
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
-    \item $g \in W \cap \mathcal{P}(P)$ be a $\mathbb{P}$-generic filter over $\mathfrak{A}$, and
+    \item $g \in W$ be a $\mathbb{P}$-generic filter over $\mathfrak{A}$, and
     \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal.
 \end{itemize} 
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
@@ -1606,13 +1782,13 @@ A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\m
         \item $\mathbb{P}'$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}'$,
         \item $(\mathfrak{A}', \mathbb{P}')$ is good for $\mathcal{L}'$,
         \item $W$ is a weak outer model of $V$,
-        \item $g \in W \cap \mathcal{P}(P')$ is a $\mathbb{P}'$-$\Sigma_1$-generic filter over $\mathfrak{A}'$,
+        \item $g \in W$ is a $\mathbb{P}'$-$\Sigma_1$-generic filter over $\mathfrak{A}'$,
         \item $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Sigma_2$ sentence which is $(\mathfrak{A}', \mathbb{P}', \mathcal{L}')$-universal, and
         \item $\bigcup g \not \models^{*}_{\mathfrak{A}'} \phi$?
     \end{itemize}
 \end{enumerate}
 
-We shall defer answering \ref{qn0} until the next subsection.
+We shall defer answering \ref{qn0} until the next subsection. 
 
 \subsection{A Useful Framework}\label{forframe}
 
@@ -2222,7 +2398,7 @@ Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sent
         & \forall n \in dom(\bar{s}) \ (E(\ulcorner \bar{s}(n) \in \dot{X}_{\delta, \lambda'} \urcorner))) \\
         & \implies ((\phi, \bar{s}, p) \in Ef_0^{\lambda}(\lambda') \ \wedge \\
         & E(\ulcorner p \in \dot{X}_{\delta, \lambda'} \urcorner) \ \wedge \\
-        & \forall e \in p \ (E(e)))) \urcorner.
+        & \forall e \ ((e \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies E(e)))) \urcorner.
     \end{aligned}$
 \end{enumerate}
 \end{defi}
@@ -4111,7 +4287,7 @@ A TCI $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ is $\Sigma_n \cup \Pi_n$ iff e
 
 TCIs allow natural constraints that are not first-order definable to be imposed on the models of a theory. However, they are not a ``true'' generalisation of first-order theories because their models have uppers bounds in size. In fact, we can show that the size limitation of models of TCIs is in some sense, the only shortcoming of TCIs \emph{vis-a-vis} first-order theories. 
 
-\begin{lem}
+\begin{lem}\label{lem511}
 Let $T$ be a first-order theory over the signature $\sigma$, and $\dot{\mathcal{U}}$ be a unary relation symbol not in $\sigma$. For every cardinal $\kappa$, there is a TCI $\mathfrak{T}$ such that 
 \begin{itemize}
     \item $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ for some $\vartheta$, and
