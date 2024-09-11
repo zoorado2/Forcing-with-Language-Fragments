@@ -1518,22 +1518,22 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     \end{align*}
     Define two other $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences as follows: 
     \begin{align*}
-        \phi'' := \ & \mathsf{check}(\phi^*) \\
+        \phi'' := \ & \mathsf{check}(\mathsf{pos}(\phi^*)) \\
         \phi''' := \ & \ulcorner \bigvee \{\mathsf{check}(\mathsf{pos}(\psi)) : \psi \text{ is a disjunct of } \phi'\} \urcorner \text{.}
     \end{align*}
-    Clearly, 
+    Clearly,  
     \begin{equation*}
-        \phi''' = \mathsf{check}(\mathsf{pos}(\phi')) = \mathsf{pos}(\mathsf{check}(\phi')) \text{,}
+        \phi''' = \mathsf{check}(\mathsf{pos}(\phi')) \text{,}
     \end{equation*}
     from which, citing Proposition \ref{prop321} and Fact \ref{fact330}, we can conclude
     \begin{equation}\label{eq32f}
-        \phi''' = \mathsf{pos}(\mathsf{DNF}(\phi'', \nu)) = \mathsf{DNF}(\mathsf{pos}(\phi''), \nu) \text{.}
+        \phi''' = \mathsf{DNF}(\phi'', \nu) \text{.}
     \end{equation}
     Finally, set
     \begin{equation*}
-        \phi^{\dagger} := \ulcorner \exists x_1 \dots \exists x_n \ \mathsf{pos}(\phi'') \urcorner \text{.}
+        \phi^{\dagger} := \ulcorner \exists x_1 \dots \exists x_n \ \phi'' \urcorner \text{.}
     \end{equation*}
-    It is imperative to highlight that both $\phi''$ and $\phi^{\dagger}$ depend on $\phi^*$, and thus on $\phi$, but not on any $\mathfrak{A}$-valuation.
+    It is imperative to highlight that $\phi^{\dagger}$ depends on $\phi^*$, and thus on $\phi$, but not on any $\mathfrak{A}$-valuation.
 
     \begin{rem}\label{rem339}
     Note that we have just described a constructive procedure which converts an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ sentence $\phi$ into another $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ sentence $\phi^{\dagger}$. Indeed, this procedure makes sense even if $n = 0$ in the expansion of $\phi$, i.e. even if $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. From now on, call the function associated with this procedure $\mathsf{Conv}$, so that both the domain and codomain of $\mathsf{Conv}$ are equal to
@@ -1573,7 +1573,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     \begin{equation}\label{eq32}
         q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{pos}(\varphi)).
     \end{equation} 
-    Let $\varphi'$ be of the form $$(x \in \mathcal{L} \implies E(\neg x)) \text{,}$$ where $x$ is a variable such that $\ulcorner \neg E(x) \urcorner$ occurs in $\mathsf{pos}(\varphi)$. Then the fact that $q \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$ must imply $q \models^{*}_{\mathfrak{A}} \nu^*(\varphi')$. Bearing the definition of $\mathsf{check}$ in mind, this allows us to ascertain that $$q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$$ follows from (\ref{eq32}). As $\nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$ logically implies $\nu^*(\phi''')$, we have $q \models^{*}_{\mathfrak{A}} \nu^*(\phi''')$ as well. Invoking (\ref{eq32f}) and \ref{p3203} of Proposition \ref{p320} now would yield $q \models^{*}_{\mathfrak{A}, \nu} \mathsf{pos}(\phi'')$, from which
+    Let $\varphi'$ be of the form $$(x \in \mathcal{L} \implies E(\neg x)) \text{,}$$ where $x$ is a variable such that $\ulcorner \neg E(x) \urcorner$ occurs in $\mathsf{pos}(\varphi)$. Then the fact that $q \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$ must imply $q \models^{*}_{\mathfrak{A}} \nu^*(\varphi')$. Bearing the definition of $\mathsf{check}$ in mind, this allows us to ascertain that $$q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$$ follows from (\ref{eq32}). As $\nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$ logically implies $\nu^*(\phi''')$, we have $q \models^{*}_{\mathfrak{A}} \nu^*(\phi''')$ as well. Invoking (\ref{eq32f}) and \ref{p3203} of Proposition \ref{p320} now would yield $q \models^{*}_{\mathfrak{A}, \nu} \phi''$, from which
     \begin{equation*}
         q \models^{*}_{\mathfrak{A}} \phi^{\dagger}
     \end{equation*}
@@ -1603,7 +1603,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     By \ref{p3202} of Proposition \ref{p320}, this means we can find $\nu'$ and $\varphi^*$ such that
     \begin{itemize}
         \item $\nu'$ is a $\mathfrak{A}$-valuation, 
-        \item $\varphi^*$ is a disjunct of $\mathsf{DNF}(\mathsf{pos}(\phi''), \nu')$, and
+        \item $\varphi^*$ is a disjunct of $\mathsf{DNF}(\phi'', \nu')$, and
         \item $\Sigma' \models^{*}_{\mathfrak{A}, \nu'} \varphi^*$.
     \end{itemize}
     By an argument similar to that which led us to (\ref{eq32f}), $\varphi^*$ must be a disjunct of 
