@@ -1117,7 +1117,9 @@ Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$ formula. Define $\mathrm{QA}(\p
 Given any $\mathcal{L}^{*}_{\mathfrak{A}}$ formula $\phi$, a $\phi$\emph{-max peeling} is a maximal member of $\mathrm{QA}(\phi)$ with respect to set inclusion.
 \end{defi}
 
-Notice that if $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$ formula, then any two distinct $\phi$-max peelings must not overlap in $\phi$. 
+\begin{rem}\label{rem320}
+Notice that if $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$ formula, then any two distinct $\phi$-max peelings must not overlap in $\phi$.
+\end{rem} 
 
 \begin{defi}
 Given a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula $\phi$, we say $\phi$ is \emph{safe} iff every occurrence of $\ulcorner E \urcorner$ in $\phi$ lies outside the scope of any quantifier. In particular, every member of $\mathcal{D}$ is a safe $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula.
@@ -1131,7 +1133,9 @@ There are algorithms to convert arbitrary propositional formulas into disjunctiv
 \end{enumerate}
 For convenience of analysis, we shall do so.
 
-Due to the nature of conversion algorithms such as $\mathsf{P_1}$, whenever $\phi$ is a safe $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula, $\mathsf{DNF}_1(\phi)$ is a sentence in $\mathcal{D}$ logically equivalent to $\phi$. 
+\begin{rem}\label{rem322}
+Due to the nature of conversion algorithms such as $\mathsf{P_1}$, whenever $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula, $\mathsf{DNF}_1(\phi)$ must be logically equivalent to $\phi$. If in addition, $\phi$ is safe, then $\mathsf{DNF}_1(\phi)$ is a formula in $\mathcal{D}$.
+\end{rem}
 
 Let $\mathsf{WNF}$ be the function with domain
 \begin{equation*}
@@ -1146,7 +1150,7 @@ defined by the following recursive procedure.
     \begin{enumerate}[label=(\arabic*)]
         \item Set $\phi' := \mathsf{DNF}_1(\phi)$.
         \item If there is no $\phi'$-max peeling containing $\ulcorner E \urcorner$, return $\phi'$.
-        \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter since distinct $\phi'$-max peelings are disjoint):
+        \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter because of Remark \ref{rem320}:
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
             \item Necessarily, for some $p$ and $\varphi'$,
                 \begin{equation*}
@@ -1159,7 +1163,12 @@ defined by the following recursive procedure.
 \end{quote}
 
 \begin{rem}\label{rem321}
-Obviously, $\mathsf{P_W}$ always terminates and returns a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Furthermore, routine code tracing allows us to ascertain that the output of $\mathsf{P_W}$ is always logically equivalent to its input. In other words, 
+Obviously, $\mathsf{P_W}$ always terminates and returns a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Furthermore, routine code tracing with the aid of 
+\begin{itemize}
+    \item Remark \ref{rem322}, and the fact that
+    \item $\mathsf{P_W}$ returns the result of a function call of $\mathsf{DNF}_1$ whenever its base case is fulfilled,
+\end{itemize} 
+allows us to ascertain that the output of $\mathsf{P_W}$ is always logically equivalent to its input. In other words, 
 \begin{equation*}
     \mathsf{WNF}(\phi) \text{ is logically equivalent to } \phi
 \end{equation*}
@@ -1178,7 +1187,7 @@ defined by the following recursive procedure.
     \begin{enumerate}[label=(\arabic*)]
         \item Set $\phi' := \mathsf{DNF}_1(\phi)$.
         \item If there is no $\phi'$-max peeling containing $\ulcorner E \urcorner$, return $\phi'$.
-        \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter since distinct $\phi'$-max peelings are disjoint):
+        \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter because of Remark \ref{rem320}):
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
             \item Necessarily, for some $p$ and $\varphi'$,
                 \begin{equation*}
@@ -1247,14 +1256,18 @@ defined by the following recursive procedure.
         \item With the value of $\phi'$ updated as per Step \ref{step3}, call $\mathsf{P_0}(\phi', \nu)$.
     \end{enumerate}
 \end{quote}
+
+\begin{rem}\label{rem324}
 That $\mathsf{P_0}$ always terminates and returns a safe $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula can be easily verified. Furthermore, since 
 \begin{itemize}
+    \item Remark \ref{rem322} holds,
     \item $\mathsf{P_0}$ returns the result of a function call of $\mathsf{DNF}_1$ right before termination, and
     \item the atomic nature of each $\phi$-max peeling in the running of $\mathsf{P_1}$ on input $\phi$ means $\mathsf{DNF}_1(\phi)$ cannot be safe if $\phi$ is not,
 \end{itemize}
 $\mathsf{P_0}$ must return a member of $\mathcal{D}$. We can thus conclude that $\mathsf{DNF}$ is a function from $\mathrm{FV}$ into $\mathcal{D}$.
+\end{rem}
 
-The next three propositions can be verified by routine --- if tedious --- applications of mathematical induction, with \ref{s323} and \ref{s324} in mind.
+The next three propositions can be verified by routine --- if tedious --- applications of mathematical induction, with \ref{s323}, \ref{s324} and Remark \ref{rem324} in mind.
 
 \begin{prop}\label{prop321}
 Let $\phi \in ran(\mathsf{WNF})$. Then for any $\mathfrak{A}$-valuation $\nu$,
@@ -1321,21 +1334,25 @@ Moreover, if $\phi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ sentence, t
 \begin{proof}
 By induction on the length of $\phi$. We work in $W$ throughout.
 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
-    \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. By \ref{p3201} of Proposition \ref{p320}, $$X \models^*_{\mathfrak{A}} \mathsf{DNF}(\nu^*(\phi), \nu')$$ for some (in fact, any) $\mathfrak{A}$-valuation $\nu'$. Next, since $\mathsf{DNF}(\nu^*(\phi), \nu') \in \mathcal{D}$, there is a disjunct $\varphi$ of $\mathsf{DNF}(\nu^*(\phi), \nu')$ for which $X \models^*_{\mathfrak{A}} \varphi$. 
+    \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. By \ref{p3201} of Proposition \ref{p320}, $$X \models^*_{\mathfrak{A}} \mathsf{DNF}(\nu^*(\phi), \nu')$$ for some (in fact, any) $\mathfrak{A}$-valuation $\nu'$. Next, since $\mathsf{DNF}(\nu^*(\phi), \nu') \in \mathcal{D}$ according to Remark \ref{rem324}, there is a disjunct $\varphi$ of $\mathsf{DNF}(\nu^*(\phi), \nu')$ for which $X \models^*_{\mathfrak{A}} \varphi$. 
     
     Let $(p, q)$ be $\mathsf{set}(\varphi)$. Then $p$ and $q$ are finite sets with $p \subset q \subset \mathcal{L}$. Since $(A; \in)$ models enough set theory and $\mathcal{L} \subset A$, we too have $\{p, q\} \subset A$. As $\varphi$ has all occurrences of literals over $\{E\}$ being conjuncts, due to 
     \begin{itemize}
         \item $\varphi$ being a disjunct of $\mathsf{DNF}(\nu^*(\phi), \nu')$,
         \item the definition of $\mathcal{D}$, and 
-        \item the fact that $ran(\mathsf{DNF}) \subset \mathcal{D}$, 
+        \item the fact that $\mathsf{DNF}(\nu^*(\phi), \nu') \in \mathcal{D}$, 
     \end{itemize} 
     we must have $$X \cap q = p.$$ Fix $X' \subset \mathcal{L}$ in any weak outer model of $V$. It is now clear that $$X' \cap q = p \implies X' \models^*_{\mathfrak{A}} \varphi \implies X' \models^*_{\mathfrak{A}} \mathsf{DNF}(\nu^*(\phi), \nu').$$ By \ref{p3201} of Proposition \ref{p320} again, $$X' \models^*_{\mathfrak{A}, \nu} \phi \text{.}$$ We have thus shown that $\phi$ is $\models^*_{\mathfrak{A}, \nu}$-true for $(p, q)$.
 
-    If $\phi$ is a sentence, then 
+    If $\phi$ is a sentence, then whenever $\nu''$ is a $\mathfrak{A}$-valuation,
     \begin{equation*}
-        \mathsf{DNF}(\nu^*(\phi), \nu') = \mathsf{DNF}((\nu'')^*(\phi), \nu')
+        \nu^*(\phi) = (\nu'')^*(\phi) \text{,}
     \end{equation*}
-    whenever $\nu''$ is a $\mathfrak{A}$-valuation. But this means $\phi$ is $\models^*_{\mathfrak{A}, \nu''}$-true for $(p, q)$ for all $\mathfrak{A}$-valuations $\nu''$, or equivalently, $\phi$ is $\models^*_{\mathfrak{A}}$-true for $(p, q)$.
+    and so
+    \begin{equation*}
+        \mathsf{DNF}(\nu^*(\phi), \nu') = \mathsf{DNF}((\nu'')^*(\phi), \nu') \text{.}
+    \end{equation*}
+    But this means $\phi$ is $\models^*_{\mathfrak{A}, \nu''}$-true for $(p, q)$ for all $\mathfrak{A}$-valuations $\nu''$, or equivalently, $\phi$ is $\models^*_{\mathfrak{A}}$-true for $(p, q)$.
     \item $\phi = \ulcorner \exists y \ \phi' \urcorner$ for some $y$ and $\phi'$. Then there must be an $\mathfrak{A}$-valuation $\nu'$ that agrees with $\nu$ on the free variables of $\phi$, for which $$X \models^{*}_{\mathfrak{A}, \nu'} \phi'.$$ By the induction hypothesis, there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A \cap \mathcal{P}(\mathcal{L})$ satisfying 
     \begin{itemize}
         \item $X \cap q = p$ and
@@ -1360,7 +1377,7 @@ in $\phi$.
 \end{defi}
 
 \begin{rem}\label{shcs}
-In the definition of $\mathsf{check}$, $E(\neg x)$ is a shorthand for $$\exists y \ (y = \neg (x) \wedge E(y)),$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$y = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. As a consequence, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula, then $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{pos}(\mathsf{check}(\phi)) \urcorner$$ is logically equivalent to a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula over any structure with a non-empty base set (e.g. any expansion of $\mathfrak{A}$). Without loss of generality, we shall always assume formulas of this form to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$.
+In the definition of $\mathsf{check}$, $E(\neg x)$ is a shorthand for $$\exists y \ (y = \neg (x) \wedge E(y)),$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$y = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. As a consequence, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula, then $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ is logically equivalent to a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula over any structure with a non-empty base set (e.g. any expansion of $\mathfrak{A}$). Without loss of generality, we shall always assume formulas of this form to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$.
 \end{rem}
 
 The fact below can be derived from definitions through straightforward variable tracing.
