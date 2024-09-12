@@ -1323,7 +1323,13 @@ By induction on the length of $\phi$. We work in $W$ throughout.
 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
     \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. By \ref{p3201} of Proposition \ref{p320}, $$X \models^*_{\mathfrak{A}} \mathsf{DNF}(\nu^*(\phi), \nu')$$ for some (in fact, any) $\mathfrak{A}$-valuation $\nu'$. Next, since $\mathsf{DNF}(\nu^*(\phi), \nu') \in \mathcal{D}$, there is a disjunct $\varphi$ of $\mathsf{DNF}(\nu^*(\phi), \nu')$ for which $X \models^*_{\mathfrak{A}} \varphi$. 
     
-    Let $(p, q)$ be $\mathsf{set}(\varphi)$. Then $p$ and $q$ are finite sets with $p \subset q \subset \mathcal{L}$. Since $(A; \in)$ models enough set theory and $\mathcal{L} \subset A$, we too have $\{p, q\} \subset A$. As $\varphi$ has all occurrences of literals over $\{E\}$ being conjuncts, we must have $$X \cap q = p.$$ Fix $X' \subset \mathcal{L}$ in any weak outer model of $V$. It is now clear that $$X' \cap q = p \implies X' \models^*_{\mathfrak{A}} \varphi \implies X' \models^*_{\mathfrak{A}} \mathsf{DNF}(\nu^*(\phi), \nu').$$ By \ref{p3201} of Proposition \ref{p320} again, $$X' \models^*_{\mathfrak{A}, \nu} \phi \text{.}$$ We have thus shown that $\phi$ is $\models^*_{\mathfrak{A}, \nu}$-true for $(p, q)$.
+    Let $(p, q)$ be $\mathsf{set}(\varphi)$. Then $p$ and $q$ are finite sets with $p \subset q \subset \mathcal{L}$. Since $(A; \in)$ models enough set theory and $\mathcal{L} \subset A$, we too have $\{p, q\} \subset A$. As $\varphi$ has all occurrences of literals over $\{E\}$ being conjuncts, due to 
+    \begin{itemize}
+        \item $\varphi$ being a disjunct of $\mathsf{DNF}(\nu^*(\phi), \nu')$,
+        \item the definition of $\mathcal{D}$, and 
+        \item the fact that $ran(\mathsf{DNF}) \subset \mathcal{D}$, 
+    \end{itemize} 
+    we must have $$X \cap q = p.$$ Fix $X' \subset \mathcal{L}$ in any weak outer model of $V$. It is now clear that $$X' \cap q = p \implies X' \models^*_{\mathfrak{A}} \varphi \implies X' \models^*_{\mathfrak{A}} \mathsf{DNF}(\nu^*(\phi), \nu').$$ By \ref{p3201} of Proposition \ref{p320} again, $$X' \models^*_{\mathfrak{A}, \nu} \phi \text{.}$$ We have thus shown that $\phi$ is $\models^*_{\mathfrak{A}, \nu}$-true for $(p, q)$.
 
     If $\phi$ is a sentence, then 
     \begin{equation*}
