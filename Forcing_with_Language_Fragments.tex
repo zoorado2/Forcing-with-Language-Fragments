@@ -1377,7 +1377,14 @@ in $\phi$.
 \end{defi}
 
 \begin{rem}\label{shcs}
-In the definition of $\mathsf{check}$, $E(\neg x)$ is a shorthand for $$\exists y \ (y = \neg (x) \wedge E(y)),$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$y = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. As a consequence, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula, then $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ is logically equivalent to a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula over any structure with a non-empty base set (e.g. any expansion of $\mathfrak{A}$). Without loss of generality, we shall always assume formulas of this form to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$.
+In the definition of $\mathsf{check}$, $E(\neg x)$ is a shorthand for both $$\exists y \ (y = \neg (x) \wedge E(y))$$ and $$\forall y \ (y = \neg (x) \implies E(y)),$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$y = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. As a consequence, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula with $\phi \in ran(\mathsf{WNF})$, then we can show by induction on the complexity of $\phi$, noting
+\begin{itemize}
+    \item the recursive structure of $\mathsf{P_W}$, 
+    \item how $\mathsf{DNF_1}$ is used in $\mathsf{P_W}$, 
+    \item Remark \ref{rem322}, and
+    \item $\mathfrak{A}$ is a model of a sufficiently strong set theory,
+\end{itemize}
+that there exists a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula $\varphi$ satisfying $$X \models^*_{\mathfrak{A}} \ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner \iff X \models^*_{\mathfrak{A}} \varphi$$ for every set $X$ found in any outer model of $V$. We can thus without loss of generality, assume formulas of the form $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ for some $n < \omega$ and $\phi \in ran(\mathsf{WNF})$, to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$.
 \end{rem}
 
 The fact below can be derived from definitions through straightforward variable tracing.
@@ -1418,7 +1425,7 @@ By the form of $\mathsf{check}(\mathsf{pos}(\phi))$, it is sufficient to prove t
 \end{itemize}
  $\Sigma \models^*_{\mathfrak{A}} \varphi \iff \Sigma' \models^*_{\mathfrak{A}} \varphi$. 
  
- That $\Sigma \subset \Sigma'$ means $$\Sigma \models^*_{\mathfrak{A}} \varphi \implies \Sigma' \models^*_{\mathfrak{A}} \varphi,$$ so it is sufficient to prove $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner.$$ We examine the possible cases below.
+That $\Sigma \subset \Sigma'$ means $$\Sigma \models^*_{\mathfrak{A}} \varphi \implies \Sigma' \models^*_{\mathfrak{A}} \varphi,$$ so it is sufficient to prove $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner.$$ We examine the possible cases below.
 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
     \item $x \not\in \mathcal{L}$. Then $x \not\in \Sigma'$, so $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
     \item $x \in \mathcal{L}$ and $\varphi$ occurs in $\mathsf{pos}(\phi)$. Then $x$ cannot be a variable symbol. Since $\mathsf{check}(\mathsf{pos}(\phi))$ logically implies $\mathsf{pos}(\phi)$ and $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi)),$$ also $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{pos}(\phi).$$ By the definition of $\mathsf{pos}$, $\ulcorner \neg \varphi \urcorner$ must not occur in $\mathsf{pos}(\phi)$, so $\varphi$ is a conjunct of $\mathsf{pos}(\phi)$, and $\Sigma \models^*_{\mathfrak{A}} \varphi$. As a result, $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$$ trivially holds.
@@ -1653,7 +1660,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to Remarks \ref{def2} and \ref{shcs}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
     \begin{itemize}
         \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
-        \item $\phi^{\dagger}$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
+        \item we can safely assume $\phi^{\dagger}$ to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
         \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$.
     \end{itemize}
     Thus $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, 
