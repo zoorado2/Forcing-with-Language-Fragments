@@ -1074,8 +1074,8 @@ Let $\mathcal{L}^{*}_{1, \mathfrak{A}}$ be the smallest $\mathcal{L}'$ satisfyin
     \item if 
     \begin{itemize}[label=$\circ$]
         \item $\phi \in \mathcal{L}'$,
-        \item $z$ is a variable not bound in $\phi$, and
-        \item $p$ is either a constant or a variable not bound in $\phi$,
+        \item $\ulcorner z \urcorner$ is a variable not bound in $\phi$, and
+        \item $\ulcorner p \urcorner$ is either a constant or a variable not bound in $\phi$,
     \end{itemize} 
     then $$\ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \phi) \urcorner \in \mathcal{L}',$$
     \item $\mathcal{L}'$ is closed under all zeroth-order logical operations.
@@ -1098,7 +1098,7 @@ As $\mathfrak{A}$ is a first-order structure interpreting only relation symbols,
 \end{rem}
 
 \begin{defi}
-We define the subset $\mathcal{D}$ of $\mathcal{L}^{*}_{1, \mathfrak{A}}$ to contain formulas of the form $$\bigvee_{i < m} (\bigwedge_{j < n_i} L_{ij}),$$ wherein for every $i < m$ and every $j < n_i$, there is $P_{ij}$ such that
+We define the subset $\mathcal{D}$ of $\mathcal{L}^{*}_{1, \mathfrak{A}}$ to contain formulas of the form $$\ulcorner \bigvee_{i < m} (\bigwedge_{j < n_i} L_{ij}) \urcorner,$$ wherein for every $i < m$ and every $j < n_i$, there is $P_{ij}$ such that
 \begin{itemize}
     \item $P_{ij} \in \mathcal{L}^{*}_{0, \mathfrak{A}}$ or $P_{ij} \in \mathcal{L}^{*}_{\mathfrak{A}}$ is of the form $\ulcorner E(x) \urcorner$, and 
     \item $L_{ij} = P_{ij}$ or $L_{ij} = \ulcorner \neg P_{ij} \urcorner$.
@@ -1152,7 +1152,7 @@ defined by the following recursive procedure.
         \item If there is no $\phi'$-max peeling containing $\ulcorner E \urcorner$, return $\phi'$.
         \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter because of Remark \ref{rem320}:
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
-            \item Necessarily, for some $p$ and $\varphi'$,
+            \item Necessarily, for some $\ulcorner p \urcorner$ and $\varphi'$,
                 \begin{equation*}
                     \varphi = \ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \varphi') \urcorner \text{.}
                 \end{equation*}
@@ -1189,20 +1189,20 @@ defined by the following recursive procedure.
         \item If there is no $\phi'$-max peeling containing $\ulcorner E \urcorner$, return $\phi'$.
         \item For each $\phi'$-max peeling $\varphi$ containing $\ulcorner E \urcorner$ (the order does not matter because of Remark \ref{rem320}):
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
-            \item Necessarily, for some $p$ and $\varphi'$,
+            \item Necessarily, for some $\ulcorner p \urcorner$ and $\varphi'$,
                 \begin{equation*}
                     \varphi = \ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies \varphi') \urcorner \text{.}
                 \end{equation*}
                 There are only two possible cases.
                 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
                     \item\label{f1c1} $\varphi$ is a conjunct of a disjunct of $\phi$'.
-                    \item\label{f1c2} $\neg \varphi$ is a conjunct of a disjunct of $\phi$'.
+                    \item\label{f1c2} $\ulcorner \neg \varphi \urcorner$ is a conjunct of a disjunct of $\phi$'.
                 \end{enumerate}
                 For our next step, we consider these two cases separately.
             
             \item\label{step3} \underline{In the event of \ref{f1c1}}
             
-            If $p$ is a not a free variable, then it must be a constant symbol. In this case, we check if 
+            If $\ulcorner p \urcorner$ is a not a free variable, then it must be a constant symbol. In this case, we check if 
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''.}
             \end{equation*}
@@ -1212,7 +1212,7 @@ defined by the following recursive procedure.
             \end{equation*}
             in $\phi'$. If not, replace $\varphi$ with $\ulcorner \text{``} \emptyset = \emptyset \text{''} \urcorner$ in $\phi'$. 
         
-            Next, consider the case where $p$ is a free variable. In this case, we check if
+            Next, consider the case where $\ulcorner p \urcorner$ is a free variable. In this case, we check if
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \wedge |\nu(p)| < \omega \text{''.}
             \end{equation*}
@@ -1228,7 +1228,7 @@ defined by the following recursive procedure.
             
             \underline{In the event of \ref{f1c2}}
             
-            If $p$ is a not a free variable, then it must be a constant symbol. In this case, we check if 
+            If $\ulcorner p \urcorner$ is a not a free variable, then it must be a constant symbol. In this case, we check if 
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''.}
             \end{equation*}
@@ -1238,7 +1238,7 @@ defined by the following recursive procedure.
             \end{equation*}
             in $\phi'$. If not, replace $\varphi$ with $\ulcorner \text{``} \emptyset \neq \emptyset \text{''} \urcorner$ in $\phi'$. 
         
-            Next, consider the case where $p$ is a free variable. In this case, we check if
+            Next, consider the case where $\ulcorner p \urcorner$ is a free variable. In this case, we check if
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \wedge |\nu(p)| < \omega \text{''.}
             \end{equation*}
@@ -1371,20 +1371,50 @@ Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula. Define $\ma
 \end{equation*}
 with 
 \begin{equation*}
-    \ulcorner (\varphi \wedge (x \in \mathcal{L} \implies E(\neg x))) \urcorner
+    \ulcorner (\varphi \wedge (\text{``} x \in \mathcal{L} \text{''} \implies \text{``} E(\neg x) \text{''})) \urcorner
 \end{equation*}
 in $\phi$.
 \end{defi}
 
 \begin{rem}\label{shcs}
-In the definition of $\mathsf{check}$, $E(\neg x)$ is a shorthand for both $$\exists y \ (y = \neg (x) \wedge E(y))$$ and $$\forall y \ (y = \neg (x) \implies E(y)),$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$y = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. As a consequence, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula with $\phi \in ran(\mathsf{WNF})$, then we can show by induction on the complexity of $\phi$, noting
+In the definition of $\mathsf{check}$, $\text{``} E(\neg x) \text{''}$ is a shorthand for both $$\ulcorner \exists z \ (\text{``} z = \neg (x) \text{''} \wedge E(z)) \urcorner$$ and $$\ulcorner \forall z \ (\text{``} z = \neg (x) \text{''} \implies E(z)) \urcorner,$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$z = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. Particularly, since 
+\begin{itemize}
+    \item $\text{``} E(\neg x) \text{''}$ means exactly $$\ulcorner \forall z \ (\text{``} z = \neg (x) \text{''} \implies E(z)) \urcorner,$$ and
+    \item $\mathfrak{A}$ is a model of a sufficiently strong set theory,
+\end{itemize} 
+we have that
+\begin{align*}
+    & X \models^*_{\mathfrak{A}, \nu} \text{``} E(\neg x) \text{''} \iff \\
+    & X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists p \ \forall z \ ((z \in p \wedge \text{``} \emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}) \implies (\text{``} z = \neg (x) \text{''} \implies E(z))) \urcorner
+\end{align*}
+in case 
+\begin{itemize}
+    \item $\nu$ is a $\mathfrak{A}$-valuation, and
+    \item $\ulcorner p \urcorner$ is a variable outside $\{\ulcorner x \urcorner, \ulcorner z \urcorner\}$ bound in neither (the formal statement of)
+    \begin{equation*}
+        \text{``} z = \neg (x) \text{''}
+    \end{equation*}
+    nor (the formal statement of)
+    \begin{equation*}
+        \text{``} \emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''.}
+    \end{equation*}
+\end{itemize} 
+As an implication, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula with $\phi \in ran(\mathsf{WNF})$, then we can show by induction on the complexity of $\phi$, noting
 \begin{itemize}
     \item the recursive structure of $\mathsf{P_W}$, 
-    \item how $\mathsf{DNF_1}$ is used in $\mathsf{P_W}$, 
-    \item Remark \ref{rem322}, and
-    \item $\mathfrak{A}$ is a model of a sufficiently strong set theory,
+    \item how $\mathsf{DNF_1}$ is used in $\mathsf{P_W}$, and
+    \item Remark \ref{rem322}, 
 \end{itemize}
-that there exists a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula $\varphi$ satisfying $$X \models^*_{\mathfrak{A}} \ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner \iff X \models^*_{\mathfrak{A}} \varphi$$ for every set $X$ found in any outer model of $V$. We can thus without loss of generality, assume formulas of the form $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ for some $n < \omega$ and $\phi \in ran(\mathsf{WNF})$, to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$.
+that there exists a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula $\varphi$ satisfying $$X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner \iff X \models^*_{\mathfrak{A}, \nu} \varphi$$ for every 
+\begin{itemize}
+    \item $\mathfrak{A}$-valuation $\nu$, and
+    \item set $X$ found in an outer model of $V$.
+\end{itemize} 
+We may thus assume, without loss of generality, that formulas of the form $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ are $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, as long as
+\begin{itemize}
+    \item $n < \omega$, and 
+    \item $\phi \in ran(\mathsf{WNF})$.
+\end{itemize}
 \end{rem}
 
 The fact below can be derived from definitions through straightforward variable tracing.
@@ -1405,7 +1435,7 @@ In fact, (\ref{eq31'}) already holds if $\phi \in ran(\mathsf{WNF})$.
 \begin{lem}\label{postrue}
 Let 
 \begin{itemize}
-    \item $\phi = \bigwedge \mathrm{S} \wedge \bigwedge \mathrm{T}$ for some 
+    \item $\phi = \ulcorner \bigwedge \mathrm{S} \wedge \bigwedge \mathrm{T} \urcorner$ for some 
     \begin{itemize}[label=$\circ$]
         \item $S$ is a finite subset of $\mathcal{L}^{*}_{0, \mathfrak{A}}$, and
         \item $T$ is a finite subset of $\mathcal{L}^{*}_{\mathfrak{A}}$ containing only formulas either of the form $\ulcorner E(x) \urcorner$ or of the form $\ulcorner \neg E(x) \urcorner$,
@@ -1431,10 +1461,10 @@ That $\Sigma \subset \Sigma'$ means $$\Sigma \models^*_{\mathfrak{A}} \varphi \i
     \item $x \in \mathcal{L}$ and $\varphi$ occurs in $\mathsf{pos}(\phi)$. Then $x$ cannot be a variable symbol. Since $\mathsf{check}(\mathsf{pos}(\phi))$ logically implies $\mathsf{pos}(\phi)$ and $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi)),$$ also $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{pos}(\phi).$$ By the definition of $\mathsf{pos}$, $\ulcorner \neg \varphi \urcorner$ must not occur in $\mathsf{pos}(\phi)$, so $\varphi$ is a conjunct of $\mathsf{pos}(\phi)$, and $\Sigma \models^*_{\mathfrak{A}} \varphi$. As a result, $$\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner \implies \Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$$ trivially holds.
     \item $x \in \mathcal{L}$, $\varphi$ does not occur in $\mathsf{pos}(\phi)$ and moreover, $\ulcorner \neg \varphi \urcorner$ does not occur in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. 
     
-    If $\varphi$ occurs in $\nu^*(\mathsf{pos}(\phi))$ then by the same argument as in Case 2, $\Sigma \models^*_{\mathfrak{A}} \varphi$ and we have our desired conclusion. Otherwise, $\varphi$ occurs as a subformula of $\nu^*(\varphi')$ for some $\varphi'$ of the form $$(x \in \mathcal{L} \implies E(\neg x)) \text{,}$$ where $x$ is a variable. By the fact that $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi)),$$ $\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$ means $x \not \in \mathcal{L}$, in which case also $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
+    If $\varphi$ occurs in $\nu^*(\mathsf{pos}(\phi))$ then by the same argument as in Case 2, $\Sigma \models^*_{\mathfrak{A}} \varphi$ and we have our desired conclusion. Otherwise, $\varphi$ occurs as a subformula of $\nu^*(\varphi')$ for some $\varphi'$ of the form $$\ulcorner (\text{``} x \in \mathcal{L} \text{''} \implies \text{``} E(\neg x) \text{''}) \urcorner \text{,}$$ where $x$ is a variable. By the fact that $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi)),$$ $\Sigma \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$ means $x \not \in \mathcal{L}$, in which case also $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
     \item $x \in \mathcal{L}$, $\varphi$ does not occur in $\mathsf{pos}(\phi)$ and moreover, $\ulcorner \neg \varphi \urcorner$ occurs in \\ $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. 
     
-    Here $\ulcorner \neg \varphi \urcorner$ must occur in $\nu^*(\mathsf{pos}(\phi))$, so by the definition of $\mathsf{check}$, $$\ulcorner (x \in \mathcal{L} \implies E(\neg x)) \urcorner$$ occurs in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. Now $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$$ implies either $x \not \in \mathcal{L}$ or $\neg x \in \Sigma$. 
+    Here $\ulcorner \neg \varphi \urcorner$ must occur in $\nu^*(\mathsf{pos}(\phi))$, so by the definition of $\mathsf{check}$, $$\ulcorner (\text{``} x \in \mathcal{L} \text{''} \implies E(\neg x)) \urcorner$$ occurs in $\nu^*(\mathsf{check}(\mathsf{pos}(\phi)))$. Now $$\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$$ implies either $x \not \in \mathcal{L}$ or $\neg x \in \Sigma$. 
     \begin{enumerate}[label=Subcase \arabic*:, leftmargin=60pt]
         \item $x \not \in \mathcal{L}$. Then clearly $x \not \in \Sigma'$, so $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$.
         \item $\neg x \in \Sigma$. Then $\neg x \in \Sigma'$ because $\Sigma \subset \Sigma'$. Since $\Sigma'$ is $\mathcal{L}$-nice, it must be that $x \not \in \Sigma'$. We thus also have $\Sigma' \models^*_{\mathfrak{A}} \ulcorner \neg \varphi \urcorner$. \qedhere
@@ -1603,7 +1633,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     \begin{equation}\label{eq32}
         q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{pos}(\varphi)).
     \end{equation} 
-    Let $\varphi'$ be of the form $$(x \in \mathcal{L} \implies E(\neg x)) \text{,}$$ where $x$ is a variable such that $\ulcorner \neg E(x) \urcorner$ occurs in $\mathsf{pos}(\varphi)$. Then the fact that $q \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$ must imply $q \models^{*}_{\mathfrak{A}} \nu^*(\varphi')$. Bearing the definition of $\mathsf{check}$ in mind, this allows us to ascertain that $$q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$$ follows from (\ref{eq32}). As $\nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$ logically implies $\nu^*(\phi''')$, we have $q \models^{*}_{\mathfrak{A}} \nu^*(\phi''')$ as well. Invoking (\ref{eq32f}) and \ref{p3203} of Proposition \ref{p320} now would yield $q \models^{*}_{\mathfrak{A}, \nu} \phi''$, from which
+    Let $\varphi'$ be of the form $$\ulcorner (\text{``}x \in \mathcal{L} \text{''} \implies \text{``} E(\neg x) \text{''}) \urcorner \text{,}$$ where $x$ is a variable such that $\ulcorner \neg E(x) \urcorner$ occurs in $\mathsf{pos}(\varphi)$. Then the fact that $q \models^{*}_{\mathfrak{A}} \mathsf{pos}(\nu^*(\varphi))$ must imply $q \models^{*}_{\mathfrak{A}} \nu^*(\varphi')$. Bearing the definition of $\mathsf{check}$ in mind, this allows us to ascertain that $$q \models^{*}_{\mathfrak{A}} \nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$$ follows from (\ref{eq32}). As $\nu^*(\mathsf{check}(\mathsf{pos}(\varphi)))$ logically implies $\nu^*(\phi''')$, we have $q \models^{*}_{\mathfrak{A}} \nu^*(\phi''')$ as well. Invoking (\ref{eq32f}) and \ref{p3203} of Proposition \ref{p320} now would yield $q \models^{*}_{\mathfrak{A}, \nu} \phi''$, from which
     \begin{equation*}
         q \models^{*}_{\mathfrak{A}} \phi^{\dagger}
     \end{equation*}
@@ -1660,7 +1690,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to Remarks \ref{def2} and \ref{shcs}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
     \begin{itemize}
         \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
-        \item we can safely assume $\phi^{\dagger}$ to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
+        \item we may safely assume $\phi^{\dagger}$ to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
         \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$.
     \end{itemize}
     Thus $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, 
