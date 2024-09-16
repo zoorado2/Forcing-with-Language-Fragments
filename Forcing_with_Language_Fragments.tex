@@ -7,7 +7,7 @@
 \usepackage{mathbbol}
 \usepackage[]{enumitem}
 \setlist[enumerate,1]{itemsep=0pt, parsep=0pt, listparindent=\parindent}
-\setlist[enumerate,2]{ref=\theenumii, itemsep=0pt, parsep=5pt, listparindent=\parindent}
+\setlist[enumerate,2]{ref=\theenumii, itemsep=0pt, parsep=0pt, listparindent=\parindent}
 \setlist[itemize,1]{itemsep=0pt, parsep=0pt, listparindent=\parindent}
 \setlist[itemize,2]{itemsep=0pt, parsep=0pt, listparindent=\parindent}
 \usepackage{titling}
@@ -241,11 +241,11 @@ Unless specified otherwise, we follow the standard definitions of concepts typic
     \item We say a structure $\mathfrak{A}$ is \emph{a structure in a possibly expanded language of set theory} iff we omit the cardinality requirement on the signature of $\mathfrak{A}$ in \ref{stcon1}. More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\dot{\in}, \in \cap A)\} \cup \Vec{X},$$ where $\dot{\in}$ is a binary relation symbol, $\Vec{X}$ is a function and $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in, \Vec{X})$.
     \item\label{idu} We identify a universe of set theory $W$ with the structure $(W; \in)$. This should not cause confusion in the circumstances we find ourselves in.
     \item A real is a subset of $\omega$. We identify a real with its characteristic function on $\omega$, as is standard in computability theory. As in \ref{idu}, this ambiguity should not cause any confusion.
-    \item When we say ``a sufficiently strong set theory'', we mean to emphasise the low strength of the theory. In such instances, well-known set theories far weaker than $\mathsf{ZFC}$, such as $\mathsf{Z^-}$ and $\mathsf{KP}$, typically work.
+    \item When we say ``a sufficiently strong set theory'', we mean to emphasise the low strength of the theory. In such instances, well-known set theories far weaker than $\mathsf{ZFC}$, such as $\mathsf{Z^-}$ and $\mathsf{KP\omega}$, typically work.
 \end{enumerate}
 \end{con}
 
-We overload and expand on Definition \ref{def25} when dealing with the special case of set-theoretic languages. Most of the time, the context should indicate clearly which interpretation to adopt. Nevertheless, we shall try as much as possible to disambiguate things in this respect.
+We overload and expand on Definition \ref{def25} when dealing with the special case of set-theoretic languages. 
 
 \begin{defi}\label{def27}
 Let $\phi$ be a first-order formula over a possibly expanded language of set theory. We inductively define what it means for $\phi$ to be $\Delta_n$, $\Pi_n$ or $\Sigma_n$ as $n$ ranges over the natural numbers.
@@ -261,11 +261,20 @@ Let $\phi$ be a first-order formula over a possibly expanded language of set the
         \begin{equation*}
             \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{.}
         \end{equation*}
-        \item $\phi$ is $\Delta_n$ iff $\phi$ is both $\Pi_n$ and $\Sigma_n$.
+        \item $\phi$ is $\Delta_n$ iff 
+        \begin{itemize}[label=$\circ$]
+            \item $\phi$ is $\Pi_n$, and
+            \item for some $\Sigma_n$ formula $\varphi$,
+            \begin{equation*}
+                \mathsf{ZFC} \vdash \phi \iff \varphi \text{.}
+            \end{equation*}
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
-Note that if $k = 0$ in \ref{2712}\ref{2712a} and \ref{2712}\ref{2712b}, then $\phi$ is $\Sigma_m$ and $\Pi_m$ respectively.
+Note that if $k = 0$ respectively in \ref{2712}\ref{2712a} and \ref{2712}\ref{2712b}, then $\phi$ is $\Sigma_m$ and $\Pi_m$ respectively.
 \end{defi}
+
+Most of the time, the context should indicate clearly which interpretation to adopt. Nevertheless, we shall try as much as possible to disambiguate things in this respect, and highlight each time Definition \ref{def27} is used instead of Definition \ref{def25}.
 
 \begin{defi}
 Let $X$ be a set and $\mathfrak{A}$ be a structure with base set $A$ in a possibly expanded language of set theory. We say $X$ is \emph{definable in the language associated with} $\mathfrak{A}$ iff $$X = \{y \in A : \mathfrak{A} \models \phi(y)\}$$ for some formula $\phi$ with one free variable in the language associated with $\mathfrak{A}$.
@@ -892,7 +901,7 @@ The canonical negation function $\neg$ on $V$ is defined as follows.
 
 Basically, $\neg$ takes a member of $\mathcal{L}$ as input, and check whether it is a string with first (leftmost) character $\ulcorner \neg \urcorner$. If so, it removes the leading $\ulcorner \neg \urcorner$; otherwise, it ``casts'' the input as a string (mapping the input to a string of length 1 containing the input as the only character, if the input is not already a string) and prepend $\ulcorner \neg \urcorner$ to the result. For ease of argument, we identify the string containing a single character $x$ with $x$ itself. 
 
-Note that $\neg$ is $\Delta_0$-definable with a single parameter $\ulcorner \neg \urcorner$, which we assume is in every of a sufficiently set theory. So the definition of $\neg$ is absolute for models of a sufficiently strong set theory.
+Note that $\neg$ is $\Delta_0$-definable (in the sense of Definition \ref{def27}) with a single parameter $\ulcorner \neg \urcorner$, which we assume is in every of a sufficiently set theory. So the definition of $\neg$ is absolute for models of a sufficiently strong set theory.
 
 We sometimes abuse notation and use $\neg$ the function and $\ulcorner \neg \urcorner$ the first-order logical symbol interchangeably. However, we take special care to distinguish them wherever is crucial in our definitions and arguments.
 
@@ -1075,7 +1084,7 @@ We say $\phi$ \emph{is} $\models^*_{\mathfrak{A}, \nu}$\emph{-nice for} $p$ iff 
 \end{defi}
 
 \begin{defi}\label{lsub}
-Let $\mathcal{L}^{*}_{0, \mathfrak{A}}$ consist of all $\Delta_0$ formulas (as per \ref{def271} of Definition \ref{def27}) in the language associated with $\mathfrak{A}$. Obviously, $\mathcal{L}^{*}_{0, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
+Let $\mathcal{L}^{*}_{0, \mathfrak{A}}$ consist of all $\Delta_0$ formulas (as per Definition \ref{def27}) in the language associated with $\mathfrak{A}$. Obviously, $\mathcal{L}^{*}_{0, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
 
 Let $\mathcal{L}^{*}_{1, \mathfrak{A}}$ be the smallest $\mathcal{L}'$ satisfying the following conditions:
 \begin{itemize}
@@ -1095,7 +1104,7 @@ A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ iff 
 
 We should perhaps highlight the following trivial observations. 
 \begin{enumerate}[label=(\Roman*)]
-    \item The statement $$\text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}$$ can be expressed as a formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$.
+    \item\label{s31I} The statement $$\text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}$$ can be expressed as a $\Delta_1$ formula (in accordance with Definition \ref{def27}) in the language associated with $\mathfrak{A}$.
     \item $\mathcal{L}^{*}_{1, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
 \end{enumerate}
 
@@ -1387,7 +1396,7 @@ in $\phi$.
 \end{defi}
 
 \begin{rem}\label{shcs}
-In the definition of $\mathsf{check}$, $\text{``} E(\neg x) \text{''}$ is a shorthand for both $$\ulcorner \exists z \ (\text{``} z = \neg (x) \text{''} \wedge E(z)) \urcorner$$ and $$\ulcorner \forall z \ (\text{``} z = \neg (x) \text{''} \implies E(z)) \urcorner,$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$z = \neg (x)$'' is expressible as a ($\Delta_0$, no less) formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. Particularly, since 
+In the definition of $\mathsf{check}$, $\text{``} E(\neg x) \text{''}$ is a shorthand for both $$\ulcorner \exists z \ (\text{``} z = \neg (x) \text{''} \wedge E(z)) \urcorner$$ and $$\ulcorner \forall z \ (\text{``} z = \neg (x) \text{''} \implies E(z)) \urcorner,$$ where $\neg (\cdot)$ is the negation function on $V$, so that ``$z = \neg (x)$'' is expressible as a formula in $\mathcal{L}^{*}_{0, \mathfrak{A}}$. Particularly, since 
 \begin{itemize}
     \item $\text{``} E(\neg x) \text{''}$ means exactly $$\ulcorner \forall z \ (\text{``} z = \neg (x) \text{''} \implies E(z)) \urcorner,$$ and
     \item $\mathfrak{A}$ is a model of a sufficiently strong set theory,
@@ -1697,11 +1706,12 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     logically follows.
     \end{proof}
 
-    Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to Remarks \ref{def2} and \ref{shcs}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
+    Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to \ref{s31I} and Remarks \ref{def2} and \ref{shcs}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
     \begin{itemize}
         \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
-        \item we may safely assume $\phi^{\dagger}$ to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, and
-        \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$.
+        \item we may safely assume $\phi^{\dagger}$ to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$,
+        \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$, and
+        \item after replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$, one obtains a formula which is provably equivalent over $\mathsf{ZFC}$ to some $\Sigma_1$ formula (in the sense of Definition \ref{def27}) $\varphi^{\dagger}$ over the language associated with $\mathfrak{A}$.
     \end{itemize}
     Thus $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, 
     \begin{itemize}
@@ -2348,7 +2358,7 @@ Sometimes, we want to pass certain parameters of an expression in $\mathcal{L}$ 
     \item $(i, n, \alpha) \mapsto \ulcorner \neg \dot{F}_i (n) = \alpha \urcorner$, and
     \item $(\delta, \lambda, x) \mapsto \ulcorner \neg x \in \dot{X}_{\delta, \lambda} \urcorner$,
 \end{enumerate}
-with their domains restricted to $H(\lambda_f)$. Note that under this domain restriction, $\chi_1$, $\chi_2$, $\chi_3$ and $\chi_4$ are all members of $H(\kappa)$; in fact, they are all definable functions of $H(\lambda_f)$. For brevity's and clarity's sake, we will abuse notation and suppress mention of said functions, whenever it is clear that we are using variables as placeholders for parameters in our construction of $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences involving the symbol $\ulcorner E \urcorner$ --- see e.g. Definition \ref{defc}. Since the language associated with $\mathfrak{A}$ is of the lowest complexity class ($\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$) in our classification of $\mathcal{L}^{*}_{\mathfrak{A}}$ formulas, this method of passing parameters incurs no additional cost to the complexity of any $\mathcal{L}^{*}_{\mathfrak{A}}$ sentence thus abbreviated.
+with their domains restricted to $H(\lambda_f)$. Note that under this domain restriction, $\chi_1$, $\chi_2$, $\chi_3$ and $\chi_4$ are all members of $H(\kappa)$; in fact, they are all definable functions of $H(\lambda_f)$. Applications of said functions are thus $\Delta_0$ (as per Definition \ref{def27}) over the language associated with $\mathfrak{A}$. For brevity's and clarity's sake, we will abuse notation and suppress mention of these functions, whenever it is clear that we are using variables as placeholders for parameters in our construction of $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences involving the symbol $\ulcorner E \urcorner$ --- see e.g. Definition \ref{defc}. Since $\Delta_0$ formulas over the language associated with $\mathfrak{A}$ is of the lowest complexity class ($\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$) in our classification of $\mathcal{L}^{*}_{\mathfrak{A}}$ formulas, this method of passing parameters incurs no additional cost to the complexity of any $\mathcal{L}^{*}_{\mathfrak{A}}$ sentence thus abbreviated.
 \end{rem}
 
 By our choice of $C$, if $\lambda \in C$, then $\mathcal{L} \cap Q_{\lambda}$ is precisely the smallest set closed under negation, that contains expressions of the following types: 
@@ -5158,7 +5168,16 @@ As a consequence, we can assume $\mathfrak{T}$ has a countable transitive closur
 
 Ideally, in the spirit of Lemmas \ref{genericls} and \ref{genericlscor}, we want to prove a generic version of Lemma \ref{modelinV}. This can be done through a relatively effective version of Theorem \ref{genericdichom} for a certain class of countable TCIs, so as to kill two birds with one stone. Some definitions and facts are prerequisites.
 
-For the rest of this subsection, fix a bijection $$f^{\dagger} : \mathrm{Var} \cup \{x : x \text{ is a first-order logical symbol}\} \cup \{\ulcorner \in \urcorner\} \longrightarrow \{n < \omega : n \text{ is odd}\}.$$
+For the rest of this subsection,
+\begin{itemize}
+    \item fix a bijection 
+    \begin{align*}
+        f^{\dagger} : \ & \mathrm{Var} \cup \{x : x \text{ is a first-order logical symbol}\} \cup \{\ulcorner \in \urcorner\} \\
+        & \longrightarrow \{n < \omega : n \text{ is odd}\} \text{,}
+    \end{align*}
+    and
+    \item interpret $\Delta_n$, $\Pi_n$ and $\Sigma_n$ formulas the way they are defined in Definition \ref{def27}.
+\end{itemize}
 
 \begin{defi}
 For any countable set $X$, we say $(r, f)$ \emph{witnesses} $(X; \in)$ \emph{is computable} iff
