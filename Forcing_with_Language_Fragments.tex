@@ -232,16 +232,17 @@ Unless specified otherwise, we follow the standard definitions of concepts typic
 \begin{enumerate}[label=(\arabic*)]
     \item Unless otherwise specified, $V$ always refers to the universe we are currently working in. For all practical purposes, we can assume it is a countable transitive model of $\mathsf{ZFC}$, so that it doubles as a ground model in case forcing arguments are to be run.
     \item We adopt the set-theoretic interpretation of functions as sets of ordered pairs satisfying certain properties. So when we say a function is definable, we actually mean its graph is definable as a set --- usually a subset of an ambient structure that should be clear in context, if not explicitly mentioned.
+    \item A first-order formula is \emph{in the language of set theory} iff it is a formula over the signature $\{\ulcorner \in \urcorner\}$.
     \item\label{stcon1} We say a structure $\mathfrak{A}$ is \emph{a structure in the language of set theory} iff 
     \begin{itemize}
         \item the signature of $\mathfrak{A}$ is a singleton set,
         \item the signature of $\mathfrak{A}$ contains a binary relation symbol that is interpreted in $\mathfrak{A}$ as the membership relation on $V$ restricted to the base set of $\mathfrak{A}$.
     \end{itemize}
     More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\dot{\in}, \in \cap A)\},$$ where $\dot{\in}$ is a binary relation symbol and $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in)$.
+    \item A first-order formula is \emph{in a possibly expanded language of set theory} iff it is a formula over some signature $\sigma$ satisfying $\ulcorner \in \urcorner \in \sigma$.
     \item We say a structure $\mathfrak{A}$ is \emph{a structure in a possibly expanded language of set theory} iff we omit the cardinality requirement on the signature of $\mathfrak{A}$ in \ref{stcon1}. More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\dot{\in}, \in \cap A)\} \cup \Vec{X},$$ where $\dot{\in}$ is a binary relation symbol, $\Vec{X}$ is a function and $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in, \Vec{X})$.
     \item\label{idu} We identify a universe of set theory $W$ with the structure $(W; \in)$. This should not cause confusion in the circumstances we find ourselves in.
     \item A real is a subset of $\omega$. We identify a real with its characteristic function on $\omega$, as is standard in computability theory. As in \ref{idu}, this ambiguity should not cause any confusion.
-    \item When we say ``a sufficiently strong set theory'', we mean to emphasise the low strength of the theory. In such instances, well-known set theories far weaker than $\mathsf{ZFC}$, such as $\mathsf{Z^-}$ and $\mathsf{KP\omega}$, typically work.
 \end{enumerate}
 \end{con}
 
@@ -277,14 +278,14 @@ Note that if $k = 0$ respectively in \ref{2712}\ref{2712a} and \ref{2712}\ref{27
 Most of the time, the context should indicate clearly which interpretation to adopt. Nevertheless, we shall try as much as possible to disambiguate things in this respect, and highlight each time Definition \ref{def27} is used instead of Definition \ref{def25}.
 
 \begin{defi}
-Let $X$ be a set and $\mathfrak{A}$ be a structure with base set $A$ in a possibly expanded language of set theory. We say $X$ is \emph{definable in the language associated with} $\mathfrak{A}$ iff $$X = \{y \in A : \mathfrak{A} \models \phi(y)\}$$ for some formula $\phi$ with one free variable in the language associated with $\mathfrak{A}$.
+Let $X$ be a set and $\mathfrak{A}$ be a structure in a possibly expanded language of set theory with base set $A$. We say $X$ is \emph{definable in the language associated with} $\mathfrak{A}$ iff $$X = \{y \in A : \mathfrak{A} \models \phi(y)\}$$ for some formula $\phi$ with one free variable in the language associated with $\mathfrak{A}$.
 \end{defi}
 
 \begin{defi}\label{def29}
 Let 
 \begin{itemize}
     \item $X$ be a set,
-    \item $\mathfrak{A}$ be a structure with base set $A$ in a possibly expanded language of set theory, and
+    \item $\mathfrak{A}$ be a structure in a possibly expanded language of set theory with base set $A$, and
     \item $n < \omega$. 
 \end{itemize} 
 We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) \emph{in the language associated with} $\mathfrak{A}$ iff $$X = \{y \in A : \mathfrak{A} \models \phi(y)\}$$ for some $\Sigma_n$ (resp. $\Pi_n$ and $\Delta_n$) formula (in accordance with Definition \ref{def27}) $\phi$ with one free variable in the language associated with $\mathfrak{A}$.
@@ -296,7 +297,7 @@ We can generalise Definition \ref{def29} by relaxing the language requirement.
 Let 
 \begin{itemize}
     \item $X$ be a class, 
-    \item $\mathfrak{A}$ be a structure with base class $A$ and signature $\sigma$ such that 
+    \item $\mathfrak{A}$ be a structure in a possibly expanded language of set theory with base class $A$ and signature $\sigma$, such that 
     \begin{itemize}[label=$\circ$]
         \item $A$ is transitive, and
         \item $\mathfrak{A} \models \mathsf{ZFC}$, and
@@ -305,13 +306,35 @@ Let
 \end{itemize}
 We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) \emph{in} $\mathfrak{A}$ iff $$X = \{y \in A : \mathfrak{A} \models \phi(y)\}$$ for some $\Sigma_n$ (resp. $\Pi_n$ and $\Delta_n$) formula (in the sense of Definition \ref{def27}) $\phi$ with one free variable over $\sigma$.
 
-If $\mathfrak{A} = (A; \in)$, we may identify $\mathfrak{A}$ with $A$ and say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) \emph{in} $A$ iff $X$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in $\mathfrak{A}$. 
+If in addition,
+\begin{itemize}
+    \item $\mathfrak{A} = (A; \in)$, and
+    \item $\sigma = \{\ulcorner \in \urcorner\}$,
+\end{itemize}
+we may identify $\mathfrak{A}$ with $A$ and say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) \emph{in} $A$ iff $X$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in $\mathfrak{A}$. 
 
-We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) iff $X$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in $\mathfrak{A}'$ for every structure $\mathfrak{A}'$ satisfying
+We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) iff $X$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in $\mathfrak{A}'$ for every structure $\mathfrak{A}'$ in a possibly expanded language of set theory such that
 \begin{itemize}[label=$\circ$]
     \item $\mathfrak{A}'$ has a transitive base class, and
     \item $\mathfrak{A}' \models \mathsf{ZFC}$.
 \end{itemize}
+\end{defi}
+
+\begin{defi}
+Let $\mathfrak{A}$ be a structure in a possibly expanded language of set theory with signature $\sigma$. When we say 
+\begin{equation}\label{eq11}
+    \text{``}\mathfrak{A} \text{ is a model of a sufficiently strong set theory'',} 
+\end{equation}
+we mean to emphasise the low strength of the set theory $\mathfrak{A}$ satisfies. To be more concrete, we may expand \textit{Kripke-Platek set theory}, denoted $\mathsf{KP}$, to fit the signature of $\mathfrak{A}$ as follows:
+\begin{itemize}
+    \item index the Axiom Schema of Induction by the set of all formulas over $\sigma$,
+    \item index both the Axiom Schema of $\Delta_0$-separation and the Axiom Schema of $\Delta_0$-collection by the set of all $\Delta_0$ formulas (as per Definition \ref{def27}) over $\sigma$,
+    \item leave all the other axioms of $\mathsf{KP}$ untouched.
+\end{itemize}
+Then one may always assume (\ref{eq11}) to mean 
+\begin{equation*}
+    \text{``}\mathfrak{A} \text{ is a model of the expanded version of } \mathsf{KP} \text{''.} 
+\end{equation*}
 \end{defi}
 
 \begin{defi}
@@ -1116,7 +1139,7 @@ We say $\phi$ \emph{is} $\models^*_{\mathfrak{A}, \nu}$\emph{-nice for} $p$ iff 
 \end{defi}
 
 \begin{defi}\label{lsub}
-Let $\mathcal{L}^{*}_{0, \mathfrak{A}}$ consist of all $\Delta_0$ formulas (as per Definition \ref{def27}) in the language associated with $\mathfrak{A}$. Obviously, $\mathcal{L}^{*}_{0, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
+Let $\mathcal{L}^{*}_{0, \mathfrak{A}}$ consist of all $\Delta_0$ formulas (in a accordance with Definition \ref{def27}) in the language associated with $\mathfrak{A}$. Obviously, $\mathcal{L}^{*}_{0, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
 
 Let $\mathcal{L}^{*}_{1, \mathfrak{A}}$ be the smallest $\mathcal{L}'$ satisfying the following conditions:
 \begin{itemize}
@@ -1136,7 +1159,10 @@ A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ iff 
 
 We should perhaps highlight the following trivial observations. 
 \begin{enumerate}[label=(\Roman*)]
-    \item\label{s31I} The statement $$\text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}$$ can be expressed as a $\Delta_1$ formula (in accordance with Definition \ref{def27}) in the language associated with $\mathfrak{A}$.
+    \item\label{s31I} The statement $$\text{``}\emptyset \neq p \subset \mathcal{L} \wedge |p| < \omega \text{''}$$ can be expressed as a $\Delta_1$ formula (going by Definition \ref{def27}) in the language associated with $\mathfrak{A}$. In fact, said statement can be expressed as a $\Delta_0$ formula in the language of set theory if 
+    \begin{equation*}
+        \mathfrak{A} \models \text{``there are no infinite sets''.}
+    \end{equation*}
     \item $\mathcal{L}^{*}_{1, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
 \end{enumerate}
 
@@ -1440,6 +1466,7 @@ we have that
 \end{align*}
 in case 
 \begin{itemize}
+    \item $X$ is a set in some outer model of $V$,
     \item $\nu$ is a $\mathfrak{A}$-valuation, and
     \item $\ulcorner p \urcorner$ is a variable outside $\{\ulcorner x \urcorner, \ulcorner z \urcorner\}$ bound in neither (the formal statement of)
     \begin{equation*}
@@ -1738,12 +1765,27 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     logically follows.
     \end{proof}
 
-    Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to \ref{s31I} and Remarks \ref{def2} and \ref{shcs}, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
+    Claim \ref{claim335} informs us that the set $$D_2 := \{q \in P : q \models^{*}_{\mathfrak{A}} \phi^{\dagger}\}$$ is dense below $p$ in $\mathbb{P}$. With reference to \ref{s31I} and Remarks \ref{def2} and \ref{shcs}, as well as Definition \ref{def27} for what it means to be a $\Sigma_1$ formula, $D_2$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, since
     \begin{itemize}
         \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
         \item we may safely assume $\phi^{\dagger}$ to be $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$,
-        \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$, and
-        \item after replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$, one obtains a formula which is provably equivalent over $\mathsf{ZFC}$ to some $\Sigma_1$ formula (in the sense of Definition \ref{def27}) $\varphi^{\dagger}$ over the language associated with $\mathfrak{A}$.
+        \item the act of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$ does not alter the quantification structure of $\phi^{\dagger}$,
+        \item $\mathfrak{A}$ being a model of a sufficiently strong set theory means that for each 
+        \begin{itemize}[label=$\circ$]
+            \item $\Sigma_1$ formula $\varphi^+$, and
+            \item pair of variables $\{\ulcorner z \urcorner, \ulcorner p \urcorner\}$ with both $\ulcorner z \urcorner$ and $\ulcorner p \urcorner$ not being bound in $\varphi^+$,
+        \end{itemize}
+        there exists a $\Sigma_1$ formula $\phi^+$ satisfying
+        \begin{align*}
+            X \models^*_{\mathfrak{A}, \nu} \ulcorner \forall z \ (z \in p \implies \varphi^+) \urcorner \iff X \models^*_{\mathfrak{A}, \nu} \phi^+
+        \end{align*}
+        in case 
+        \begin{itemize}[label=$\circ$]
+            \item $X$ is a set in some outer model of $V$, and
+            \item $\nu$ is a $\mathfrak{A}$-valuation, 
+        \end{itemize}
+        and thus,
+        \item after replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$, one obtains a formula which is provably equivalent over $\mathsf{ZFC}$ to some $\Sigma_1$ formula $\varphi^{\dagger}$ in the language associated with $\mathfrak{A}$.
     \end{itemize}
     Thus $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, 
     \begin{itemize}
@@ -1978,7 +2020,7 @@ Let $g$ be $Col(\omega, \lambda)$-generic over $W$ with $q \in g$, so that $g$ i
     \item $p \subset \Sigma$, and
     \item $``\Sigma \text{ is } \mathcal{L}\text{-nice}"$, 
 \end{itemize}
-then $\varphi$ is a $\Sigma_1$ (in fact, $\Delta_1$, although that delineation is unnecessary here) formula in the language of set theory, with parameters among $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$. This is because $\varphi$ is equivalent to the statement of there being a function $f$ with domain $\mathcal{L}^*_{\mathfrak{A}}$ --- a $\Delta_0$-definable subset of $A$ --- and codomain $\{0, 1\}$, such that 
+then $\varphi$ is a $\Sigma_1$ (in fact, $\Delta_1$, although that delineation is unnecessary here) formula in the language of set theory (see Definition \ref{def27}), with parameters among $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$. This is because $\varphi$ is equivalent to the statement of there being a function $f$ with domain $\mathcal{L}^*_{\mathfrak{A}}$ --- a $\Delta_0$-definable subset of $A$ --- and codomain $\{0, 1\}$, such that 
 \begin{itemize}
     \item $f$ fulfils the inductive properties of Tarski's definition of the satisfaction relation, applied to the structure $(A; \in, \Vec{R}, \Sigma)$,
     \item $y = \{\phi \in \mathcal{L}^*_{\mathfrak{A}} : f(\phi) = 1\}$, 
@@ -2390,7 +2432,7 @@ Sometimes, we want to pass certain parameters of an expression in $\mathcal{L}$ 
     \item $(i, n, \alpha) \mapsto \ulcorner \neg \dot{F}_i (n) = \alpha \urcorner$, and
     \item $(\delta, \lambda, x) \mapsto \ulcorner \neg x \in \dot{X}_{\delta, \lambda} \urcorner$,
 \end{enumerate}
-with their domains restricted to $H(\lambda_f)$. Note that under this domain restriction, $\chi_1$, $\chi_2$, $\chi_3$ and $\chi_4$ are all members of $H(\kappa)$; in fact, they are all definable functions of $H(\lambda_f)$. The results of evaluating said functions are thus $\Delta_0$-definable in the language associated with $\mathfrak{A}$. For brevity's and clarity's sake, we will abuse notation and suppress mention of these functions, whenever it is clear that we are using variables as placeholders for parameters in our construction of $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences involving the symbol $\ulcorner E \urcorner$ --- see e.g. Definition \ref{defc}. Since $\Delta_0$ formulas over the language associated with $\mathfrak{A}$ is of the lowest complexity class ($\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$) in our classification of $\mathcal{L}^{*}_{\mathfrak{A}}$ formulas, this method of passing parameters incurs no additional cost to the complexity of any $\mathcal{L}^{*}_{\mathfrak{A}}$ sentence thus abbreviated.
+with their domains restricted to $H(\lambda_f)$. Note that under this domain restriction, $\chi_1$, $\chi_2$, $\chi_3$ and $\chi_4$ are all members of $H(\kappa)$; in fact, they are all definable functions of $H(\lambda_f)$. The results of evaluating said functions are thus $\Delta_0$-definable in the language associated with $\mathfrak{A}$. For brevity's and clarity's sake, we will abuse notation and suppress mention of these functions, whenever it is clear that we are using variables as placeholders for parameters in our construction of $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences involving the symbol $\ulcorner E \urcorner$ --- see e.g. Definition \ref{defc}. Since $\Delta_0$ formulas in the language associated with $\mathfrak{A}$ is of the lowest complexity class ($\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$) in our classification of $\mathcal{L}^{*}_{\mathfrak{A}}$ formulas, this method of passing parameters incurs no additional cost to the complexity of any $\mathcal{L}^{*}_{\mathfrak{A}}$ sentence thus abbreviated.
 \end{rem}
 
 By our choice of $C$, if $\lambda \in C$, then $\mathcal{L} \cap Q_{\lambda}$ is precisely the smallest set closed under negation, that contains expressions of the following types: 
@@ -4575,7 +4617,7 @@ In the same vein as what was elaborated after Definition \ref{defl}, we will use
         \emptyset & \text{otherwise},
     \end{cases}
 \end{align*}
-which is defined on $V$ by a $\Delta_0$ formula.
+which is defined in $V$ by a $\Delta_0$ formula in the language of set theory (as per Definition \ref{def27}).
 
 As in the case of the proof of Lemma \ref{notion1}, we will abuse notation and abbreviate the use of $\chi_{\mathfrak{T}}$ with straightforward substitutions of variables for parameters in the writing of $({\mathcal{L}_{\mathfrak{T}}})^*_{\mathfrak{A}_{\mathfrak{T}}}$ sentences. There are no intrinsic ``hidden costs'' in terms of complexity to such a presentation of $({\mathcal{L}_{\mathfrak{T}}})^*_{\mathfrak{A}_{\mathfrak{T}}}$ sentences.
 \end{rem}
@@ -4671,7 +4713,7 @@ Now, we define $\Gamma_{\mathfrak{T}}$ as follows:
         \item if $B$ is a subsequence of $\phi$ containing only quantifiers, then $B$ is a subsequence of $A$, and
         \item if $B'$ is a subsequence of $\phi'$ containing only quantifiers, then $B'$ is a subsequence of $A$.
     \end{itemize}
-    Now, convert $\phi'$ to a logically equivalent formula $\phi^*$ in prenex normal form, through an application of the standard conversion algorithm. This algorithm preserves the quantification structure of $\phi'$ --- so that $\phi^*$ and $\phi$ have the same quantification structure --- whenever $\phi$ is in prenex normal form.
+    Now, convert $\phi'$ to a logically equivalent formula $\phi^*$ (which exists because $\mathfrak{A}_{\mathfrak{T}}$ is a model of a sufficiently strong set theory) in prenex normal form, through an application of the standard conversion algorithm. This algorithm preserves the quantification structure of $\phi'$ --- so that $\phi^*$ and $\phi$ have the same quantification structure --- whenever $\phi$ is in prenex normal form.
     
     Enforce that $\phi^* \in \Gamma_{\mathfrak{T}}$. 
     \item\label{gamma7} Nothing else is in $\Gamma_{\mathfrak{T}}$.
@@ -4727,7 +4769,7 @@ There is a formula $\psi_{trans}$ in three free variables, absolute for transiti
 \end{lem}
 
 \begin{proof}
-Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula, because the binary relation $\models^*$ is $\Delta_1$-definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$-definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
+Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula in the language of set theory (following Definition \ref{def27}), because the binary relation $\models^*$ is $\Delta_1$-definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$-definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
 \end{proof}
 
 \begin{rem}\label{swapA}
