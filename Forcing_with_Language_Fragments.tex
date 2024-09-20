@@ -322,21 +322,22 @@ We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\
 \end{defi}
 
 \begin{defi}
-Let $\mathfrak{A}$ be a structure in a possibly expanded language of set theory with signature $\sigma$. When we say 
+Let $\mathfrak{A}$ be a structure in a possibly expanded language of set theory. When we say 
 \begin{equation}\label{eq11}
-    \text{``}\mathfrak{A} \text{ is a model of a sufficiently strong set theory'',} 
+    \text{``}\mathfrak{A} \textit{ is a model of a sufficiently strong set theory'',} 
 \end{equation}
-we mean to emphasise the low strength of the set theory $\mathfrak{A}$ satisfies. To be more concrete, we may expand \textit{Kripke-Platek set theory}, denoted $\mathsf{KP}$, to $\mathsf{KP}(\mathfrak{A})$ so as to fit the signature of $\mathfrak{A}$. This can be done as follows:
+we mean to emphasise the low strength of the set theory $\mathfrak{A}$ satisfies. 
+
+In more concrete terms, a \emph{set theory} is a set of first-order formulas in the language of set theory. Examples of set theories include
 \begin{itemize}
-    \item index the Axiom Schema of Induction by the set of all formulas over $\sigma$,
-    \item index both the Axiom Schema of $\Delta_0$-separation and the Axiom Schema of $\Delta_0$-collection by the set of all $\Delta_0$ formulas (as per Definition \ref{def27}) over $\sigma$,
-    \item leave all the other axioms of $\mathsf{KP}$ untouched.
-\end{itemize}
-Then one may always assume (\ref{eq11}) to mean 
+    \item the set of axioms of $\mathsf{ZFC}$, and
+    \item the set of axioms of \textit{Kripke-Platek set theory}, denoted $\mathsf{KP}$.
+\end{itemize} 
+For convenience's sake, one may always assume (\ref{eq11}) to mean 
 \begin{quote}
-    $\text{``}\mathfrak{A} \text{ is a model of some first-order theory } T \text{ such that}$ 
+    $\text{``}\mathfrak{A} \models T \text{ for some set theory } T \text{ such that}$ 
     \begin{itemize}
-        \item $\mathsf{KP}(\mathfrak{A}) \subset T$, and
+        \item $\mathsf{KP} \subset T$, and
         \item $T \vdash \ulcorner \forall x \ (\text{``} x \text{ is Dedekind-finite} \iff x \text{ is finite''}) \urcorner$''.
     \end{itemize}
 \end{quote}
@@ -960,7 +961,12 @@ The canonical negation function $\neg$ on $V$ is defined as follows.
 Basically, $\neg$ takes a member of $\mathcal{L}$ as input, and check whether it is a string with first (leftmost) character $\ulcorner \neg \urcorner$. If so, it removes the leading $\ulcorner \neg \urcorner$; otherwise, it ``casts'' the input as a string (mapping the input to a string of length 1 containing the input as the only character, if the input is not already a string) and prepend $\ulcorner \neg \urcorner$ to the result. For ease of argument, we identify the string containing a single character $x$ with $x$ itself. 
 
 \begin{rem}\label{rem32}
-Note that $\neg$ is $\Delta_0$-definable with a single parameter $\ulcorner \neg \urcorner$, which we assume is in every sufficiently transitive model of a sufficiently strong set theory. So the definition of $\neg$ is absolute for all such models of set theory.
+Note that $\neg$ is $\Delta_0$-definable with a single parameter $\ulcorner \neg \urcorner$, which we assume is in every $\mathfrak{A}$ satisfying
+\begin{itemize}
+    \item $\mathfrak{A}$ is a structure in a possibly expanded language of set theory, and
+    \item $\mathfrak{A}$ is a ``sufficiently transitive'' (see \ref{343} of Definition \ref{lsuitable} for a formal treatment of ``sufficiently transitive'') model of a sufficiently strong set theory.
+\end{itemize} 
+So the definition of $\neg$ is absolute for all such structures $\mathfrak{A}$.
 \end{rem}
 
 We sometimes abuse notation and use $\neg$ the function and $\ulcorner \neg \urcorner$ the first-order logical symbol interchangeably. However, we take special care to distinguish them wherever is crucial in our definitions and arguments.
@@ -975,7 +981,7 @@ Before we proceed, fix a set $\mathcal{L}$ that is closed under negation and doe
 A structure $\mathfrak{A} = (A; \in, \Vec{R})$ in a possibly expanded language of set theory is $\mathcal{L}$\emph{-suitable} iff
 \begin{enumerate}[label=(\alph*)]
     \item $\Vec{R}$ is a set of relations on $A$,
-    \item\label{342} $(A; \in)$ is a model of a sufficiently strong set theory,
+    \item\label{342} $\mathfrak{A}$ is a model of a sufficiently strong set theory,
     \item\label{343} $A$ is \emph{finitely transitive}: that is, 
     \begin{equation*}
         x \in A \iff x \subset A 
