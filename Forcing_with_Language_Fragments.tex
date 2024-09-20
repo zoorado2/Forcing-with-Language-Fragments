@@ -163,8 +163,8 @@ Unless specified otherwise, we follow the standard definitions of concepts relat
     Sometimes, when the correspondence between a signature and its interpretation is clear, we might write $(A; \mathcal{I})$ as $(A; \Vec{S})$, where $\Vec{S}$ is some ordering of $ran(\mathcal{I})$.
     \item The signature of a first-order language or structure can contain only relation symbols of a non-zero finite arity, function symbols of a non-zero finite arity, and constant symbols, identified as follows:
     \begin{itemize}
-        \item an $n$-ary relation symbol is a triple of the form $(X, 0, n)$,
-        \item an $n$-ary function symbol is a triple of the form $(X, 1, n)$, and
+        \item a $n$-ary relation symbol is a triple of the form $(X, 0, n)$,
+        \item a $n$-ary function symbol is a triple of the form $(X, 1, n)$, and
         \item a constant symbol is a pair of the form $(X, 2)$.
     \end{itemize}
     We call any such symbol a \emph{signature-related symbol}.
@@ -197,7 +197,7 @@ Given any set $X$ and any signature $\sigma$, the \emph{language associated with
 \end{defi}
 
 \begin{defi}
-For any structure $\mathfrak{A} = (A; \mathcal{I})$, an $\mathfrak{A}$\emph{-valuation} is a function from $\mathrm{Var}$ into $A$.
+For any structure $\mathfrak{A} = (A; \mathcal{I})$, a $\mathfrak{A}$\emph{-valuation} is a function from $\mathrm{Var}$ into $A$.
 \end{defi}
 
 \begin{defi}
@@ -232,15 +232,16 @@ Unless specified otherwise, we follow the standard definitions of concepts typic
 \begin{enumerate}[label=(\arabic*)]
     \item Unless otherwise specified, $V$ always refers to the universe we are currently working in. For all practical purposes, we can assume it is a countable transitive model of $\mathsf{ZFC}$, so that it doubles as a ground model in case forcing arguments are to be run.
     \item We adopt the set-theoretic interpretation of functions as sets of ordered pairs satisfying certain properties. So when we say a function is definable, we actually mean its graph is definable as a set --- usually a subset of an ambient structure that should be clear in context, if not explicitly mentioned.
+    \item We fix in $V$, a distinguished first-order relation symbol $\ulcorner \in \urcorner$.
     \item A first-order formula is \emph{in the language of set theory} iff it is a formula over the signature $\{\ulcorner \in \urcorner\}$.
     \item\label{stcon1} We say a structure $\mathfrak{A}$ is \emph{a structure in the language of set theory} iff 
     \begin{itemize}
-        \item the signature of $\mathfrak{A}$ is a singleton set,
-        \item the signature of $\mathfrak{A}$ contains a binary relation symbol that is interpreted in $\mathfrak{A}$ as the membership relation on $V$ restricted to the base set of $\mathfrak{A}$.
+        \item the signature of $\mathfrak{A}$ is the singleton set $\{\ulcorner \in \urcorner\}$, and
+        \item $\mathfrak{A}$ interprets $\ulcorner \in \urcorner$ as the membership relation on $V$ restricted to the base set of $\mathfrak{A}$.
     \end{itemize}
-    More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\dot{\in}, \in \cap A)\},$$ where $\dot{\in}$ is a binary relation symbol and $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in)$.
+    More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\ulcorner \in \urcorner, \in \cap A)\},$$ where $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in)$.
     \item A first-order formula is \emph{in a possibly expanded language of set theory} iff it is a formula over some signature $\sigma$ satisfying $\ulcorner \in \urcorner \in \sigma$.
-    \item We say a structure $\mathfrak{A}$ is \emph{a structure in a possibly expanded language of set theory} iff we omit the cardinality requirement on the signature of $\mathfrak{A}$ in \ref{stcon1}. More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\dot{\in}, \in \cap A)\} \cup \Vec{X},$$ where $\dot{\in}$ is a binary relation symbol, $\Vec{X}$ is a function and $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in, \Vec{X})$.
+    \item We say a structure $\mathfrak{A}$ is \emph{a structure in a possibly expanded language of set theory} iff we omit the cardinality requirement on the signature of $\mathfrak{A}$ in \ref{stcon1}. More formally, $$\mathfrak{A} = (A; \mathcal{I}) \text{ and } \mathcal{I} = \{(\ulcorner \in \urcorner, \in \cap A)\} \cup \Vec{X},$$ where $\Vec{X}$ is some function and $\in$ is the membership relation on $V$. In this case, we can just write $\mathfrak{A} = (A; \in, \Vec{X})$.
     \item\label{idu} We identify a universe of set theory $W$ with the structure $(W; \in)$. This should not cause confusion in the circumstances we find ourselves in.
     \item A real is a subset of $\omega$. We identify a real with its characteristic function on $\omega$, as is standard in computability theory. As in \ref{idu}, this ambiguity should not cause any confusion.
 \end{enumerate}
@@ -325,16 +326,20 @@ Let $\mathfrak{A}$ be a structure in a possibly expanded language of set theory 
 \begin{equation}\label{eq11}
     \text{``}\mathfrak{A} \text{ is a model of a sufficiently strong set theory'',} 
 \end{equation}
-we mean to emphasise the low strength of the set theory $\mathfrak{A}$ satisfies. To be more concrete, we may expand \textit{Kripke-Platek set theory}, denoted $\mathsf{KP}$, to fit the signature of $\mathfrak{A}$ as follows:
+we mean to emphasise the low strength of the set theory $\mathfrak{A}$ satisfies. To be more concrete, we may expand \textit{Kripke-Platek set theory}, denoted $\mathsf{KP}$, to $\mathsf{KP}(\mathfrak{A})$ so as to fit the signature of $\mathfrak{A}$. This can be done as follows:
 \begin{itemize}
     \item index the Axiom Schema of Induction by the set of all formulas over $\sigma$,
     \item index both the Axiom Schema of $\Delta_0$-separation and the Axiom Schema of $\Delta_0$-collection by the set of all $\Delta_0$ formulas (as per Definition \ref{def27}) over $\sigma$,
     \item leave all the other axioms of $\mathsf{KP}$ untouched.
 \end{itemize}
 Then one may always assume (\ref{eq11}) to mean 
-\begin{equation*}
-    \text{``}\mathfrak{A} \text{ is a model of the expanded version of } \mathsf{KP} \text{''.} 
-\end{equation*}
+\begin{quote}
+    $\text{``}\mathfrak{A} \text{ is a model of some first-order theory } T \text{ such that}$ 
+    \begin{itemize}
+        \item $\mathsf{KP}(\mathfrak{A}) \subset T$, and
+        \item $T \vdash \ulcorner \forall x \ (\text{``} x \text{ is Dedekind-finite} \iff x \text{ is finite''}) \urcorner$''.
+    \end{itemize}
+\end{quote}
 \end{defi}
 
 \begin{defi}
@@ -967,7 +972,7 @@ A set $\mathcal{L}$ is \emph{closed under negation} iff for each $\phi \in \math
 Before we proceed, fix a set $\mathcal{L}$ that is closed under negation and does not contain any variable symbol. We will stick to this $\mathcal{L}$ for the rest of this section.
 
 \begin{defi}\label{lsuitable}
-A structure $\mathfrak{A} = (A; \in, \Vec{R})$ is $\mathcal{L}$\emph{-suitable} iff
+A structure $\mathfrak{A} = (A; \in, \Vec{R})$ in a possibly expanded language of set theory is $\mathcal{L}$\emph{-suitable} iff
 \begin{itemize}
     \item $\Vec{R}$ is a set of relations on $A$,
     \item $(A; \in)$ is a model of a sufficiently strong set theory,
@@ -978,7 +983,7 @@ A structure $\mathfrak{A} = (A; \in, \Vec{R})$ is $\mathcal{L}$\emph{-suitable} 
 
 We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
 
-Fix an $\mathcal{L}$-suitable $\mathfrak{A} = (A; \in, \Vec{R})$ for the rest of this section.
+Fix a $\mathcal{L}$-suitable $\mathfrak{A} = (A; \in, \Vec{R})$ for the rest of this section.
 
 \begin{defi}
 Define $\mathcal{L}^{*}_{\mathfrak{A}}$ to be the language associated with $(A; \{\in, \Vec{R}, E\})$, where $E$ is a unary predicate symbol not occurring in $\Vec{R}$. 
@@ -1009,7 +1014,7 @@ Let $\phi\in \mathcal{L}^{*}_{\mathfrak{A}}$. Define $\mathsf{pos}(\phi)$ to be 
 Let 
 \begin{itemize}
     \item $\phi\in \mathcal{L}^{*}_{\mathfrak{A}}$, and
-    \item $\nu$ be any subset of an $\mathfrak{A}$-valuation.
+    \item $\nu$ be any subset of a $\mathfrak{A}$-valuation.
 \end{itemize}
 Then $\nu^*(\phi)$ is defined to be the sentence in $\mathcal{L}^{*}_{\mathfrak{A}}$ resulting from the following operation:
 \begin{itemize}
@@ -1021,7 +1026,7 @@ Then $\nu^*(\phi)$ is defined to be the sentence in $\mathcal{L}^{*}_{\mathfrak{
 Let 
 \begin{itemize}
     \item $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, and
-    \item $\nu$ be an $\mathfrak{A}$-valuation.
+    \item $\nu$ be a $\mathfrak{A}$-valuation.
 \end{itemize} 
 We say $X \models^*_{\mathfrak{A}, \nu} \phi$ iff $$(A; \in, \Vec{R}, X \cap A) \models \nu^*(\phi)(\Vec{x}; \in, \Vec{R}, E).$$ 
 We say $X \models^*_{\mathfrak{A}} \phi$ iff for every $\mathfrak{A}$-valuation $\nu$, $X \models^*_{\mathfrak{A}, \nu} \phi$.
@@ -1057,7 +1062,7 @@ Note that for any $\mathcal{L}$-nice $\Sigma$ and any $x \in \mathcal{L}$, $$x \
 Let 
 \begin{itemize}
     \item $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, and
-    \item $\nu$ be an $\mathfrak{A}$-valuation.
+    \item $\nu$ be a $\mathfrak{A}$-valuation.
 \end{itemize}
 Then for every $\mathcal{L}$-nice $\Sigma$ in every weak outer model of $V$, $$\Sigma \models^*_{\mathfrak{A}, \nu} \phi \iff \Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{pos}(\phi).$$
 \end{lem}
@@ -1076,7 +1081,7 @@ The rest of the details are standard.
 \begin{defi}
 If $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, we say $\phi$ is $(\mathfrak{A}, \mathcal{L})$\emph{-satisfiable} iff there are $\nu$, $W$ and $X$ such that
 \begin{itemize}
-    \item $\nu$ is an $\mathfrak{A}$-valuation,
+    \item $\nu$ is a $\mathfrak{A}$-valuation,
     \item $W$ is a weak outer model of $V$,
     \item $X \in W \cap \mathcal{P}(\mathcal{L)}$, and
     \item $X \models^*_{\mathfrak{A}, \nu} \phi$,
@@ -1096,7 +1101,7 @@ For any $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, define $\mathsf{set}(\phi)$ t
 Let 
 \begin{itemize}
     \item $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, and
-    \item $\nu$ be an $\mathfrak{A}$-valuation.
+    \item $\nu$ be a $\mathfrak{A}$-valuation.
 \end{itemize}
 For any sets $p$ and $q$, we say $\phi$ \emph{is} $\models^*_{\mathfrak{A}, \nu}$\emph{-true for} $(p, q)$ iff 
 \begin{itemize}
@@ -1120,7 +1125,7 @@ For our purposes, being $\models^*_{\mathfrak{A}, \nu}$-true can be too strong a
 Let 
 \begin{itemize}
     \item $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$, and
-    \item $\nu$ be an $\mathfrak{A}$-valuation.
+    \item $\nu$ be a $\mathfrak{A}$-valuation.
 \end{itemize}
 For any sets $p$ and $q$, we say $\phi$ \emph{is} $\models^*_{\mathfrak{A}, \nu}$\emph{-nice for} $(p, q)$ iff 
 \begin{itemize}
@@ -1285,9 +1290,14 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, replace $\varphi$ with 
+            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            \begin{itemize}
+                \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a finite set, and
+                \item $\ulcorner p \urcorner^{\mathfrak{A}} \subset A$;
+            \end{itemize}
+            we can --- and shall --- thus replace $\varphi$ with 
             \begin{equation*}
-                \ulcorner \bigwedge \{\varphi'[z \mapsto a] : a \in p\} \urcorner
+                \ulcorner \bigwedge \{\varphi'[z \mapsto a] : a \in \ulcorner p \urcorner^{\mathfrak{A}}\} \urcorner
             \end{equation*}
             in $\phi'$. If not, replace $\varphi$ with $\ulcorner \text{``} \emptyset = \emptyset \text{''} \urcorner$ in $\phi'$. 
         
@@ -1295,7 +1305,12 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, replace $\varphi$ with 
+            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            \begin{itemize}
+                \item $\nu(p)$ is indeed a finite set, and
+                \item $\nu(p) \subset A$;
+            \end{itemize} 
+            we shall thus replace $\varphi$ with 
             \begin{equation*}
                 \ulcorner p = \nu(p) \wedge \bigwedge \{\varphi'[z \mapsto a] : a \in \nu(p)\} \urcorner
             \end{equation*}
@@ -1311,9 +1326,14 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, replace $\varphi$ with 
+            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            \begin{itemize}
+                \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a finite set, and
+                \item $\ulcorner p \urcorner^{\mathfrak{A}} \subset A$;
+            \end{itemize}
+            we can --- and shall --- thus replace $\varphi$ with 
             \begin{equation*}
-                \ulcorner \bigvee \{\neg \varphi'[z \mapsto a] : a \in p\} \urcorner
+                \ulcorner \bigvee \{\neg \varphi'[z \mapsto a] : a \in \ulcorner p \urcorner^{\mathfrak{A}}\} \urcorner
             \end{equation*}
             in $\phi'$. If not, replace $\varphi$ with $\ulcorner \text{``} \emptyset \neq \emptyset \text{''} \urcorner$ in $\phi'$. 
         
@@ -1321,7 +1341,11 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, replace $\varphi$ with 
+            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            \begin{itemize}
+                \item $\nu(p)$ is indeed a finite set, and
+                \item $\nu(p) \subset A$; 
+            \end{itemize}we shall thus replace $\varphi$ with
             \begin{equation*}
                 \ulcorner p = \nu(p) \wedge \bigvee \{\neg \varphi'[z \mapsto a] : a \in \nu(p)\} \urcorner
             \end{equation*}
@@ -1432,7 +1456,7 @@ By induction on the length of $\phi$. We work in $W$ throughout.
         \mathsf{DNF}(\nu^*(\phi), \nu') = \mathsf{DNF}((\nu'')^*(\phi), \nu') \text{.}
     \end{equation*}
     But this means $\phi$ is $\models^*_{\mathfrak{A}, \nu''}$-true for $(p, q)$ for all $\mathfrak{A}$-valuations $\nu''$, or equivalently, $\phi$ is $\models^*_{\mathfrak{A}}$-true for $(p, q)$.
-    \item $\phi = \ulcorner \exists y \ \phi' \urcorner$ for some $y$ and $\phi'$. Then there must be an $\mathfrak{A}$-valuation $\nu'$ that agrees with $\nu$ on the free variables of $\phi$, for which $$X \models^{*}_{\mathfrak{A}, \nu'} \phi'.$$ By the induction hypothesis, there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A \cap \mathcal{P}(\mathcal{L})$ satisfying 
+    \item $\phi = \ulcorner \exists y \ \phi' \urcorner$ for some $y$ and $\phi'$. Then there must be a $\mathfrak{A}$-valuation $\nu'$ that agrees with $\nu$ on the free variables of $\phi$, for which $$X \models^{*}_{\mathfrak{A}, \nu'} \phi'.$$ By the induction hypothesis, there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A \cap \mathcal{P}(\mathcal{L})$ satisfying 
     \begin{itemize}
         \item $X \cap q = p$ and
         \item $\phi'$ is $\models^*_{\mathfrak{A}, \nu'}$-true for $(p, q)$. 
@@ -1521,7 +1545,7 @@ Let
         \item $S$ is a finite subset of $\mathcal{L}^{*}_{0, \mathfrak{A}}$, and
         \item $T$ is a finite subset of $\mathcal{L}^{*}_{\mathfrak{A}}$ containing only formulas either of the form $\ulcorner E(x) \urcorner$ or of the form $\ulcorner \neg E(x) \urcorner$,
     \end{itemize}
-    \item $\nu$ be an $\mathfrak{A}$-valuation, and
+    \item $\nu$ be a $\mathfrak{A}$-valuation, and
     \item $\Sigma \subset \mathcal{L}$ in some weak outer model of $V$.
 \end{itemize}
 If $\Sigma \models^*_{\mathfrak{A}, \nu} \mathsf{check}(\mathsf{pos}(\phi))$, then $\mathsf{check}(\mathsf{pos}(\phi))$ is $\models^*_{\mathfrak{A}, \nu}$-nice for $\Sigma$.
@@ -4381,10 +4405,10 @@ Let $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI. We say $\mathcal{M} :=
     \item for $\dot{X} \in \sigma$,
     \begin{itemize}[label=$\circ$]
         \item if $\dot{X}$ is a constant symbol and $\vartheta(\dot{X}) = (y, z)$, then $\mathcal{I}(\dot{X}) \in y \cap U$,
-        \item if $\dot{X}$ is an $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, 0)$, then $\mathcal{I}(\dot{X}) \subset y \cap U^{n}$,
-        \item if $\dot{X}$ is an $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, 1)$, then $\mathcal{I}(\dot{X}) = y \cap U^{n}$,
-        \item if $\dot{X}$ is an $n$-ary function symbol and $\vartheta(\dot{X}) = (y, 0)$, then $$\{z \in U^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\} \subset y \cap U^{n+1}, \text{ and}$$
-        \item if $\dot{X}$ is an $n$-ary function symbol and $\vartheta(\dot{X}) = (y, 1)$, then $$\{z \in U^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\} = y \cap U^{n+1}.$$
+        \item if $\dot{X}$ is a $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, 0)$, then $\mathcal{I}(\dot{X}) \subset y \cap U^{n}$,
+        \item if $\dot{X}$ is a $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, 1)$, then $\mathcal{I}(\dot{X}) = y \cap U^{n}$,
+        \item if $\dot{X}$ is a $n$-ary function symbol and $\vartheta(\dot{X}) = (y, 0)$, then $$\{z \in U^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\} \subset y \cap U^{n+1}, \text{ and}$$
+        \item if $\dot{X}$ is a $n$-ary function symbol and $\vartheta(\dot{X}) = (y, 1)$, then $$\{z \in U^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\} = y \cap U^{n+1}.$$
     \end{itemize}
 \end{itemize}
 We say $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ has a model if there exists $\mathcal{M}$ for which $\mathcal{M} \models^* (T, \sigma, \dot{\mathcal{U}}, \vartheta)$.
@@ -4395,8 +4419,8 @@ Let $T$ be any first-order theory over the signature $\sigma$, $\dot{\mathcal{U}
 \begin{itemize}
     \item $\vartheta(\dot{\mathcal{U}}) = (A, 1)$,
     \item $\vartheta(\dot{X}) = (A, 0)$ whenever $\dot{X} \in \sigma$ is a constant symbol,
-    \item $\vartheta(\dot{X}) = (A^n, 0)$ whenever $\dot{X} \in \sigma$ is an $n$-ary relation symbol, and
-    \item  $\vartheta(\dot{X}) = (A^{n+1}, 0)$ whenever $\dot{X} \in \sigma$ is an $n$-ary function symbol.
+    \item $\vartheta(\dot{X}) = (A^n, 0)$ whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol, and
+    \item  $\vartheta(\dot{X}) = (A^{n+1}, 0)$ whenever $\dot{X} \in \sigma$ is a $n$-ary function symbol.
 \end{itemize}
 If we set $\mathfrak{T} := (T, \sigma, \dot{\mathcal{U}}, \vartheta)$, then the models of $\mathfrak{T}$ are precisely the models of $T$ with base set $A$.
 \end{ex}
@@ -4410,8 +4434,8 @@ Let $T$ be any first-order theory over the signature $\sigma$, and $\mathfrak{A}
 \begin{itemize}
     \item $\vartheta(\dot{\mathcal{U}}) = (A, 0)$,
     \item $\vartheta(\dot{X}) = (\{\mathcal{I}(\dot{X})\}, 1)$ whenever $\dot{X} \in \sigma$ is a constant symbol,
-    \item $\vartheta(\dot{X}) = (\mathcal{I}(\dot{X}), 1)$ whenever $\dot{X} \in \sigma$ is an $n$-ary relation symbol, and
-    \item  $\vartheta(\dot{X}) = (R_{\mathcal{I}}(\dot{X}), 1)$ whenever $\dot{X} \in \sigma$ is an $n$-ary function symbol, where $$R_{\mathcal{I}}(\dot{X}) := \{z \in A^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\}.$$
+    \item $\vartheta(\dot{X}) = (\mathcal{I}(\dot{X}), 1)$ whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol, and
+    \item  $\vartheta(\dot{X}) = (R_{\mathcal{I}}(\dot{X}), 1)$ whenever $\dot{X} \in \sigma$ is a $n$-ary function symbol, where $$R_{\mathcal{I}}(\dot{X}) := \{z \in A^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\}.$$
 \end{itemize}
 If we set $\mathfrak{T} := (T, \sigma, \dot{\mathcal{U}}, \vartheta)$, then $$\{ \text{models of } \mathfrak{T}\} = \mathrm{Sub}(\mathfrak{A}, T).$$
 \end{ex}
@@ -4470,8 +4494,8 @@ Define
 \begin{itemize}
     \item $\vartheta (\dot{\mathcal{U}}) := (\kappa, 0)$,
     \item $\vartheta (\dot{X}) := (\kappa, 0)$ if $\dot{X}$ is a constant symbol,
-    \item $\vartheta (\dot{X}) := (\kappa^n, 0)$ if $\dot{X}$ is an $n$-ary relation symbol,
-    \item $\vartheta (\dot{X}) := (\kappa^{n + 1}, 0)$ if $\dot{X}$ is an $n$-ary function symbol.
+    \item $\vartheta (\dot{X}) := (\kappa^n, 0)$ if $\dot{X}$ is a $n$-ary relation symbol,
+    \item $\vartheta (\dot{X}) := (\kappa^{n + 1}, 0)$ if $\dot{X}$ is a $n$-ary function symbol.
 \end{itemize}
 Then $$\mathfrak{T} := (T, \sigma, \dot{\mathcal{U}}, \vartheta)$$ is as required.
 \end{proof}
@@ -4597,8 +4621,8 @@ Of course, we have to set $$\mathfrak{A}_{\mathfrak{T}} := (H(|trcl(\mathfrak{T}
 For $\dot{X} \in \sigma'$, define $\mathcal{L}_{\mathfrak{T}}(\dot{X})$ as follows:
 \begin{itemize}
     \item if $\dot{X}$ is a constant symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X} = x \urcorner : x \in y \cap U\},$$
-    \item if $\dot{X}$ is an $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X}(x) \urcorner : x \in y \cap U^n\}, \text{ and}$$
-    \item if $\dot{X}$ is an $n$-ary function symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X}(x \! \restriction_n) = x(n) \urcorner : x \in y \cap U^{n+1}\}.$$
+    \item if $\dot{X}$ is a $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X}(x) \urcorner : x \in y \cap U^n\}, \text{ and}$$
+    \item if $\dot{X}$ is a $n$-ary function symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X}(x \! \restriction_n) = x(n) \urcorner : x \in y \cap U^{n+1}\}.$$
 \end{itemize}
 Then 
 \begin{align*}
@@ -5053,7 +5077,7 @@ Fix an infinite ordinal $\beta$. We want to modify $\mathfrak{T}$ to get another
 \end{enumerate}
 as well as \ref{gglsb} of the lemma. 
 
-Note that we can, without loss of generality, assume $\sigma$ contains only relation symbols and constant symbols. This is because for any function symbol $\dot{X}$ and any $n < \omega$, $\dot{X}$ being an $n$-ary function is definable in a $(n+1)$-ary relation symbol $\dot{Y}$ via the conjunction of the $\Pi_2$ sentences
+Note that we can, without loss of generality, assume $\sigma$ contains only relation symbols and constant symbols. This is because for any function symbol $\dot{X}$ and any $n < \omega$, $\dot{X}$ being a $n$-ary function is definable in a $(n+1)$-ary relation symbol $\dot{Y}$ via the conjunction of the $\Pi_2$ sentences
 \begin{gather*}
     \ulcorner \forall x_1 ... \forall x_n \ \exists y \ (\dot{Y}(x_1, ..., x_n, y)) \urcorner \text{ and} \\
     \ulcorner \forall x_1 ... \forall x_n \ \forall y \ \forall z \ ((\dot{Y} (x_1, ..., x_n, y) \wedge \dot{Y} (x_1, ..., x_n, z)) \implies y = z) \urcorner \text{,} 
@@ -5077,7 +5101,7 @@ Whenever $\dot{X} \in \sigma$ and $\vartheta(\dot{X}) = (y', z')$, we define $\v
 
 Now, we modify $\Gamma_{\mathfrak{T}}$ by first removing members of the type described in \ref{gammaform3} and \ref{gammaform4} of Lemma \ref{mcequiv}, and then for each remaining member $\varphi$ of $\Gamma_{\mathfrak{T}}$, replacing every subformula of $\varphi$ of the form $\ulcorner E(\ulcorner x \urcorner) \urcorner$ with $\ulcorner x \urcorner$. 
 
-Call the result of said modification $T'$. Whenever $\dot{X} \in \sigma$ is an $n$-ary relation symbol with $\vartheta(\dot{X}) = (y', 1)$, define $$T(\dot{X}) := \{\ulcorner \bigwedge_{1 \leq k \leq n} \dot{\mathcal{U}}(\dot{c}_k) \implies \dot{X}(\dot{c}_1, ..., \dot{c}_n) \urcorner : (c_1, ..., c_n) \in y' \cap y^n\}.$$ Finally, define $T^*$ to be the union of $T'$, $$\bigcup \{T(\dot{X}) : \dot{X} \in \sigma \text{ and } \exists y' \ (\vartheta(\dot{X}) = (y', 1))\},$$ and the finite set of sentences
+Call the result of said modification $T'$. Whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol with $\vartheta(\dot{X}) = (y', 1)$, define $$T(\dot{X}) := \{\ulcorner \bigwedge_{1 \leq k \leq n} \dot{\mathcal{U}}(\dot{c}_k) \implies \dot{X}(\dot{c}_1, ..., \dot{c}_n) \urcorner : (c_1, ..., c_n) \in y' \cap y^n\}.$$ Finally, define $T^*$ to be the union of $T'$, $$\bigcup \{T(\dot{X}) : \dot{X} \in \sigma \text{ and } \exists y' \ (\vartheta(\dot{X}) = (y', 1))\},$$ and the finite set of sentences
 \begin{align*}
     T^*_0 := \{ & \ulcorner \forall x \ \exists y \ (\dot{V}(x) \implies (\dot{\mathcal{U}}(y) \wedge \dot{F}(x) = y)) \urcorner, \\
     & \ulcorner \forall x \ \exists y \ (\dot{\mathcal{U}}(x) \implies (\dot{V}(y) \wedge \dot{F}(y) = x)) \urcorner, \\
