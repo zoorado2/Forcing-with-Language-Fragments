@@ -338,7 +338,7 @@ For convenience's sake, one may always assume (\ref{eq11}) to mean
     $\text{``}\mathfrak{A} \models T \text{ for some set theory } T \text{ such that}$ 
     \begin{itemize}
         \item $\mathsf{KP} \subset T$, and
-        \item $T \vdash \ulcorner \forall x \ (\text{``} x \text{ is Dedekind-finite} \iff x \text{ is finite''}) \urcorner$''.
+        \item $T \vdash \ulcorner \forall x \ (\text{``} x \text{ is Dedekind-finite} \implies x \text{ is finite''}) \urcorner$''.
     \end{itemize}
 \end{quote}
 \end{defi}
@@ -994,6 +994,25 @@ A structure $\mathfrak{A} = (A; \in, \Vec{R})$ in a possibly expanded language o
 
 We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. We typically work with $\mathfrak{A}$ being a transitive model of $\mathsf{ZFC - Powerset - Infinity}$, which immediately implies \ref{342} and \ref{343} of Definition \ref{lsuitable}. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
 
+\begin{rem}\label{rem35}
+Let $\mathfrak{A} = (A; \in, \Vec{R})$ be a $\mathcal{L}$-suitable structure in a possibly expanded language of set theory. Then the following can be deduced from \ref{342} and \ref{343} of Definition \ref{lsuitable}.
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{351} $H(\omega) \subset A$.
+    \item\label{352} For each $x \in A$, it must be the case that
+    \begin{equation*}
+        \mathfrak{A} \models \text{``} x \text{ is non-empty''} \iff x \text{ is non-empty.}
+    \end{equation*}
+    \item\label{353} For each $x \in A$, it must be the case that
+    \begin{equation*}
+        \mathfrak{A} \models \text{``} x \text{ is Dedekind-finite''} \iff x \text{ is finite.}
+    \end{equation*}
+    \item\label{354} For each $x \in A$, it must be the case that
+    \begin{equation*}
+        x \text{ is finite} \implies x \subset A \text{.}
+    \end{equation*}
+\end{enumerate}
+\end{rem}
+
 Fix a $\mathcal{L}$-suitable $\mathfrak{A} = (A; \in, \Vec{R})$ for the rest of this section.
 
 \begin{defi}
@@ -1301,9 +1320,9 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ having been chosen to fulfil \ref{342} and \ref{343} of Definition \ref{lsuitable} means that 
+            If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
-                \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a finite set, and
+                \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a non-empty finite set, and
                 \item $\ulcorner p \urcorner^{\mathfrak{A}} \subset A$;
             \end{itemize}
             we can --- and shall --- thus replace $\varphi$ with 
@@ -1316,9 +1335,9 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ having been chosen to fulfil \ref{342} and \ref{343} of Definition \ref{lsuitable} means that 
+            If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
-                \item $\nu(p)$ is indeed a finite set, and
+                \item $\nu(p)$ is indeed a non-empty finite set, and
                 \item $\nu(p) \subset A$;
             \end{itemize} 
             we shall thus replace $\varphi$ with 
@@ -1337,9 +1356,9 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ having been chosen to fulfil \ref{342} and \ref{343} of Definition \ref{lsuitable} means that 
+            If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
-                \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a finite set, and
+                \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a non-empty finite set, and
                 \item $\ulcorner p \urcorner^{\mathfrak{A}} \subset A$;
             \end{itemize}
             we can --- and shall --- thus replace $\varphi$ with 
@@ -1352,9 +1371,9 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ having been chosen to fulfil \ref{342} and \ref{343} of Definition \ref{lsuitable} means that 
+            If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
-                \item $\nu(p)$ is indeed a finite set, and
+                \item $\nu(p)$ is indeed a non-empty finite set, and
                 \item $\nu(p) \subset A$; 
             \end{itemize}we shall thus replace $\varphi$ with
             \begin{equation*}
