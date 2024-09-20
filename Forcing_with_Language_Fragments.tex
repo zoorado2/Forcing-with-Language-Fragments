@@ -960,7 +960,7 @@ The canonical negation function $\neg$ on $V$ is defined as follows.
 Basically, $\neg$ takes a member of $\mathcal{L}$ as input, and check whether it is a string with first (leftmost) character $\ulcorner \neg \urcorner$. If so, it removes the leading $\ulcorner \neg \urcorner$; otherwise, it ``casts'' the input as a string (mapping the input to a string of length 1 containing the input as the only character, if the input is not already a string) and prepend $\ulcorner \neg \urcorner$ to the result. For ease of argument, we identify the string containing a single character $x$ with $x$ itself. 
 
 \begin{rem}\label{rem32}
-Note that $\neg$ is $\Delta_0$-definable with a single parameter $\ulcorner \neg \urcorner$, which we assume is in every of a sufficiently set theory. So the definition of $\neg$ is absolute for models of a sufficiently strong set theory.
+Note that $\neg$ is $\Delta_0$-definable with a single parameter $\ulcorner \neg \urcorner$, which we assume is in every sufficiently transitive model of a sufficiently strong set theory. So the definition of $\neg$ is absolute for all such models of set theory.
 \end{rem}
 
 We sometimes abuse notation and use $\neg$ the function and $\ulcorner \neg \urcorner$ the first-order logical symbol interchangeably. However, we take special care to distinguish them wherever is crucial in our definitions and arguments.
@@ -973,15 +973,20 @@ Before we proceed, fix a set $\mathcal{L}$ that is closed under negation and doe
 
 \begin{defi}\label{lsuitable}
 A structure $\mathfrak{A} = (A; \in, \Vec{R})$ in a possibly expanded language of set theory is $\mathcal{L}$\emph{-suitable} iff
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\Vec{R}$ is a set of relations on $A$,
-    \item $(A; \in)$ is a model of a sufficiently strong set theory,
+    \item\label{342} $(A; \in)$ is a model of a sufficiently strong set theory,
+    \item\label{343} $A$ is \emph{finitely transitive}: that is, 
+    \begin{equation*}
+        x \in A \iff x \subset A 
+    \end{equation*}
+    whenever $x$ is a finite set, 
     \item $\mathcal{L} \subset A$, and
     \item $\mathcal{L}$ is $\Pi_1$-definable in the language associated with $\mathfrak{A}$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
-We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
+We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)$, for constants and functions interpreted over the base set $A$ can be represented by relations on $A$. We typically work with $\mathfrak{A}$ being a transitive model of $\mathsf{ZFC - Powerset - Infinity}$, which immediately implies \ref{342} and \ref{343} of Definition \ref{lsuitable}. The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
 
 Fix a $\mathcal{L}$-suitable $\mathfrak{A} = (A; \in, \Vec{R})$ for the rest of this section.
 
@@ -1290,7 +1295,7 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            If so, then $\mathfrak{A}$ being $\mathcal{L}$-suitable (more specifically, \ref{342} and \ref{343} of Definition \ref{lsuitable}) means that 
             \begin{itemize}
                 \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a finite set, and
                 \item $\ulcorner p \urcorner^{\mathfrak{A}} \subset A$;
@@ -1305,7 +1310,7 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            If so, then $\mathfrak{A}$ being $\mathcal{L}$-suitable (more specifically, \ref{342} and \ref{343} of Definition \ref{lsuitable}) means that 
             \begin{itemize}
                 \item $\nu(p)$ is indeed a finite set, and
                 \item $\nu(p) \subset A$;
@@ -1326,7 +1331,7 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            If so, then $\mathfrak{A}$ being $\mathcal{L}$-suitable (more specifically, \ref{342} and \ref{343} of Definition \ref{lsuitable}) means that 
             \begin{itemize}
                 \item $\ulcorner p \urcorner^{\mathfrak{A}}$, the interpretation of $\ulcorner p \urcorner$ by $\mathfrak{A}$, is indeed a finite set, and
                 \item $\ulcorner p \urcorner^{\mathfrak{A}} \subset A$;
@@ -1341,7 +1346,7 @@ defined by the following recursive procedure.
             \begin{equation*}
                 \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
-            If so, then $\mathfrak{A}$ being a model of a sufficiently strong set theory means that 
+            If so, then $\mathfrak{A}$ being $\mathcal{L}$-suitable (more specifically, \ref{342} and \ref{343} of Definition \ref{lsuitable}) means that 
             \begin{itemize}
                 \item $\nu(p)$ is indeed a finite set, and
                 \item $\nu(p) \subset A$; 
@@ -2447,7 +2452,12 @@ Now fix $\mathcal{L}$ to be the smallest set closed under negation, that contain
 \end{enumerate}
 \end{defi}
 
-Morally, each $\dot{F}_i$ labels an increasing and cofinal partial map from $f(i)$ into $i$, and each $\dot{X}_{\delta}$ labels a side condition. The side conditions will be used to preserve stationary subsets of $\omega_1$. As $\mathcal{L} \subset H(\lambda_f)$, $\mathfrak{A}$ is $\mathcal{L}$-suitable.
+Morally, each $\dot{F}_i$ labels an increasing and cofinal partial map from $f(i)$ into $i$, and each $\dot{X}_{\delta}$ labels a side condition. The side conditions will be used to preserve stationary subsets of $\omega_1$. As 
+\begin{itemize}
+    \item $\mathfrak{A}$ is a transitive model of $\mathsf{ZFC - Powerset}$, and
+    \item $\mathcal{L} \subset H(\lambda_f) \in H(\kappa)$,
+\end{itemize} 
+$\mathfrak{A}$ is $\mathcal{L}$-suitable.
 
 One may argue that the remark below has been a long time coming, considering it was referenced in the proof of Lemma \ref{lem339}.
 
@@ -4613,7 +4623,7 @@ There is a formula $\psi_{cert}$ in two free variables, such that in any model o
 \begin{proof}
 Fix any TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$. We will constructively define the tuple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ based on $\mathfrak{T}$ alone, and in the process, check that the requirements of the lemma are satisfied.
 
-Of course, we have to set $$\mathfrak{A}_{\mathfrak{T}} := (H(|trcl(\mathfrak{T})|^+); \in).$$ Note that $\mathfrak{A}_{\mathfrak{T}} \models \mathsf{ZFC - Powerset}$, so $\mathfrak{A}_{\mathfrak{T}}$ is a model of a sufficiently strong set theory. Next, let
+Of course, we have to set $$\mathfrak{A}_{\mathfrak{T}} := (H(|trcl(\mathfrak{T})|^+); \in).$$ Note that $\mathfrak{A}_{\mathfrak{T}} \models \mathsf{ZFC - Powerset}$, so $\mathfrak{A}_{\mathfrak{T}}$ is a transitive model of a sufficiently strong set theory. Next, let
 \begin{align*}
     \sigma' := \ & \sigma \cup \{\dot{\mathcal{U}}\} \text{, and} \\
     U := \ & \text{the unique } y \text{ for which there exists } z \text{ such that } \vartheta(\dot{\mathcal{U}}) = (y, z).
@@ -4740,7 +4750,7 @@ Now, we define $\Gamma_{\mathfrak{T}}$ as follows:
         \item if $B$ is a subsequence of $\phi$ containing only quantifiers, then $B$ is a subsequence of $A$, and
         \item if $B'$ is a subsequence of $\phi'$ containing only quantifiers, then $B'$ is a subsequence of $A$.
     \end{itemize}
-    Now, convert $\phi'$ to a logically equivalent formula $\phi^*$ (which exists because $\mathfrak{A}_{\mathfrak{T}}$ is a model of a sufficiently strong set theory) in prenex normal form, through an application of the standard conversion algorithm. This algorithm preserves the quantification structure of $\phi'$ --- so that $\phi^*$ and $\phi$ have the same quantification structure --- whenever $\phi$ is in prenex normal form.
+    Now, convert $\phi'$ to a logically equivalent formula $\phi^*$ in prenex normal form, through an application of the standard conversion algorithm. This algorithm preserves the quantification structure of $\phi'$ --- so that $\phi^*$ and $\phi$ have the same quantification structure --- whenever $\phi$ is in prenex normal form.
     
     Enforce that $\phi^* \in \Gamma_{\mathfrak{T}}$. 
     \item\label{gamma7} Nothing else is in $\Gamma_{\mathfrak{T}}$.
@@ -5360,7 +5370,7 @@ We shall identify $s$ with $(s, \leq_s)$ whenever contextually necessary. This c
 
 Going forward, even beyond this proof, we would often argue about things in $H(\omega)$ even though our intended domain of discourse is the set of natural numbers. This is because first-order truths about $(H(\omega); \in)$ are uniformly propagated by $f$ onto its range, so that specific versions of them hold there as well. If one such truth is sufficiently simple, then $r$ knows the version of it on $ran(f)$ and can then relay that to the appropriate machines for further processing. 
 
-Let $\mathfrak{A} = (A; \in)$ be any countable elementary substructure of $\mathfrak{A}_{\mathfrak{T}}$ with $P(\mathfrak{T})^{\top} \in A$. Since $\mathcal{L}_{\mathfrak{T}}$ is just the closure of $\bigcup P(\mathfrak{T})^{\top}$ under negation and $\mathfrak{A} \models \mathsf{ZFC - Powerset}$, we have $\mathcal{L}_{\mathfrak{T}} \in A$. That $\mathfrak{T}$ is code-friendly and $H(\omega) \subset A$ implies $\mathcal{L}_{\mathfrak{T}} \subset A$ too, so $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. The members of $\Gamma_{\mathfrak{T}}^{\top}$ are $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}_{\mathfrak{T}}}$-$\Pi_2$ sentences with a single parameter $P(\mathfrak{T})^{\top}$ and quantification exclusively over $H(\omega)$, entailing that $\Gamma_{\mathfrak{T}}^{\top}$ is also a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences. 
+Let $\mathfrak{A} = (A; \in)$ be any countable elementary substructure of $\mathfrak{A}_{\mathfrak{T}}$ with $P(\mathfrak{T})^{\top} \in A$. Then $A$ is finitely transitive because $\mathfrak{A}_{\mathfrak{T}}$ is a transitive model of $\mathsf{ZFC - Powerset}$. Since $\mathcal{L}_{\mathfrak{T}}$ is just the closure of $\bigcup P(\mathfrak{T})^{\top}$ under negation in $\mathfrak{A}_{\mathfrak{T}}$, we have $\mathcal{L}_{\mathfrak{T}} \in A$. That $\mathfrak{T}$ is code-friendly and $H(\omega) \subset A$ implies $\mathcal{L}_{\mathfrak{T}} \subset A$ too, so $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. The members of $\Gamma_{\mathfrak{T}}^{\top}$ are $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}_{\mathfrak{T}}}$-$\Pi_2$ sentences with a single parameter $P(\mathfrak{T})^{\top}$ and quantification exclusively over $H(\omega)$, entailing that $\Gamma_{\mathfrak{T}}^{\top}$ is also a set of $(\mathcal{L}_{\mathfrak{T}})^*_{\mathfrak{A}}$-$\Pi_2$ sentences. 
 
 In this vein, similar to what we did in the proof of Theorem \ref{genericdichom}, check that all except the last two points in the hypothesis of Lemma \ref{main2} are satisfied with 
 \begin{itemize}
@@ -5522,7 +5532,7 @@ and identify $s$ with $(s, \leq_s)$ whenever contextually necessary. We will mod
 
 Let $\mathfrak{A} = (H(\omega); \in, P(\mathfrak{T})^{\top})$, so that 
 \begin{itemize}
-    \item $(H(\omega); \in)$ is a model of a sufficiently strong set theory, and
+    \item $(H(\omega); \in)$ is a transitive model of a sufficiently strong set theory, and
     \item $\mathcal{L}_{\mathfrak{T}}$ is a $\Delta_1$-definable subset of $H(\omega)$ over the $\mathfrak{A}$,
 \end{itemize}
 whence $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. We argue as in the proof of Lemma \ref{ctblegeneric} to conclude 
