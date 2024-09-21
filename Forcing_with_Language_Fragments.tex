@@ -1186,7 +1186,7 @@ Let $\mathcal{L}^{*}_{1, \mathfrak{A}}$ be the smallest $\mathcal{L}'$ satisfyin
         \item $\ulcorner z \urcorner$ is a variable not bound in $\phi$, and
         \item $\ulcorner p \urcorner$ is either a constant or a variable not bound in $\phi$,
     \end{itemize} 
-    then $$\ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''}) \implies \phi) \urcorner \in \mathcal{L}',$$
+    then $$\ulcorner \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}) \implies \phi) \urcorner \in \mathcal{L}',$$
     \item $\mathcal{L}'$ is closed under all zeroth-order logical operations.
 \end{itemize}
 A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ iff $\phi \in \mathcal{L}^{*}_{1, \mathfrak{A}}$. 
@@ -1194,7 +1194,7 @@ A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ iff 
 
 We should perhaps highlight the following trivial observations. 
 \begin{enumerate}[label=(\Roman*)]
-    \item\label{s31I} The statement $$\text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''}$$ can be expressed as a $\Pi_1$ formula (\emph{a la} Definition \ref{def27}) in the language associated with $\mathfrak{A}$. In fact, the clause $$\text{``} p \text{ is Dedekind-finite''}$$ can be omitted from said statement without loss of generality if 
+    \item\label{s31I} The statement $$\text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}$$ can be expressed as a $\Pi_1$ formula (\emph{a la} Definition \ref{def27}) in the language associated with $\mathfrak{A}$. In fact, the clause $$\text{``} p \text{ is Dedekind-finite''}$$ can be omitted from said statement without loss of generality if 
     \begin{equation*}
         \mathfrak{A} \models \text{``every set is Dedekind-finite''.}
     \end{equation*}
@@ -1266,7 +1266,7 @@ defined by the following recursive procedure.
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
             \item Necessarily, for some $\ulcorner p \urcorner$ and $\varphi'$,
                 \begin{align*}
-                    \varphi = \ulcorner \forall z \ ( & (z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''}) \\
+                    \varphi = \ulcorner \forall z \ ( & (z \in p \wedge \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}) \\
                     & \implies \varphi') \urcorner \text{.}
                 \end{align*}
             \item Replace $\varphi'$ with $\mathsf{P_W}(\varphi')$ in $\phi'$.
@@ -1304,7 +1304,7 @@ defined by the following recursive procedure.
         \begin{enumerate}[label=(F\arabic*), leftmargin=30pt]
             \item Necessarily, for some $\ulcorner p \urcorner$ and $\varphi'$,
                 \begin{align*}
-                    \varphi = \ulcorner \forall z \ ( & (z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''}) \\
+                    \varphi = \ulcorner \forall z \ ( & (z \in p \wedge \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}) \\
                     & \implies \varphi') \urcorner \text{.}
                 \end{align*}
                 There are only two possible cases.
@@ -1318,7 +1318,7 @@ defined by the following recursive procedure.
             
             If $\ulcorner p \urcorner$ is a not a free variable, then it must be a constant symbol. In this case, we check if 
             \begin{equation*}
-                \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
+                \mathfrak{A} \models \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
             If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
@@ -1333,7 +1333,7 @@ defined by the following recursive procedure.
         
             Next, consider the case where $\ulcorner p \urcorner$ is a free variable. In this case, we check if
             \begin{equation*}
-                \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
+                \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
             If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
@@ -1346,7 +1346,7 @@ defined by the following recursive procedure.
             \end{equation*}
             in $\phi'$. Otherwise, replace $\varphi$ with 
             \begin{equation*}
-                \ulcorner \neg \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''} \urcorner
+                \ulcorner \neg \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''} \urcorner
             \end{equation*}
             in $\phi'$.
             
@@ -1354,7 +1354,7 @@ defined by the following recursive procedure.
             
             If $\ulcorner p \urcorner$ is a not a free variable, then it must be a constant symbol. In this case, we check if 
             \begin{equation*}
-                \mathfrak{A} \models \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
+                \mathfrak{A} \models \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''.}
             \end{equation*}
             If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
@@ -1369,7 +1369,7 @@ defined by the following recursive procedure.
         
             Next, consider the case where $\ulcorner p \urcorner$ is a free variable. In this case, we check if
             \begin{equation*}
-                \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \subset \mathcal{L} \text{ and } \nu(p) \text{ is Dedekind-finite''.}
+                \mathfrak{A} \models \text{``}\emptyset \neq \nu(p) \text{ and } \nu(p) \text{ is Dedekind-finite''.}
             \end{equation*}
             If so, then it follows from \ref{352} to \ref{354} of Remark \ref{rem35} that 
             \begin{itemize}
@@ -1518,7 +1518,7 @@ In the definition of $\mathsf{check}$, $\text{``} E(\neg x) \text{''}$ is a shor
 we have that
 \begin{align*}
     & X \models^*_{\mathfrak{A}, \nu} \text{``} E(\neg x) \text{''} \iff \\
-    & X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists p \ \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''}) \\
+    & X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists p \ \forall z \ ((z \in p \wedge \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}) \\
     & \mspace{125mu} \implies (\text{``} z = \neg (x) \text{''} \implies E(z))) \urcorner
 \end{align*}
 in case 
@@ -1531,7 +1531,7 @@ in case
     \end{equation*}
     nor (the formal statement of)
     \begin{equation*}
-        \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''.}
+        \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''.}
     \end{equation*}
 \end{itemize} 
 As an implication, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula with $\phi \in ran(\mathsf{WNF})$, then we can show by induction on the complexity of $\phi$, noting
@@ -2627,7 +2627,7 @@ Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sent
         & \forall n \in dom(\bar{s}) \ (E(\ulcorner \bar{s}(n) \in \dot{X}_{\delta, \lambda'} \urcorner))) \\
         & \implies ((\phi, \bar{s}, p) \in Ef_0^{\lambda}(\lambda') \ \wedge \\
         & E(\ulcorner p \in \dot{X}_{\delta, \lambda'} \urcorner) \ \wedge \\
-        & \forall e \ ((e \in p \wedge \text{``}\emptyset \neq p \subset \mathcal{L} \text{ and } p \text{ is Dedekind-finite''}) \implies E(e)))) \urcorner.
+        & \forall e \ ((e \in p \wedge \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}) \implies E(e)))) \urcorner.
     \end{aligned}$
 \end{enumerate}
 \end{defi}
