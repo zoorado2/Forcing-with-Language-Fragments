@@ -1196,8 +1196,9 @@ We should perhaps highlight the following trivial observations.
 \begin{enumerate}[label=(\Roman*)]
     \item\label{s31I} The statement $$\text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''}$$ can be expressed as a $\Pi_1$ formula (\emph{a la} Definition \ref{def27}) in the language associated with $\mathfrak{A}$. In fact, the clause $$\text{``} p \text{ is Dedekind-finite''}$$ can be omitted from said statement without loss of generality if 
     \begin{equation*}
-        \mathfrak{A} \models \text{``every set is Dedekind-finite''.}
+        \mathfrak{A} \models \text{``every set is Dedekind-finite'',}
     \end{equation*}
+    leaving us with a $\Delta_0$ formula.
     \item $\mathcal{L}^{*}_{1, \mathfrak{A}} \subset \mathcal{L}^{*}_{\mathfrak{A}}$.
 \end{enumerate}
 
@@ -2085,7 +2086,7 @@ then $\varphi$ is a $\Sigma_1$ (in fact, $\Delta_1$, although that delineation i
     \item $p \subset \Sigma$, and
     \item $``\Sigma \text{ is } \mathcal{L}\text{-nice}"$,
 \end{itemize}
-every of which aforementioned points are $\Delta_0$-expressible in the language of set theory. Note also that whenever $\varphi(\Sigma, y)$ holds, $\Sigma$, $y$ and any witness $f$ must have transitive closures of cardinalities no larger than $\lambda$. Moreover, we have $$\psi \iff \exists \Sigma \ \exists y \ \varphi(\Sigma, y).$$ As $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$ are subsets of $trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))$ and $|trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))| \leq \lambda$, the structure $$\mathfrak{B} := (trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)); \in, p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)$$ can be coded as a real in $V[g]$, by Lemma \ref{setcode}. This means that in all weak outer models of $V[g]$, $\psi$ can be thought of as a $\mathbf{\Sigma^1_1}$ sentence involving a real code of $\mathfrak{B}$ found in $V[g]$. In particular, by Mostowski's absoluteness theorem, $\psi$ is absolute for $V[g]$ and $W[g]$. Now $W[g] \models \psi$ implies $V[g] \models \psi$, contradicting (\ref{eq10}).
+every of which aforementioned points is expressible as $\Delta_0$ formulas (following Definition \ref{def27}) in the language of set theory. Note also that whenever $\varphi(\Sigma, y)$ holds, $\Sigma$, $y$ and any witness $f$ must have transitive closures of cardinalities no larger than $\lambda$. Moreover, we have $$\psi \iff \exists \Sigma \ \exists y \ \varphi(\Sigma, y).$$ As $p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma$ are subsets of $trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))$ and $|trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma))| \leq \lambda$, the structure $$\mathfrak{B} := (trcl((p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)); \in, p, \mathfrak{A}, \mathcal{L}, \mathcal{L}^*_{\mathfrak{A}}, \Gamma)$$ can be coded as a real in $V[g]$, by Lemma \ref{setcode}. This means that in all weak outer models of $V[g]$, $\psi$ can be thought of as a $\mathbf{\Sigma^1_1}$ sentence involving a real code of $\mathfrak{B}$ found in $V[g]$. In particular, by Mostowski's absoluteness theorem, $\psi$ is absolute for $V[g]$ and $W[g]$. Now $W[g] \models \psi$ implies $V[g] \models \psi$, contradicting (\ref{eq10}).
 \end{proof}
 
 Note that the proof of Lemma \ref{inout} does not require that $\Gamma$ contains only $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences. Indeed, for a litany of properties $K$, the existence of an object satisfying $K$ is absolute between $V$ and its weak outer models and hence, between $V$ and its forcing extensions. However, it is often useful --- if not integral --- to have a proper handle on such an object. It is towards this end that we are often interested in the existence of a $V$-generic object $k$ such that $k$ satisfies $K$ in $V[k]$.
@@ -3091,7 +3092,7 @@ Assume
 \end{enumerate}
 Let $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$, and $A \subset \omega_1$ such that $\omega_1^{L[A]} = \omega_1$. Then there are
 \begin{itemize}
-    \item a $\Delta_1$-definition for a partial map $F^*$ from $^{\omega}{\omega}$ onto the members of $\mathbb{P}_{max}$,
+    \item a $\Delta_1$-definable partial map $F^*$ from $^{\omega}{\omega}$ onto the members of $\mathbb{P}_{max}$,
     \item a tree $T$ of size $\aleph_2$ on $\omega \times \omega_2$, and
     \item a $Col(\omega, \omega_2)$-name $\dot{p} \subset H(\omega_2)$ for a member of ${^{\omega}{\omega}}$
 \end{itemize}
@@ -4831,7 +4832,7 @@ There is a formula $\psi_{trans}$ in three free variables, absolute for transiti
 \end{lem}
 
 \begin{proof}
-Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula in the language of set theory (following Definition \ref{def27}), because the binary relation $\models^*$ is $\Delta_1$-definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$-definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
+Let $U$ be the unique $y$ for which there exists $z$ such that $\vartheta(\dot{\mathcal{U}}) = (y, z)$. Given a model $\mathcal{M} = (M; \mathcal{I})$ of $\mathfrak{T}$, define $$U(\mathcal{M}) := \{\ulcorner \dot{\mathcal{U}}(x) \urcorner : x \in M\} \cup \{\ulcorner \neg \ \dot{\mathcal{U}}(x) \urcorner : x \in U \setminus M\}.$$ Now define $\psi_{trans}$ as follows: $$\psi_{trans}(\mathfrak{T}, \mathcal{M}, \Sigma) \iff (\mathcal{M} \models^* \mathfrak{T} \wedge \Sigma = (U(\mathcal{M}) \cup Diag(\mathcal{M})) \cap \mathcal{L}_{\mathfrak{T}}),$$ where $Diag(\mathcal{M})$ is the atomic diagram of $\mathcal{M}$. Verily, $\psi_{trans}$ is a $\Delta_1$ formula in the language of set theory (according to Definition \ref{def27}), because the binary relation $\models^*$ is $\Delta_1$-definable and the set $\mathcal{L}_{\mathfrak{T}}$ is $\Delta_1$-definable in $\mathfrak{T}$. As such, $\psi_{trans}$ must be absolute for transitive models of $\mathsf{ZFC - Powerset}$. We can then straightforwardly check that $\psi_{trans}$ defines a bijection as required by the lemma for any fixed $\mathfrak{T}$, based on how the triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ is constructed from $\mathfrak{T}$. 
 \end{proof}
 
 \begin{rem}\label{swapA}
