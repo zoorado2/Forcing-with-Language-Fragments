@@ -1524,7 +1524,7 @@ we have that
 \end{align*}
 in case 
 \begin{itemize}
-    \item $X$ is a set in some outer model of $V$,
+    \item $X$ is a set in some weak outer model of $V$,
     \item $\nu$ is a $\mathfrak{A}$-valuation, and
     \item $\ulcorner p \urcorner$ is a variable outside $\{\ulcorner x \urcorner, \ulcorner z \urcorner\}$ bound in neither (the formal statement of)
     \begin{equation*}
@@ -1544,7 +1544,7 @@ As an implication, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ i
 that there exists a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula $\varphi$ satisfying $$X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner \iff X \models^*_{\mathfrak{A}, \nu} \varphi$$ for every 
 \begin{itemize}
     \item $\mathfrak{A}$-valuation $\nu$, and
-    \item set $X$ found in an outer model of $V$.
+    \item set $X$ found in a weak outer model of $V$.
 \end{itemize} 
 We may thus assume, without loss of generality, that formulas of the form $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ are $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, as long as
 \begin{itemize}
@@ -1839,7 +1839,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
         \end{align*}
         in case 
         \begin{itemize}[label=$\circ$]
-            \item $X$ is a set in some outer model of $V$, and
+            \item $X$ is a set in some weak outer model of $V$, and
             \item $\nu$ is a $\mathfrak{A}$-valuation, 
         \end{itemize}
         and thus,
@@ -1869,7 +1869,7 @@ The upshot of Remark \ref{rem339} and Claims \ref{claim335} and \ref{claim341}, 
 Let 
 \begin{itemize}
     \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula, and
-    \item $\Sigma$ be a $\mathcal{L}$-nice set in some outer model of $V$.
+    \item $\Sigma$ be a $\mathcal{L}$-nice set in some weak outer model of $V$.
 \end{itemize}
 Assume $\Sigma \models^{*}_{\mathfrak{A}} \phi$. Then
 \begin{enumerate}[label=(\arabic*)]
@@ -2158,7 +2158,7 @@ Given a set $X$, let $\Sigma(X)$ denote
 \end{align*}
 \end{defi}
 
-Note that for any $Z$ in an outer model of $V$, 
+Note that for any $Z$ in an weak outer model of $V$, 
 \begin{equation*}
     Z \cap (\omega_1 \times \omega_2) \text{ is a function from } \omega_1 \text{ into } \omega_2 \iff \Sigma(Z) \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } \emptyset \text{.}
 \end{equation*}
@@ -3239,7 +3239,7 @@ Let $\lambda \in C \cup \{\lambda_f\}$. A $\lambda$\emph{-certificate} is a tupl
 \begin{equation*}
     \mathfrak{D} = \langle \langle \bar{M}_i, \pi_{ij},  \bar{N}_i, \sigma_{ij} : i \leq j \leq \omega_1^{W} \rangle, S, \langle e_i : i < \omega_1^W \rangle, \mathfrak{C} \rangle
 \end{equation*}
-such that in some outer model of $W$ containing $\mathfrak{D}$,
+such that in some weak outer model of $W$ containing $\mathfrak{D}$,
 \begin{enumerate}[label=(C\arabic*)$_{\lambda}$, leftmargin=40pt]
     \item\label{cd0} for all $i \leq \omega_1^W$, $\bar{N}_i$ is a structure of the form
     \begin{equation*}
@@ -3275,7 +3275,7 @@ such that in some outer model of $W$ containing $\mathfrak{D}$,
 \end{enumerate}
 \end{defi}
 
-One can easily verify that being a $\lambda$-certificate, for any $\lambda \in C \cup \{\lambda_f\}$, is absolute for outer models of $W$. If a $\lambda$-certificate shows up in some context without reference to the universe it inhabits, we may assume said universe to be any outer model of $W$.
+One can easily verify that being a $\lambda$-certificate, for any $\lambda \in C \cup \{\lambda_f\}$, is absolute for weak outer models of $W$. If a $\lambda$-certificate shows up in some context without reference to the universe it inhabits, we may assume said universe to be any weak outer model of $W$.
 
 \begin{rem}\label{rem438}
 \leavevmode
@@ -4490,10 +4490,10 @@ Set $T$ to contain exactly the sentences
     \ulcorner \forall x \ \forall y \ \forall z \ ((\dot{R}(x, y) \wedge \dot{R}(x, z)) \implies y = z) \urcorner \text{ and} \\
     \ulcorner \forall x \ \forall y \ \forall z \ ((\dot{R}(x, z) \wedge \dot{R}(y, z)) \implies x = y) \urcorner \text{.}
 \end{gather*}
-Now $\mathfrak{T} := (T, \{\dot{R}\}, \dot{\mathcal{U}}, \vartheta)$ is a TCI that specifies a refinement of the structure $$\mathfrak{A} := (\omega_1; \{(\dot{R}, \omega_1 \times \omega)\})$$ to some $$\mathfrak{A}' := (\omega_1; \{(\dot{R}, F)\}),$$ where $F \subset \omega_1 \times \omega$ is an injection from $\omega_1$ into $\omega$. As an implication, $\mathfrak{T}$ must not have any model in $V$. However, an outer model of $V$ in which $\omega_1^V$ is collapsed to $\omega$ necessarily contains models of $\mathfrak{T}$.
+Now $\mathfrak{T} := (T, \{\dot{R}\}, \dot{\mathcal{U}}, \vartheta)$ is a TCI that specifies a refinement of the structure $$\mathfrak{A} := (\omega_1; \{(\dot{R}, \omega_1 \times \omega)\})$$ to some $$\mathfrak{A}' := (\omega_1; \{(\dot{R}, F)\}),$$ where $F \subset \omega_1 \times \omega$ is an injection from $\omega_1$ into $\omega$. As an implication, $\mathfrak{T}$ must not have any model in $V$. However, a weak outer model of $V$ in which $\omega_1^V$ is collapsed to $\omega$ necessarily contains models of $\mathfrak{T}$.
 \end{ex}
 
-Example \ref{3rdex} reminds us that the existence of models for a TCI is not absolute between $V$ and its outer models. There is thus a fundamental difference between the model existence of a TCI and that of a first-order theory. This should reflect in our definition of what it means for a TCI to be consistent.
+Example \ref{3rdex} reminds us that the existence of models for a TCI is not absolute between $V$ and its (weak) outer models. There is thus a fundamental difference between the model existence of a TCI and that of a first-order theory. This should reflect in our definition of what it means for a TCI to be consistent.
 
 \begin{defi}
 A TCI $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ is \emph{consistent} iff $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ has a model in some outer model of $V$. 
