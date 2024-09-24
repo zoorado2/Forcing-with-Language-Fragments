@@ -2640,7 +2640,7 @@ Let $\Gamma_{\lambda}$ be the set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sent
 \end{enumerate}
 \end{defi}
 
-In Definition \ref{defc}, we give a list of constraints on the $\dot{F}_i$'s and the $\dot{X}_{\delta, \lambda'}$'s, that are meant to dictate how the objects interpreting them behave. To be more formal, let $\Sigma$ interpret the predicate symbol $E$ occurring in $\mathcal{L}^*$. Here, we are using the term ``interpret'' in the conventional model-theoretic sense. Also, let
+In Definition \ref{defc}, we give a list of constraints on the $\dot{F}_i$'s and the $\dot{X}_{\delta, \lambda'}$'s, that are meant to dictate how the objects interpreting them behave. To be more formal, let $\Sigma$ interpret the unary relation symbol $\ulcorner E \urcorner$ occurring in $\mathcal{L}^*_{\mathfrak{A}}$ (formulas). Here, we are using the term ``interpret'' in the conventional model-theoretic sense. Also, let
 \begin{itemize}
     \item $F_i := F_i(\Sigma)$, and
     \item $X_{\delta, \lambda'} := X_{\delta, \lambda'}(\Sigma)$,
@@ -2652,7 +2652,7 @@ as $i$, $\delta$ and $\lambda'$ range over their appropriate domains. Then
     \item \ref{c4} means to say that the function $$\{(\delta, \lambda') : X_{\delta, \lambda'} \neq \emptyset\}$$ is strictly increasing,
     \item \ref{c5} and \ref{c6} mean to say that $X_{\delta, \lambda'} \cap \omega_1 = \delta$ whenever $X_{\delta, \lambda'}$ is non-empty,
     \item \ref{c7} means to tell us that if $X_{\delta, \lambda'}$ is non-empty, then $(X_{\delta, \lambda'}; \in,  \mathbb{P}_{\lambda'}, A_{\lambda'})$ is an elementary submodel of $(Q_{\lambda'}; \in,  \mathbb{P}_{\lambda'}, A_{\lambda'})$, and
-    \item \ref{c8} means to tell us that if $X_{\delta, \lambda'}$ is non-empty, then for every $D$ a dense subset of $\mathbb{P}_{\lambda'}$ definable over $(Q_{\lambda'}; \in, \mathbb{P}_{\lambda'}, A_{\lambda'})$ with parameters from $X_{\delta, \lambda'}$, $$[\Sigma]^{< \omega} \cap X_{\delta, \lambda'} \cap D \neq \emptyset.$$ 
+    \item \ref{c8} means to tell us that if $X_{\delta, \lambda'}$ is non-empty, then for every dense subset $D$ of $\mathbb{P}_{\lambda'}$ definable over $(Q_{\lambda'}; \in, \mathbb{P}_{\lambda'}, A_{\lambda'})$ with parameters from $X_{\delta, \lambda'}$, $$[\Sigma]^{< \omega} \cap X_{\delta, \lambda'} \cap D \neq \emptyset.$$ 
 \end{itemize}
 
 Now we can define $\mathbb{P}_{\lambda} := (P_{\lambda}, \leq_{\lambda})$, where
@@ -4321,26 +4321,47 @@ Working in the universe $W$ as defined in the proof of Theorem \ref{notion1} and
     & \ \Vdash_{Col(\omega, |H(\kappa)|)} \exists \Sigma \ (``\Sigma \ \Gamma_{\lambda}(\theta) (\mathcal{L} \cap Q_{\lambda}, \mathfrak{A}) \text{-certifies } p")\} \text{, and} \\
     \mathbb{P}_{\lambda}(\theta) := \ & (P_{\lambda}(\theta), \supset) \text{,}
 \end{align*}
-all subsequent lemmas in the proof still go through without a hitch. What then differentiates the $\mathbb{P}_{\lambda_f}(\theta)$'s that result from varying $\theta$? More specifically, because we can always choose $C$ such that $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$, this next question is of particular interest.
+would all subsequent lemmas in the proof still go through? What notable forcing-theoretic properties can we use to differentiate among the $\mathbb{P}_{\lambda_f}(\theta)$'s that result from varying $\theta$? 
+
+Let $\theta$ be a cardinal greater than $\omega$. Then the most obvious gap in the proof shows up in the semantic interpretation of members of $\Gamma_{\lambda}(\theta)$. More specifically, since there are many dense subsets $D$ of many of the $\mathbb{P}_{\lambda'}$'s for which
+\begin{itemize}
+    \item $D$ is definable without parameters, and
+    \item $D$ contains only infinite sets,
+\end{itemize}
+\ref{c8} no longer means
+\begin{equation}
+    \label{eq47}
+    \parbox{\dimexpr\linewidth-6em}{
+        ``if $X_{\delta, \lambda'}$ is non-empty, then for every dense subset $D$ of $\mathbb{P}_{\lambda'}$ definable over $(Q_{\lambda'}; \in, \mathbb{P}_{\lambda'}, A_{\lambda'})$ with parameters from $X_{\delta, \lambda'}$, $$[\Sigma]^{< \omega} \cap X_{\delta, \lambda'} \cap D \neq \emptyset \text{'',}$$ 
+    }
+\end{equation}
+where 
+\begin{itemize}
+    \item $\Sigma$ interprets the unary relation symbol $\ulcorner E \urcorner$ occurring in $\mathcal{L}^*_{\mathfrak{A}}$ (formulas), and
+    \item $X_{\delta, \lambda'} := X_{\delta, \lambda'}(\Sigma)$.
+\end{itemize}
+In fact, it now seems impossible to translate (\ref{eq47}) into a set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences, and there is thus an inability to guarantee that the $\mathbb{P}_{\lambda_f}(\theta)$-generic filter over $V$ is sufficiently generic over each non-empty $X_{\delta, \lambda'}$. This throws a wrench into the side condition method so crucial to the main results of this section.  
+
+But is there a way to salvage things to certain reasonable extent, without a complete overhaul of the forcing construction? To be more concrete, we can ask the following question.
 
 \begin{ques}\label{oq1}
-Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
 \begin{enumerate}[label=(\arabic*)]
-    \item $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$,
-    \item $\mathbb{P} := \mathbb{P}_{\lambda_f}(\omega_1)$ fulfils \ref{4101} and \ref{4102} of Lemma \ref{lem26}, and
-    \item there is a ``natural'' first-order sentence $\varphi$ in the language of set theory for which $$``\Vdash_{\mathbb{P}_{\lambda_f}(\omega)} \varphi \text{ and } \Vdash_{\mathbb{P}_{\lambda_f}(\omega_1)} \neg \varphi" \text{?}$$
+    \item $\theta > \omega$ is a cardinal,
+    \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
+    \item \ref{4101} and \ref{4102} of Lemma \ref{lem26} are fulfilled with $\mathbb{P}_{\lambda_f}(\theta)$ in place of $\mathbb{P}$, and
+    \item $\mathbb{P}_{\lambda_f}(\theta)$ does not collapse $\omega_1^W$?
 \end{enumerate}
 \end{ques}
-
-We are optimistic that an answer to Question \ref{oq1} can be generalised to associate forcing consequences of similar forcing notions (such as the $\mathbb{P}_{\lambda}$'s defined in the proof of Theorem \ref{notion2}) with the cardinality limitations placed upon their conditions. For example, an affirmative answer might allow us to separate the forcing consequences of two $\mathbb{P}$'s fulfilling the hypothesis of Lemma \ref{main2}, according to differences in cardinality bounds on the members of their respective $B$'s.
 
 In the spirit of Jensen's results on the extended Namba problem, we are interested in whether the forcing notion $\mathbb{P}_{\lambda_f}$ constructed in the proof of Theorem \ref{notion1} adds reals. More generally, we can ask the same about the parametrised versions of said forcing notion. 
 
 \begin{ques}\label{addsreals}
-Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $C$, $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{,}$$ and a cardinal $\theta$ be chosen such that
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that
 \begin{enumerate}[label=(\arabic*)]
+    \item $\theta$ is an infinite cardinal,
     \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
-    \item $\mathbb{P} := \mathbb{P}_{\lambda_f}(\theta)$ fulfils \ref{4101} and \ref{4102} of Lemma \ref{lem26}, and
+    \item  \ref{4101} and \ref{4102} of Lemma \ref{lem26} are fulfilled with $\mathbb{P}_{\lambda_f}(\theta)$ in place of $\mathbb{P}$, and
     \item $\mathbb{P}_{\lambda_f}(\theta)$ does not add reals?
 \end{enumerate}
 \end{ques}
@@ -4355,19 +4376,21 @@ Comparing Theorem \ref{notion1} with Theorem \ref{notion2} makes clear the exist
 \end{align*}
 
 \begin{ques}\label{oq2}
-Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
 \begin{enumerate}[label=(\arabic*)]
-    \item $[Q_{\lambda}]^{< \omega_1} \subset Q_{\lambda}$ for all $\lambda \in C$,
-    \item $\mathbb{P} := \mathbb{P}'_{\lambda_f}(\omega_1)$ fulfils \ref{K1} to \ref{K5} of Fact \ref{fact436}, and
-    \item there is a ``natural'' first-order sentence $\varphi$ in the language of set theory for which $$``\Vdash_{\mathbb{P}'_{\lambda_f}(\omega)} \varphi \text{ and } \Vdash_{\mathbb{P}'_{\lambda_f}(\omega_1)} \neg \varphi" \text{?}$$
+    \item $\theta > \omega$ is a cardinal,
+    \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
+    \item \ref{K1} to \ref{K5} of Fact \ref{fact436} are fulfilled with $\mathbb{P}'_{\lambda_f}(\theta)$ in place of $\mathbb{P}$, and
+    \item $\mathbb{P}'_{\lambda_f}(\theta)$ does not collapse $\omega_1^W$?
 \end{enumerate}
 \end{ques}
 
 \begin{ques}\label{addsreals2}
-Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $C$, $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{,}$$ and a cardinal $\theta$ be chosen such that
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that
 \begin{enumerate}[label=(\arabic*)]
+    \item $\theta$ is an infinite cardinal,
     \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
-    \item $\mathbb{P} := \mathbb{P}'_{\lambda_f}(\theta)$ fulfils \ref{K1} to \ref{K5} of Fact \ref{fact436}, and
+    \item \ref{K1} to \ref{K5} of Fact \ref{fact436} are fulfilled with $\mathbb{P}'_{\lambda_f}(\theta)$ in place of $\mathbb{P}$, and
     \item $\mathbb{P}'_{\lambda_f}(\theta)$ does not add reals?
 \end{enumerate}
 \end{ques}
