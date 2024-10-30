@@ -210,11 +210,11 @@ Let $\phi$ be a first-order formula over a signature $\sigma$. We inductively de
     \item If $n = 0$, then $\phi$ is $\Pi_0$ iff $\phi$ is $\Sigma_0$ iff $\phi$ is quantifier-free.
     \item\label{3292} If $n = m + 1$ for some $m < \omega$, then 
     \begin{enumerate}[label=(\alph*)]
-        \item\label{3292a} $\phi$ is $\Pi_n$ iff there is a $\Sigma_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ such that 
+        \item\label{3292a} $\phi$ is $\Pi_n$ iff there is a $\Sigma_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ not bound in $\varphi$, such that 
         \begin{equation*}
             \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{, and}
         \end{equation*}
-        \item\label{3292b} $\phi$ is $\Sigma_n$ iff there is a $\Pi_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ such that 
+        \item\label{3292b} $\phi$ is $\Sigma_n$ iff there is a $\Pi_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ not bound in $\varphi$, such that 
         \begin{equation*}
             \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{.}
         \end{equation*}
@@ -255,11 +255,11 @@ Let $\phi$ be a first-order formula over a possibly expanded language of set the
     \item\label{def271} If $n = 0$, then $\phi$ is $\Delta_n$ iff $\phi$ is $\Pi_n$ iff $\phi$ is $\Sigma_n$ iff every quantifier occurring in $\phi$ is bounded by $\in$.
     \item\label{2712} If $n = m + 1$ for some $m < \omega$, then 
     \begin{enumerate}[label=(\alph*)]
-        \item\label{2712a} $\phi$ is $\Pi_n$ iff there is a $\Sigma_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ such that 
+        \item\label{2712a} $\phi$ is $\Pi_n$ iff there is a $\Sigma_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ not bound in $\varphi$, such that 
         \begin{equation*}
             \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{, and}
         \end{equation*}
-        \item\label{2712b} $\phi$ is $\Sigma_n$ iff there is a $\Pi_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ such that 
+        \item\label{2712b} $\phi$ is $\Sigma_n$ iff there is a $\Pi_m$ formula $\varphi$, a number $k < \omega$, and variable symbols $x_1, \dots, x_k$ not bound in $\varphi$, such that 
         \begin{equation*}
             \phi = \ulcorner \forall x_1 \dots \forall x_k \ \varphi \urcorner \text{.}
         \end{equation*}
