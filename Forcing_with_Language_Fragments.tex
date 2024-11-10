@@ -412,7 +412,7 @@ We write ``$\Vdash_{\mathbb{P}} \phi$" to mean $$\text{``} \forall p \ (p \in \m
 \begin{rem}
 A theorem fundamental to the technique of forcing intricately connects the forcing relation $\Vdash_{\mathbb{P}}^V$ with truth in $\mathbb{P}$-generic extensions. It goes as follows:
 \begin{quote}
-If $\mathbb{P}$ is a forcing notion in $V$, $p \in \mathbb{P}$, $\phi$ is a formula with $n$ free variables, and $\dot{x}_1$, ..., $\dot{x}_n$ are $\mathbb{P}$-names in $V$, then
+If $\mathbb{P}$ is a forcing notion in $V$, $p \in \mathbb{P}$, $\phi$ is a formula with $n$ free variables, and $\dot{x}_1$, \dots, $\dot{x}_n$ are $\mathbb{P}$-names in $V$, then
 \begin{itemize}
     \item 
     \!
@@ -1433,22 +1433,22 @@ Then
 \end{prop}
 
 \begin{defi}\label{LSigma1}
-A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ iff it is of the form $$\ulcorner \exists y_1 ... \exists y_j \ \phi \urcorner,$$
+A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ iff it is of the form $$\ulcorner \exists y_1 \dots \exists y_j \ \phi \urcorner,$$
 where 
 \begin{itemize}
     \item $j < \omega$,
     \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$,
-    \item $y_1, ..., y_j$ are variables not bound in $\phi$.
+    \item $y_1, \dots, y_j$ are variables not bound in $\phi$.
 \end{itemize}
 \end{defi}
 
 \begin{defi}\label{LPi2}
-A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ iff it is of the form $$\ulcorner \forall x_1 ... \forall x_i \ \phi \urcorner,$$
+A first-order formula $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ iff it is of the form $$\ulcorner \forall x_1 \dots \forall x_i \ \phi \urcorner,$$
 where 
 \begin{itemize}
     \item $i < \omega$,
     \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$,
-    \item $x_1, ..., x_i$ are variables not bound in $\phi$.
+    \item $x_1, \dots, x_i$ are variables not bound in $\phi$.
 \end{itemize}
 \end{defi}
 
@@ -1542,18 +1542,18 @@ in case
         \text{``}\emptyset \neq p \text{ and } p \text{ is Dedekind-finite''.}
     \end{equation*}
 \end{itemize} 
-As an implication, if $\ulcorner \exists x_1 ... \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula with $\phi \in ran(\mathsf{WNF})$, then we can show by induction on the complexity of $\phi$, noting
+As an implication, if $\ulcorner \exists x_1 \dots \exists x_n \ \phi \urcorner$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula with $\phi \in ran(\mathsf{WNF})$, then we can show by induction on the complexity of $\phi$, noting
 \begin{itemize}
     \item the recursive structure of $\mathsf{P_W}$, 
     \item how $\mathsf{DNF_1}$ is used in $\mathsf{P_W}$, and
     \item Remark \ref{rem322}, 
 \end{itemize}
-that there exists a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula $\varphi$ satisfying $$X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner \iff X \models^*_{\mathfrak{A}, \nu} \varphi$$ for every 
+that there exists a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula $\varphi$ satisfying $$X \models^*_{\mathfrak{A}, \nu} \ulcorner \exists x_1 \dots \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner \iff X \models^*_{\mathfrak{A}, \nu} \varphi$$ for every 
 \begin{itemize}
     \item $\mathfrak{A}$-valuation $\nu$, and
     \item set $X$ found in a weak outer model of $V$.
 \end{itemize} 
-We may thus assume, without loss of generality, that formulas of the form $$\ulcorner \exists x_1 ... \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ are $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, as long as
+We may thus assume, without loss of generality, that formulas of the form $$\ulcorner \exists x_1 \dots \exists x_n \ \mathsf{check}(\mathsf{pos}(\phi)) \urcorner$$ are $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$, as long as
 \begin{itemize}
     \item $n < \omega$, and 
     \item $\phi \in ran(\mathsf{WNF})$.
@@ -1695,11 +1695,11 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
     
     We have thus shown that the set $$D_1 := \{q \in P : p^{\dagger} \subsetneq q \cap q^{\dagger}\}$$ is dense below $p^*$ in $\mathbb{P}$. Given the fact that $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, $D_1$ obviously has the same property, so $g$ must meet $D_1$. As $p^* \in g$, we can conclude $g \cap D_1 \neq \emptyset$, and let $q^* \in g \cap D_1$. But then $p^{\dagger} \subsetneq q^* \cap q^{\dagger}$, which implies $$p^{\dagger} \subsetneq q^* \cap q^{\dagger} \subset \bigcup g \cap q^{\dagger} = p^{\dagger},$$ a contradiction. 
     
-    \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ but not $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. Then $\phi$ is of the form $\ulcorner \exists x_1 ... \exists x_n \ \phi^* \urcorner$ for some 
+    \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ but not $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. Then $\phi$ is of the form $\ulcorner \exists x_1 \dots \exists x_n \ \phi^* \urcorner$ for some 
     \begin{itemize}
         \item $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formula $\phi^*$,
         \item $n$ such that $1 \leq n < \omega$, and
-        \item $\{x_1, ..., x_n\}$ the set of free variables of $\phi^*$.
+        \item $\{x_1, \dots, x_n\}$ the set of free variables of $\phi^*$.
     \end{itemize} 
     
     We first show that $\bigcup g$ is $\mathcal{L}$-nice. Obviously, $\bigcup g \subset \mathcal{L}$, so we need only consider the other two conditions of being $\mathcal{L}$-nice. To that end, define $$\varphi_x := \ulcorner (E(x) \vee E(\neg x)) \wedge (\neg E(x) \vee \neg E(\neg x)) \urcorner$$ for each $x \in \mathcal{L}$. Note that the $\varphi_x$'s are $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ sentences. Moreover, $X \models^{*}_{\mathfrak{A}} \varphi_x$ for every $\mathcal{L}$-nice set $X$ and every $x \in \mathcal{L}$. 
@@ -4635,7 +4635,7 @@ Here, $\vartheta$ encodes a set of disjoint finite linear orders of unbounded le
     \varphi_2 \text{ (transitivity)} : \ & \ulcorner \forall x \ \forall y \ \forall z \ ((\dot{R}(x, y) \wedge \dot{R}(y, z)) \implies \dot{R}(x, z)) \urcorner \\
     \varphi_3 \text{ (trichotomy)} : \ & \ulcorner \forall x \ \forall y \ (\dot{R}(x, y) \vee \dot{R}(y, x) \vee y = x) \urcorner.
 \end{align*}
-Finally, we define $$T' := \{\ulcorner \exists x_1 \ \exists x_2 \ ... \ \exists x_n \ (\bigwedge_{1 \leq k < n} \dot{R}(x_{k}, x_{k + 1})) \urcorner : 1 < n < \omega\}$$ and let $$T := T' \cup \{\varphi_1, \varphi_2, \varphi_3\}.$$ Note that any finite subset of $T$ can be satisfied by a sufficiently long finite linear order, examples of which $\vartheta$ provides in abundance. However, a model of $T$ is necessarily an infinite linear order, and our definition of $\vartheta$ precisely prohibits all infinite linear orders. We thus have $\mathfrak{T}$ being finitely consistent but not consistent.
+Finally, we define $$T' := \{\ulcorner \exists x_1 \ \exists x_2 \ \dots \ \exists x_n \ (\bigwedge_{1 \leq k < n} \dot{R}(x_{k}, x_{k + 1})) \urcorner : 1 < n < \omega\}$$ and let $$T := T' \cup \{\varphi_1, \varphi_2, \varphi_3\}.$$ Note that any finite subset of $T$ can be satisfied by a sufficiently long finite linear order, examples of which $\vartheta$ provides in abundance. However, a model of $T$ is necessarily an infinite linear order, and our definition of $\vartheta$ precisely prohibits all infinite linear orders. We thus have $\mathfrak{T}$ being finitely consistent but not consistent.
 \end{proof}
 
 Fix any infinite set $X$. By the Lowenheim-Skolem theorem for first-order logic, the compactness theorem for first-order logic holds even if we require the base set of the models in question to be subsets of $X$. As a result, the failure of compactness in a TCI of the form specified by Lemma \ref{countercom} must come from restrictions imposed by $\vartheta$. In a sense, then, Lemma \ref{countercom} gives one of the simplest examples of such a $\vartheta$, considering it has a singleton as its domain.
@@ -4707,10 +4707,10 @@ Before we get to $\Gamma_{\mathfrak{T}}$, a remark (or rather, a reminder) is im
 \begin{rem}\label{subsafe2}
 In the same vein as what was elaborated after Definition \ref{defl}, we will use functions to pass parameters of an expression in $\mathcal{L}_{\mathfrak{T}}$ via variables, whenever necessary in the construction of $({\mathcal{L}_{\mathfrak{T}}})^*_{\mathfrak{A}_{\mathfrak{T}}}$ sentences involving the symbol $\ulcorner E \urcorner$. In fact, this can be done uniformly by the universal function $\chi_{\mathfrak{T}}$: 
 \begin{align*}
-    (S, x_1, ..., x_n, x_{n+1}) \mapsto 
+    (S, x_1, \dots, x_n, x_{n+1}) \mapsto 
     \begin{cases}
-        \ulcorner S(x_1, ..., x_n, x_{n+1}) \urcorner & \text{if } S \text{ is a } n+1 \text{-ary relation symbol} \\
-        \ulcorner S(x_1, ..., x_n) = x_{n+1} \urcorner & \text{if } S \text{ is a } n \text{-ary function symbol }\\
+        \ulcorner S(x_1, \dots, x_n, x_{n+1}) \urcorner & \text{if } S \text{ is a } n+1 \text{-ary relation symbol} \\
+        \ulcorner S(x_1, \dots, x_n) = x_{n+1} \urcorner & \text{if } S \text{ is a } n \text{-ary function symbol }\\
         \ulcorner S = x_{n+1} \urcorner & \text{if } S \text{ is a } \text{constant symbol and } n = 0 \\
         \emptyset & \text{otherwise},
     \end{cases}
@@ -4727,24 +4727,26 @@ Now, we define $\Gamma_{\mathfrak{T}}$ as follows:
         \ulcorner \exists x \ (E(\ulcorner \dot{\mathcal{U}}(x) \urcorner) \wedge E(\ulcorner \dot{X} = x \urcorner)) \urcorner & \in \Gamma_{\mathfrak{T}}, \\
         \ulcorner \forall x \ \forall y \ ((E(\ulcorner \dot{X} = x \urcorner) \wedge E(\ulcorner \dot{X} = y \urcorner)) \implies x = y) \urcorner & \in \Gamma_{\mathfrak{T}}.
     \end{align*}
-    \item For each $n$-ary relation symbol $\dot{X} \in \sigma'$, $$\ulcorner \forall x_1 ... \forall x_n \ (E(\ulcorner \dot{X}((x_1, ..., x_n)) \urcorner) \implies (\bigwedge_{1 \leq k \leq n} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner))) \urcorner \in \Gamma_{\mathfrak{T}}.$$
+    \item For each $n$-ary relation symbol $\dot{X} \in \sigma'$, $$\ulcorner \forall x_1 \dots \forall x_n \ (E(\ulcorner \dot{X}((x_1, \dots, x_n)) \urcorner) \implies (\bigwedge_{1 \leq k \leq n} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner))) \urcorner \in \Gamma_{\mathfrak{T}}.$$
     \item\label{gammaform3} If $\vartheta(\dot{\mathcal{U}}) = (y, 1)$, then $$\ulcorner \forall x \ (x \in y \implies E(\ulcorner \dot{\mathcal{U}}(x) \urcorner)) \urcorner \in \Gamma_{\mathfrak{T}}.$$
     \item\label{gammaform4} For each $n$-ary relation symbol $\dot{X} \in \sigma$ such that $\vartheta(\dot{X}) = (y, 1)$, 
     \begin{align*}
-        \ulcorner \forall x_1 ... \forall x_n \ (((\bigwedge_{1 \leq k \leq n} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner)) \wedge \ulcorner \dot{X}((x_1, ..., x_n)) \urcorner \in \mathcal{L}_{\mathfrak{T}}) & \\
-        \implies E(\ulcorner \dot{X}((x_1, ..., x_n)) \urcorner)) \urcorner & \in \Gamma_{\mathfrak{T}}.
+        \ulcorner \forall x_1 \dots \forall x_n \ (((\bigwedge_{1 \leq k \leq n} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner)) \wedge \ulcorner \dot{X}((x_1, \dots, x_n)) \urcorner \in \mathcal{L}_{\mathfrak{T}}) & \\
+        \implies E(\ulcorner \dot{X}((x_1, \dots, x_n)) \urcorner)) \urcorner & \in \Gamma_{\mathfrak{T}}.
     \end{align*}
     \item For each $n$-ary function symbol $\dot{X} \in \sigma'$, 
     \begin{align*}
-        \ulcorner \forall x_1 ... \forall x_{n+1} \ (E(\ulcorner \dot{X} (x_1, ..., x_n) = x_{n+1} \urcorner) \implies (\bigwedge_{1 \leq k \leq n+1} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner))) \urcorner & \in \Gamma_{\mathfrak{T}}, \\
-        \ulcorner \forall x_1 ... \forall x_n \ \exists y \ ((\bigwedge_{1 \leq k \leq n} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner)) \implies E(\ulcorner \dot{X}(x_1, ..., x_n) = y \urcorner)) \urcorner & \in \Gamma_{\mathfrak{T}}, \\
-        \ulcorner \forall x_1 ... \forall x_n \ \forall y \ \forall z \ ((E(\ulcorner \dot{X} (x_1, ..., x_n) = y \urcorner) \wedge E(\ulcorner \dot{X} (x_1, ..., x_n) = z \urcorner)) & \\ 
-        \implies y = z) \urcorner & \in \Gamma_{\mathfrak{T}}. \\
+        \ulcorner \forall x_1 \dots \forall x_{n+1} \ ( & E(\ulcorner \dot{X} (x_1, \dots, x_n) = x_{n+1} \urcorner) \\
+        & \mspace{90mu} \implies (\bigwedge_{1 \leq k \leq n+1} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner))) \urcorner \in \Gamma_{\mathfrak{T}}, \\
+        \ulcorner \forall x_1 \dots \forall x_n \ \exists y \ ( & (\bigwedge_{1 \leq k \leq n} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner)) \\
+        & \mspace{70mu} \implies E(\ulcorner \dot{X}(x_1, \dots, x_n) = y \urcorner)) \urcorner \in \Gamma_{\mathfrak{T}}, \\
+        \ulcorner \forall x_1 \dots \forall x_n \ \forall y \ \forall z \ ( & (E(\ulcorner \dot{X} (x_1, \dots, x_n) = y \urcorner) \\ 
+        & \wedge E(\ulcorner \dot{X} (x_1, \dots, x_n) = z \urcorner)) \implies y = z) \urcorner \in \Gamma_{\mathfrak{T}}.
     \end{align*}
     \item\label{gamma5} For each $n$-ary function symbol $\dot{X} \in \sigma'$ such that $\vartheta(\dot{X}) = (y, 1)$, 
     \begin{align*}
-        \ulcorner \forall x_1 ... \forall x_{n+1} \ (((\bigwedge_{1 \leq k \leq n+1} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner)) \wedge \ulcorner \dot{X}(x_1, ..., x_n) = x_{n+1} \urcorner \in \mathcal{L}_{\mathfrak{T}}) & \\
-        \implies E(\ulcorner \dot{X}(x_1, ..., x_n) = x_{n+1} \urcorner)) \urcorner & \in \Gamma_{\mathfrak{T}}.
+        \ulcorner \forall x_1 \dots \forall x_{n+1} \ (((\bigwedge_{1 \leq k \leq n+1} E(\ulcorner \dot{\mathcal{U}}(x_k) \urcorner)) \wedge \ulcorner \dot{X}(x_1, \dots, x_n) = x_{n+1} \urcorner \in \mathcal{L}_{\mathfrak{T}}) & \\
+        \implies E(\ulcorner \dot{X}(x_1, \dots, x_n) = x_{n+1} \urcorner)) \urcorner & \in \Gamma_{\mathfrak{T}}.
     \end{align*}
     \item\label{gamma6} We finally deal with members of $T$. So let $\phi \in T$. We first assume that for every atomic subformula $\varphi$ of $\phi$, 
     \begin{align}\label{norecur}
@@ -4910,7 +4912,7 @@ As every $Col(\omega, \lambda)$-generic extension of $V$ is a transitive model o
 \end{proof}
 
 \begin{cor}\label{cor527}
-There is a procedure to decide in $V$, whether any given $\Pi_2$ TCI is consistent.
+There is a procedure to uniformly decide in $V$, whether any given $\Pi_2$ TCI is consistent.
 \end{cor}
 
 \begin{proof}
@@ -5150,10 +5152,10 @@ as well as \ref{gglsb} of the lemma.
 
 Note that we can, without loss of generality, assume $\sigma$ contains only relation symbols and constant symbols. This is because for any function symbol $\dot{X}$ and any $n < \omega$, $\dot{X}$ being a $n$-ary function is definable in a $(n+1)$-ary relation symbol $\dot{Y}$ via the conjunction of the $\Pi_2$ sentences
 \begin{gather*}
-    \ulcorner \forall x_1 ... \forall x_n \ \exists y \ (\dot{Y}(x_1, ..., x_n, y)) \urcorner \text{ and} \\
-    \ulcorner \forall x_1 ... \forall x_n \ \forall y \ \forall z \ ((\dot{Y} (x_1, ..., x_n, y) \wedge \dot{Y} (x_1, ..., x_n, z)) \implies y = z) \urcorner \text{,} 
+    \ulcorner \forall x_1 \dots \forall x_n \ \exists y \ (\dot{Y}(x_1, \dots, x_n, y)) \urcorner \text{ and} \\
+    \ulcorner \forall x_1 \dots \forall x_n \ \forall y \ \forall z \ ((\dot{Y} (x_1, \dots, x_n, y) \wedge \dot{Y} (x_1, \dots, x_n, z)) \implies y = z) \urcorner \text{,} 
 \end{gather*}
-if we interpret formulas of the form $\dot{Y} (x_1, ..., x_n, x_{n+1})$ as $\dot{X} (x_1, ..., x_n) = x_{n+1}$.
+if we interpret formulas of the form $\dot{Y} (x_1, \dots, x_n, x_{n+1})$ as $\dot{X} (x_1, \dots, x_n) = x_{n+1}$.
 
 Have $(y, z)$ be $\vartheta(\dot{\mathcal{U}})$ and $\sigma'$ be $\sigma \cup \{\dot{\mathcal{U}}\}$. Choose 
 \begin{itemize}
@@ -5172,7 +5174,7 @@ Whenever $\dot{X} \in \sigma$ and $\vartheta(\dot{X}) = (y', z')$, we define $\v
 
 Now, we modify $\Gamma_{\mathfrak{T}}$ by first removing members of the type described in \ref{gammaform3} and \ref{gammaform4} of Lemma \ref{mcequiv}, and then for each remaining member $\varphi$ of $\Gamma_{\mathfrak{T}}$, replacing every subformula of $\varphi$ of the form $\ulcorner E(\ulcorner x \urcorner) \urcorner$ with $\ulcorner x \urcorner$. 
 
-Call the result of said modification $T'$. Whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol with $\vartheta(\dot{X}) = (y', 1)$, define $$T(\dot{X}) := \{\ulcorner \bigwedge_{1 \leq k \leq n} \dot{\mathcal{U}}(\dot{c}_k) \implies \dot{X}(\dot{c}_1, ..., \dot{c}_n) \urcorner : (c_1, ..., c_n) \in y' \cap y^n\}.$$ Finally, define $T^*$ to be the union of $T'$, $$\bigcup \{T(\dot{X}) : \dot{X} \in \sigma \text{ and } \exists y' \ (\vartheta(\dot{X}) = (y', 1))\},$$ and the finite set of sentences
+Call the result of said modification $T'$. Whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol with $\vartheta(\dot{X}) = (y', 1)$, define $$T(\dot{X}) := \{\ulcorner \bigwedge_{1 \leq k \leq n} \dot{\mathcal{U}}(\dot{c}_k) \implies \dot{X}(\dot{c}_1, \dots, \dot{c}_n) \urcorner : (c_1, \dots, c_n) \in y' \cap y^n\}.$$ Finally, define $T^*$ to be the union of $T'$, $$\bigcup \{T(\dot{X}) : \dot{X} \in \sigma \text{ and } \exists y' \ (\vartheta(\dot{X}) = (y', 1))\},$$ and the finite set of sentences
 \begin{align*}
     T^*_0 := \{ & \ulcorner \forall x \ \exists y \ (\dot{V}(x) \implies (\dot{\mathcal{U}}(y) \wedge \dot{F}(x) = y)) \urcorner, \\
     & \ulcorner \forall x \ \exists y \ (\dot{\mathcal{U}}(x) \implies (\dot{V}(y) \wedge \dot{F}(y) = x)) \urcorner, \\
@@ -5318,7 +5320,7 @@ Two important, yet perhaps surprising, properties of $\Pi_2$ TCIs follow from th
 The following statements hold.
 \begin{enumerate}[label=(\arabic*)]
     \item Let $\mathfrak{T}$ be a $\Pi_2$ TCI. Every model of $\mathfrak{T}$ can be found in $V$ iff every model of $\mathfrak{T}$ is almost finitely determined (see also Lemma \ref{afdinV}).
-    \item\label{cor5492} There is a procedure to decide in $V$, whether every model of any given $\Pi_2$ TCI can be found in $V$.
+    \item\label{cor5492} There is a procedure to uniformly decide in $V$, whether every model of any given $\Pi_2$ TCI $\mathfrak{T}$ is definable in $V$ using parameters in $$trcl(\mathfrak{T}) \cup H(\omega) \cup \theta \text{,}$$ where $$\theta := max\{|trcl(\mathfrak{T})|^+, \omega_1\} \text{.}$$
 \end{enumerate}
 \end{cor}
 Notice that \ref{cor5492} of Corollary \ref{cor549} is similar in form to Corollary \ref{cor527}. Through Remark \ref{rem537}, this points further to Theorem \ref{genericdichom} being an improvement upon Theorem \ref{genericmodels}.
