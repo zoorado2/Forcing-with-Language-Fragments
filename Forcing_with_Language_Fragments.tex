@@ -5320,10 +5320,20 @@ Two important, yet perhaps surprising, properties of $\Pi_2$ TCIs follow from th
 The following statements hold.
 \begin{enumerate}[label=(\arabic*)]
     \item Let $\mathfrak{T}$ be a $\Pi_2$ TCI. Every model of $\mathfrak{T}$ can be found in $V$ iff every model of $\mathfrak{T}$ is almost finitely determined (see also Lemma \ref{afdinV}).
-    \item\label{cor5492} There is a procedure to uniformly decide in $V$, whether every model of any given $\Pi_2$ TCI $\mathfrak{T}$ is definable in $V$ with parameters from $$trcl(\mathfrak{T}) \cup |trcl(\mathfrak{T})|^+ \cup H(\omega) \text{.}$$ 
+    \item\label{cor5492} There is a procedure to uniformly decide in $V$, whether every model of any given $\Pi_2$ TCI $\mathfrak{T}$ is definable in $V$ with parameters from $$\mathrm{PS}(\mathfrak{T}) := trcl(\mathfrak{T}) \cup |trcl(\mathfrak{T})|^+ \cup H(\omega) \text{,}$$ or equivalently, whether every model of $\mathfrak{T}$ can be found in $V$.
+    
+    Moreover, for some $n < \omega$ there is a $(n+2)$-ary formula $\psi$ in the language of set theory such that, given any $\Pi_2$ TCI $\mathfrak{T}$,
+    \begin{itemize}
+        \item whenever $\Vec{z} \in \mathrm{PS}(\mathfrak{T})^n$, if there exists $x$ for which $\psi(x, \mathfrak{T}, \Vec{z})$ holds, then said $x$ is unique, and
+        \item if every model of $\mathfrak{T}$ can be found in $V$, then in $V$, 
+        \begin{align*}
+            \{x : \exists \Vec{z} \ (\Vec{z} \in \mathrm{PS}(\mathfrak{T})^n \wedge \psi(x, \mathfrak{T}, \Vec{z}))\} & = \{\mathcal{M} : \mathcal{M} \models^* \mathfrak{T}\} \\
+            & \subset H(|trcl(\mathfrak{T})|^+) \text{.}
+        \end{align*}
+    \end{itemize}
 \end{enumerate}
 \end{cor}
-Notice that \ref{cor5492} of Corollary \ref{cor549} is similar in form to Corollary \ref{cor527}. Through Remark \ref{rem537}, this points further to Theorem \ref{genericdichom} being an improvement upon Theorem \ref{genericmodels}.
+Notice that the first sentence to appear in \ref{cor5492} of Corollary \ref{cor549} is similar in form to Corollary \ref{cor527}. Through Remark \ref{rem537}, this points further to Theorem \ref{genericdichom} being an improvement upon Theorem \ref{genericmodels}. 
 
 For a countable TCI $\mathfrak{T}$, the consistency of $\mathfrak{T}$ implies the existence of a model of $\mathfrak{T}$ in $V$. 
 
