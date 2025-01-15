@@ -2173,13 +2173,13 @@ Indeed, a stronger variant of the extended Namba problem, asking for which regul
     & \Vdash_{\mathbb{P}} ``cof(\lambda) = \omega_1" \text{, and} \\
     & \Vdash_{\mathbb{P}} ``cof(\beta) > \omega" \text{ for all regular cardinals } \beta \text{ satisfying } \lambda < \beta \text{'}
 \end{align*}
-true, naturally arises from Fact \ref{fact26}. Indeed, Fact \ref{fact26} is equivalent to --- and can be rewritten as --- the following.
+true, naturally arises from Fact \ref{fact26}. Furthermore, Fact \ref{fact26} is equivalent to --- and can be rewritten as --- the following.
 
 \begin{customfact}{4.7$'$}\label{f46p}
 Assume $\mathsf{GCH}$ holds below $\omega_2$. Then Namba forcing witnesses $Nb_1(\omega_3)$.
 \end{customfact}
 
-Drawing from the deep and complex theories of subcomplete forcing and $\mathcal{L}$-forcing, Jensen showed in \cite{lforcing} that, modulo weak fragments of $\mathsf{GCH}$, $Nb_1(\lambda)$ holds for all successor and strongly inaccessible cardinals above $\omega_2$. Jensen used very different methods to construct the witnesses $\mathbb{P}$ for different categories of $\lambda$, but in doing so, he also ensured that $\mathbb{P}$ never adds reals. 
+Drawing from the deep and complex theories of subcomplete forcing and $\mathcal{L}$-forcing, Jensen showed in \cite{lforcing} that, modulo weak fragments of $\mathsf{GCH}$, $Nb_1(\lambda)$ holds for all successor and strongly inaccessible cardinals above $\omega_2$. Jensen used different methods to construct the witnesses $\mathbb{P}$ for different categories of $\lambda$ (e.g. revised countable support iterations of $\mathcal{L}$-forcings, for strongly inaccessible $\lambda$), but in doing so, he also ensured that $\mathbb{P}$ never adds reals. 
 
 But can we have $Nb_1(\lambda)$ hold for a bigger class of cardinals $\lambda$ if we allow $\mathbb{P}$ to add reals?
 
@@ -4156,9 +4156,9 @@ Let $\theta$ be a cardinal greater than $\omega$. Then the most obvious gap in t
 wherein 
 \begin{enumerate}[label=(\alph*)]
     \item $\Sigma$ interprets the unary relation symbol $\ulcorner E \urcorner$ occurring in $\mathcal{L}^*_{\mathfrak{A}}$ (formulas), and
-    \item $X_{\delta, \lambda'} := X_{\delta, \lambda'}(\Sigma)$.
+    \item $X_{\delta, \lambda'} = X_{\delta, \lambda'}(\Sigma)$,
 \end{enumerate}
-In fact, it now seems impossible to translate (\ref{eq47}) into a set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences, and there is thus an inability to guarantee that the $\mathbb{P}_{\lambda_f}(\theta)$-generic filter over $V$ is sufficiently generic over each non-empty $X_{\delta, \lambda'}$. This throws a wrench into the side condition method so crucial to the main results of this section.  
+as we ought to recall. In fact, it now seems impossible to translate (\ref{eq47}) into a set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences, and there is thus an inability to guarantee that the $\mathbb{P}_{\lambda_f}(\theta)$-generic filter over $V$ is sufficiently generic over each non-empty $X_{\delta, \lambda'}$. This throws a wrench into the side condition method so crucial to the main results of this section.  
 
 But is there a way to salvage things to certain reasonable extent, without a complete overhaul of the forcing construction? To be more concrete, we can ask the following question.
 
@@ -4234,16 +4234,26 @@ Must $Nb_2(\lambda)$ hold for a weakly inaccessible $\lambda$, if $\lambda$ is n
 
 In another direction, we can ask about the possibility of eschewing the assumptions in Corollary \ref{nambacoro}.
 
+\begin{ques}\label{inzfc}
+Is it true that $\mathsf{ZFC} \vdash ``Nb'_1(\lambda)$ holds for all regular cardinals $\lambda$ above $\omega_2$''?
+\end{ques}
+
+Towards resolving Question \ref{inzfc}, one might want to first consider the truth value of a weaker assertion --- a consideration we rephrase as a question below.
+
 \begin{enumerate}[label=(Q\arabic*)]
     \setcounter{enumi}{1}
-    \item\label{newq2} Is it true that $\mathsf{ZFC} \vdash ``Nb_1(\lambda)$ holds for all $\lambda$ above $\omega_2$''?
+    \item\label{newq2} Is it true that $\mathsf{ZFC} \vdash ``Nb_1(\lambda)$ holds for all regular cardinals $\lambda$ above $\omega_2$''?
 \end{enumerate}
 
-Very recent results by De Bondt and Veli\v{c}kovi\'{c} (as a part of De Bondt's PhD dissertation, \cite{bendb}) resolved \ref{newq2} in the affirmative. In fact, the class of forcing notions constructed by De Bondt and Veli\v{c}kovi\'{c} assuming only $\mathsf{ZFC}$, bears witness to a theorem significantly stronger than 
+It so happens that recent results by De Bondt and Veli\v{c}kovi\'{c} (as a part of De Bondt's PhD dissertation, \cite{bendb}) resolved \ref{newq2} in the affirmative. In fact, the class of forcing notions constructed by De Bondt and Veli\v{c}kovi\'{c} assuming only $\mathsf{ZFC}$, bears witness to a theorem significantly stronger than 
 \begin{equation*}
-    \text{``}Nb_1(\lambda) \text{ holds for all } \lambda \text{ above } \omega_2 \text{.''}
+    \text{``}Nb_1(\lambda) \text{ holds for all regular cardinals } \lambda \text{ above } \omega_2 \text{,''}
 \end{equation*}
-However, these forcing notions always add reals, so they cannot be used to answer Question \ref{q428}. Additionally, because the De Bondt-Veli\v{c}kovi\'{c} forcing constructions appear vastly different from the Asper\'{o}-Schindler one, there is no obvious way to integrate one kind with the other towards proving Theorem \ref{notion2}. In fact, it is clear that iterating forcing notions born from these two kinds of constructions would not work, since an Asper\'{o}-Schindler forcing notion must force 
+but does not seem to witness 
+\begin{equation*}
+    \text{``}Nb'_1(\lambda) \text{ holds for all regular cardinals } \lambda \text{ above } \omega_2 \text{.''}
+\end{equation*}
+These forcing notions always add reals, so they cannot be used to answer Question \ref{q428}. Additionally, because the De Bondt-Veli\v{c}kovi\'{c} forcing constructions appear vastly different from the Asper\'{o}-Schindler one, there is no obvious way to integrate one kind with the other towards proving Theorem \ref{notion2}. For instance, it is clear that iterating forcing notions born from these two kinds of constructions would not work, since an Asper\'{o}-Schindler forcing notion must force 
 \begin{equation*}
     ``cof(\omega_2^V) = \omega \text{ and } cof(\omega_3^V) = \omega_1" \text{.}
 \end{equation*}
