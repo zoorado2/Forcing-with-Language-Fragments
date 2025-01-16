@@ -1951,7 +1951,7 @@ Let $W$, $\lambda$, $B$, $P$, $\mathbb{P}$ and $g$ be such that
     \item $|trcl(\mathfrak{A})| \leq \lambda$,
     \item $B$ is $\mathcal{L}$-closed under finite extensions,
     \item $P = \{p \in B : \ \Vdash_{Col(\omega, \lambda)} \exists \Sigma \ (``\Sigma \ \Gamma(\mathcal{L}, \mathfrak{A}) \text{-certifies } p")\}$,
-    \item $\mathbb{P} = (P, \supset \cap \ P)$, 
+    \item $\mathbb{P} = (P, \supset \cap \ (P \times P))$, 
     \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$,
     \item $W$ is a weak outer model of $V$, and
     \item $g \in W$ is a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$.
@@ -1974,7 +1974,7 @@ There are $W$, $\mathfrak{A}'$, $\mathcal{L}'$, $\Gamma'$, $P'$, $\mathbb{P}'$, 
     \item\label{3392} $\mathfrak{A}'$ is $\mathcal{L}'$-suitable,
     \item\label{3393} $\Gamma'$ is a set of $\mathcal{L}^{*}_{\mathfrak{A}'}$-$\Pi_2$ sentences,
     \item\label{3394} $P' = \{p \in [\mathcal{L}']^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\} \neq \emptyset$,
-    \item\label{3395} $\mathbb{P}' = (P', \supset \cap \ P')$, 
+    \item\label{3395} $\mathbb{P}' = (P', \supset \cap \ (P' \times P'))$, 
     \item\label{3396} $\mathbb{P}'$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}'$,
     \item\label{3397} $W$ is a weak outer model of $V$,
     \item\label{3398} $g \in W$ is a $\mathbb{P}'$-generic filter over $\mathfrak{A}'$,
@@ -1998,7 +1998,7 @@ and observe that \ref{3393} is satisfied (refer again to Remark \ref{rempp} for 
 Next, set 
 \begin{gather*}
     P' := \{p \in [\mathcal{L}']^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\} \\
-    \mathbb{P}' := (P', \supset \cap \ P')
+    \mathbb{P}' := (P', \supset \cap \ (P' \times P'))
 \end{gather*}
 to satisfy \ref{3395} and \ref{3396}, since $[\mathcal{L}']^{< \omega} \in H((2^{\omega_2})^+)$ implies $\mathbb{P}' \in H((2^{\omega_2})^+)$.
 
@@ -2043,6 +2043,27 @@ is dense in $\mathbb{P}'$, we must have $\bigcup g \models^{*}_{\mathfrak{A}'} \
 \end{equation*}
 Having $f^*$ range over ${^{\omega}{\omega_2}}$ then nets us \ref{33910}.
 \end{proof}
+
+Had we, in the proof of Lemma \ref{lem339}, defined $P'$ to be
+\begin{equation*}
+    P' := \{p \in [\mathcal{L}']^{< \omega_1} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\}
+\end{equation*}
+instead of
+\begin{equation*}
+    P' := \{p \in [\mathcal{L}']^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\} \text{,}
+\end{equation*}
+$\mathbb{P}' = (P', \supset \cap \ (P' \times P'))$ would have been forcing equivalent to $Col(\omega_1, \omega_2)$. In fact, with straightforward modifications to $\mathfrak{A}'$, $\mathcal{L}'$, $\Gamma'$ and $P'$, a more general observation can be made.
+
+\begin{ob}\label{ob259}
+Let $\kappa$ and $\lambda$ be infinite cardinals such that $\kappa \leq \lambda$. Then there are sets $\mathfrak{A}'$, $\mathcal{L}'$, $\Gamma'$, $P'$ and $\mathbb{P}'$ such that
+\begin{enumerate}[label=(\alph*)]
+    \item $\mathfrak{A}'$ is $\mathcal{L}'$-suitable, 
+    \item $\Gamma'$ contains only $\mathcal{L}'^*_{\mathfrak{A}'}$-$\Pi_2$ sentences, and
+    \item $P' = \{p \in [\mathcal{L}']^{< \kappa} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma' (\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\}$,
+    \item $\mathbb{P}' = (P', \supset \cap \ (P' \times P'))$, and
+    \item $\mathbb{P}'$ is forcing equivalent to $Col(\kappa, \lambda)$.
+\end{enumerate}
+\end{ob}
 
 This subsection shall be concluded with another absoluteness result. This time, instead of looking for witnesses in forcing extensions, we turn our focus to the forcing notions themselves.
 
