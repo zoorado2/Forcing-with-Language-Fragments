@@ -55,7 +55,7 @@ linkcolor=blue
 \maketitle
 
 \begin{abstract}
-    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical term model. We then demonstrate the usefulness of this framework by applying it to variants of the extended Namba problem, as well as to the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and are of independent interest.
+    We develop a forcing framework based on the idea of amalgamating language fragments into a theory with a canonical term model. We then demonstrate the usefulness of this framework by applying it to variants of the \textit{Namba extension problem}, as well as to the analysis of models of certain \emph{theories with constraints in interpretation} (\emph{TCIs}). The foundations for a theory of TCIs and their models are laid in parallel to the development of our framework, and are of independent interest.
 \end{abstract}
 
 \newtheorem{thm}{Theorem}[section]
@@ -135,7 +135,7 @@ Section \ref{sect15} lays the technical foundation for the rest of the paper. Po
 
 Section \ref{setupsec} concerns itself with the development of our central framework for forcing. The technical machinery of this section concentrates around Lemma \ref{uni}, which itself is a generalisation of Lemma \ref{main2}. On the other hand, Lemma \ref{main2} is the accessible and more applicable backbone of the paper, a throughline tying subsequent sections together. Subsection \ref{subs51} is notable for not depending on Lemma \ref{main2}, nor in fact, on any of Section \ref{setupsec}'s technology.
 
-The entirety of Section \ref{sect2} is devoted to applying the forcing framework developed in Section \ref{setupsec} to variants of the extended Namba problem. Said framework is used to construct specific forcing notions that give rise to generic extensions satisfying various sets of requirements. We start with a relatively simple construction in Theorem \ref{notion1}, before extending it to solve a more difficult problem in Theorem \ref{notion2}. No other section is dependent on what transpires here. (N.B. The proof of Lemma \ref{lem339} references Remark \ref{rempp} in parentheses, but there is no strict dependency --- the low level subtleties in the remark are unnecessary and might detract from the clarity of the proof.)
+The entirety of Section \ref{sect2} is devoted to applying the forcing framework developed in Section \ref{setupsec} to variants of the Namba extension problem. Said framework is used to construct specific forcing notions that give rise to generic extensions satisfying various sets of requirements. We start with a relatively simple construction in Theorem \ref{notion1}, before extending it to solve a more difficult problem in Theorem \ref{notion2}. No other section is dependent on what transpires here. (N.B. The proof of Lemma \ref{lem339} references Remark \ref{rempp} in parentheses, but there is no strict dependency --- the low level subtleties in the remark are unnecessary and might detract from the clarity of the proof.)
 
 Section \ref{TCIsec} introduces the notions of (first-order) TCIs and models of TCIs, before relating them to forcing and genericity. In particular, Subsection \ref{subs51} develops the basic theory of TCIs and their models, and can be read right after Section \ref{sect15}. The other subsections depend in part on the results of Section \ref{setupsec}, and give applications of Section \ref{setupsec}'s forcing framework to more general contexts of genericity. Here, genericity is investigated in both set-theoretic and computability-theoretic senses of the word. Like Section \ref{sect2}, this section is not the object of any dependency.
 
@@ -1779,7 +1779,7 @@ Let $p$ be an arbitrary member of $P$ and define $$\mathbb{P}_{\leq p} := (\{q \
     \item whenever $g$ is a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$ containing $p$, $$g \cap \{q \in P : q \leq_{\mathbb{P}} p\}$$ is a $\mathbb{P}_{\leq p}$-$\Sigma_1$-generic filter over $\mathfrak{A}$.
 \end{enumerate}
 Consequently, Lemma \ref{uni} is equivalent to, and can be restated as:
-\begin{customlem}{3.29$'$}\label{lem329p}
+\begin{customlem}{3.42$'$}\label{lem329p}
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
@@ -1812,7 +1812,7 @@ By recycling the argument in Remark \ref{endremmain} with
 \end{itemize}
 we can conclude that Lemma \ref{lem332} is equivalent to, and can be restated as:
 
-\begin{customlem}{3.32$'$}\label{lem332p}
+\begin{customlem}{3.49$'$}\label{lem332p}
 Assume $\mathcal{L}$ is just definable (instead of $\Pi_1$-definable) in the language associated with $\mathfrak{A}$. Further assume $\mathbb{P}$ is just definable (instead of $\Sigma_1$-definable) in the language associated with $\mathfrak{A}$. Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
@@ -2089,7 +2089,7 @@ in $W$. Since any forcing extension of $W$ is a weak outer model of $V$, a direc
 
 \section{Extending Namba Forcing}\label{sect2}
 
-This section illustrates how the framework introduced in Subsection \ref{forframe} can be applied to resolve some problems in set theory.
+This section illustrates how the framework introduced in Subsection \ref{forframe} can be applied to resolve variants of what we term the \textit{Namba extension problem}.
 
 \subsection{An Extension Problem}
 
@@ -2146,7 +2146,7 @@ Namba forcing belongs to the class of \emph{uniformly-splitting tree forcings}, 
 
 By means of tree combinatorics, one can show that Namba forcing gives $\omega_2^V$ a cofinality of $\omega$ without collapsing $\omega_1^V$. In fact, Namba forcing is a textbook example of such a forcing notion. It also has a stronger property than not collapsing $\omega_1^V$, for it is stationary-preserving. In the parlance of the preceding paragraph, the primary generic object here is a cofinal function from $\omega$ into $\omega_2^V$, whereas the regularity property of pertinence is being stationary-preserving. We can then observe the following division of labour: the stems of Namba forcing are in charge of changing the cofinality of $\omega_2^V$ to $\omega$, while the crowns of Namba forcing ensure all stationary subsets of $\omega_1$ in $V$ have their stationarity preserved.
 
-The extended Namba problem, at its most rudimentary, asks (in $V$) for which ordinals $\lambda > \omega_2$ is the statement
+The \textit{Namba extension problem}, at its most rudimentary, asks (in $V$) for which ordinals $\lambda > \omega_2$ is the statement
 \begin{align*}
     Nb_0(\lambda) := \text{`} & \text{there is a stationary-preserving forcing notion } \mathbb{P} \text{ such that} \\ 
     & \Vdash_{\mathbb{P}} ``cof(\alpha) = \omega" \text{ for all regular cardinals } \alpha \text{ satisfying } \omega_2 \leq \alpha < \lambda \text{'}
@@ -2157,13 +2157,13 @@ true. It is easy to see that if $\lambda > \omega_2$ is not a regular cardinal, 
 \end{equation*}
 so it suffices to only consider $Nb_0(\lambda)$ for regular cardinals $\lambda > \omega_2$.
 
-\begin{fact}
+\begin{fact}[Namba, \cite{namba}]
 Namba forcing witnesses $Nb_0(\omega_3)$.
 \end{fact}
 
 This formulation of the problem is already non-trivial, because finding witnesses to $Nb_0(\lambda)$ for $\lambda > \omega_3$ turns out to be nearly as difficult as proving $\neg Nb_0(\lambda)$. Perhaps as a sign of this difficulty, the following fact tells us that iterating Namba forcing in the usual way is insufficient to get us $Nb_0(\lambda)$ for any $\lambda > \omega_3$, without assuming a strong failure of $\mathsf{GCH}$. 
 
-\begin{fact}\label{fact26}
+\begin{fact}[Bukovsk\'{y}, \cite{bukovsky}]\label{fact26}
 Assume $\mathsf{GCH}$ holds below $\omega_2$. Then 
 \begin{enumerate}[label=(\arabic*)]
     \item\label{fact261} $\Vdash_{\mathbb{P}_{N}} ``cof(\omega_3^V) = \omega_1"$, and
@@ -2187,7 +2187,7 @@ Option \ref{s41a} is almost unfathomable, since the typical intuitions to --- an
 On the other hand, option \ref{s41b} could mean a departure from the intuition of uniformly-splitting tree forcings so radical, that the resultant forcing notion has conditions best presented as objects other than trees.
 \end{rem}
 
-Indeed, a stronger variant of the extended Namba problem, asking for which regular cardinals $\lambda > \omega_2$ is the statement
+Indeed, a stronger variant of the Namba extension problem, asking for which regular cardinals $\lambda > \omega_2$ is the statement
 \begin{align*}
     Nb_1(\lambda) := \text{`} & \text{there is a stationary-preserving forcing notion } \mathbb{P} \text{ such that} \\ 
     & \Vdash_{\mathbb{P}} ``cof(\alpha) = \omega" \text{ for all regular cardinals } \alpha \text{ satisfying } \omega_2 \leq \alpha < \lambda \text{,} \\
@@ -2218,7 +2218,7 @@ Let $Nb'_1(\lambda)$ denote the statement
 \end{align*}
 \end{defi}
 
-Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal. By generalising the (redacted) proof of Fact \ref{fact26} (or equivalently, Fact \ref{f46p}), we can show that statements in the class
+Immediately, one can see that $Nb'_1(\lambda)$ implies $Nb_1(\lambda)$ whenever $\lambda > \omega_2$ is a regular cardinal. Implicit in Bukovsk\'{y}'s proof of Fact \ref{fact26} is a proof that statements in the class
 \begin{equation*}
     \{Nb'_1(\lambda) : \lambda > \omega_2\}
 \end{equation*}
@@ -4193,7 +4193,7 @@ Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can
 \end{enumerate}
 \end{ques}
 
-In the spirit of Jensen's results on the extended Namba problem, we are interested in the possibility of not having the forcing notion $\mathbb{P} = \mathbb{P}_{\lambda_f}$ constructed in the proof of Theorem \ref{notion1} add reals, under the right assumptions. More generally, we can ask the same about the parametrised versions of said forcing notion. 
+In the spirit of Jensen's results on the Namba extension problem, we are interested in the possibility of not having the forcing notion $\mathbb{P} = \mathbb{P}_{\lambda_f}$ constructed in the proof of Theorem \ref{notion1} add reals, under the right assumptions. More generally, we can ask the same about the parametrised versions of said forcing notion. 
 
 \begin{ques}\label{addsreals}
 Let $V$, $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. Additionally, assume $GCH$ holds in $V$ (and so also in $W$). Working in $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that
