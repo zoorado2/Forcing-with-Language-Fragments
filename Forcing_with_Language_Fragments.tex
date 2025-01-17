@@ -2796,10 +2796,10 @@ Let $g$ be $\mathbb{P}$-generic over $W$. By Lemma \ref{modeldone}, $\bigcup g \
 In view of Lemma \ref{lem26}, the theorem follows from Lemmas \ref{size}, \ref{1done}, \ref{statdone} and \ref{2done}.
 \end{proof}
 
-According to Theorem \ref{notion1}, if $\mathrm{NS}_{\omega_1}$ is precipitous, then there is a uniform way of generating witnesses --- in place of $\mathbb{P}_N$ --- to analogues of Fact \ref{fact26}. To wit, we have the following corollary.
+According to Theorem \ref{notion1}, if $\mathrm{NS}_{\omega_1}$ is precipitous, then there is a uniform way of generating witnesses of \textit{a priori} bounded sizes --- in place of $\mathbb{P}_N$ --- to analogues of Fact \ref{fact26}. To wit, we have the following corollary.
 
 \begin{cor}\label{nambacoro}
-Assume $\mathrm{NS}_{\omega_1}$ is precipitous and $2^{\omega_1} = \omega_2$. Then $Nb'_1(\lambda)$ --- thus also $Nb_1(\lambda)$ --- holds for each regular cardinal $\lambda > \omega_2$. Furthermore, $Nb_0(\alpha)$ holds for each ordinal $\alpha > \omega_2$.
+Assume $\mathrm{NS}_{\omega_1}$ is precipitous and $2^{\omega_1} = \omega_2$. Then $Nb'_1(\lambda)$ --- thus also $Nb_1(\lambda)$ --- is witnessed by a forcing notion of size $2^{< \lambda}$, for each regular cardinal $\lambda > \omega_2$. Furthermore, $Nb_0(\alpha)$ holds for each ordinal $\alpha > \omega_2$.
 \end{cor}
 
 An advantage of the forcing framework of Subsection \ref{forframe} is that it facilitates modular analyses of the generic object. Adding components to the generic object can be done by extending the language on which the forcing notion is based. Under the right circumstances, that said addition preserves a property of the original forcing notion is readily derived from examining the extended language.
@@ -4142,16 +4142,16 @@ Let
     \item $A \subset \omega_1$ be such that $\omega_1^{L[A]} = \omega_1$, and
     \item $\alpha > \omega_2$ be an ordinal.
 \end{itemize}
-Then there is a stationary-preserving forcing notion $\mathbb{P}$ such that in $V^{\mathbb{P}}$,
+Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< \lambda}$ such that
 \begin{enumerate}[label=(\alph*)]
-    \item there is a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
+    \item $\mathbb{P}$ witnesses $Nb_0(\alpha)$,
+    \item $\mathbb{P}$ witnesses $Nb'_1(\alpha)$ --- thus also $Nb_1(\alpha)$ --- if $\alpha$ is a regular cardinal, and
+    \item in $V^{\mathbb{P}}$, there is a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
     \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
         \item $\bar{N}_0 \in D^* := (F^*) " ((F^*)^{-1}(D)^*) \subset \mathbb{P}_{max}$,
         \item $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$, and
-        \item $a_{\omega_1^V} = A$, 
+        \item $a_{\omega_1^V} = A$.
     \end{enumerate}
-    \item $Nb_0(\alpha)$ holds, and
-    \item $Nb'_1(\alpha)$ --- thus also $Nb_1(\alpha)$ --- holds if $\alpha$ is a regular cardinal.
 \end{enumerate}
 \end{cor}
 
@@ -4256,7 +4256,7 @@ Must $Nb_2(\lambda)$ hold for a weakly inaccessible $\lambda$, if $\lambda$ is n
 In another direction, we can ask about the possibility of eschewing the assumptions in Corollary \ref{nambacoro}.
 
 \begin{ques}\label{inzfc}
-Is it true that $\mathsf{ZFC} \vdash ``Nb'_1(\lambda)$ holds for all regular cardinals $\lambda$ above $\omega_2$''?
+Is it true that $\mathsf{ZFC} \vdash ``Nb_1(\lambda)$ is witnessed by a forcing notion of size $\leq 2^{<\lambda}$, for all regular cardinals $\lambda$ above $\omega_2"$?
 \end{ques}
 
 Towards resolving Question \ref{inzfc}, one might want to first consider the truth value of a weaker assertion --- a consideration we rephrase as a question below.
@@ -4270,11 +4270,7 @@ It so happens that recent results by De Bondt and Veli\v{c}kovi\'{c} (as a part 
 \begin{equation*}
     \text{``}Nb_1(\lambda) \text{ holds for all regular cardinals } \lambda \text{ above } \omega_2 \text{,''}
 \end{equation*}
-but does not seem to witness 
-\begin{equation*}
-    \text{``}Nb'_1(\lambda) \text{ holds for all regular cardinals } \lambda \text{ above } \omega_2 \text{.''}
-\end{equation*}
-These forcing notions always add reals, so they cannot be used to answer Question \ref{q428}. Additionally, because the De Bondt-Veli\v{c}kovi\'{c} forcing constructions appear vastly different from the Asper\'{o}-Schindler one, there is no obvious way to integrate one kind with the other towards proving Theorem \ref{notion2}. For instance, it is clear that iterating forcing notions born from these two kinds of constructions would not work, since an Asper\'{o}-Schindler forcing notion must force 
+but does not seem to fulfil the size requirements of Question \ref{inzfc}. These forcing notions always add reals, so they cannot be used to answer Question \ref{q428}. Additionally, because the De Bondt-Veli\v{c}kovi\'{c} forcing constructions appear vastly different from the Asper\'{o}-Schindler one, there is no obvious way to integrate one kind with the other towards proving Theorem \ref{notion2}. For instance, it is clear that iterating forcing notions born from these two kinds of constructions would not work, since an Asper\'{o}-Schindler forcing notion must force 
 \begin{equation*}
     ``cof(\omega_2^V) = \omega \text{ and } cof(\omega_3^V) = \omega_1" \text{.}
 \end{equation*}
