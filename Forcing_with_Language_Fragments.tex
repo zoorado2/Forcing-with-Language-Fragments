@@ -4282,51 +4282,51 @@ We first make precise the notion of first-order theories with added constraints,
 
 \begin{defi}
 A \emph{first-order theory with constraints in interpretation} (\emph{first-order TCI}) --- henceforth, just \emph{theory with constraints in interpretation} (\emph{TCI}) --- is a tuple $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$, where
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $T$ is a first order theory with signature $\sigma$,
     \item $\dot{\mathcal{U}}$ is a unary relation symbol not in $\sigma$,
     \item $\vartheta$ is a function (the \emph{constraint function}) with domain $\sigma \cup \{\dot{\mathcal{U}}\}$, 
     \item if $x \in ran(\vartheta)$, then there is $y$ such that 
-    \begin{itemize}[label=$\circ$]
+    \begin{enumerate}[label=(\roman*)]
         \item either $x = (y, 0)$ or $x = (y, 1)$, and
         \item if $\vartheta(\dot{\mathcal{U}}) = (z, a)$, then $y \subset z^n$ for some $n < \omega$, and
-    \end{itemize}
+    \end{enumerate}
     \item if $\vartheta(\dot{\mathcal{U}}) = (z, a)$, then 
-    \begin{itemize}[label=$\circ$]
+    \begin{enumerate}[label=(\roman*)]
         \item $z \cap z^n = \emptyset$ whenever $1 < n < \omega$, and
         \item $z^m \cap z^n = \emptyset$ whenever $1 < m < n < \omega$.
-    \end{itemize}
-\end{itemize}
+    \end{enumerate}
+\end{enumerate}
 \end{defi}
 
 \begin{defi}
 Let $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI. We say $\mathcal{M} := (U; \mathcal{I}) \models^* (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ --- or $\mathcal{M}$ \emph{models} $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ --- iff all of the following holds:
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathcal{M}$ is a structure,
     \item $\sigma$ is the signature of $\mathcal{M}$,
     \item $\mathcal{M} \models T$,
     \item if $\vartheta(\dot{\mathcal{U}}) = (y, 0)$, then $U \subset y$,
     \item if $\vartheta(\dot{\mathcal{U}}) = (y, 1)$, then $U = y$, and
     \item for $\dot{X} \in \sigma$,
-    \begin{itemize}[label=$\circ$]
+    \begin{enumerate}[label=(\roman*)]
         \item if $\dot{X}$ is a constant symbol and $\vartheta(\dot{X}) = (y, z)$, then $\mathcal{I}(\dot{X}) \in y \cap U$,
         \item if $\dot{X}$ is a $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, 0)$, then $\mathcal{I}(\dot{X}) \subset y \cap U^{n}$,
         \item if $\dot{X}$ is a $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, 1)$, then $\mathcal{I}(\dot{X}) = y \cap U^{n}$,
         \item if $\dot{X}$ is a $n$-ary function symbol and $\vartheta(\dot{X}) = (y, 0)$, then $$\{z \in U^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\} \subset y \cap U^{n+1}, \text{ and}$$
         \item if $\dot{X}$ is a $n$-ary function symbol and $\vartheta(\dot{X}) = (y, 1)$, then $$\{z \in U^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\} = y \cap U^{n+1}.$$
-    \end{itemize}
-\end{itemize}
+    \end{enumerate}
+\end{enumerate}
 We say $(T, \sigma, \dot{\mathcal{U}}, \vartheta)$ has a model if there exists $\mathcal{M}$ for which $\mathcal{M} \models^* (T, \sigma, \dot{\mathcal{U}}, \vartheta)$.
 \end{defi}
 
 \begin{ex}
 Let $T$ be any first-order theory over the signature $\sigma$, $\dot{\mathcal{U}}$ be a unary relation symbol not in $\sigma$, and $A$ be any set. Define $\vartheta$ on $\sigma \cup \{\dot{\mathcal{U}}\}$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\vartheta(\dot{\mathcal{U}}) = (A, 1)$,
     \item $\vartheta(\dot{X}) = (A, 0)$ whenever $\dot{X} \in \sigma$ is a constant symbol,
     \item $\vartheta(\dot{X}) = (A^n, 0)$ whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol, and
     \item  $\vartheta(\dot{X}) = (A^{n+1}, 0)$ whenever $\dot{X} \in \sigma$ is a $n$-ary function symbol.
-\end{itemize}
+\end{enumerate}
 If we set $\mathfrak{T} := (T, \sigma, \dot{\mathcal{U}}, \vartheta)$, then the models of $\mathfrak{T}$ are precisely the models of $T$ with base set $A$.
 \end{ex}
 
@@ -4336,24 +4336,19 @@ Let $\mathfrak{A}$ and $T$ be a structure and a first-order theory respectively,
 
 \begin{ex}\label{2ndex}
 Let $T$ be any first-order theory over the signature $\sigma$, and $\mathfrak{A} = (A; \mathcal{I})$ be a structure interpreting $\sigma$. Define $\vartheta$ on $\sigma \cup \{\dot{\mathcal{U}}\}$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\vartheta(\dot{\mathcal{U}}) = (A, 0)$,
     \item $\vartheta(\dot{X}) = (\{\mathcal{I}(\dot{X})\}, 1)$ whenever $\dot{X} \in \sigma$ is a constant symbol,
     \item $\vartheta(\dot{X}) = (\mathcal{I}(\dot{X}), 1)$ whenever $\dot{X} \in \sigma$ is a $n$-ary relation symbol, and
     \item  $\vartheta(\dot{X}) = (R_{\mathcal{I}}(\dot{X}), 1)$ whenever $\dot{X} \in \sigma$ is a $n$-ary function symbol, where $$R_{\mathcal{I}}(\dot{X}) := \{z \in A^{n+1} : \mathcal{I}(\dot{X})(z \! \restriction_n) = z(n)\}.$$
-\end{itemize}
+\end{enumerate}
 If we set $\mathfrak{T} := (T, \sigma, \dot{\mathcal{U}}, \vartheta)$, then $$\{ \text{models of } \mathfrak{T}\} = \mathrm{Sub}(\mathfrak{A}, T).$$
 \end{ex}
 
 In practice, we can view forcing as a technique to refine structures that provably exist in $V$. Often, such refinements cannot be carried out in $V$, for any successful attempt would result in objects that cannot exist in $V$. In each of these cases, forcing can be used to extend $V$ to include an instance of the refined structure. The way we define TCIs allows them to specify --- and act as blueprints for --- refinements of this ilk. If $\mathfrak{T}$ is a TCI specifying a particular refinement, then models of $\mathfrak{T}$ correspond to the results of said refinement. We hope the next example can help illustrate our aforementioned idea of specification.
 
 \begin{ex}\label{3rdex}
-Let $\dot{\mathcal{U}}$ be a unary relation and $\dot{R}$ be a binary relation. Define $\vartheta$ on $\{\dot{\mathcal{U}}, \dot{R}\}$ such that
-\begin{itemize}
-    \item $\vartheta(\dot{\mathcal{U}}) = (\omega_1, 1)$, and
-    \item $\vartheta(\dot{R}) = (\omega_1 \times \omega, 0)$.
-\end{itemize}
-Set $T$ to contain exactly the sentences 
+Let $\dot{\mathcal{U}}$ be a unary relation and $\dot{R}$ be a binary relation. Define $\vartheta$ on $\{\dot{\mathcal{U}}, \dot{R}\}$ such that $\vartheta(\dot{\mathcal{U}}) = (\omega_1, 1)$ and $\vartheta(\dot{R}) = (\omega_1 \times \omega, 0)$. Set $T$ to contain exactly the sentences 
 \begin{gather*}
     \ulcorner \forall x \ \exists y \ (\dot{R}(x, y)) \urcorner \text{,} \\
     \ulcorner \forall x \ \forall y \ \forall z \ ((\dot{R}(x, y) \wedge \dot{R}(x, z)) \implies y = z) \urcorner \text{ and} \\
@@ -4388,20 +4383,20 @@ TCIs allow natural constraints that are not first-order definable to be imposed 
 
 \begin{lem}\label{lem511}
 Let $T$ be a first-order theory over the signature $\sigma$, and $\dot{\mathcal{U}}$ be a unary relation symbol not in $\sigma$. For every cardinal $\kappa$, there is a TCI $\mathfrak{T}$ such that 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ for some $\vartheta$, and
     \item every model $\mathfrak{A} = (A; \mathcal{I})$ of $T$ with $|A| \leq \kappa$ is isomorphic to some model of $\mathfrak{T}$.
-\end{itemize}
+\end{enumerate}
 \end{lem}
 
 \begin{proof}
 Define 
-\begin{itemize}
-    \item $\vartheta (\dot{\mathcal{U}}) := (\kappa, 0)$,
-    \item $\vartheta (\dot{X}) := (\kappa, 0)$ if $\dot{X}$ is a constant symbol,
-    \item $\vartheta (\dot{X}) := (\kappa^n, 0)$ if $\dot{X}$ is a $n$-ary relation symbol,
-    \item $\vartheta (\dot{X}) := (\kappa^{n + 1}, 0)$ if $\dot{X}$ is a $n$-ary function symbol.
-\end{itemize}
+\begin{align*} 
+    \vartheta (\dot{\mathcal{U}}) := \ & (\kappa, 0) \\
+    \vartheta (\dot{X}) := \ & (\kappa, 0) \text{ if } \dot{X} \text{ is a constant symbol} \\
+    \vartheta (\dot{X}) := \ & (\kappa^n, 0)  \text{ if } \dot{X} \text{ is a } n \text{-ary relation symbol} \\
+    \vartheta (\dot{X}) := \ & (\kappa^{n + 1}, 0)  \text{ if } \dot{X} \text{ is a } n \text{-ary function symbol.} 
+\end{align*}
 Then $$\mathfrak{T} := (T, \sigma, \dot{\mathcal{U}}, \vartheta)$$ is as required.
 \end{proof}
 
@@ -4415,15 +4410,15 @@ Let
     \item $\alpha$ be an infinite ordinal. 
 \end{itemize}
 Assume that $\vartheta(\dot{\mathcal{U}}) = (y, 0)$ and in some weak outer model $W$ of $V$, there is a pair $(\mathcal{M}, f)$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathcal{M} = (U; \mathcal{I}) \models^* \mathfrak{T}$, and
     \item $f : \alpha \longrightarrow U$ is a bijection.
-\end{itemize}
+\end{enumerate}
 Then for every $\beta$ with $\omega \leq \beta \leq \alpha$, there is a pair $(\mathcal{M}', f')$ in $W$ such that 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)']
     \item $\mathcal{M}' = (U'; \mathcal{I}') \models^* \mathfrak{T}$, and
     \item $f' : \beta \longrightarrow U'$ is a bijection.
-\end{itemize}
+\end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -4434,10 +4429,10 @@ If we allow movement among outer models of $V$, we get the following (somewhat t
 
 \begin{lem}\label{GLS}
 Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI with an infinite model in some outer model of $V$. Then for every infinite ordinal $\beta$, there is a pair $(\mathcal{M}, f)$ in some outer model of $V$ such that 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathcal{M} = (U; \mathcal{I}) \models^* \mathfrak{T}$, and
     \item $f : \beta \longrightarrow U$ is a bijection.
-\end{itemize}
+\end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -4448,11 +4443,11 @@ On the other hand, we have no good analogue of the compactness theorem for TCIs.
 
 \begin{lem}\label{countercom}
 There is a $\Sigma_1 \cup \Pi_1$ TCI $\mathfrak{T} := (T, \{\dot{R}\}, \dot{\mathcal{U}}, \vartheta)$ with a countable transitive closure, such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\dot{R}$ is binary relation symbol, 
     \item if $x \in ran(\vartheta)$, then $x = (y, 0)$ for some set $y$, and
     \item $\mathfrak{T}$ is finitely consistent but not consistent.
-\end{itemize}
+\end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -4497,22 +4492,22 @@ In this subsection and the next one, we investigate how one could ``force'' the 
 
 \begin{lem}\label{mcequiv}
 There is a formula $\psi_{cert}$ in two free variables, such that in any model of $\mathsf{ZFC}$, 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\psi_{cert}(\mathfrak{T}, (\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}}))$ defines a function $$\mathfrak{T} \mapsto (\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$$ on the class of all TCIs, wherewith
-    \begin{itemize}[label=$\circ$]
+    \begin{enumerate}[label=(\roman*)]
         \item $\mathfrak{A}_{\mathfrak{T}} = (H(|trcl(\mathfrak{T})|^+); \in)$,
         \item $\mathcal{L}_{\mathfrak{T}}$ is a set closed under negation, 
         \item $\mathfrak{A}_{\mathfrak{T}}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable, and
         \item $\Gamma_{\mathfrak{T}}$ a set of $({\mathcal{L}_{\mathfrak{T}}})^*_{\mathfrak{A}_{\mathfrak{T}}}$ sentences, and
-    \end{itemize}
+    \end{enumerate}
     \item whenever
-    \begin{itemize}[label=$\circ$]
+    \begin{enumerate}[label=(\roman*)]
         \item $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$, 
         \item $\psi_{cert}(\mathfrak{T}, (\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}}))$, and
         \item $T$ contains only $\Pi_2$ sentences, 
-    \end{itemize} 
+    \end{enumerate} 
     $\Gamma_{\mathfrak{T}}$ must contain only $({\mathcal{L}_{\mathfrak{T}}})^{*}_{\mathfrak{A}_{\mathfrak{T}}}$-$\Pi_2$ sentences.
-\end{itemize}
+\end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -4524,11 +4519,11 @@ Of course, we have to set $$\mathfrak{A}_{\mathfrak{T}} := (H(|trcl(\mathfrak{T}
     U := \ & \text{the unique } y \text{ for which there exists } z \text{ such that } \vartheta(\dot{\mathcal{U}}) = (y, z).
 \end{align*}
 For $\dot{X} \in \sigma'$, define $\mathcal{L}_{\mathfrak{T}}(\dot{X})$ as follows:
-\begin{itemize}
+\begin{enumerate}[label=(L\arabic*)]
     \item if $\dot{X}$ is a constant symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X} = x \urcorner : x \in y \cap U\},$$
     \item if $\dot{X}$ is a $n$-ary relation symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X}(x) \urcorner : x \in y \cap U^n\}, \text{ and}$$
     \item if $\dot{X}$ is a $n$-ary function symbol and $\vartheta(\dot{X}) = (y, z)$, then $$\mathcal{L}_{\mathfrak{T}}(\dot{X}) := \{\ulcorner \dot{X}(x \! \restriction_n) = x(n) \urcorner : x \in y \cap U^{n+1}\}.$$
-\end{itemize}
+\end{enumerate}
 Then 
 \begin{align*}
     \mathcal{L}'_{\mathfrak{T}} := \ & \bigcup \{\mathcal{L}_{\mathfrak{T}}(\dot{X}) : \dot{X} \in \sigma'\} \text{, and} \\
@@ -4592,7 +4587,7 @@ Now, we define $\Gamma_{\mathfrak{T}}$ as follows:
         \item $M_2$ returns a $\Pi_1$ formula $\varphi$ which is logically equivalent to $\varphi'$ and satisfies (\ref{norecur}).
     \end{itemize}
     Consequently, by 
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\Roman*)]
         \item\label{stepip} replacing atomic subformulas of $\phi$ via $M_1$ or $M_2$ according to their parities, and then
         \item canonically converting the result of \ref{stepip} to prenex normal form,
     \end{enumerate}
@@ -4604,7 +4599,7 @@ Now, we define $\Gamma_{\mathfrak{T}}$ as follows:
     \end{itemize}
     
     Next, we transform $\phi$ into $\phi'$ by first inductively relativising $\phi$ to ``members of $\dot{\mathcal{U}}$'', then simultaneously translating all its atomic subformulas to correspond to membership in $\mathcal{L}'_{\mathfrak{T}}$. In more detail, we carry out the procedure below.
-    \begin{enumerate}[label=(\alph*)]
+    \begin{enumerate}[label=(\Alph*)]
         \item\label{castst} Cast $\phi$ as a string. 
         
         Given any string $A$, we can view $A$ as a sequence of (possibly non-distinct) characters. The ordering of this sequence gives rise to the notion of (relative) \emph{position}. Intuitively, the leftmost character of $A$ marks its first position (position $= 1$), and for any $k$, the character at the ($k+1$)-th position of $A$ necessarily lies to the immediate right of the character at position $k$. Therefore, the positions of $A$ must range from $1$ to the length of $A$.
@@ -4661,25 +4656,21 @@ Fix $\psi_{cert}$ to be as in Lemma \ref{mcequiv}. We are then justified in our 
 \begin{defi}
 Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI. Define
 \begin{align*}
-    \mathfrak{A}_{\mathfrak{T}} := \ & \text{the unique } \mathfrak{A} \text{ for which there are } \mathcal{L} \text{ and } \Gamma \text{ satisfying } \psi_{cert}(\mathfrak{T}, (\mathfrak{A}, \mathcal{L}, \Gamma)) \text{,} \\
-    \mathcal{L}_{\mathfrak{T}} := \ & \text{the unique } \mathcal{L} \text{ for which there are } \mathfrak{A} \text{ and } \Gamma \text{ satisfying } \psi_{cert}(\mathfrak{T}, (\mathfrak{A}, \mathcal{L}, \Gamma)) \text{, and} \\
+    \mathfrak{A}_{\mathfrak{T}} := \ & \text{the unique } \mathfrak{A} \text{ for which there are } \mathcal{L} \text{ and } \Gamma \text{ satisfying } \psi_{cert}(\mathfrak{T}, (\mathfrak{A}, \mathcal{L}, \Gamma)) \\
+    \mathcal{L}_{\mathfrak{T}} := \ & \text{the unique } \mathcal{L} \text{ for which there are } \mathfrak{A} \text{ and } \Gamma \text{ satisfying } \psi_{cert}(\mathfrak{T}, (\mathfrak{A}, \mathcal{L}, \Gamma)) \\
     \Gamma_{\mathfrak{T}} := \ & \text{the unique } \Gamma \text{ for which there are } \mathfrak{A} \text{ and } \mathcal{L} \text{ satisfying } \psi_{cert}(\mathfrak{T}, (\mathfrak{A}, \mathcal{L}, \Gamma)) \text{.}
 \end{align*}
 \end{defi}
 
 \begin{defi}
 Let $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ be a TCI. Define \begin{align*}
-    P(\mathfrak{T}) := \ & \{p \in [\mathcal{L}_{\mathfrak{T}}]^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}_{\mathfrak{T}})|)} \exists \Sigma \ (``\Sigma \ \Gamma_{\mathfrak{T}} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})\text{-certifies } p")\} \text{,} \\
-    \leq_{\mathbb{P}(\mathfrak{T})} := \ & \{(p, q) \in P(\mathfrak{T}) \times P(\mathfrak{T}) : q \subset p\} \text{, and} \\
+    P(\mathfrak{T}) := \ & \{p \in [\mathcal{L}_{\mathfrak{T}}]^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}_{\mathfrak{T}})|)} \exists \Sigma \ (``\Sigma \ \Gamma_{\mathfrak{T}} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})\text{-certifies } p")\} \\
+    \leq_{\mathbb{P}(\mathfrak{T})} := \ & \{(p, q) \in P(\mathfrak{T}) \times P(\mathfrak{T}) : q \subset p\} \\
     \mathbb{P}(\mathfrak{T}) := \ & (P(\mathfrak{T}), \leq_{\mathbb{P}(\mathfrak{T})}) \text{.}
 \end{align*}
 \end{defi}
 
-By Lemma \ref{mcequiv}, if $\mathfrak{T}$ is a TCI and $A$ the base set of $\mathfrak{A}_{\mathfrak{T}}$, then 
-\begin{itemize}
-    \item $\mathbb{P}(\mathfrak{T}) \in A \cap \mathcal{P}(A)$, so $\mathbb{P}(\mathfrak{T})$ is definable in the language associated with $\mathfrak{A}_{\mathfrak{T}}$, and
-    \item $(\mathfrak{A}_{\mathfrak{T}}, \mathbb{P}(\mathfrak{T}))$ is good for $\mathcal{L}_{\mathfrak{T}}$.
-\end{itemize}
+By Lemma \ref{mcequiv}, if $\mathfrak{T}$ is a TCI and $A$ the base set of $\mathfrak{A}_{\mathfrak{T}}$, then $\mathbb{P}(\mathfrak{T}) \in A \cap \mathcal{P}(A)$, so $\mathbb{P}(\mathfrak{T})$ is definable in the language associated with $\mathfrak{A}_{\mathfrak{T}}$, and furthermore, $(\mathfrak{A}_{\mathfrak{T}}, \mathbb{P}(\mathfrak{T}))$ is good for $\mathcal{L}_{\mathfrak{T}}$.
 
 By Lemmas \ref{Pisabs} and \ref{mcequiv}, the definition of $\mathbb{P}(\mathfrak{T})$ from $\mathfrak{T}$ is absolute for transitive models of $\mathsf{ZFC}$.
 
@@ -4727,13 +4718,13 @@ $$\Vdash_{Col(\omega, \lambda)} \exists \mathcal{M} \ (``\mathcal{M} \models^* \
 
 \begin{proof}
 By Lemmas \ref{mcequiv} and \ref{mcequiv2}, we can find a triple $(\mathfrak{A}_{\mathfrak{T}}, \mathcal{L}_{\mathfrak{T}}, \Gamma_{\mathfrak{T}})$ such that 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathfrak{A}_{\mathfrak{T}} = (H(|trcl(\mathfrak{T})|^+); \in)$,
     \item $\mathcal{L}_{\mathfrak{T}}$ is a set closed under negation, 
     \item $\mathfrak{A}_{\mathfrak{T}}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable, 
     \item $\Gamma_{\mathfrak{T}}$ a set of $({\mathcal{L}_{\mathfrak{T}}})^*_{\mathfrak{A}_{\mathfrak{T}}}$ sentences, and
     \item $\mathfrak{T}$ is consistent iff for some outer model $W$ of $V$, $$\exists \Sigma \in W \ (``\Sigma \ \Gamma_{\mathfrak{T}} (\mathcal{L}_{\mathfrak{T}}, \mathfrak{A}_{\mathfrak{T}})\text{-certifies } \emptyset").$$
-\end{itemize}
+\end{enumerate}
 Then the conjunction of
 \begin{itemize}
     \item Lemma \ref{inout},
@@ -4801,13 +4792,13 @@ Let $\mathfrak{T}$ be a TCI. If $\mathcal{M}$ is a model of $\mathfrak{T}$ in so
 
 \begin{proof}
 Let $\mathcal{M}$ be a model of $\mathfrak{T}$ in a forcing extension $W$ of $V$. Without loss of generality, we can assume the existence of $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\dot{\Sigma}$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathbb{P}$ is a forcing notion,
     \item $P \cap \mathcal{L}_{\mathfrak{T}} = \emptyset$,
     \item $\dot{\Sigma}$ is a $\mathbb{P}$-name, 
     \item $\Vdash_{\mathbb{P}} ``\exists \mathcal{M}' \ (\mathcal{M}' \models^* \mathfrak{T} \text{ and } \Sigma(\mathfrak{T}, \mathcal{M}') = \dot{\Sigma})"$, and
     \item for some $\mathbb{P}$-generic filter $g_0$ over $V$, $\Sigma(\mathfrak{T}, \mathcal{M}) = \dot{\Sigma}[g_0]$.
-\end{itemize}
+\end{enumerate}
 Define
 \begin{align*}
     P^* := \{x \in [P \cup \mathcal{L}_{\mathfrak{T}}]^{< \omega} : \ & x \cap P \text{ has a common extension in } \mathbb{P} \text{ and} \\ 
@@ -4855,10 +4846,10 @@ The next two theorems --- the main ones of this subsection --- hint at a strong 
 
 \begin{thm}\label{revgenmodels}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a partial order. Then there is a consistent $\Pi_2$ TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item a dense weak embedding exists from $\mathbb{P}$ into $\mathbb{P}(\mathfrak{T})$, and
     \item for a fixed unary relation symbol $\dot{X} \in \sigma$, every model $\mathcal{M}$ of $\mathfrak{T}$ in any outer model of $V$ satisfies $$``\{p : \mathcal{M} \models \dot{X}(p)\} \text{ is a } \mathbb{P} \text{-generic filter over } V" \text{.}$$
-\end{itemize}
+\end{enumerate}
 \end{thm}
 
 \begin{proof}
@@ -4894,12 +4885,7 @@ We first show that $\pi$ is a weak embedding. Assume $p \leq^{\dagger} q$ and le
 \end{gather*}
 guarantees $$p \ \bot_{\mathbb{P}^{\dagger}} \ q \implies  \pi(p) \ \bot_{\mathbb{P}^*} \ \pi(q) \text{.}$$
 
-To see that $ran(\pi)$ is dense in $\mathbb{P}^*$, fix any $x \in P(\mathfrak{T})$. By \ref{4432}, there is $p \in P$ for which
-\begin{itemize}
-    \item $x \cup \{\ulcorner \dot{G}(p) \urcorner\} \in P(\mathfrak{T})$, and
-    \item $\forall q \ (\ulcorner \dot{G}(q) \urcorner \in x \implies p \leq_{\mathbb{P}} q)$.
-\end{itemize}
-What this entails by our definition of $\mathfrak{T}$ is, whenever $\mathcal{M} \models^* \mathfrak{T}$ and $\pi(p) \subset \Sigma(\mathfrak{T}, \mathcal{M})$, we must have $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Let $y \leq_{\mathbb{P}(\mathfrak{T})} \pi(p)$. Choose a model $\mathcal{M}$ of $\mathfrak{T}$ in some outer model of $V$ such that $y \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Then $\pi(p) \subset \Sigma(\mathfrak{T}, \mathcal{M})$, so also $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. As a result, $y \not \! \! \bot_{\mathbb{P}(\mathfrak{T})} \ x$, and we can conclude $\pi(p) \leq^* x$.
+To see that $ran(\pi)$ is dense in $\mathbb{P}^*$, fix any $x \in P(\mathfrak{T})$. By \ref{4432}, there is $p \in P$ for which $x \cup \{\ulcorner \dot{G}(p) \urcorner\} \in P(\mathfrak{T})$, and furthermore, $$\forall q \ (\ulcorner \dot{G}(q) \urcorner \in x \implies p \leq_{\mathbb{P}} q) \text{.}$$ What this entails by our definition of $\mathfrak{T}$ is, whenever $\mathcal{M} \models^* \mathfrak{T}$ and $\pi(p) \subset \Sigma(\mathfrak{T}, \mathcal{M})$, we must have $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Let $y \leq_{\mathbb{P}(\mathfrak{T})} \pi(p)$. Choose a model $\mathcal{M}$ of $\mathfrak{T}$ in some outer model of $V$ such that $y \subset \Sigma(\mathfrak{T}, \mathcal{M})$. Then $\pi(p) \subset \Sigma(\mathfrak{T}, \mathcal{M})$, so also $x \subset \Sigma(\mathfrak{T}, \mathcal{M})$. As a result, $y \not \! \! \bot_{\mathbb{P}(\mathfrak{T})} \ x$, and we can conclude $\pi(p) \leq^* x$.
 \end{proof}
 
 \begin{rem}\label{ramble1}
