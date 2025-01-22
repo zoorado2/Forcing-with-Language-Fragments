@@ -2983,7 +2983,7 @@ and in every forcing extension of $V$,
 \end{enumerate}
 \end{fact}
 
-Fix $F^*$, $T$ and $\dot{p}$ as provided by Fact \ref{fact434}. In light of said fact, we can make sense of --- and subsequently prove --- the next theorem.
+Fix $F^*$, $T$ and $\dot{p}$ as provided by Fact \ref{fact434}. In light of said fact, we can make sense of --- and subsequently prove --- the next theorem. which strengthens Lemma 2.14 of \cite{schindler}.
 
 \begin{thm}\label{notion2}
 Assume
@@ -2998,16 +2998,16 @@ Let
 \begin{itemize}
     \item $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$,
     \item $A \subset \omega_1$ be such that $\omega_1^{L[A]} = \omega_1$, and
-    \item $\lambda_f > \omega_2$ be a regular cardinal .
+    \item $\lambda_f > \omega_2$ be a regular cardinal.
 \end{itemize}
-Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< \lambda}$ such that 
+Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< \lambda_f}$ such that 
 \begin{enumerate}[label=(\alph*)]
     \item $\mathbb{P}$ witnesses $Nb'_1(\lambda_f)$, and
     \item in $V^{\mathbb{P}}$, there is a generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
     \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
         \item\label{nov1} $\bar{N}_0 \in D^* := (F^*) " ((F^*)^{-1}(D)^*) \subset \mathbb{P}_{max}$,
         \item\label{nov2} $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$, and
-        \item\label{nov3} $a_{\omega_1^V} = A$, and
+        \item\label{nov3} $a_{\omega_1^V} = A$.
     \end{enumerate}
 \end{enumerate}
 \end{thm}
@@ -3380,6 +3380,8 @@ Let $\lambda \in C \cup \{\lambda_f\}$, and $g$ be a $\mathbb{P}_{\lambda}$-$\Si
 \begin{proof}
 Straightforward, by Lemma \ref{main2} (cf. Lemma \ref{modeldone}).
 \end{proof}
+
+The next lemma lenses Lemma 3.7 of \cite{schindler} through our forcing framework, exhibiting what is perhaps the most famous non-trivial example of a Henkin-like model produced via forcing. For the sake of completeness, its proof contains more details than is found in \cite{schindler}.
 
 \begin{lem}\label{lem446}
 There is a definition $\mathfrak{D}(\cdot)$ of a function in one variable such that
@@ -4137,7 +4139,7 @@ Let
     \item $A \subset \omega_1$ be such that $\omega_1^{L[A]} = \omega_1$, and
     \item $\alpha > \omega_2$ be an ordinal.
 \end{itemize}
-Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< \lambda}$ such that
+Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $\leq 2^{|\alpha|}$ such that
 \begin{enumerate}[label=(\alph*)]
     \item $\mathbb{P}$ witnesses $Nb_0(\alpha)$,
     \item $\mathbb{P}$ witnesses $Nb'_1(\alpha)$ --- thus also $Nb_1(\alpha)$ --- if $\alpha$ is a regular cardinal, and
@@ -4151,6 +4153,35 @@ Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< 
 \end{cor}
 
 \subsection{Open Questions}
+
+In \cite{lietz}, Lietz modified the Asper\'{o}-Schindler construction to obtain, under the same set of assumptions, a forcing notion that adds a $\Diamond$-iteration instead of a generic iteration. As $\Diamond$-iterations are a special kind of generic iterations, Lietz's result, like Theorem \ref{notion2}, implies Lemma 2.14 of \cite{schindler}. In fact, we can make minor alterations to the proof of Theorem \ref{notion2} to incorporate his modifications. The key insight is that $(\Sigma.8)$ in the proof of Theorem 5.20 of \cite{lietz}, parametrised by $\lambda$, is expressible as a $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentence --- call it $\varphi_8(\lambda)$ --- with $\mathfrak{A}$, $\mathcal{L}$ and the definition of parameters by induction as specified in the proof of Theorem \ref{notion2}. Due to the modularisability of our forcing framework, deriving the following ``$\Diamond$-iteration'' version of Theorem \ref{notion2} is straightforward, after substituting $\varphi_8(\lambda)$ for \ref{c8} in the definition of $\Gamma_{\lambda}$ (see Definition \ref{defc}).
+
+\begin{thm}
+Assume
+\begin{enumerate}[label=(\roman*), leftmargin=40pt]
+    \item $\Gamma  = \bigcup_{1 \leq k < \omega} \mathcal{P}(\mathbb{R}^{k}) \cap L(\Gamma, \mathbb{R})$,
+    \item $\Gamma$ is productive,
+    \item $\mathrm{NS}_{\omega_1}$ is saturated,
+    \item $2^{\omega_1} = \mathbf{\delta^1_2} = \omega_2$, and
+    \item $MA(\omega_1)$ holds.
+\end{enumerate}
+Let 
+\begin{itemize}
+    \item $D \in L(\Gamma, \mathbb{R})$ be a dense subset of $\mathbb{P}_{max}$,
+    \item $A \subset \omega_1$ be such that $\omega_1^{L[A]} = \omega_1$, and
+    \item $\lambda_f > \omega_2$ be a regular cardinal.
+\end{itemize}
+Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< \lambda_f}$ such that 
+\begin{enumerate}[label=(\alph*)]
+    \item $\mathbb{P}$ witnesses $Nb'_1(\lambda_f)$ (thus also $Nb_1(\lambda_f)$), and
+    \item in $V^{\mathbb{P}}$, there is a $\Diamond$-iteration $$\langle \bar{N}_i = (N_i; \in, I_i, a_i), \sigma_{ij} : i \leq j \leq \omega_1^V \rangle$$ satisfying 
+    \begin{enumerate}[label=(\arabic*), leftmargin=40pt]
+        \item $\bar{N}_0 \in D^* := (F^*) " ((F^*)^{-1}(D)^*) \subset \mathbb{P}_{max}$,
+        \item $I_{\omega_1^V} = \mathrm{NS}_{\omega_1}^{V^{\mathbb{P}}} \cap N_{\omega_1^V}$, and
+        \item $a_{\omega_1^V} = A$.
+    \end{enumerate}
+\end{enumerate}
+\end{thm}
 
 Working in the universe $W$ as defined in the proof of Theorem \ref{notion1} and thinning $C$ if necessary, fix any $\theta$ such that $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$. Should we then alter the definition of $\Gamma_{\lambda}$ and $P_{\lambda}$ for each $\lambda \in C \cup \{\lambda_f\}$ as follows:
 \begin{align*}
