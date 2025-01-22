@@ -599,6 +599,38 @@
       \field{title}{Stationary Set Preserving Forcing, Side Conditions and Games}
       \field{year}{2024}
     \endentry
+    \entry{lietz}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=92874fe992ed0efaaa78e5160cdbd702}{%
+           family={Lietz},
+           familyi={L\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{92874fe992ed0efaaa78e5160cdbd702}
+      \strng{fullhash}{92874fe992ed0efaaa78e5160cdbd702}
+      \strng{bibnamehash}{92874fe992ed0efaaa78e5160cdbd702}
+      \strng{authorbibnamehash}{92874fe992ed0efaaa78e5160cdbd702}
+      \strng{authornamehash}{92874fe992ed0efaaa78e5160cdbd702}
+      \strng{authorfullhash}{92874fe992ed0efaaa78e5160cdbd702}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.LO}
+      \field{eprinttype}{arXiv}
+      \field{title}{Forcing "$\mathrm{NS}_{\omega_1}$ is $\omega_1$-dense" From Large Cardinals}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2403.09020
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2403.09020
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2403.09020
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
