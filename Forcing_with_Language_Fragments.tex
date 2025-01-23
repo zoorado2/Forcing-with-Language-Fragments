@@ -1779,6 +1779,8 @@ Let $p$ be an arbitrary member of $P$ and define $$\mathbb{P}_{\leq p} := (\{q \
     \item whenever $g$ is a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$ containing $p$, $$g \cap \{q \in P : q \leq_{\mathbb{P}} p\}$$ is a $\mathbb{P}_{\leq p}$-$\Sigma_1$-generic filter over $\mathfrak{A}$.
 \end{enumerate}
 Consequently, Lemma \ref{uni} is equivalent to, and can be restated as:
+\end{rem}
+
 \begin{customlem}{3.42$'$}\label{lem329p}
 Let 
 \begin{itemize} 
@@ -1788,10 +1790,10 @@ Let
 \end{itemize} 
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
 \end{customlem}
-\end{rem}
 
 \begin{rem}\label{rem331}
 The proof of Lemma \ref{uni} can be reused to prove the following variation of said lemma.
+\end{rem}
 
 \begin{lem}\label{lem332}
 Assume $\mathcal{L}$ is just definable (instead of $\Pi_1$-definable) in the language associated with $\mathfrak{A}$. Further assume $\mathbb{P}$ is just definable (instead of $\Sigma_1$-definable) in the language associated with $\mathfrak{A}$. Let 
@@ -1821,7 +1823,6 @@ Assume $\mathcal{L}$ is just definable (instead of $\Pi_1$-definable) in the lan
 \end{itemize} 
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
 \end{customlem}
-\end{rem}
 
 \begin{rem}\label{rem333}
 The astute reader may notice that Case 3 of the inductive step in the inductive proof of Lemma \ref{uni} seems insubstantial and tagged on. Indeed, removing the need to consider said case in Lemma \ref{uni} does not weaken the lemma. More generally and more precisely, substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of Lemmas \ref{uni}, \ref{lem329p}, \ref{lem332} and \ref{lem332p} always returns a statement of equivalent strength.
@@ -2840,12 +2841,12 @@ Each of the $\mathbb{P}(D)$'s satisfying \ref{434}, as defined in the proof of L
     \item\label{43ii} it forces ``$cof(\omega_2^V) = \omega$'', and
     \item\label{43iii} it forces ``$cof(\omega_3^V) = \omega_1$''.
 \end{enumerate}
-Since \ref{43ii} and \ref{43iii} make each $\mathbb{P}(D)$ ``Namba-like'', the conjunction of \ref{43i} to \ref{43iii} points to the viability of incorporating the design of each $\mathbb{P}(D)$ into the construction of $\mathbb{P}$ as described in the proof of Theorem \ref{notion1}, so as to strengthen Lemma 2.14 of \cite{schindler}. This incorporation can be thought of both as
+Since \ref{43ii} and \ref{43iii} make each $\mathbb{P}(D)$ ``Namba-like'', the conjunction of \ref{43i} to \ref{43iii} points to the viability of incorporating the design of each $\mathbb{P}(D)$ into the construction of $\mathbb{P}$ as described in the proof of Theorem \ref{notion1}, thus extending Lemma 2.14 of \cite{schindler}. This incorporation can be thought of both as
 \begin{enumerate}[label=(\Alph*)]
     \item an augmentation of $\mathbb{P}$ to serve an expanded agenda, and
     \item a means to extend the ``Namba consequences'' of each $\mathbb{P}(D)$,
 \end{enumerate}
-hence it is sufficiently motivated. We shall spend the rest of this subsection ironing out the details of our (natural) incorporation attempt, with Theorem \ref{notion2} being its upshot.
+hence it is sufficiently motivated. We shall spend the rest of this subsection ironing out the details of our incorporation attempt, with Theorem \ref{notion2} being its upshot.
 
 \begin{defi}\label{defl2}
 To prepare for Definition \ref{def433}, let us first set aside the following distinguished symbols:
@@ -2983,7 +2984,7 @@ and in every forcing extension of $V$,
 \end{enumerate}
 \end{fact}
 
-Fix $F^*$, $T$ and $\dot{p}$ as provided by Fact \ref{fact434}. In light of said fact, we can make sense of --- and subsequently prove --- the next theorem. which strengthens Lemma 2.14 of \cite{schindler}.
+Fix $F^*$, $T$ and $\dot{p}$ as provided by Fact \ref{fact434}. In light of said fact, we can make sense of --- and subsequently prove --- the following strengthening of Lemma 2.14 of \cite{schindler}.
 
 \begin{thm}\label{notion2}
 Assume
@@ -4154,7 +4155,7 @@ Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $\leq 
 
 \subsection{Open Questions}
 
-In \cite{lietz}, Lietz modified the Asper\'{o}-Schindler construction to obtain, under the same set of assumptions, a forcing notion that adds a $\Diamond$-iteration instead of a generic iteration. As $\Diamond$-iterations are a special kind of generic iterations, Lietz's result, like Theorem \ref{notion2}, implies Lemma 2.14 of \cite{schindler}. In fact, we can make minor alterations to the proof of Theorem \ref{notion2} to incorporate his modifications. The key insight is that $(\Sigma.8)$ in the proof of Theorem 5.20 of \cite{lietz}, parametrised by $\lambda$, is expressible as a $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentence --- call it $\varphi_8(\lambda)$ --- with $\mathfrak{A}$, $\mathcal{L}$ and the definition of parameters by induction as specified in the proof of Theorem \ref{notion2}. Due to the modularisability of our forcing framework, deriving the following ``$\Diamond$-iteration'' version of Theorem \ref{notion2} is straightforward, after substituting $\varphi_8(\lambda)$ for \ref{c8} in the definition of $\Gamma_{\lambda}$ (see Definition \ref{defc}).
+In \cite{lietz}, Lietz modified the Asper\'{o}-Schindler construction to obtain, under the same set of assumptions, a forcing notion that adds a $\Diamond$\emph{-iteration} instead of a generic iteration. Since $\Diamond$-iterations are a special kind of generic iterations (see Definition 5.18 of \cite{lietz}), Lietz's result, like Theorem \ref{notion2}, implies Lemma 2.14 of \cite{schindler}. In fact, by making only minor changes, we can incorporate his modifications into the proof of Theorem \ref{notion2}. The key insight is that $(\Sigma.8)$ in the proof of Theorem 5.20 of \cite{lietz}, parametrised by $\lambda$, is expressible as a $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentence --- call it $\varphi_8(\lambda)$ --- with $\mathfrak{A}$, $\mathcal{L}$ and the definition of parameters by induction as specified in the proof of Theorem \ref{notion2}. Due to the modularisability of our forcing framework, deriving the following ``$\Diamond$-iteration'' version of Theorem \ref{notion2} is straightforward, after substituting $\varphi_8(\lambda)$ for \ref{c8} in the definition of $\Gamma_{\lambda}$ (Definition \ref{defc}).
 
 \begin{thm}
 Assume
