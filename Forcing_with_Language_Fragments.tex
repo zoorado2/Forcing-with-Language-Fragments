@@ -125,7 +125,7 @@ An application of forcing involves coming up with a partial order (called a \emp
 
 Over the years, set theorists have discovered important relationships between forcing notions and their generic objects\slash extensions. These relationships usually associate higher-order properties of a partial order with its forcing consequences, to the extent that the study of such properties has become a good description of forcing theory. Now, in order to derive a generic extension we desire, we need to construct a forcing notion drawing from forcing theory with our generic object in mind, at the same time easing tensions between requirements. This balancing act can be extremely tough, in part because it sees little in the way of systematic support.
 
-In this paper we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, all we need to do is to translate requirements on the generic extension into requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
+In this paper we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, certain requirements on the generic extension can be easily satisfied after they are translated into requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
 
 It turns out that the bare-bones framework we initially envisioned can be adorned with additional layers of syntactic sugar to capture analogous properties of a specific type of first-order structures. These structures are incidentally models of what we term first-order \emph{theories with constraints in interpretation} (\emph{TCIs}). The concept of a first-order TCI, in some sense, generalises that of a first-order theory in logic, and can be useful in expressing different kinds of objects logicians care about. We devote some space in this paper to the basic theory of TCIs and their models, before relating forcing to generic models of TCIs in a variety of ways that traverses set theory and computability theory. As an aside, we argue for a way to characterise the expressiveness of forcing as a technique, by the kind of truths it is able to impose on generic objects.
 
@@ -1825,10 +1825,10 @@ Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}}
 \end{customlem}
 
 \begin{rem}\label{rem333}
-The astute reader may notice that Case 3 of the inductive step in the inductive proof of Lemma \ref{uni} seems insubstantial and tagged on. Indeed, removing the need to consider said case in Lemma \ref{uni} does not weaken the lemma. More generally and more precisely, substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of Lemmas \ref{uni}, \ref{lem329p}, \ref{lem332} and \ref{lem332p} always returns a statement of equivalent strength.
+The astute reader may notice that Case 3 of the inductive step in the inductive proof of Lemma \ref{uni} seems insubstantial and tagged on. Indeed, removing the need to consider said case in Lemma \ref{uni} does not weaken the lemma. More precisely, by arguments similar to the proof of Lemma \ref{univer}, substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of Lemmas \ref{uni}, \ref{lem329p}, \ref{lem332} and \ref{lem332p} always returns a statement of equivalent strength.
 \end{rem}
 
-As a display of reciprocity, Lemma \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences. The proof of this next lemma is spiritually similar to (the most obvious) proofs of the four equivalences highlighted in Remark \ref{rem333}.
+As a display of reciprocity, Lemma \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences. 
 
 \begin{lem}\label{univer}
 Let $p \in P$ and $\phi(x)$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ formula with $x$ as its only free variable. Suppose for each $a \in A$, $\phi(a)$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. Then
@@ -1855,7 +1855,7 @@ But this just means
 We know $\bigcup g$ is $\mathcal{L}$-nice due to Lemma \ref{uni}. That $\bigcup g$ is a $q$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality then follows from the fact that $g$ is a filter containing $q$. All in all, we have shown that $\bigcup g$ is the $\Sigma$ we are looking for.
 \end{proof}
 
-A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Lemma \ref{uni}, we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, it makes sense to ask the following question.
+A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Lemma \ref{uni} (and as noted in Remark \ref{rem333}), we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, it makes sense to ask the following question.
 
 \begin{enumerate}[label=(Q\arabic*)]
     \setcounter{enumi}{-1}
@@ -2090,7 +2090,9 @@ in $W$. Since any forcing extension of $W$ is a weak outer model of $V$, a direc
 
 \section{Extending Namba Forcing}\label{sect2}
 
-This section illustrates how the framework introduced in Subsection \ref{forframe} can be applied to resolve variants of what we term the \textit{Namba extension problem}.
+This section illustrates how the forcing framework introduced in Subsection \ref{forframe} can be applied to resolve variants of what we term the \textit{Namba extension problem}.
+
+The main results in this section are Theorems \ref{notion1} and \ref{notion2}. We shall see that our proof of Theorem \ref{notion1} can be intuitively extended to a proof of Theorem \ref{notion2}, thanks to the modularisability of our framework.
 
 \subsection{An Extension Problem}
 
@@ -2229,7 +2231,7 @@ are indeed extensions of a property of Namba forcing, modulo the same mild assum
 Assume $\mathsf{GCH}$ holds below $\omega_2$. Then Namba forcing witnesses $Nb'_1(\omega_3)$.
 \end{fact}
 
-The next theorem, also the main one in this section, tells us $Nb'_1(\lambda)$ holds for all but set many regular cardinals $\lambda$, under significantly stronger assumptions.
+The next theorem, also the main one in this section, tells us $Nb'_1(\lambda)$ holds for all but set many regular cardinals $\lambda$, under stronger assumptions.
 
 \begin{thm}\label{notion1}
 Assume $\mathrm{NS}_{\omega_1}$ is precipitous. Then $Nb'_1(\lambda_f)$ holds for all regular cardinals $\lambda_f > 2^{\omega_1}$. In other words, whenever $\lambda_f > 2^{\omega_1}$ is a regular cardinal, there is a stationary-preserving forcing notion $\mathbb{P}'$ such that 
@@ -3037,7 +3039,7 @@ Set
 \end{align*}
 and enlarge $\mathcal{L}$ just enough to include $\mathcal{L}^s$. It is easy to see that
 \begin{enumerate}[label=(\Alph*)]
-    \item $\mathcal{L}^o$ is the original $\mathcal{L}$ before enlargement,
+    \item\label{33a} $\mathcal{L}^o$ is the original $\mathcal{L}$ before enlargement,
     \item both $\mathcal{L}^s$ and the newly enlarged $\mathcal{L}$ are closed under negation, 
     \item $\mathcal{L}$ now equals $\mathcal{L}^o \cup \mathcal{L}^s$, and
     \item $\mathcal{L}^s \subset Q_{\lambda}$ for every $\lambda \in C$, so that
@@ -3052,10 +3054,10 @@ Note also that the following hold in $W$:
 \begin{enumerate}[label=(\Alph*)]
     \setcounter{enumi}{5}
     \item the hypothesis \ref{h3}, and
-    \item the conclusion of Fact \ref{fact434} (i.e. the conjunction of \ref{4341} to \ref{4346}) with our given $D$ and $A$. 
+    \item\label{33g} the conclusion of Fact \ref{fact434} (i.e. the conjunction of \ref{4341} to \ref{4346}) with our given $D$ and $A$. 
 \end{enumerate}
 
-The aforementioned truths in $W$ are all we need to proceed, aided by the next fact, which can be viewed as an extension of Lemma \ref{lem26}.
+The truths \ref{33a} to \ref{33g} in $W$ are all we need to proceed, aided by the next fact, which can be viewed as an extension of Lemma \ref{lem26}.
 
 \begin{fact}\label{fact436}
 The theorem holds if in $W$, we can define a forcing notion $\mathbb{P}$ with the following properties: 
@@ -4295,7 +4297,7 @@ Towards resolving Question \ref{inzfc}, one might want to first consider the tru
 
 It so happens that recent results by De Bondt and Veli\v{c}kovi\'{c} (as a part of De Bondt's PhD dissertation, \cite{bendb}) resolved \ref{newq2} in the affirmative. In fact, the class of forcing notions constructed by De Bondt and Veli\v{c}kovi\'{c} assuming only $\mathsf{ZFC}$, bears witness to a theorem significantly stronger than 
 \begin{equation*}
-    \text{``}Nb_1(\lambda) \text{ holds for all regular cardinals } \lambda \text{ above } \omega_2 \text{,''}
+    \text{``}Nb_1(\lambda) \text{ holds for all regular cardinals } \lambda \text{ above } \omega_2 \text{'',}
 \end{equation*}
 but does not seem to fulfil the size requirements of Question \ref{inzfc}. These forcing notions always add reals, so they cannot be used to answer Question \ref{q428}. Additionally, because the De Bondt-Veli\v{c}kovi\'{c} forcing constructions appear vastly different from the Asper\'{o}-Schindler one, there is no obvious way to integrate one kind with the other towards proving Theorem \ref{notion2}. For instance, it is clear that iterating forcing notions born from these two kinds of constructions would not work, since an Asper\'{o}-Schindler forcing notion must force 
 \begin{equation*}
