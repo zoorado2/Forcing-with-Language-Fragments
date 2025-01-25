@@ -125,7 +125,7 @@ An application of forcing involves coming up with a partial order (called a \emp
 
 Over the years, set theorists have discovered important relationships between forcing notions and their generic objects\slash extensions. These relationships usually associate higher-order properties of a partial order with its forcing consequences, to the extent that the study of such properties has become a good description of forcing theory. Now, in order to derive a generic extension we desire, we need to construct a forcing notion drawing from forcing theory with our generic object in mind, at the same time easing tensions between requirements. This balancing act can be extremely tough, in part because it sees little in the way of systematic support.
 
-In this paper we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, certain requirements on the generic extension can be easily satisfied after they are translated into requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
+In this paper, we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, requirements on the generic extension are easily satisfied if they can be translated into sufficiently simple requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
 
 It turns out that the bare-bones framework we initially envisioned can be adorned with additional layers of syntactic sugar to capture analogous properties of a specific type of first-order structures. These structures are incidentally models of what we term first-order \emph{theories with constraints in interpretation} (\emph{TCIs}). The concept of a first-order TCI, in some sense, generalises that of a first-order theory in logic, and can be useful in expressing different kinds of objects logicians care about. We devote some space in this paper to the basic theory of TCIs and their models, before relating forcing to generic models of TCIs in a variety of ways that traverses set theory and computability theory. As an aside, we argue for a way to characterise the expressiveness of forcing as a technique, by the kind of truths it is able to impose on generic objects.
 
@@ -939,7 +939,7 @@ The idea of forcing models of a theory has been studied by model theorists --- n
 
 Asper\'{o} and Schindler are perhaps the first to present a construction with language fragments as forcing conditions, in their seminal work \cite{schindler}. It quickly became clear that this construction generalises well to extend model-theoretic forcing, allowing us to obtain models outside $V$ which are generic over $V$. Streamlining and modularising the analysis and construction of forcing notions similar to the Asper\'{o}-Schindler ones thus seems like a useful proposition.
 
-This section details a framework for constructing forcing notions with fragments of a language $\mathcal{L}$ as conditions, based on specifications of a theory over $\mathcal{L}$. To state these specifications, a ``meta-language'' dependent on $\mathcal{L}$ is required. Our goal is to ensure that the generic filters of each forcing notion produced indeed give rise to theories satisfying the given specifications. We will make precise the relevant technical terms and concepts as we build our framework over the subsequent three subsections. 
+This section details a framework for constructing forcing notions with fragments of a language $\mathcal{L}$ as conditions, based on specifications of a theory over $\mathcal{L}$. To state these specifications, a ``meta-language'' dependent on $\mathcal{L}$ is required. Our goal is to ensure that the generic filters of each forcing notion constructed in this way always give rise to theories satisfying the given specifications. We will make the relevant technical terms and concepts precise as we build our framework over the subsequent three subsections. 
 
 The main result in this section is Lemma \ref{uni}, which is stated and proven in greater generality than is needed for our framework. From Lemma \ref{uni} we derive Lemma \ref{main2}, the primary workhorse of the entire paper.
 
@@ -3384,7 +3384,7 @@ Let $\lambda \in C \cup \{\lambda_f\}$, and $g$ be a $\mathbb{P}_{\lambda}$-$\Si
 Straightforward, by Lemma \ref{main2} (cf. Lemma \ref{modeldone}).
 \end{proof}
 
-The next lemma lenses Lemma 3.7 of \cite{schindler} through our forcing framework, exhibiting what is perhaps the most famous non-trivial example of a Henkin-like model produced via forcing. For the sake of completeness, its proof contains more details than is found in \cite{schindler}.
+The next lemma lenses Lemma 3.7 of \cite{schindler} through our forcing framework, exhibiting what is perhaps the most famous example of a Henkin model produced with the help of set-theoretic forcing. For the sake of completeness, its proof contains more details than is found in \cite{schindler}.
 
 \begin{lem}\label{lem446}
 There is a definition $\mathfrak{D}(\cdot)$ of a function in one variable such that
