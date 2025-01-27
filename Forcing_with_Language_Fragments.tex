@@ -351,14 +351,14 @@ Given (externally) a class $\mathbf{M}$ of classes, we say a definition $\varphi
 \end{defi}
 
 \begin{defi}\label{inoutmodels}
-Given that $V'$ and $W$ are models of $\mathsf{ZFC}$, we say $V'$ is a \emph{weak inner model} of $W$ (or equivalently, $W$ is a \emph{weak outer model} of $V'$) iff
+We say $V'$ is a \emph{weak inner model} of $W$ (or equivalently, $W$ is a \emph{weak outer model} of $V'$) iff
 \begin{itemize}
-    \item $V'$ and $W$ are both transitive, and
-    \item $V' \subset W$.
+    \item $V'$ and $W$ are both models of $\mathsf{ZFC}$,
+    \item $V' \subset W$, and
+    \item $V'$ is a transitive class in $W$.
 \end{itemize}
 If in addition, $V'$ and $W$ share the same ordinals i.e. $ORD^{V'} = ORD^W$, then $V'$ is an \emph{inner model} of $W$ (or equivalently, $W$ is an \emph{outer model} of $V'$).
 \end{defi}
-
 \begin{defi}
 Let $Y$ be any set.
 
@@ -443,8 +443,7 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion, $D \subset P$ and
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-generic over} $\mathfrak{A}$ (or $g$ is a $\mathbb{P}$\emph{-generic subset over} $\mathfrak{A}$) iff $g$ meets $D$ in $A$ for all $D$ such that
 \begin{itemize}
-    \item $D \subset P$
-    \item $D$ is dense in $\mathbb{P}$, and
+    \item $D \subset P$, and
     \item $D$ is definable in the language associated with $\mathfrak{A}$.
 \end{itemize}
 If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$\emph{-generic filter over} $\mathfrak{A}$.
@@ -453,8 +452,7 @@ If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. Further, let $n < \omega$. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-}$\Sigma_n$\emph{-generic} (resp. $\mathbb{P}$\emph{-}$\Pi_n$\emph{-generic} and $\mathbb{P}$\emph{-}$\Delta_n$\emph{-generic}) \emph{over} $\mathfrak{A}$ iff $g$ meets $D$ in $A$ for all $D$ such that
 \begin{itemize}
-    \item $D \subset P$
-    \item $D$ is dense in $\mathbb{P}$, and
+    \item $D \subset P$, and
     \item $D$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in the language associated with $\mathfrak{A}$.
 \end{itemize}
 If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$\emph{-}$\Sigma_n$\emph{-generic} (resp. $\mathbb{P}$\emph{-}$\Pi_n$\emph{-generic} and $\mathbb{P}$\emph{-}$\Delta_n$\emph{-generic}) \emph{filter over} $\mathfrak{A}$.
@@ -3016,7 +3014,7 @@ Then there is a stationary-preserving forcing notion $\mathbb{P}$ of size $2^{< 
 \end{thm}
 
 \begin{proof}
-We first import the notation the labelling of definitions from the proof of Theorem \ref{notion1}; they will be reused until subsequent reassignments. 
+We first import the notation and the labelling of definitions from the proof of Theorem \ref{notion1}; they will be reused until subsequent reassignments. 
 
 Move to $W$ as in the proof of Theorem \ref{notion1} via forcing with $Col(\lambda_f, \lambda_f)$, so that 
 \begin{itemize}[label=($\diamond$)]
