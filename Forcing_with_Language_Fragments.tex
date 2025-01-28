@@ -2803,7 +2803,37 @@ According to Theorem \ref{notion1}, if $\mathrm{NS}_{\omega_1}$ is precipitous, 
 Assume $\mathrm{NS}_{\omega_1}$ is precipitous and $2^{\omega_1} = \omega_2$. Then $Nb'_1(\lambda)$ --- thus also $Nb_1(\lambda)$ --- is witnessed by a forcing notion of size $2^{< \lambda}$, for each regular cardinal $\lambda > \omega_2$. Furthermore, $Nb_0(\alpha)$ holds for each ordinal $\alpha > \omega_2$.
 \end{cor}
 
-An advantage of the forcing framework of Subsection \ref{forframe} is that it facilitates modular analyses of the generic object. Adding components to the generic object can be done by extending the language on which the forcing notion is based. Under the right circumstances, that said addition preserves a property of the original forcing notion is readily derived from examining the extended language.
+\begin{rem}
+An advantage of the forcing framework of Subsection \ref{forframe} is that it facilitates modular analyses of the generic object. Adding components to the generic object can be done by expanding the language and the meta-language requirements on which the forcing notion is based. Under the right circumstances, that said addition preserves a property of the original forcing notion is readily derived from examining the expanded language and requirements.
+
+Let us use the proof of Theorem \ref{notion1} to illustrate this. The key components of the proof are 
+\begin{equation*}
+    \mathfrak{A}, \mathcal{L}, C, \{(Q_{\lambda}, A_{\lambda}) : \lambda \in C\}, \Gamma_{base}, \Gamma_{side1}(\Vec{P}), \Gamma_{side2}(P) \text{,}
+\end{equation*}
+where 
+\begin{itemize}
+    \item $\Gamma_{base}$ is the set containing just \ref{c1} to \ref{c4},
+    \item $\Gamma_{side1}(\Vec{P})$ is the set containing just \ref{c5} to \ref{c8}, and
+    \item $\Gamma_{side2}(P)$ is the singleton set containing (\ref{c9}).
+\end{itemize}
+Denote the set $\{\mathcal{L}, C, \{(Q_{\lambda}, A_{\lambda}) : \lambda \in C\}\}$ by $\mathrm{Fd}$. If $\mathfrak{A}'$, $\mathcal{L}'$ and $\Gamma'$ respectively fulfil the properties of $\mathfrak{A}$, $\mathcal{L}$ and $\Gamma$ in Subsection \ref{forframe}, let $\mathrm{AF}(\mathfrak{A}', \mathcal{L}', \Gamma')$ denote
+\begin{equation*}
+    \{p \in [\mathcal{L}']^{< \omega} : \ \Vdash_{Col(\omega, |trcl(\mathfrak{A}')|)} \exists \Sigma \ (``\Sigma \ \Gamma'(\mathcal{L}', \mathfrak{A}') \text{-certifies } p")\} \text{.}
+\end{equation*}
+For the proof to go through with its choice of $C$ and $\{(Q_{\lambda}, A_{\lambda}) : \lambda \in C\}$, the following conditions must be met.
+\begin{enumerate}[label=(\alph*)]
+    \item $trcl(\mathcal{L})$ is sufficiently small relative to $\mathfrak{A}$.
+    \item $\Gamma_{base}$ is a set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences possibly having members of $\mathrm{Fd}$ as fixed parameters.
+    \item $\Gamma_{side1}(\Vec{P})$ is a set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences parametrised by a set of forcing notions $\Vec{P}$ and possibly having members of $\mathrm{Fd}$ as fixed parameters.
+    \item $\Gamma_{side2}(P)$ is a set of $\mathcal{L}^*_{\mathfrak{A}}$-$\Pi_2$ sentences parametrised by a forcing notion $P$ and possibly having members of $\mathrm{Fd}$ as fixed parameters.
+\end{enumerate}
+Under these conditions, the crux of the proof boils down to a two-step process.
+\begin{enumerate}[leftmargin=50pt, label=Step \arabic*:]
+    \item\label{remstep1} Inductively construct forcing notions along $C$ such that for every $\lambda \in C \cup sup(C)$, $$\mathbb{P}_{\lambda} = \mathrm{AF}(\mathfrak{A}, \mathcal{L} \cap Q_{\lambda}, \Gamma_{base} \cup \Gamma_{side1}(\Vec{\mathbb{P}}_{\lambda})) \text{,}$$ where $$\Vec{\mathbb{P}}_{\lambda} := \{\mathbb{P}_{\lambda'} : \lambda' \in C \cap \lambda\} \text{.}$$
+    \item Setting $\mathbb{P} := \mathbb{P}_{sup(C)}$, show that $\Gamma_{side2}(\mathbb{P})$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal.
+\end{enumerate}
+Since Step 1 is pretty much automatic, we only have to prove the $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality of $\Gamma_{side2}(\mathbb{P})$ should we alter any of $\mathcal{L}$, $\Gamma_{base}$, $\Gamma_{side1}(\Vec{P})$ and $\Gamma_{side2}(P)$. But this is made easier by referring to the proof of Lemma \ref{sideuni}. In fact, if we were to expand any of $\mathcal{L}$, $\Gamma_{base}$, $\Gamma_{side1}(\Vec{P})$ and $\Gamma_{side2}(P)$, then the proof of Lemma \ref{sideuni} is essentially a part of proving that $\Gamma_{side2}(\mathbb{P})$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal, so we just have to build on it to complete Step 2. 
+\end{rem}
 
 In the next subsection, we will augment the forcing notion $\mathbb{P}$ defined in the proof of Theorem \ref{notion1} while assuming a stronger hypothesis, so that the $\mathbb{P}$-generic object has a generic iteration as one of its components. The reader should notice that there is ample carryover from the proof of Theorem \ref{notion1} in the analysis of the new and augmented $\mathbb{P}$.
 
