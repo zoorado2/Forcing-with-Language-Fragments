@@ -315,10 +315,10 @@ If in addition,
 we may identify $\mathfrak{A}$ with $A$ and say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) \emph{in} $A$ iff $X$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in $\mathfrak{A}$. 
 
 We say $X$ is $\Sigma_n$\emph{-definable} (resp. $\Pi_n$\emph{-definable} and $\Delta_n$\emph{-definable}) iff $X$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in $\mathfrak{A}'$ for every structure $\mathfrak{A}'$ in a possibly expanded language of set theory such that
-\begin{itemize}[label=$\circ$]
+\begin{enumerate}[label=(\alph*)]
     \item $\mathfrak{A}'$ has a transitive base class, and
     \item $\mathfrak{A}' \models \mathsf{ZFC}$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 \begin{defi}
@@ -329,10 +329,10 @@ Let $\mathfrak{A}$ be a structure in a possibly expanded language of set theory.
 we mean to emphasise the low strength of the set theory $\mathfrak{A}$ satisfies. 
 
 In more concrete terms, what we typically term a \emph{set theory}, is a set of first-order formulas in the language of set theory. Examples of set theories include
-\begin{itemize}
+\begin{enumerate}[label=(\roman*)]
     \item the set of axioms of $\mathsf{ZFC}$, and
     \item the set of axioms of \textit{Kripke-Platek set theory} (\emph{without infinity}), denoted $\mathsf{KP}$, which is a much weaker theory than $\mathsf{ZFC}$.
-\end{itemize} 
+\end{enumerate} 
 For convenience's sake, one may always assume (\ref{eq11}) to mean 
 \begin{quote}
     $\text{``}\mathfrak{A} \models T \text{ for some set theory } T \text{ such that}$ 
@@ -352,21 +352,21 @@ Given (externally) a class $\mathbf{M}$ of classes, we say a definition $\varphi
 
 \begin{defi}\label{inoutmodels}
 We say $V'$ is a \emph{weak inner model} of $W$ (or equivalently, $W$ is a \emph{weak outer model} of $V'$) iff
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $V'$ and $W$ are both models of $\mathsf{ZFC}$,
     \item $V' \subset W$, and
     \item $V'$ is a \textit{transitive class in} $W$, that is, $x \cap W \subset V'$ for each $x \in V'$.
-\end{itemize}
+\end{enumerate}
 If in addition, $V'$ and $W$ share the same ordinals i.e. $ORD^{V'} = ORD^W$, then $V'$ is an \emph{inner model} of $W$ (or equivalently, $W$ is an \emph{outer model} of $V'$).
 \end{defi}
 \begin{defi}
 Let $Y$ be any set.
 
 We say $X$ \emph{codes} $Y$ (or equivalently, $X$ \emph{is a code of} $Y$) iff 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $X$ is a set of ordinals, and
     \item every transitive model of $\mathsf{ZFC - Powerset}$ containing $X$ also contains $Y$.
-\end{itemize}
+\end{enumerate}
 
 $X$ \emph{codes} $Y$ \emph{as a real} iff $X$ codes $Y$ and $X \subset \omega$.
 
@@ -413,7 +413,7 @@ We write ``$\Vdash_{\mathbb{P}} \phi$" to mean $$\text{``} \forall p \ (p \in \m
 A theorem fundamental to the technique of forcing intricately connects the forcing relation $\Vdash_{\mathbb{P}}^V$ with truth in $\mathbb{P}$-generic extensions. It goes as follows:
 \begin{quote}
 If $\mathbb{P}$ is a forcing notion in $V$, $p \in \mathbb{P}$, $\phi$ is a formula with $n$ free variables, and $\dot{x}_1$, \dots, $\dot{x}_n$ are $\mathbb{P}$-names in $V$, then
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item 
     \!
     $\begin{aligned}[t]
@@ -427,7 +427,7 @@ If $\mathbb{P}$ is a forcing notion in $V$, $p \in \mathbb{P}$, $\phi$ is a form
     \forall g \ ( & (g \text{ is } \mathbb{P} \text{-generic over } V \text{ and } V[g] \models \phi(\dot{x}_1[g], \dots, \dot{x}_n[g])) \\
     & \implies \exists q \ (q \Vdash_{\mathbb{P}} \phi(\dot{x}_1, \dots, \dot{x}_n) \text{ and } q \in g)) \text{.}
     \end{aligned}$
-\end{itemize}
+\end{enumerate}
 \end{quote}
 This theorem, colloquially known as the \emph{forcing theorem}, enables us to reason about truth in generic extensions from within the ground model, and often reduces the argument from one about semantic entailment to one pertaining to combinatorial properties of partial orders. For a technical lowdown of forcing terminology and the proof of the forcing theorem, the reader is encouraged to read Chapter IV of \cite{kunen}. 
 \end{rem}
@@ -442,28 +442,28 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion, $D \subset P$ and
 
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-generic over} $\mathfrak{A}$ (or $g$ is a $\mathbb{P}$\emph{-generic subset over} $\mathfrak{A}$) iff $g$ meets $D$ in $A$ for all $D$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $D \subset P$, and
     \item $D$ is definable in the language associated with $\mathfrak{A}$.
-\end{itemize}
+\end{enumerate}
 If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$\emph{-generic filter over} $\mathfrak{A}$.
 \end{defi}
 
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. Further, let $n < \omega$. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-}$\Sigma_n$\emph{-generic} (resp. $\mathbb{P}$\emph{-}$\Pi_n$\emph{-generic} and $\mathbb{P}$\emph{-}$\Delta_n$\emph{-generic}) \emph{over} $\mathfrak{A}$ iff $g$ meets $D$ in $A$ for all $D$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $D \subset P$, and
     \item $D$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in the language associated with $\mathfrak{A}$.
-\end{itemize}
+\end{enumerate}
 If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$\emph{-}$\Sigma_n$\emph{-generic} (resp. $\mathbb{P}$\emph{-}$\Pi_n$\emph{-generic} and $\mathbb{P}$\emph{-}$\Delta_n$\emph{-generic}) \emph{filter over} $\mathfrak{A}$.
 \end{defi}
 
 \begin{defi}
 Let $\mathbb{P}$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a \emph{transitive} structure in a possibly expanded language of set theory. A set $x$ is a $(\mathbb{P}, \mathfrak{A})$\emph{-generic object} iff there exists $g$ a $\mathbb{P}$-generic filter over $\mathfrak{A}$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $x \in A[g]$, and
     \item $g$ is definable in the language associated with $(A \cup \{x\}; \in, \Vec{X})$,
-\end{itemize}
+\end{enumerate}
 in which case we say $g$ \emph{witnesses} $x$ is a $(\mathbb{P}, \mathfrak{A})$-generic object.
 \end{defi}
 
@@ -491,10 +491,10 @@ If $\mathbb{B}$ is a boolean algebra with base set $B$ and least element $\mathb
 
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be preorders. We say $\pi$ is an \emph{embedding from} $\mathbb{P}$ \emph{into} $\mathbb{Q}$ iff $\pi$ is an injective function from $P$ into $Q$ satisfying
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $p_1 \leq_{\mathbb{P}} p_2 \iff \pi(p_1) \leq_{\mathbb{Q}} \pi(p_2)$, and
     \item $p_1 \ \bot_{\mathbb{P}} \ p_2 \implies \pi(p_1) \ \bot_{\mathbb{Q}} \ \pi(p_2)$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 \begin{defi}
@@ -588,12 +588,12 @@ If $\mathbb{P} = (P, \leq_{\mathbb{P}})$ is a forcing notion and $p$ is an atom 
 
 \begin{proof}
 If $D$ is dense in $\mathbb{P}$, then there is $q \in D$ with $q \leq_{\mathbb{P}} p$. Obviously, $q \in g_p (\mathbb{P})$. Therefore $g_p (\mathbb{P})$ is a $\mathbb{P}$-generic subset over $V$. To see that $g_p (\mathbb{P})$ is a filter, let $q_1$ and $q_2$ be members of $g_p (\mathbb{P})$. By the definition of $g_p (\mathbb{P})$, there are $r_1$ and $r_2$ such that 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $r_1 \leq_{\mathbb{P}} q_1$, 
     \item $r_1 \leq_{\mathbb{P}} p$,
     \item $r_2 \leq_{\mathbb{P}} q_2$,
     \item $r_2 \leq_{\mathbb{P}} p$.
-\end{itemize}
+\end{enumerate}
 As $p$ is an atom of $\mathbb{P}$, it must be the case that $r_1 \not \! \! \bot_{\mathbb{P}} \ r_2$, which means $q_1 \not \! \! \bot_{\mathbb{P}} \ q_2$.
 \end{proof}
 
@@ -616,10 +616,10 @@ Call the forcing notion $\mathbb{C} := (C, \leq_{\mathbb{C}})$ \emph{Cohen forci
 
 \begin{defi}
 Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ and $\mathbb{Q} = (Q, \leq_{\mathbb{Q}})$ be forcing notions. We say $\mathbb{P}$ is a \emph{regular suborder} of $\mathbb{Q}$, denoted $\mathbb{P} \lessdot \mathbb{Q}$, iff 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\mathbb{P}$ is a suborder of $\mathbb{Q}$, and
     \item for all $q \in Q$ there is $p \in P$ such that every $p' \leq_{\mathbb{P}} p$ is compatible with $q$ in $\mathbb{Q}$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 \begin{fact}\label{regsubo}
@@ -636,10 +636,10 @@ Let
     \item $T$ and $U$ be trees on ${^{k}{\omega}} \times \lambda$ for some cardinal $\lambda$.
 \end{itemize} 
 We say $T$ and $U$ \emph{witness} $D$ \emph{is universally Baire} iff 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $D = p[T]$, and
     \item $\Vdash^V_{\mathbb{P}} ``p[U] = \mathbb{R}^k \setminus p[T]"$ for all set forcing notions $\mathbb{P}$.
-\end{itemize}
+\end{enumerate}
 We say $D$ is \emph{universally Baire} iff there are trees $T$ and $U$ witnessing $D$ is universally Baire.
 \end{defi}
 
@@ -667,7 +667,7 @@ Let $\Gamma^{\infty}$ denote the set of all universally Baire sets of reals, i.e
 
 \begin{defi}
 Let $\Gamma \subset \bigcup_{1 \leq k < \omega} \mathcal{P}(\mathbb{R}^k)$. We say $\Gamma$ is \emph{productive} iff
-\begin{enumerate}[label=(\arabic*), leftmargin=40pt]
+\begin{enumerate}[label=(\alph*)]
     \item $\Gamma \subset \Gamma^{\infty}$,
     \item $\Gamma$ is closed under complements, i.e. for all $k < \omega$, if $D \in \Gamma \cap \mathcal{P}(\mathbb{R}^{k+1})$, then $\mathbb{R}^{k+1} \setminus D \in \Gamma$,
     \item $\Gamma$ is closed under projections, i.e. for all $k < \omega$, if $D \in \Gamma \cap \mathcal{P}(\mathbb{R}^{k+2})$, then
@@ -712,11 +712,11 @@ Let $\mathsf{ZFC}^*$ be the conjunction of $$\mathsf{ZFC} - \mathsf{Replacement}
         \item $f \restriction \alpha \in \mathcal{R}$
     \end{itemize}
     for all $f \in \mathcal{R}$ and all $\alpha \in dom(f)$, there is $\beta \leq \omega_1$ and a function $g$ with domain $\beta$ such that
-    \begin{itemize}
+    \begin{enumerate}[label=(\alph*)]
         \item $g \not \in \mathcal{R}$,
         \item for all $\gamma < \beta$, $g \restriction \gamma \in \mathcal{R}$, and
         \item if $\beta = \gamma + 1$, then $g \restriction \gamma$ is $\subset$-maximal in $\mathcal{R}$.''
-    \end{itemize}
+    \end{enumerate}
 \end{quote}
 \end{defi}
 
@@ -724,7 +724,7 @@ Informally, the schema found in the block quote in Definition~\ref{nota1} says t
 
 \begin{defi}\label{def257}
 For $\alpha \leq \omega_1$, we say a class $$\mathfrak{C} = \langle \bar{N}_i = (N_i; \tilde{\in}_i, I_i), \sigma_{ij} : i \leq j < \alpha \rangle$$ is a \emph{generic iteration} iff 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\tilde{\in}_0$ is a binary relation on $N_0$ interpreting $\ulcorner \in \urcorner$ in the language of set theory,
     \item $I_0$ is a unary relation on $N_0$,
     \item $(N_0; \tilde{\in}_0) \models \mathsf{ZFC}^*$,
@@ -737,16 +737,16 @@ For $\alpha \leq \omega_1$, we say a class $$\mathfrak{C} = \langle \bar{N}_i = 
     \end{itemize}
     \item for all limit ordinals $k < \alpha$, $(\bar{N}_{k}, \langle \sigma_{ik} : i < k \rangle)$ is the direct limit of $\langle \bar{N}_i, \sigma_{ij} : i \leq j < k \rangle$, and
     \item for all $i \leq j \leq k < \alpha$, $\sigma_{ik} = \sigma_{jk} \circ \sigma_{ij}$.
-\end{itemize}
+\end{enumerate}
 In this case, we call $\alpha$ the \emph{length} of $\mathfrak{C}$.
 \end{defi}
 
 \begin{defi}
 For $\alpha \leq \omega_1$ and any class $\bar{N}$, a class $$\langle \bar{N}_i, \sigma_{ij} : i \leq j < \alpha \rangle$$ is a \emph{generic iteration of} $\bar{N}$ iff 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\langle \bar{N}_i, \sigma_{ij} : i \leq j < \alpha \rangle$ is a generic iteration, and
     \item $\bar{N} = \bar{N}_0$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 \begin{defi}
@@ -761,10 +761,10 @@ Following convention, if $$\langle \bar{N}_i, \sigma_{ij} : i \leq j < \alpha \r
 
 \begin{defi}
 For any class $\bar{N}$, $\bar{N}$ is \emph{generically iterable} iff  
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item for some $\sigma_{00}$, $\langle \bar{N}_0, \sigma_{00} \rangle$ is a generic iteration of $\bar{N}$, and
     \item every generic iteration of $\bar{N}$ is well-founded.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 \begin{defi}
@@ -773,10 +773,10 @@ Given a class $\bar{N} = (N; \in, I)$, we say
     \bar{N} \models ``I \text{ is a precipitous ideal on } \omega_1"
 \end{equation*}
 iff
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item for some $\sigma_{00}$, $\langle \bar{N}_0, \sigma_{00} \rangle$ is a generic iteration of $\bar{N}$, and
     \item every generic iteration of $\bar{N}$ of length $2$ is well-founded.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 \begin{fact}\label{satipre}
@@ -820,12 +820,12 @@ Suppose
     \item $N$ contains all maximal antichains of $(\mathcal{P}(\omega_1) / I)^{M}$.
 \end{itemize}
 Then for each generic iteration $$\langle \bar{N}_i = (N_i; \in, I_i), \sigma_{ij} : i \leq j \leq \alpha \rangle$$ of $\bar{N}$, there is a unique generic iteration $$\langle \bar{M}_i = (M_i; \in, I_i), \pi_{ij} : i \leq j \leq \alpha \rangle$$ of $\bar{M}$ such that for all $i \leq j \leq \alpha$,
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\pi_{0i}(N) = N_i$,
     \item $\bar{N}_i \models ``\text{every } {\omega_1^{\bar{M}_i}} \text{-sequence is a set}"$,
     \item $N_i$ contains all maximal antichains of $(\mathcal{P}(\omega_1) / I_i)^{M_i}$, and
     \item $\pi_{ij} \restriction N_i = \sigma_{ij}$.
-\end{itemize}
+\end{enumerate}
 \end{lem}
 \begin{proof}
 By induction on $\gamma$.
@@ -848,11 +848,11 @@ This follows from \cite[Lemma 1.6]{larson}.
 
 \begin{lem}\label{lift}
 Let $V \subset W$ be transitive models of $\mathsf{ZFC}$, such that 
-\begin{itemize}
+\begin{enumerate}[label=(\arabic*)]
     \item $V$ is definable in $W$,
     \item $V \models ``\mathrm{NS}_{\omega_1}$ is saturated'', and
     \item $\omega_1^W \in V$.
-\end{itemize}
+\end{enumerate}
 If 
 \begin{itemize}
     \item $\lambda \leq \kappa \leq \omega_1^W$, and
@@ -874,18 +874,18 @@ A class
     \mathfrak{C} = \langle \bar{N}_i = (N_i; \tilde{\in}_i, I_i, a_i), \sigma_{ij} : i \leq j < \alpha \rangle
 \end{equation*}
 is a \emph{generic iteration} iff
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $a_i \in N_i$ for all $i < \alpha$,
     \item $\langle (N_i; \tilde{\in}_i, I_i), \sigma_{ij} : i \leq j < \alpha \rangle$ is generic iteration in the sense of Definition \ref{def257}, and
     \item $\sigma_{ij}(a_i) = a_j$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 Going forward, unless specified otherwise or under clear context, the term ``generic iteration'' will be used in the sense of Definition \ref{def269}.
 
 \begin{defi}\label{pmax}
 The conditions of $\mathbb{P}_{max}$ are exactly the structures $\bar{N} = (N; \in, I, a)$ such that
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $N$ is countable and transitive,
     \item $\bar{N} \models \mathsf{ZFC}^* + \mathsf{MA}(\omega_1)$,
     \item $I \subset N$,
@@ -894,9 +894,9 @@ The conditions of $\mathbb{P}_{max}$ are exactly the structures $\bar{N} = (N; \
     \item $a \in N$
     \item $\bar{N} \models ``a \subset \omega_1$ and $\omega_1 = \omega_1^{L[a, x]}$ for some real $x"$, and
     \item $(N; \in, I)$ is generically iterable.
-\end{itemize}
+\end{enumerate}
 Let $\leq_{\mathbb{P}_{max}}$ be a binary relation on the conditions of $\mathbb{P}_{max}$, such that $$\bar{M} = (M; \in, J, b) \leq_{\mathbb{P}_{max}} \bar{N} = (N; \in, I, a)$$ iff one of the following conditions hold:
-\begin{itemize}
+\begin{enumerate}[label=(\roman*)]
     \item $\bar{M} = \bar{N}$, or 
     \item $\bar{N} \in M$ and
     \begin{align*}
@@ -905,7 +905,7 @@ Let $\leq_{\mathbb{P}_{max}}$ be a binary relation on the conditions of $\mathbb
         & \text{of } \bar{N} \text{ such that} \\
         & a_{\omega_1} = b \text{ and } J \cap N_{\omega_1} = I_{\omega_1}".
     \end{align*}
-\end{itemize}
+\end{enumerate}
 We can easily check that $\leq_{\mathbb{P}_{max}}$ is a partial ordering.
 \end{defi}
 
@@ -5203,14 +5203,14 @@ The following statements hold.
     \item\label{cor5492} There is a procedure to uniformly decide in $V$, whether every model of any given $\Pi_2$ TCI $\mathfrak{T}$ is definable in $V$ with parameters from $$\mathrm{PS}(\mathfrak{T}) := trcl(\mathfrak{T}) \cup |trcl(\mathfrak{T})|^+ \cup H(\omega) \text{,}$$ or equivalently, whether every model of $\mathfrak{T}$ can be found in $V$.
     
     Moreover, for some $n < \omega$ there is a $(n+2)$-ary formula $\psi$ in the language of set theory such that, given any $\Pi_2$ TCI $\mathfrak{T}$,
-    \begin{itemize}
+    \begin{enumerate}[label=(\alph*)]
         \item whenever $\Vec{z} \in \mathrm{PS}(\mathfrak{T})^n$, if there exists $x$ for which $\psi(x, \mathfrak{T}, \Vec{z})$ holds, then said $x$ is unique, and
         \item if every model of $\mathfrak{T}$ can be found in $V$, then in $V$, 
         \begin{align*}
             \{x : \exists \Vec{z} \ (\Vec{z} \in \mathrm{PS}(\mathfrak{T})^n \wedge \psi(x, \mathfrak{T}, \Vec{z}))\} & = \{\mathcal{M} : \mathcal{M} \models^* \mathfrak{T}\} \\
             & \subset H(|trcl(\mathfrak{T})|^+) \text{.}
         \end{align*}
-    \end{itemize}
+    \end{enumerate}
 \end{enumerate}
 \end{cor}
 Notice that the first sentence to appear in \ref{cor5492} of Corollary \ref{cor549} is similar in form to Corollary \ref{cor527}. Through Remark \ref{rem537}, this points further to Theorem \ref{genericdichom} being an improvement upon Theorem \ref{genericmodels}. 
@@ -5245,7 +5245,7 @@ For the rest of this subsection,
 
 \begin{defi}
 For any countable set $X$, we say $(r, f)$ \emph{witnesses} $(X; \in)$ \emph{is computable} iff
-\begin{itemize} 
+\begin{enumerate}[label=(\alph*)] 
     \item $f$ is a bijection from $X$ into $\{n < \omega : n \text{ is even}\}$,
     \item
     \!
@@ -5255,12 +5255,12 @@ For any countable set $X$, we say $(r, f)$ \emph{witnesses} $(X; \in)$ \emph{is 
     \medskip
     \\
     where 
-    \begin{itemize}[label=$\circ$]
+    \begin{itemize}
         \item $\langle \cdot \rangle$ is the standard computable G\"odel numbering of strings over $\omega$, and
         \item $(f \cup f^{\dagger})^*$ is the canonical bijection from the set of finite strings over $dom(f \cup f^{\dagger})$ into the set of finite strings over $\omega$, induced by $f \cup f^{\dagger}$, and
     \end{itemize}
     \item $r$ is computable.
-\end{itemize}
+\end{enumerate}
 We say $r$ is a \emph{nicely computable code of} $(X; \in)$ iff there is $f$ for which $(r, f)$ witnesses $(X; \in)$ is computable.
 \end{defi}
 
@@ -5285,10 +5285,10 @@ Hence, if we only care about models of $\mathfrak{T}$ up to isomorphism, we can 
 
 \begin{defi}
 A TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ is \emph{code-friendly} iff 
-\begin{itemize}
+\begin{enumerate}[label=(\alph*)]
     \item $\vartheta(\dot{\mathcal{U}}) = (y, z) \in (\omega + 1) \times 2$, and 
     \item $\mathcal{L}_{\mathfrak{T}} \subset H(\omega)$.
-\end{itemize}
+\end{enumerate}
 \end{defi}
 
 Code-friendly TCIs are relatively well-behaved and easy to reason about, especially when it comes to things like absoluteness. Notice that given any code-friendly TCI $\mathfrak{T} = (T, \sigma, \dot{\mathcal{U}}, \vartheta)$ and any ordinal $\alpha$,
@@ -5489,9 +5489,9 @@ Let $\mathfrak{A} = (H(\omega); \in, P(\mathfrak{T})^{\top})$, so that
     \item $\mathcal{L}_{\mathfrak{T}}$ is a $\Delta_1$-definable subset of $H(\omega)$ over the $\mathfrak{A}$,
 \end{itemize}
 whence $\mathfrak{A}$ is $\mathcal{L}_{\mathfrak{T}}$-suitable. We argue as in the proof of Lemma \ref{ctblegeneric} to conclude 
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumerate}[label=(\Roman*)]
     \item\label{5571} all but the last two points in the hypothesis of Lemma \ref{main2} hold with
-    \begin{itemize}[label=$\circ$]
+    \begin{itemize}
         \item $\mathfrak{A}$ as defined,
         \item $|\mathfrak{A}_{\mathfrak{T}}| = |trcl(\mathfrak{A}_{\mathfrak{T}})|$ in place of $\lambda$,
         \item $\mathcal{L}_{\mathfrak{T}}$ in place of $\mathcal{L}$,
@@ -5510,7 +5510,7 @@ Notice that
     \item the $f$-image of $\chi_{\mathfrak{T}}$ is $\Delta^0_0$ (i.e. computable),
 \end{itemize} 
 from which we deduce the following:
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumerate}[label=(\Roman*)]
     \setcounter{enumi}{2}
     \item\label{5573} the $f$-image of each $\Sigma_1$-definable subset of $P(\mathfrak{T})^{\top}$ over $\mathfrak{A}$ is $\Sigma^{0, s}_1$.
 \end{enumerate}
@@ -5575,13 +5575,13 @@ are injective.
 The argument in Remark \ref{lastrem} applies here to net us the uniformity of deriving $F_{\bar{\Phi}}$ and $F_{\Phi}$ from $\mathfrak{T}$, and clearly $F_{\ddot{\Phi}}$ does not depend on $\mathfrak{T}$ at all. As in Remark \ref{lastrem}, we can then conclude that $\Psi$ is the required witness to the lemma.
 \end{proof}
 
-Fix any nicely computable code $r$ of $H(\omega)$. Check that
-\begin{itemize}
-    \item the function $f$ given in Lemma \ref{ctblegeneric2} is a definable subset of $H(\omega)$ over the structure $(H(\omega); \in, r)$, in light of Fact \ref{uniquecode},
-    \item the oracle machine $\Psi$ constructed in the proof of Lemma \ref{ctblegeneric2} is a definable element of $H(\omega)$ over the structure $(H(\omega); \in, r, f)$, and
-    \item the injective function $t \mapsto f" \Sigma(\mathfrak{T}, \mathcal{M}_t)$ defined in the proof of Lemma \ref{ctblegeneric2} always has a left inverse computable using only $f_r" (P(\mathfrak{T})^{\top})$ as parameter. Further, said left inverse is uniformly computable over all relevant code-friendly $\Pi_2$ TCIs $\mathfrak{T}$.
-\end{itemize}
-As such, we have actually proven a more general version of Lemma \ref{ctblegeneric2}, which we formally present as our final theorem below.
+Fix any nicely computable code $r$ of $H(\omega)$. Check that the following statements hold.
+\begin{enumerate}[label=(\Alph*)]
+    \item\label{ss53a} The function $f$ given in Lemma \ref{ctblegeneric2} is a definable subset of $H(\omega)$ over the structure $(H(\omega); \in, r)$, in light of Fact \ref{uniquecode}.
+    \item The oracle machine $\Psi$ constructed in the proof of Lemma \ref{ctblegeneric2} is a definable element of $H(\omega)$ over the structure $(H(\omega); \in, r, f)$.
+    \item\label{ss53c} The injective function $t \mapsto f" \Sigma(\mathfrak{T}, \mathcal{M}_t)$ defined in the proof of Lemma \ref{ctblegeneric2} always has a left inverse computable using only $f_r" (P(\mathfrak{T})^{\top})$ as parameter. Further, said left inverse is uniformly computable over all relevant code-friendly $\Pi_2$ TCIs $\mathfrak{T}$.
+\end{enumerate}
+The verity of \ref{ss53a} to \ref{ss53c} implies that our proof of Lemma \ref{ctblegeneric2} essentially functions as a proof of a more general statement, which we formally present as our final theorem below.
 
 \begin{thm}\label{lastthm}
 There is a formula $\psi_{gmc}$ in two free variables, absolute for transitive models of $\mathsf{ZFC - Powerset}$, such that $\psi_{gmc}(r, (f_r, \Psi_r, \bar{\Psi}_{r}))$ defines a function $$r \mapsto (f_r, \Psi_r, \bar{\Psi}_{r})$$ on the set of all nicely computable codes of $H(\omega)$, wherewith
@@ -5676,9 +5676,10 @@ Fix $\psi_{gmc}$ to be as in Theorem \ref{lastthm}. Let $r$ be a nicely computab
     \Psi_r := \ & \text{the unique } \Psi \text{ for which there are } f \text{ and } \bar{\Psi} \text{ satisfying } \psi_{gmc}(r, (f, \Psi, \bar{\Psi})) \text{, and} \\
     \bar{\Psi}_r := \ & \text{the unique } \bar{\Psi} \text{ for which there are } f \text{ and } \Psi \text{ satisfying } \psi_{gmc}(r, (f, \Psi, \bar{\Psi})) \text{.}
 \end{align*}
-Analogous to Question \ref{q548}, we want to pick out every code-friendly TCI $\mathfrak{T}$ with a model $M$ that neither almost finitely determined nor isomorphic to any $\mathcal{M}_t$ born from a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$ \`{a} la Theorem \ref{lastthm}. As turns out, because $f_r \circ f_s^{-1}$ is computable for any other nicely computable code $s$ of $H(\omega)$, the answer to this question is independent of
+Analogous to Question \ref{q548}, we want to pick out every code-friendly TCI $\mathfrak{T}$ with a model $M$ that is neither almost finitely determined nor isomorphic to any $\mathcal{M}_t$ born from a $(f_r" (P(\mathfrak{T})^{\top}))$-$1$-generic real $t$ \`{a} la Theorem \ref{lastthm}. As turns out, because $f_r \circ f_s^{-1}$ is computable for any other nicely computable code $s$ of $H(\omega)$, the answer to this question is independent of
 the choice of $r$.
 
+\begin{defi}
 Let $\mathrm{NGE}'_1$ be the set containing exactly all the code-friendly $\Pi_2$ TCIs $\mathfrak{T}$ with a model $\mathcal{M}$ such that
 \begin{enumerate}[label=(\alph*)]
     \item $\mathcal{M}$ is not almost finitely determined, and
@@ -5688,6 +5689,8 @@ Let $\mathrm{NGE}'_1$ be the set containing exactly all the code-friendly $\Pi_2
     \end{equation*}
     then $\mathcal{M} \not \cong \mathcal{M}'$.
 \end{enumerate}
+\end{defi}
+
 We are interested in representing $\mathrm{NGE}'_1$ as a set of reals, so fix a nicely computable code $r$ of $H(\omega)$ and set
 \begin{equation*}
     \mathrm{NGE}_1 := \{(f_r" \Gamma_{\mathfrak{T}}) \oplus (f_r" \mathcal{L}_{\mathfrak{T}}) : \mathfrak{T} \in \mathrm{NGE}'_1\} \text{.}
@@ -5700,6 +5703,7 @@ Is $\mathrm{NGE}_1$ a $\mathbf{\Delta^1_0}$ set of reals?
 
 We can replace $\mathrm{NGE}_1$ Question \ref{q553} with another set to get an analogue of Question \ref{q552} in the same spirit of relative effectiveness. 
 
+\begin{defi}
 Let $\mathrm{NGE}'_2$ be the set containing exactly all the first-order $\Pi_2$ theories $T$ with a model $M$ such that whenever $\mathfrak{T}$ is a code-friendly $\Pi_2$ TCI and $\mathcal{M} \models^* \mathfrak{T}$,
 \begin{enumerate}[label=(\alph*)]
     \item if $\mathcal{M}$ is almost finitely determined then $M \not \cong \mathcal{M}$, and
@@ -5709,6 +5713,8 @@ Let $\mathrm{NGE}'_2$ be the set containing exactly all the first-order $\Pi_2$ 
     \end{equation*}
     then $M \not \cong \mathcal{M}$.
 \end{enumerate}
+\end{defi}
+
 Fix a nicely computable code $r$ of $H(\omega)$ and set
 \begin{equation*}
     \mathrm{NGE}_2 := \{(f_r" \Gamma_{\mathfrak{T}}) \oplus (f_r" \mathcal{L}_{\mathfrak{T}}) : \mathfrak{T} \in \mathrm{NGE}'_2\} \text{.}
