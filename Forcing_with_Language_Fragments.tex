@@ -437,11 +437,11 @@ Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $X$ be any set
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion, $D \subset P$ and $A$ be any set. We say a subset $g$ of $P$ \emph{meets} $D$ \emph{in} $A$ iff $$g \cap \{p \in P : p \in D \text{ or } \forall q \ (q \leq_{\mathbb{P}} p \implies q \not\in D)\} \cap A \neq \emptyset.$$ We say $g$ \emph{meets} $D$ iff $g$ meets $D$ in $V$.
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion, $D \subset P$ and $A$ be any set. We say a subset $g$ of $P$ \emph{meets} $D$ \emph{with respect to} $\mathbb{P}$ \emph{in} $A$ iff $$g \cap \{p \in P : p \in D \text{ or } \forall q \ (q \leq_{\mathbb{P}} p \implies q \not\in D)\} \cap A \neq \emptyset.$$ We say $g$ \emph{meets} $D$ \emph{with respect to} $\mathbb{P}$ iff $g$ meets $D$ with respect to $\mathbb{P}$ in $V$.
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-generic over} $\mathfrak{A}$ (or $g$ is a $\mathbb{P}$\emph{-generic subset over} $\mathfrak{A}$) iff $g$ meets $D$ in $A$ for all $D$ such that
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-generic over} $\mathfrak{A}$ (or $g$ is a $\mathbb{P}$\emph{-generic subset over} $\mathfrak{A}$) iff $g$ meets $D$ with respect to $\mathbb{P}$ in $A$ for all $D$ such that
 \begin{enumerate}[label=(\alph*)]
     \item $D \subset P$, and
     \item $D$ is definable in the language associated with $\mathfrak{A}$.
@@ -450,7 +450,7 @@ If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. Further, let $n < \omega$. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-}$\Sigma_n$\emph{-generic} (resp. $\mathbb{P}$\emph{-}$\Pi_n$\emph{-generic} and $\mathbb{P}$\emph{-}$\Delta_n$\emph{-generic}) \emph{over} $\mathfrak{A}$ iff $g$ meets $D$ in $A$ for all $D$ such that
+Let $\mathbb{P} = (P, \leq_{\mathbb{P}})$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded language of set theory. Further, let $n < \omega$. We say a subset $g$ of $P$ is $\mathbb{P}$\emph{-}$\Sigma_n$\emph{-generic} (resp. $\mathbb{P}$\emph{-}$\Pi_n$\emph{-generic} and $\mathbb{P}$\emph{-}$\Delta_n$\emph{-generic}) \emph{over} $\mathfrak{A}$ iff $g$ meets $D$ with respect to $\mathbb{P}$ in $A$ for all $D$ such that
 \begin{enumerate}[label=(\alph*)]
     \item $D \subset P$, and
     \item $D$ is $\Sigma_n$-definable (resp. $\Pi_n$-definable and $\Delta_n$-definable) in the language associated with $\mathfrak{A}$.
@@ -459,9 +459,9 @@ If in addition, $g$ is a filter on $\mathbb{P}$, then we call $g$ a $\mathbb{P}$
 \end{defi}
 
 \begin{defi}
-Let $\mathbb{P}$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a \emph{transitive} structure in a possibly expanded language of set theory. A set $x$ is a $(\mathbb{P}, \mathfrak{A})$\emph{-generic object} iff there exists $g$ a $\mathbb{P}$-generic filter over $\mathfrak{A}$ such that
+Let $\mathbb{P}$ be a forcing notion and $\mathfrak{A} = (A; \in, \Vec{X})$ be a structure in a possibly expanded relational language of set theory. A set $x$ is a $(\mathbb{P}, \mathfrak{A})$\emph{-generic object} iff there exists $g$ a $\mathbb{P}$-generic filter over $\mathfrak{A}$ such that
 \begin{enumerate}[label=(\alph*)]
-    \item $x \in A[g]$, and
+    \item $x$ is definable in the language associated with $(A \cup \{g\}; \in, \Vec{X})$, and
     \item $g$ is definable in the language associated with $(A \cup \{x\}; \in, \Vec{X})$,
 \end{enumerate}
 in which case we say $g$ \emph{witnesses} $x$ is a $(\mathbb{P}, \mathfrak{A})$-generic object.
@@ -1599,7 +1599,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
 
     For each $z \in p^{\dagger} \subset \bigcup g$, pick a $p_z \in g$ such that $z \in p_z$. Since $g$ is a filter, there is some $p^* \in g$ for which $$p^{\dagger} \subset (\bigcup_{z \in p^{\dagger}} p_z) \cup p \subset p^*.$$ If $p' \leq_{P} p^*$, then $p' \leq_{P} p$, so by $\phi$ being $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$, there is $\Sigma \in \mathcal{F}_{p'}$ with $\Sigma \models^*_{\mathfrak{A}} \phi$. Now, necessarily $p^{\dagger} \subset \Sigma$ and $\Sigma \cap q^{\dagger} \neq p^{\dagger}$, whence $p^{\dagger} \subsetneq \Sigma \cap q^{\dagger}$. By the fact that $\Sigma$ is a $p'$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality, we can find $q \in P$ with $$p' \cup (\Sigma \cap q^{\dagger}) \subset q.$$ As a consequence, $q \leq_P p'$ and $p^{\dagger} \subsetneq q \cap q^{\dagger}$.
     
-    We have thus shown that the set $$D_1 := \{q \in P : p^{\dagger} \subsetneq q \cap q^{\dagger}\}$$ is dense below $p^*$ in $\mathbb{P}$. Given the fact that $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, $D_1$ obviously has the same property, so $g$ must meet $D_1$. As $p^* \in g$, we can conclude $g \cap D_1 \neq \emptyset$, and let $q^* \in g \cap D_1$. But then $p^{\dagger} \subsetneq q^* \cap q^{\dagger}$, which implies $$p^{\dagger} \subsetneq q^* \cap q^{\dagger} \subset \bigcup g \cap q^{\dagger} = p^{\dagger},$$ a contradiction. 
+    We have thus shown that the set $$D_1 := \{q \in P : p^{\dagger} \subsetneq q \cap q^{\dagger}\}$$ is dense below $p^*$ in $\mathbb{P}$. Given the fact that $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, $D_1$ obviously has the same property, so $g$ must meet $D_1$ with respect to $\mathbb{P}$. As $p^* \in g$, we can conclude $g \cap D_1 \neq \emptyset$, and let $q^* \in g \cap D_1$. But then $p^{\dagger} \subsetneq q^* \cap q^{\dagger}$, which implies $$p^{\dagger} \subsetneq q^* \cap q^{\dagger} \subset \bigcup g \cap q^{\dagger} = p^{\dagger},$$ a contradiction. 
     
     \item $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ but not $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$. Then $\phi$ is of the form $\ulcorner \exists x_1 \dots \exists x_n \ \phi^* \urcorner$ for some 
     \begin{itemize}
@@ -1734,7 +1734,7 @@ We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length 
         and thus,
         \item one can assume without loss of generality, that the result of replacing every subformula of $\phi^{\dagger}$ of the form $\ulcorner E(x) \urcorner$ with $\ulcorner x \in q \urcorner$, is a $\Sigma_1$ formula in the language associated with $\mathfrak{A}$.
     \end{itemize}
-    Thus $g$ must meet $D_2$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, $q^* \subset \bigcup g$ and $(q^*, \bigcup g) \in V[g]$.
+    Thus $g$ must meet $D_2$ with respect to $\mathbb{P}$. As $p \in g$, $g \cap D_2 \neq \emptyset$. Choose any $q^* \in g \cap D_2$. Obviously, $q^* \subset \bigcup g$ and $(q^*, \bigcup g) \in V[g]$.
 
     We have also shown that $\bigcup g$ is $\mathcal{L}$-nice. As a result, the pair $(q^*, \bigcup g)$ satisfies the hypothesis of Claim \ref{claim341}. Applying Claim \ref{claim341} to $(q^*, \bigcup g)$ then gives us
     \begin{equation*}
@@ -5518,7 +5518,7 @@ from which we deduce the following:
 Passing (\ref{marker0}) and \ref{5573} through $f$ the way (\ref{marker}) was passed through $f$ in the proof of Lemma \ref{ctblegeneric}, for some oracle machine $\bar{\Phi}$ we have
 \begin{align}\label{number9}
 \begin{split}
-    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \\
+    \forall \bar{g} \ \exists ! \mathcal{M}_{\bar{g}} \ ( & \bar{g} \text{ is a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \text{ with respect to } s \\
     & \implies (\mathcal{M}_{\bar{g}} \models^* \mathfrak{T} \text{ and } \bar{\Phi}^{\bar{g}} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_{\bar{g}})))) \text{.}
 \end{split}
 \end{align}
@@ -5546,16 +5546,16 @@ we have
 The upcoming proposition is an analogue of Proposition \ref{lastprop0}, formulated to restrict the universe of discourse to the (even) natural numbers. 
 
 \begin{prop}\label{lastprop}
-Let $c$ be a subset of $u$ meeting all $\Sigma^{0, s}_1$ subsets of $u$. Then \\ $\mathrm{UC}(s, (f" \pi)" c)$ meets all $\Sigma^{0, s}_1$ subsets of $s$.
+Let $c$ be a subset of $u$ meeting all $\Sigma^{0, s}_1$ subsets of $u$ with respect to $u$. Then $\mathrm{UC}(s, (f" \pi)" c)$ meets all $\Sigma^{0, s}_1$ subsets of $s$ with respect to $s$.
 \end{prop}
 
 \begin{proof}
-Let $z$ be the subset of $s$ defined by a $\Sigma^{0, s}_1$ formula $\varphi(x)$ in one free variable. Define $$a_z := \{p \in u : \exists q \ (\varphi(q) \text{ and } (f" \pi)(p) \leq_s q)\} \text{.}$$ That $u$, $f" \pi$ and $\leq_s$ are all computable in $s$ ($u$ is even outright computable) gives us the $\Sigma^{0, s}_1$-definability of $a_z$ as a subset of $u$. Consequently, $c$ must meet $a_z$.
+Let $z$ be the subset of $s$ defined by a $\Sigma^{0, s}_1$ formula $\varphi(x)$ in one free variable. Define $$a_z := \{p \in u : \exists q \ (\varphi(q) \text{ and } (f" \pi)(p) \leq_s q)\} \text{.}$$ That $u$, $f" \pi$ and $\leq_s$ are all computable in $s$ ($u$ is even outright computable) gives us the $\Sigma^{0, s}_1$-definability of $a_z$ as a subset of $u$. Consequently, $c$ must meet $a_z$ with respect to $u$.
 
-If $c \cap a_z \neq \emptyset$, then by the definition of $a_z$, there are conditions $p \in c$ and $q \in z$ for which $(f" \pi)(p) \leq_s q$, so $\mathrm{UC}(s, (f" \pi)" c)$ meets $z$. Otherwise, there is $p \in c$ that cannot be extended in $u$ to a member of $a_z$. Consider any $q \leq_s (f" \pi)(p)$. As $f" \pi$ densely embeds $u$ into $s$, we can find conditions $p' \in u$ and $q' \in s$ for which $q' \leq_s q$ and $(f" \pi)(p') = q'$. Now $p' \leq_u p$, which according to our choice of $p$, means $p' \not\in a_z$. Unfurling the definition of $a_z$ gives us $q \not\in z$. Having thus shown that $(f" \pi)(p)$ cannot be extended in $s$ to a member of $z$, we are done.
+If $c \cap a_z \neq \emptyset$, then by the definition of $a_z$, there are conditions $p \in c$ and $q \in z$ for which $(f" \pi)(p) \leq_s q$, so $\mathrm{UC}(s, (f" \pi)" c)$ meets $z$ with respect to $s$. Otherwise, there is $p \in c$ that cannot be extended in $u$ to a member of $a_z$. Consider any $q \leq_s (f" \pi)(p)$. As $f" \pi$ densely embeds $u$ into $s$, we can find conditions $p' \in u$ and $q' \in s$ for which $q' \leq_s q$ and $(f" \pi)(p') = q'$. Now $p' \leq_u p$, which according to our choice of $p$, means $p' \not\in a_z$. Unfurling the definition of $a_z$ gives us $q \not\in z$. Having thus shown that $(f" \pi)(p)$ cannot be extended in $s$ to a member of $z$, we are done.
 \end{proof}
 
-We can passing the definition of a $s$-$1$-generic real through $f$ to conclude that for every such real $t$, $\ddot{\Phi}^t$ is a subset of $u$ meeting all $\Sigma^{0, s}_1$ subsets of $u$. With (\ref{number9}) and (\ref{number10}) in mind, Proposition \ref{lastprop} then tells us that we can combine $\bar{\Phi}$, $\ddot{\Phi}$ and $\Phi$ to get an oracle machine $\Psi$ fulfilling the requirements 
+We can passing the definition of a $s$-$1$-generic real through $f$ to conclude that for every such real $t$, $\ddot{\Phi}^t$ is a subset of $u$ meeting all $\Sigma^{0, s}_1$ subsets of $u$ with respect to $u$. With (\ref{number9}) and (\ref{number10}) in mind, Proposition \ref{lastprop} then tells us that we can combine $\bar{\Phi}$, $\ddot{\Phi}$ and $\Phi$ to get an oracle machine $\Psi$ fulfilling the requirements 
 \begin{align}\label{lastreq}
     \forall t \ \exists ! \mathcal{M}_t \ (t \text{ is a } s \text{-} 1 \text{-generic} \implies (\mathcal{M}_t \models^* \mathfrak{T} \text{ and } \Psi^{t \oplus s} = f" (\Sigma(\mathfrak{T}, \mathcal{M}_t))))
 \end{align}
@@ -5565,8 +5565,9 @@ and
 \end{align*}
 where all of 
 \begin{align*}
-    F_{\bar{\Phi}} := \ & (\bar{g} \text{ a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s) \mapsto \mathcal{M}_{\bar{g}} \text{ as per (\ref{number9}),} \\ 
-    F_{\Phi} := \ & (c \text{ a filter on } u \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } u) \\ 
+    F_{\bar{\Phi}} := \ & (\bar{g} \text{ a filter on } s \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } s \text{ with respect to } s) \mapsto \mathcal{M}_{\bar{g}} \\
+    & \text{ as per (\ref{number9}),} \\ 
+    F_{\Phi} := \ & (c \text{ a filter on } u \text{ meeting all } \Sigma^{0, s}_1 \text{ subsets of } u \text{ with respect to } u) \\ 
     & \mapsto \mathrm{UC}(s, (f" \pi)" c) \text{ as per (\ref{number10}), and} \\
     F_{\ddot{\Phi}} := \ & (t \text{ a } s \text{-} 1 \text{-generic real}) \mapsto f" \{t \! \restriction_n : n < \omega\} 
 \end{align*}
