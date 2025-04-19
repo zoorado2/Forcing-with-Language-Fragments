@@ -125,7 +125,7 @@ An application of forcing involves coming up with a partial order (called a \emp
 
 Over the years, set theorists have discovered important relationships between forcing notions and their generic objects\slash extensions. These relationships usually associate higher-order properties of a partial order with its forcing consequences, to the extent that the study of such properties has become a good description of forcing theory. Now, in order to derive a generic extension we desire, we need to construct a forcing notion drawing from forcing theory with our generic object in mind, at the same time easing tensions between requirements. This balancing act can be extremely tough, in part because it sees little in the way of systematic support.
 
-In this paper, we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, requirements on the generic extension are easily satisfied if they can be translated into sufficiently simple requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
+In this paper, we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, requirements on the generic extension are easily satisfied if they can be translated into sufficiently consistent and simple local requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
 
 It turns out that the bare-bones framework we initially envisioned can be adorned with additional layers of syntactic sugar to capture analogous properties of a specific type of first-order structures. These structures are incidentally models of what we term first-order \emph{theories with constraints in interpretation} (\emph{TCIs}). The concept of a first-order TCI, in some sense, generalises that of a first-order theory in logic, and can be useful in expressing different kinds of objects logicians care about. We devote some space in this paper to the basic theory of TCIs and their models, before relating forcing to generic models of TCIs in a variety of ways that traverses set theory and computability theory. As an aside, we argue for a way to characterise the expressiveness of forcing as a technique, by the kind of truths it is able to impose on generic objects.
 
@@ -933,13 +933,17 @@ In model theory, a Henkin construction involves building a model of a theory ove
 \end{enumerate}
 In a similar fashion, we can force the existence of an object with property $P$ by forcing the existence of a theory satisfying $S$. Naturally, this leads to forcing notions with conditions being fragments of the language over which a theory satisfying $S$ is defined.
 
-The idea of forcing models of a theory has been studied by model theorists --- notably, Robinson and Barwise --- since the 1970s (see e.g. \cite{keisler}), under the label \emph{model-theoretic forcing}. More recently, set theorists have leveraged on model-theoretic forcing to generate conditions of the forcing notions used in various relative consistency proofs. Some examples include \cite{doebler} and \cite{lforcing}. However, these forcing conditions involve are highly complicated and specialised structures, and it is not immediately clear how much of the analysis of one forcing notion can be recycled in the analysis of another. 
+The idea of forcing models of a theory has been studied by model theorists since the 1970s, under the label \emph{model-theoretic forcing}. Robinson's original approach to this type of forcing involves notions of which conditions are finite consistent fragments of a Henkin theory $T$. One can then argue that a sufficiently generic filter over such a forcing notion gives us an elementary diagram of an existentially closed model of $T$. Thanks to the many model theorists who built upon Robinson's pioneering work, among whom Barwise is probably the most notable, more intricate relationships between the properties of language fragments in forcing notions and the properties of resultant generic theories were uncovered (see e.g. \cite{keisler}).
 
-Asper\'{o} and Schindler are perhaps the first to present a construction with language fragments as forcing conditions, in their seminal work \cite{schindler}. It quickly became clear that this construction generalises well to extend model-theoretic forcing, allowing us to obtain models outside $V$ which are generic over $V$. Streamlining and modularising the analysis and construction of forcing notions similar to the Asper\'{o}-Schindler ones thus seems like a useful proposition.
+More recently, set theorists have leveraged on model-theoretic forcing to generate conditions of the forcing notions used in various relative consistency proofs. Jensen initiated the use of Barwise theory in arguments regarding combinatorial properties of forcing notions, in his remarkably original theory on $\mathcal{L}$-forcing (see \cite{lforcing}). Further works and applications in this direction include \cite{doebler}. However, in these cases, the languages (usually denoted $\mathcal{L}$) specified in the construction of forcing notions seem very much specialised for their use cases, and it is not immediately clear how much of the analysis of one forcing notion can be recycled in the analysis of another. 
 
-This section details a framework for constructing forcing notions with fragments of a language $\mathcal{L}$ as conditions, based on specifications of a theory over $\mathcal{L}$. To state these specifications, a ``meta-language'' dependent on $\mathcal{L}$ is required. Our goal is to ensure that the generic filters of each forcing notion constructed in this way always give rise to theories satisfying the given specifications. We will make the relevant technical terms and concepts precise as we build our framework over the subsequent three subsections. 
+Asper\'{o} and Schindler are perhaps the first to present a construction with plain language fragments as forcing conditions, in their seminal work \cite{schindler}. Here, unlike in previous works, all model-theoretic arguments and constructions are deferred to theories produced via forcing. It quickly became clear that this approach is spiritually similar to, yet spiritually expands on, that of model-theoretic forcing. This realisation might lead one to wonder, \textit{what are some general theorems about sufficiently generic theories in the context of set-theoretic forcing with language fragments?}
 
-The main result in this section is Lemma \ref{uni}, which is stated and proven in greater generality than is needed for our framework. From Lemma \ref{uni} we derive Lemma \ref{main2}, the primary workhorse of the entire paper.
+We attempt to answer the aforementioned question in this section. In doing so, we also develop tools to help streamline and modularise the analysis and construction of forcing notions similar to the Asper\'{o}-Schindler ones.
+
+More precisely, this section details a framework for constructing forcing notions with fragments of a language $\mathcal{L}$ as conditions, based on specifications of a theory over $\mathcal{L}$. To state these specifications, a ``meta-language'' dependent on $\mathcal{L}$ is required. Our goal is to ensure that the generic filters of each forcing notion constructed in this way always give rise to theories satisfying the given specifications. We will make the relevant technical terms and concepts precise as we build our framework over the subsequent three subsections.
+
+The main result in this section is Lemma \ref{uni}, which is stated and proven in greater generality than is needed for our framework. From Lemma \ref{uni} we derive Lemma \ref{main2}, the primary workhorse of the entire paper. Notice that even as a special case of Lemma \ref{uni}, Lemma \ref{main2} already generalises the constructions and much of the analyses of the forcing notions referenced in this section so far.
 
 \subsection{General Languages and Meta-languages}
 
@@ -1568,10 +1572,18 @@ For $p \in P$, a $p$\emph{-candidate for} $(\mathfrak{A}, \mathbb{P}, \mathcal{L
 \begin{defi}
 Let $\phi \in \mathcal{L}^{*}_{\mathfrak{A}}$ be a sentence and $p \in P$. We say $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universal for $p$} iff for all $q \leq_P p$ there is a set $\Sigma$ in some weak outer model of $V$ such that $\Sigma$ is a $q$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality and $\Sigma \models^*_{\mathfrak{A}} \phi$.
 
-We say $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universal} iff for all $p \in P$, $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal $p$. 
+We say $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universal} iff for all $p \in P$, $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. 
 
 For $\Gamma \subset \mathcal{L}^{*}_{\mathfrak{A}}$, we say $\Gamma$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universal} (\emph{for $p$}) iff $\phi$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal (for $p$) for all $\phi \in \Gamma$.
 \end{defi}
+
+\begin{rem}\label{rem341}
+We can view each $p \in P$ as representing a set of $\mathcal{L}^{*}_{\mathfrak{A}}$ sentences, namely the set
+\begin{equation*}
+    \mathrm{Sn}(p) := \{\ulcorner E(x) \urcorner : x \in p\} \text{.}
+\end{equation*}
+Then $\phi$ being $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for some $p^* \in P$ just means that, for all $p \leq_{\mathbb{P}} p^*$, $\phi$ is jointly consistent with $\mathrm{Sn}(p)$ over the relation $\models^{*}_{\mathfrak{A}}$ in some weak outer model of $V$.
+\end{rem}
 
 For notational convenience in the proofs to follow, we introduce the following definition.
 
@@ -1824,6 +1836,10 @@ Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}}
 
 \begin{rem}\label{rem333}
 The astute reader may notice that Case 3 of the inductive step in the inductive proof of Lemma \ref{uni} seems insubstantial and tagged on. Indeed, removing the need to consider said case in Lemma \ref{uni} does not weaken the lemma. More precisely, by arguments similar to the proof of Lemma \ref{univer}, substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of Lemmas \ref{uni}, \ref{lem329p}, \ref{lem332} and \ref{lem332p} always returns a statement of equivalent strength.
+\end{rem}
+
+\begin{rem}
+In light of Remark \ref{rem341}, and in the spirit of model-theoretic forcing, Lemma \ref{uni} can be seen as a version of compactness theorem ``relativised to $\mathbb{P} \restriction p$''.
 \end{rem}
 
 As a display of reciprocity, Lemma \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences. 
