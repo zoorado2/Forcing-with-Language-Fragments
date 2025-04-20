@@ -125,7 +125,7 @@ An application of forcing involves coming up with a partial order (called a \emp
 
 Over the years, set theorists have discovered important relationships between forcing notions and their generic objects\slash extensions. These relationships usually associate higher-order properties of a partial order with its forcing consequences, to the extent that the study of such properties has become a good description of forcing theory. Now, in order to derive a generic extension we desire, we need to construct a forcing notion drawing from forcing theory with our generic object in mind, at the same time easing tensions between requirements. This balancing act can be extremely tough, in part because it sees little in the way of systematic support.
 
-In this paper, we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, requirements on the generic extension are easily satisfied if they can be translated into sufficiently consistent and simple local requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
+In this paper, we develop a framework in which certain desiderata of a generic object can be naturally realised. Using this framework, requirements on the generic extension are easily satisfied if they can be translated into appropriately consistent and simple local requirements on the generic object. We see via two non-trivial examples, how this structured approach can make things more convenient and intuitive in practice.
 
 It turns out that the bare-bones framework we initially envisioned can be adorned with additional layers of syntactic sugar to capture analogous properties of a specific type of first-order structures. These structures are incidentally models of what we term first-order \emph{theories with constraints in interpretation} (\emph{TCIs}). The concept of a first-order TCI, in some sense, generalises that of a first-order theory in logic, and can be useful in expressing different kinds of objects logicians care about. We devote some space in this paper to the basic theory of TCIs and their models, before relating forcing to generic models of TCIs in a variety of ways that traverses set theory and computability theory. As an aside, we argue for a way to characterise the expressiveness of forcing as a technique, by the kind of truths it is able to impose on generic objects.
 
@@ -4255,7 +4255,12 @@ as we ought to recall. In fact, it now seems impossible to translate (\ref{eq47}
 But is there a way to salvage things to certain reasonable extent, without a complete overhaul of the forcing construction? To be more concrete, we can ask the following question.
 
 \begin{ques}\label{oq1}
-Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can $\theta$, $C$, 
+\begin{gather*}
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{, and} \\
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto \Gamma_{\lambda}]
+\end{gather*}
+be chosen such that 
 \begin{enumerate}[label=(\arabic*)]
     \item $\theta > \omega$ is a cardinal,
     \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
@@ -4267,7 +4272,12 @@ Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. In $W$, can
 In the spirit of Jensen's results on the Namba extension problem, we are interested in the possibility of not having the forcing notion $\mathbb{P} = \mathbb{P}_{\lambda_f}$ constructed in the proof of Theorem \ref{notion1} add reals, under the right assumptions. More generally, we can ask the same about the parametrised versions of said forcing notion. 
 
 \begin{ques}\label{addsreals}
-Let $V$, $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. Additionally, assume $GCH$ holds in $V$ (and so also in $W$). Working in $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that
+Let $V$, $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion1}. Additionally, assume $GCH$ holds in $V$ (and so also in $W$). Working in $W$, can $\theta$, $C$, 
+\begin{gather*}
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{, and} \\
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto \Gamma_{\lambda}]
+\end{gather*}
+be chosen such that
 \begin{enumerate}[label=(\arabic*)]
     \item $\theta$ is an infinite cardinal,
     \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
@@ -4286,7 +4296,12 @@ Comparing Theorem \ref{notion1} with Theorem \ref{notion2} makes clear the exist
 \end{align*}
 
 \begin{ques}\label{oq2}
-Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that 
+Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can $\theta$, $C$, 
+\begin{gather*}
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{, and} \\
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto \Gamma_{\lambda}]
+\end{gather*}
+be chosen such that 
 \begin{enumerate}[label=(\arabic*)]
     \item $\theta > \omega$ is a cardinal,
     \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
@@ -4296,7 +4311,12 @@ Let $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. In $W$, can
 \end{ques}
 
 \begin{ques}\label{addsreals2}
-Let $V$, $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. Additionally, assume $GCH$ holds in $V$ (and so also in $W$). Working in  $W$, can $\theta$, $C$ and $$(C \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}]$$ be chosen such that
+Let $V$, $W$ and $\lambda_f$ be as in the proof of Theorem \ref{notion2}. Additionally, assume $GCH$ holds in $V$ (and so also in $W$). Working in  $W$, can $\theta$, $C$, 
+\begin{gather*}
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto Q_{\lambda}] \text{, and} \\
+    (C \cup \{\lambda_f\} \longrightarrow \mathcal{P}(H(\lambda_f))) [\lambda \mapsto \Gamma_{\lambda}]
+\end{gather*}
+be chosen such that
 \begin{enumerate}[label=(\arabic*)]
     \item $\theta$ is an infinite cardinal,
     \item $[Q_{\lambda}]^{< \theta} \subset Q_{\lambda}$ for all $\lambda \in C$,
