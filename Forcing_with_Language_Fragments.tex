@@ -133,7 +133,7 @@ It turns out that the bare-bones framework we initially envisioned can be adorne
 
 Section \ref{sect15} lays the technical foundation for the rest of the paper. Potential philosophical and meta-theoretic concerns are addressed, prerequisite knowledge highlighted, and background readings recommended. Important definitions and conventions are made explicit, especially those that are more niched, and those that lack community consensus. Consequentially, the topics related to forcing and generic iterations (Subsections \ref{subs24} to \ref{ss27}) tend to get more comprehensive treatments than the others. All subsequent sections depend on Subsections \ref{subs21} to \ref{subs24}, whereas the materials in Subsections \ref{ss25} to \ref{ss27} are only referenced in Subsection \ref{ss43}.
 
-Section \ref{setupsec} concerns itself with the development of our central framework for forcing. The technical machinery of this section concentrates around Lemma \ref{uni}, which itself is a generalisation of Lemma \ref{main2}. On the other hand, Lemma \ref{main2} is the accessible and more applicable backbone of the paper, a throughline tying subsequent sections together. Subsection \ref{subs51} is notable for not depending on Lemma \ref{main2}, nor in fact, on any of Section \ref{setupsec}'s technology.
+Section \ref{setupsec} concerns itself with the development of our central framework for forcing. The technical machinery of this section concentrates around Theorem \ref{uni}, which itself is a generalisation of Lemma \ref{main2}. On the other hand, Lemma \ref{main2} is the accessible and more applicable backbone of the paper, a throughline tying subsequent sections together. Subsection \ref{subs51} is notable for not depending on Lemma \ref{main2}, nor in fact, on any of Section \ref{setupsec}'s technology.
 
 The entirety of Section \ref{sect2} is devoted to applying the forcing framework developed in Section \ref{setupsec} to variants of the Namba extension problem. Said framework is used to construct specific forcing notions that give rise to generic extensions satisfying various sets of requirements. We start with a relatively simple construction in Theorem \ref{notion1}, before extending it to solve a more difficult problem in Theorem \ref{notion2}. No other section is dependent on what transpires here. (N.B. The proof of Lemma \ref{lem339} references Remark \ref{rempp} in parentheses, but there is no strict dependency --- the low level subtleties in the remark are unnecessary and might detract from the clarity of the proof.)
 
@@ -943,7 +943,7 @@ We attempt to answer the aforementioned question in this section. In doing so, w
 
 More precisely, this section details a framework for constructing forcing notions with fragments of a language $\mathcal{L}$ as conditions, based on specifications of a theory over $\mathcal{L}$. To state these specifications, a ``meta-language'' dependent on $\mathcal{L}$ is required. Our goal is to ensure that the generic filters of each forcing notion constructed in this way always give rise to theories satisfying the given specifications. We will make the relevant technical terms and concepts precise as we build our framework over the subsequent three subsections.
 
-The main result in this section is Lemma \ref{uni}, which is stated and proven in greater generality than is needed for our framework. From Lemma \ref{uni} we derive Lemma \ref{main2}, the primary workhorse of the entire paper. Notice that even as a special case of Lemma \ref{uni}, Lemma \ref{main2} already generalises the constructions and much of the analyses of the forcing notions referenced in this section so far.
+The main result in this section is Theorem \ref{uni}, which is stated and proven in greater generality than is needed for our framework. From Theorem \ref{uni} we derive Lemma \ref{main2}, the primary workhorse of the entire paper. Notice that even as a special case of Theorem \ref{uni}, Lemma \ref{main2} already generalises the constructions and much of the analyses of the forcing notions referenced in this section so far.
 
 \subsection{General Languages and Meta-languages}
 
@@ -1001,7 +1001,7 @@ We can think of $\mathfrak{A}$ as a first-order structure expanding on $(A; \in)
 \end{itemize} 
 Any such $\mathfrak{A}$ immediately satisfies \ref{342} and \ref{343} of Definition \ref{lsuitable}. 
 
-The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
+The requirement for $\mathcal{L}$ to be $\Pi_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Theorem \ref{uni} can go through given its hypothesis.
 
 \begin{rem}\label{rem35}
 Let $\mathfrak{A} = (A; \in, \Vec{R})$ be a $\mathcal{L}$-suitable structure in a possibly expanded language of set theory. Then the following can be deduced from \ref{342} and \ref{343} of Definition \ref{lsuitable}.
@@ -1397,7 +1397,7 @@ where
 Analogous to what the classification of general first-order formulas in prenex normal form, we can very naturally build on Definitions \ref{lsub}, \ref{LSigma1} and \ref{LPi2}, and inductively define $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_n$ and $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_n$ sentences for all $n < \omega$. The only reason we did not is because our theorems and analyses neither mention nor require formulas outside of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$.  
 \end{rem}
 
-Note also that in the definition of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formulas, members of $\mathcal{L}^{*}_{0, \mathfrak{A}}$ are regarded, for all practical purposes, as atomic formulas. Further, bounded quantification is limited to finite sets --- more in the spirit of arithmetical bounded quantification than the usual set-theoretic one. This is not merely a cosmetic choice, for extending bounded quantification to countable sets would render Lemma \ref{uni} false, as we shall show in Lemma \ref{lem339}.
+Note also that in the definition of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Delta_0$ formulas, members of $\mathcal{L}^{*}_{0, \mathfrak{A}}$ are regarded, for all practical purposes, as atomic formulas. Further, bounded quantification is limited to finite sets --- more in the spirit of arithmetical bounded quantification than the usual set-theoretic one. This is not merely a cosmetic choice, for extending bounded quantification to countable sets would render Theorem \ref{uni} false, as we shall show in Lemma \ref{lem339}.
 
 \begin{lem}\label{exist}
 Let $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$ formula and $(\nu, W, X)$ witness the $(\mathfrak{A}, \mathcal{L})$-satisfiability of $\phi$. Then there are finite sets $p \in A \cap \mathcal{P}(\mathcal{L})$ and $q \in A \cap \mathcal{P}(\mathcal{L})$ such that $X \cap q = p$ and $\phi$ is $\models^*_{\mathfrak{A}, \nu}$-true for $(p, q)$.
@@ -1558,7 +1558,7 @@ For the rest of this subsection, we fix a forcing notion $\mathbb{P} = (P, \leq_
     \item $\mathbb{P}$ is $\Sigma_1$-definable in the language associated with $\mathfrak{A}$, and
     \item $(\mathfrak{A}, \mathbb{P})$ is good for $\mathcal{L}$.
 \end{itemize}
-Similar in motivation to the final bullet point in Definition \ref{lsuitable}, the requirement for $\mathbb{P}$ to be $\Sigma_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Lemma \ref{uni} can go through given its hypothesis.
+Similar in motivation to the final bullet point in Definition \ref{lsuitable}, the requirement for $\mathbb{P}$ to be $\Sigma_1$-definable in the language associated with $\mathfrak{A}$ is only there so that the proof of Theorem \ref{uni} can go through given its hypothesis.
 
 \begin{defi}
 For $p \in P$, a $p$\emph{-candidate for} $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$\emph{-universality} is a set $\Sigma$ for which
@@ -1594,7 +1594,7 @@ For $p \in P$, let $\mathcal{F}_p$ denote the set
 \end{equation*}
 \end{defi}
 
-\begin{lem}\label{uni}
+\begin{thm}\label{uni}
 Let 
 \begin{itemize} 
     \item $W$ be a weak outer model of $V$,
@@ -1603,7 +1603,7 @@ Let
     \item $\phi$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$.
 \end{itemize} 
 Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}} \phi$.
-\end{lem}
+\end{thm}
 \begin{proof}
 We prove $\bigcup g \models^{*}_{\mathfrak{A}} \phi$ by induction on the length of $\phi$. The proof that $\bigcup g$ is $\mathcal{L}$-nice will surface as a part of the induction argument.
 \begin{enumerate}[label=Case \arabic*:, leftmargin=50pt]
@@ -1788,7 +1788,7 @@ Let $p$ be an arbitrary member of $P$ and define $$\mathbb{P}_{\leq p} := (\{q \
     \item any $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ is also $(\mathfrak{A}, \mathbb{P}_{\leq p}, \mathcal{L})$-universal, and
     \item whenever $g$ is a $\mathbb{P}$-$\Sigma_1$-generic filter over $\mathfrak{A}$ containing $p$, $$g \cap \{q \in P : q \leq_{\mathbb{P}} p\}$$ is a $\mathbb{P}_{\leq p}$-$\Sigma_1$-generic filter over $\mathfrak{A}$.
 \end{enumerate}
-Consequently, Lemma \ref{uni} is equivalent to, and can be restated as:
+Consequently, Theorem \ref{uni} is equivalent to, and can be restated as:
 \end{rem}
 
 \begin{customlem}{3.42$'$}\label{lem329p}
@@ -1802,7 +1802,7 @@ Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}}
 \end{customlem}
 
 \begin{rem}\label{rem331}
-The proof of Lemma \ref{uni} can be reused to prove the following variation of said lemma.
+The proof of Theorem \ref{uni} can be reused to prove the following variation of said lemma.
 \end{rem}
 
 \begin{lem}\label{lem332}
@@ -1835,14 +1835,14 @@ Then $\bigcup g$ is $\mathcal{L}$-nice and $\bigcup g \models^{*}_{\mathfrak{A}}
 \end{customlem}
 
 \begin{rem}\label{rem333}
-The astute reader may notice that Case 3 of the inductive step in the inductive proof of Lemma \ref{uni} seems insubstantial and tagged on. Indeed, removing the need to consider said case in Lemma \ref{uni} does not weaken the lemma. More precisely, by arguments similar to the proof of Lemma \ref{univer}, substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of Lemmas \ref{uni}, \ref{lem329p}, \ref{lem332} and \ref{lem332p} always returns a statement of equivalent strength.
+The astute reader may notice that Case 3 of the inductive step in the inductive proof of Theorem \ref{uni} seems insubstantial and tagged on. Indeed, removing the need to consider said case in Theorem \ref{uni} does not weaken the lemma. More precisely, by arguments similar to the proof of Lemma \ref{univer}, substituting ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_1$'' for ``$\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$'' in any of Lemmas \ref{uni}, \ref{lem329p}, \ref{lem332} and \ref{lem332p} always returns a statement of equivalent strength.
 \end{rem}
 
 \begin{rem}
-In light of Remark \ref{rem341}, and in the spirit of model-theoretic forcing, Lemma \ref{uni} can be seen as a version of compactness theorem ``relativised to $\mathbb{P} \restriction p$''.
+In light of Remark \ref{rem341}, and in the spirit of model-theoretic forcing, Theorem \ref{uni} can be seen as a version of compactness theorem ``relativised to $\mathbb{P} \restriction p$''.
 \end{rem}
 
-As a display of reciprocity, Lemma \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences. 
+As a display of reciprocity, Theorem \ref{uni} allows us to simplify our verification procedures for the universality of certain $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences. 
 
 \begin{lem}\label{univer}
 Let $p \in P$ and $\phi(x)$ be a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ formula with $x$ as its only free variable. Suppose for each $a \in A$, $\phi(a)$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. Then
@@ -1858,7 +1858,7 @@ Clearly $\varphi$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence. Fix $q
     \item $\Sigma \models^{*}_{\mathfrak{A}} \varphi$.
 \end{enumerate}
 
-Choose any $\mathbb{P}$-$\Sigma_1$-generic filter $g$ over $\mathfrak{A}$ from amongst the weak outer models of $V$, such that $q \in g$. Note that for each $a \in A$, $\phi(a)$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $q$, since $\phi(a)$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ and $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality is inherited downwards in $\mathbb{P}$. By Lemma \ref{uni},
+Choose any $\mathbb{P}$-$\Sigma_1$-generic filter $g$ over $\mathfrak{A}$ from amongst the weak outer models of $V$, such that $q \in g$. Note that for each $a \in A$, $\phi(a)$ is a $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentence $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $q$, since $\phi(a)$ is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$ and $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality is inherited downwards in $\mathbb{P}$. By Theorem \ref{uni},
 \begin{equation*}
     \bigcup g \models^{*}_{\mathfrak{A}} \phi(a) \text{ for all } a \in A \text{.}
 \end{equation*}
@@ -1866,10 +1866,10 @@ But this just means
 \begin{equation*}
     \bigcup g \models^{*}_{\mathfrak{A}} \varphi \text{.}
 \end{equation*}
-We know $\bigcup g$ is $\mathcal{L}$-nice due to Lemma \ref{uni}. That $\bigcup g$ is a $q$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality then follows from the fact that $g$ is a filter containing $q$. All in all, we have shown that $\bigcup g$ is the $\Sigma$ we are looking for.
+We know $\bigcup g$ is $\mathcal{L}$-nice due to Theorem \ref{uni}. That $\bigcup g$ is a $q$-candidate for $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universality then follows from the fact that $g$ is a filter containing $q$. All in all, we have shown that $\bigcup g$ is the $\Sigma$ we are looking for.
 \end{proof}
 
-A natural strengthening of Lemma \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Lemma \ref{uni} (and as noted in Remark \ref{rem333}), we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, it makes sense to ask the following question.
+A natural strengthening of Theorem \ref{uni} is to have $\phi$ be an arbitrary $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$ sentence which is $(\mathfrak{A}, \mathbb{P}, \mathcal{L})$-universal for $p$. As per Case 3 in the proof of Theorem \ref{uni} (and as noted in Remark \ref{rem333}), we can always get the outermost universal quantification for free, so we only have to prove the strengthened lemma assuming $\phi$ is $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Sigma_2$ instead of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_3$. However, the nice ``characterisation'' of $\mathcal{L}^{*}_{\mathfrak{A}}$-$\Pi_2$ sentences we will uncover in Section \ref{TCIsec} (brought about by Theorems \ref{genericmodels} and \ref{revgenmodels}) seems to suggest that such a strengthening is impossible. With Remark \ref{endremmain} in mind, it makes sense to ask the following question.
 
 \begin{enumerate}[label=(Q\arabic*)]
     \setcounter{enumi}{-1}
@@ -1977,7 +1977,7 @@ In particular, if $g$ is $\mathbb{P}$-generic over $V$, then $\bigcup g$ $\Gamma
 \end{lem}
 
 \begin{proof}
-The general statement is clear from Lemma \ref{uni}, Remark \ref{endremmain}, Proposition \ref{certgood} and Lemma \ref{inout}. That $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ is absolute for transitive models of $\mathsf{ZFC - Powerset}$, so if $g$ is $\mathbb{P}$-generic over $V$, then  $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ in $V[g]$. Moreover, since $g = [\bigcup g]^{< \omega}$, we have $V[g] = V[\bigcup g]$.
+The general statement is clear from Theorem \ref{uni}, Remark \ref{endremmain}, Proposition \ref{certgood} and Lemma \ref{inout}. That $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ is absolute for transitive models of $\mathsf{ZFC - Powerset}$, so if $g$ is $\mathbb{P}$-generic over $V$, then  $\bigcup g$ $\Gamma(\mathcal{L}, \mathfrak{A})$-certifies $\emptyset$ in $V[g]$. Moreover, since $g = [\bigcup g]^{< \omega}$, we have $V[g] = V[\bigcup g]$.
 \end{proof}
 
 We are now equipped to tackle \ref{qn0}. In the presence of Proposition \ref{certgood}, the next lemma implies an affirmative answer to \ref{qn0}.
